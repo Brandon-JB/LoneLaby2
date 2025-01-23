@@ -12,10 +12,14 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float MoveSpeed = 2f;
 
+    private PlayerActions playAction;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        playAction = GetComponent<PlayerActions>();
     }
 
     // Update is called once per frame
