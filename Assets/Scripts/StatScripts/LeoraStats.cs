@@ -9,11 +9,12 @@ public class LeoraStats : BaseStats
     void Start()
     {
         charName = "Leora";
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

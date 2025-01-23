@@ -14,9 +14,11 @@ public class BaseStats : MonoBehaviour
         {"MaxMana", 4}
     };
 
-    public string charName = "";
+    protected string charName = "";
 
-    public bool allied = true;
+    protected bool allied = true;
+
+    protected Animator animator = null;
 
     protected void SetMaxHealth()
     {
@@ -56,5 +58,15 @@ public class BaseStats : MonoBehaviour
     protected void Death()
     {
 
+    }
+
+    protected void TriggerAttackAnim()
+    {
+        animator.SetBool("Attacking", true);
+    }
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
     }
 }
