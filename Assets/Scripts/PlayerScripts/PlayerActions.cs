@@ -4,9 +4,24 @@ using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
 {
-    public void Attack()
-    {
+    [SerializeField] BaseChar baseChar = null;
 
+    private void Awake()
+    {
+        baseChar = GetComponent<LeoraChar>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
+    }
+
+    private void Attack()
+    {
+        baseChar.TriggerAttackAnim();
     }
 
     public void MagAttack()
