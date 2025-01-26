@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BaseStats : MonoBehaviour
@@ -57,7 +58,7 @@ public class BaseStats : MonoBehaviour
 
     protected void Death()
     {
-
+        
     }
 
     protected void TriggerAttackAnim()
