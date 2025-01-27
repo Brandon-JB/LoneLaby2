@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BaseChar : MonoBehaviour
 {
@@ -74,6 +75,7 @@ public class BaseChar : MonoBehaviour
 
     protected void Death()
     {
+        SceneManager.LoadScene("Overworld");
         Destroy(this.gameObject);
     }
 
