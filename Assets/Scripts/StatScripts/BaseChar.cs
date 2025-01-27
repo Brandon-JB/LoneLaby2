@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 
 public class BaseChar : MonoBehaviour
@@ -20,6 +21,8 @@ public class BaseChar : MonoBehaviour
     protected bool allied = true;
 
     protected Animator animator = null;
+
+    [SerializeField] TMP_Text healthBar;
 
     protected void SetMaxHealth()
     {
@@ -53,9 +56,14 @@ public class BaseChar : MonoBehaviour
 
     protected void GotDamaged(int incomingDamage)
     {
-        Debug.Log(charName + " Health: " + GetHealth());
+        //Debug.Log(charName + " Health: " + GetHealth());
         SetHealth(GetHealth() - incomingDamage);
-        Debug.Log(charName + " After damage health: " + GetHealth());
+        //Debug.Log(charName + " After damage health: " + GetHealth());
+
+        if (allied)
+        {
+            healthBar.text = "Health: " + GetHealth() + "/" + statsSheet["MaxHealth"];
+        }
 
         if (GetHealth() <= 0)
         {
