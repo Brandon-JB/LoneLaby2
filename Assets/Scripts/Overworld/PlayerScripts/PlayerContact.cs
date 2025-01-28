@@ -19,6 +19,5 @@ public class PlayerContact : MonoBehaviour
             portalScript.TeleportPlayer();
         }
 
-        //portalScript.TeleportPlayer();
     }
 }

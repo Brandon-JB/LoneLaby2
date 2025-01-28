@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PortalScript : MonoBehaviour
 {
     //set #'s for each portal
-
+    
     // Start is called before the first frame update
     void Start()
     {
