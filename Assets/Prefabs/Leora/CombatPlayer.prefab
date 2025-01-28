@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307302628505304583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.791, y: -0.03, z: 0}
+  m_LocalPosition: {x: 0.592, y: -0.022, z: 0}
   m_LocalScale: {x: 0.558, y: 0.558, z: 0.558}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307302628505304583}
   m_BodyType: 1
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -157,12 +157,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8940570630105431960}
   - component: {fileID: 8940570630105431961}
-  - component: {fileID: 8940570630105431975}
   - component: {fileID: 8940570630105431974}
   - component: {fileID: 8940570630105431973}
   - component: {fileID: 1729486261494403610}
   - component: {fileID: 2003407431376437942}
   - component: {fileID: -6668982063835999907}
+  - component: {fileID: 5654782468327757369}
   m_Layer: 3
   m_Name: CombatPlayer
   m_TagString: Player
@@ -238,21 +238,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8940570630105431975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8940570630105431962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4dc3a9fd504d24d9aee29fb9ef527d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Movement: {fileID: -6032547632072095325, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
-  Attack: {fileID: -5151772618224436762, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
-  MoveSpeed: 5
 --- !u!50 &8940570630105431974
 Rigidbody2D:
   serializedVersion: 4
@@ -261,19 +246,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8940570630105431962}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!61 &8940570630105431973
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -312,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a572a06221f834cb0883a6549002ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
 --- !u!95 &2003407431376437942
 Animator:
   serializedVersion: 4
@@ -345,3 +331,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseChar: {fileID: 1729486261494403610}
+--- !u!114 &5654782468327757369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940570630105431962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864cf50d06bc0eb4cafcb51cfcc08412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Movement: {fileID: -6032547632072095325, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
+  Attack: {fileID: -5151772618224436762, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
+  MoveSpeed: 5
+  animator: {fileID: 0}
