@@ -25,6 +25,35 @@ public class BaseChar : MonoBehaviour
 
     [SerializeField] TMP_Text healthBar;
 
+    protected float attackCooldown = 1f;
+    protected float timeAttacking = 0f;
+
+    public virtual void Update()
+    {
+        if (animator.GetBool("Attacking") == true)
+        {
+            timeAttacking += Time.deltaTime;
+        }
+
+        if (isInCooldown() == false)
+        {
+            StopAttackAnim();
+            timeAttacking = 0;
+        }
+    }
+
+    public bool isInCooldown()
+    {
+        if (timeAttacking < attackCooldown && timeAttacking != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     protected void SetMaxHealth()
     {
         statsSheet["Health"] = statsSheet["MaxHealth"];
@@ -87,6 +116,11 @@ public class BaseChar : MonoBehaviour
     public void StopAttackAnim()
     {
         animator.SetBool("Attacking", false);
+    }
+
+    public bool isAttacking()
+    {
+        return animator.GetBool("Attacking");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

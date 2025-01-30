@@ -4,24 +4,37 @@ using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
 {
-    [SerializeField] BaseChar baseChar = null;
+    [SerializeField] LeoraChar leoraChar = null;
+
+    
 
     private void Awake()
     {
-        baseChar = GetComponent<LeoraChar>();
+        leoraChar = GetComponent<LeoraChar>();
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Attack();
+            if (leoraChar.isInCooldown() == false && leoraChar.isInCombo() == false)
+            {
+                leoraChar.inCombo = true;
+                Attack();
+            }
+            else if (leoraChar.isInCooldown() == false && leoraChar.inCombo == true) 
+            {
+                leoraChar.timeInCombo = 0;
+                leoraChar.DoNextCombo();
+            }
         }
+
+        
     }
 
     private void Attack()
     {
-        baseChar.TriggerAttackAnim();
+        leoraChar.TriggerAttackAnim();
     }
 
     public void MagAttack()
