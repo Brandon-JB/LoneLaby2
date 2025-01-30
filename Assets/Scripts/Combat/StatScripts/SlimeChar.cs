@@ -10,10 +10,4 @@ public class SlimeChar : BaseChar
         charName = "Slime";
         allied = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
