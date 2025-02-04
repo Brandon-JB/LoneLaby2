@@ -10,9 +10,4 @@ public class TestChar : BaseChar
         allied = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
