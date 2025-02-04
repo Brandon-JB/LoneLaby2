@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8940570630105431960}
   - component: {fileID: 8940570630105431961}
-  - component: {fileID: 8940570630105431975}
   - component: {fileID: 8940570630105431974}
   - component: {fileID: 8940570630105431973}
   - component: {fileID: 1729486261494403610}
   - component: {fileID: 2003407431376437942}
+  - component: {fileID: -6811035606680102610}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -89,21 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8940570630105431975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8940570630105431962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4dc3a9fd504d24d9aee29fb9ef527d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Movement: {fileID: -6032547632072095325, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
-  Attack: {fileID: -5151772618224436762, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
-  MoveSpeed: 5
 --- !u!50 &8940570630105431974
 Rigidbody2D:
   serializedVersion: 4
@@ -163,6 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a572a06221f834cb0883a6549002ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  timeInCombo: 0
+  inCombo: 0
 --- !u!95 &2003407431376437942
 Animator:
   serializedVersion: 4
@@ -183,3 +171,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6811035606680102610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940570630105431962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864cf50d06bc0eb4cafcb51cfcc08412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Movement: {fileID: 0}
+  Attack: {fileID: 0}
+  MoveSpeed: 2
+  animator: {fileID: 0}
