@@ -25,8 +25,10 @@ public class BaseChar : MonoBehaviour
 
     [SerializeField] TMP_Text healthBar;
 
-    protected float attackCooldown = 1f;
+    protected float attackCooldown = 0.5f;
     protected float timeAttacking = 0f;
+
+    protected bool isInAttack = false;
 
     public virtual void Update()
     {
@@ -121,6 +123,16 @@ public class BaseChar : MonoBehaviour
     public bool isAttacking()
     {
         return animator.GetBool("Attacking");
+    }
+
+    public void AttackStart()
+    {
+        isInAttack = true;
+    }
+
+    public void AttackOver()
+    {
+        isInAttack = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

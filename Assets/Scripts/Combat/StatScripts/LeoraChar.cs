@@ -8,6 +8,7 @@ public class LeoraChar : BaseChar
     public float timeInCombo = 0f;
 
     public bool inCombo = false;
+   
 
     //public bool isInFirstCombo = false;
 
