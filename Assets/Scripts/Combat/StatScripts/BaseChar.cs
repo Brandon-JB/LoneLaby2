@@ -11,8 +11,8 @@ public class BaseChar : MonoBehaviour
     {
         {"Strength", 10},
         {"Defense", 4},
-        {"Health", 20},
-        {"MaxHealth", 20},
+        {"Health", 30},
+        {"MaxHealth", 30},
         {"Mana", 4},
         {"MaxMana", 4}
     };
@@ -21,7 +21,7 @@ public class BaseChar : MonoBehaviour
 
     protected bool allied = true;
 
-    protected Animator animator = null;
+    public Animator animator = null;
 
     [SerializeField] TMP_Text healthBar;
 
@@ -46,7 +46,7 @@ public class BaseChar : MonoBehaviour
 
     public bool isInCooldown()
     {
-        if (timeAttacking < attackCooldown && timeAttacking != 0)
+        if (timeAttacking <= attackCooldown && timeAttacking != 0)
         {
             return true;
         }
@@ -125,7 +125,7 @@ public class BaseChar : MonoBehaviour
         return animator.GetBool("Attacking");
     }
 
-    public void AttackStart()
+    /*public void AttackStart()
     {
         isInAttack = true;
     }
@@ -133,6 +133,11 @@ public class BaseChar : MonoBehaviour
     public void AttackOver()
     {
         isInAttack = false;
+    }*/
+
+    public void ResetCooldown()
+    {
+        timeAttacking = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

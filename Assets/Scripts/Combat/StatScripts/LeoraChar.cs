@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LeoraChar : BaseChar
 {
-    private float comboTimer = 2f;
+    public float comboTimer = 1.5f;
     public float timeInCombo = 0f;
 
     public bool inCombo = false;
@@ -15,8 +15,10 @@ public class LeoraChar : BaseChar
     // Start is called before the first frame update
     void Start()
     {
+
         charName = "Leora";
         inCombo = false;
+        attackCooldown = 0.7f;
     }
     public override void Update()
     {
@@ -48,8 +50,10 @@ public class LeoraChar : BaseChar
     public void endCombo()
     {
         inCombo = false;
+        timeInCombo = 0;
         animator.SetBool("isComboing", false);
         animator.SetBool("SecondCombo", false);
+        animator.SetBool("ThirdCombo", false);
     }
 
     public bool isInCombo()
@@ -64,11 +68,24 @@ public class LeoraChar : BaseChar
         }
     }
 
+    public void ResetCombo()
+    {
+        timeInCombo = 0;
+    }
+
     public void DoNextCombo()
     {
-        if (inCombo)
+        if (inCombo && animator.GetBool("SecondCombo") == false)
         {
             animator.SetBool("SecondCombo", true);
+            //comboTimer = 0.7f;
+        }
+        else if (animator.GetBool("SecondCombo"))
+        {
+            animator.SetBool("ThirdCombo", true);
+            //timeInCombo = 0.7f * comboTimer;
+            
+            timeAttacking = 0;
         }
     }
 }

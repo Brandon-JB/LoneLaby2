@@ -20,11 +20,12 @@ public class PlayerActions : MonoBehaviour
             if (leoraChar.isInCooldown() == false && leoraChar.isInCombo() == false)
             {
                 leoraChar.inCombo = true;
+                //leoraChar.comboTimer = 1.5f;
                 Attack();
             }
-            else if (leoraChar.isInCooldown() == false && leoraChar.inCombo == true) 
+            else if (/*leoraChar.isInCooldown() == false && */leoraChar.inCombo == true && leoraChar.animator.GetBool("ThirdCombo") == false) 
             {
-                leoraChar.timeInCombo = 0;
+                leoraChar.ResetCombo();
                 leoraChar.DoNextCombo();
             }
         }
