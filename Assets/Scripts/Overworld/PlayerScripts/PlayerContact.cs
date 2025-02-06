@@ -16,7 +16,7 @@ public class PlayerContact : MonoBehaviour
     {
         if (collision.tag == "Portal")
         {
-            portalScript.TeleportPlayer();
+            portalScript.TeleportPlayer(collision.name);
         }
 
     }
