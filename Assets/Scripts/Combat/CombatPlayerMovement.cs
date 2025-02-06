@@ -10,7 +10,7 @@ public class CombatPlayerMovement : MonoBehaviour
 
     [SerializeField] private InputActionReference Movement, Attack;
 
-    [SerializeField] private float MoveSpeed = 2f;
+    [SerializeField] private float MoveSpeed = 5f;
 
     private PlayerActions playAction;
 
@@ -30,16 +30,16 @@ public class CombatPlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (animator.GetBool("Attacking") == false)
         {
             //Up
-            movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             if (Input.GetAxis("Vertical") > 0)
             {
-                movementInput = new Vector2(0, Input.GetAxis("Vertical"));
-                rb.velocity = movementInput * MoveSpeed;
+                movementInput = new Vector2(0, Input.GetAxisRaw("Vertical"));
+                rb.MovePosition(rb.position + movementInput * MoveSpeed * Time.deltaTime);
                 //animations
                 animator.SetFloat("moveY", 1f);
                 animator.SetFloat("moveX", 0f);
@@ -50,9 +50,8 @@ public class CombatPlayerMovement : MonoBehaviour
             //Down
             else if (Input.GetAxis("Vertical") < 0)
             {
-                movementInput = new Vector2(0, Input.GetAxis("Vertical"));
-                rb.velocity = movementInput * MoveSpeed;
-                //animations
+                movementInput = new Vector2(0, Input.GetAxisRaw("Vertical"));
+                rb.MovePosition(rb.position + movementInput * MoveSpeed * Time.deltaTime);                //animations
                 animator.SetFloat("moveY", -1f);
                 animator.SetFloat("moveX", 0f);
                 animator.SetBool("isMoving", true);
@@ -62,8 +61,8 @@ public class CombatPlayerMovement : MonoBehaviour
             //Right
             else if (Input.GetAxis("Horizontal") > 0)
             {
-                movementInput = new Vector2(Input.GetAxis("Horizontal"), 0);
-                rb.velocity = movementInput * MoveSpeed;
+                movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+                rb.MovePosition(rb.position + movementInput * MoveSpeed * Time.deltaTime);
                 animator.SetFloat("moveX", 1f);
                 animator.SetFloat("moveY", 0f);
                 animator.SetBool("isMoving", true);
@@ -73,8 +72,8 @@ public class CombatPlayerMovement : MonoBehaviour
             //Left
             else if (Input.GetAxis("Horizontal") < 0)
             {
-                movementInput = new Vector2(Input.GetAxis("Horizontal"), 0);
-                rb.velocity = movementInput * MoveSpeed;
+                movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+                rb.MovePosition(rb.position + movementInput * MoveSpeed * Time.deltaTime);
                 animator.SetFloat("moveX", -1f);
                 animator.SetFloat("moveY", 0f);
                 animator.SetBool("isMoving", true);
@@ -85,7 +84,7 @@ public class CombatPlayerMovement : MonoBehaviour
             {
                 Input.ResetInputAxes();
                 movementInput = new Vector2(0, 0);
-                rb.velocity = movementInput * 0;
+                rb.MovePosition(rb.position + movementInput * MoveSpeed * Time.deltaTime);
 
                 animator.SetBool("isMoving", false);
                 animator.SetFloat("moveX", 0f);
