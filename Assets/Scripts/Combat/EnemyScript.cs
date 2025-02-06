@@ -11,6 +11,8 @@ public class EnemyScript : MonoBehaviour
 
     [SerializeField] public float attackRange;
 
+
+
     private void Awake()
     {
         enemyChar = GetComponent<BaseChar>();
