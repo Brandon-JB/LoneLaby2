@@ -19,10 +19,39 @@ public class PortalScript : MonoBehaviour
 
     }
 
-    public void TeleportPlayer()
+    public void TeleportPlayer(string name)
     {
-        //Send player to Combat
-        SceneManager.LoadScene("CombatMaps");
+        if (name == null)
+        {
+            Debug.Log("you fucked up");
+        }
+        else if (name == "Exit")
+        {
+            SceneManager.LoadScene("Overworld");
+        }
+        else if (name == "Church")
+        {
+            //send to church
+        }
+        else if (name == "CityPortal")
+        {
+            SceneManager.LoadScene("NoCombatAreas");
+        }
+        else if (name == "TowerPortal")
+        {
+            SceneManager.LoadScene("CombatMaps");
+            //set var for where to go here
+        }
+        else if (name == "MansionPortal")
+        {
+            SceneManager.LoadScene("CombatMaps");
+            //set var for where to go here
+        }
+        else if (name == "ForestPortal")
+        {
+            SceneManager.LoadScene("CombatMaps");
+            //set var for where to go here
+        }
     }
 }
 
