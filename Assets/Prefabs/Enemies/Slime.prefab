@@ -112,8 +112,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5767441807547043229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.89, y: -0.25, z: 0}
-  m_LocalScale: {x: 0.6602, y: 0.6602, z: 0.6602}
+  m_LocalPosition: {x: -0.39, y: -0.94, z: 0}
+  m_LocalScale: {x: 0.74998724, y: 0.74998724, z: 0.74998724}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7487041304306391987}
@@ -340,6 +340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4795cbe9ca5336a40ad5990d2a96a8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 0}
+  enemyChar: {fileID: 0}
   Player: {fileID: 0}
   attackRange: 2

@@ -83,7 +83,10 @@ public class CombatPlayerMovement : MonoBehaviour
             }
             else
             {
+                Input.ResetInputAxes();
+                movementInput = new Vector2(0, 0);
                 rb.velocity = movementInput * 0;
+
                 animator.SetBool("isMoving", false);
                 animator.SetFloat("moveX", 0f);
                 animator.SetFloat("moveY", 0f);
