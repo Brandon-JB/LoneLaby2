@@ -183,5 +183,10 @@ public class BaseChar : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+
+        animator.SetFloat("lastY", 0f);
+        animator.SetFloat("lastX", 0f);
+        animator.SetFloat("moveY", 0f);
+        animator.SetFloat("moveX", 0f);
     }
 }

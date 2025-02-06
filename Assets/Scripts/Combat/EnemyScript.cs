@@ -1,47 +1,112 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class EnemyScript : MonoBehaviour
 {
     [SerializeField] public BaseChar enemyChar;
 
-    [SerializeField] public GameObject Player;
+    [SerializeField] public Rigidbody2D PlayerRB;
+    public GameObject Player;
+
 
     [SerializeField] public float attackRange;
+    [SerializeField] public float followRange = 10f;
+    float DistanceFromPlayer;
 
+    private Vector2 movementInput;
+    [SerializeField] private float moveSpeed = 4f;
 
+    private Rigidbody2D enemyRB;
+
+    public bool canMove = true;
 
     private void Awake()
     {
         enemyChar = GetComponent<BaseChar>();
 
+        enemyRB = GetComponent<Rigidbody2D>();
+
         Player = GameObject.Find("CombatPlayer");
+
+        PlayerRB = Player.GetComponent<Rigidbody2D>();
+
+        canMove = true;
     }
 
     private void Update()
     {
-        if (Vector3.Distance(Player.transform.position, this.transform.position) <= attackRange)
+        if (DistanceFromPlayer > followRange)
         {
-            if (Player.transform.position.y > this.transform.position.y)
+            enemyChar.animator.SetBool("isMoving", false);
+
+        }
+
+        //Debug.Log("Enemy is existing");
+
+        //Movement
+        DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
+
+        if (canMove == true)
+        {
+            if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange) /*&& (PlayerController.isfrozen == false)*/)
             {
-                Debug.Log("Below player");
+                enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);
+
+
+                //EnemyRB.transform.position = Vector2.MoveTowards(EnemyRB.transform.position, PlayerRB.transform.position, Speed * Time.deltaTime);
+
+                //Animations
+                enemyChar.animator.SetBool("isMoving", true);
+
+                if (Player.transform.position.x > transform.position.x)
+                {
+                    movementInput.x = 1;
+                }
+                else
+                {
+                    movementInput.x = -1;
+                }
+
+                if (Player.transform.position.y > transform.position.y)
+                {
+                    movementInput.y = 1;
+                }
+                else
+                {
+                    movementInput.y = -1;
+                }
+
+                if (movementInput.x > .5) movementInput.y = 0;
+                if (movementInput.y > .5) movementInput.x = 0;
+
+                if (movementInput != Vector2.zero)
+                {
+                    enemyChar.animator.SetFloat("moveX", movementInput.x);
+                    enemyChar.animator.SetFloat("moveY", movementInput.y);
+                }
+
+                enemyChar.animator.SetFloat("moveX", movementInput.x);
+                enemyChar.animator.SetFloat("moveY", movementInput.y);
             }
-            else
+            //Attacking
+            else if (DistanceFromPlayer <= attackRange)
             {
-                Debug.Log("Above player");
                 enemyChar.animator.SetBool("Attacking", true);
             }
-
-            if (Player.transform.position.x > this.transform.position.x)
-            {
-                Debug.Log("Left of player");
-            }
-            else
-            {
-                Debug.Log("Right of player");
-            }
         }
+    }
+
+    public void AllowMovement()
+    {
+        canMove = true;
+    }
+
+    public void OnDisable()
+    {
+        canMove = false;
     }
 }

@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 7487041304306391984}
   - component: {fileID: 7487041304306391985}
   - component: {fileID: 7487041304306391998}
+  - component: {fileID: 6549770698280233058}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -341,5 +342,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyChar: {fileID: 0}
+  PlayerRB: {fileID: 0}
   Player: {fileID: 0}
-  attackRange: 2
+  attackRange: 1.8
+  followRange: 6
+  moveSpeed: 4
+  canMove: 1
+--- !u!50 &6549770698280233058
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487041304306391988}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4

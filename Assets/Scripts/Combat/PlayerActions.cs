@@ -15,10 +15,12 @@ public class PlayerActions : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.G))
         {
+            Debug.Log("G pressed");
             if (leoraChar.isInCooldown() == false && leoraChar.isInCombo() == false)
             {
+                Debug.Log("Attack started");
                 leoraChar.inCombo = true;
                 //leoraChar.comboTimer = 1.5f;
                 Attack();
