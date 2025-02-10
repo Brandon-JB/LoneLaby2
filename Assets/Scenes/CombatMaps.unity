@@ -716,7 +716,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6668982063835999907, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: Attack.m_Id
+      value: f0684b06-242b-414a-8647-1c9ddb2315c4
+      objectReference: {fileID: 0}
+    - target: {fileID: -6668982063835999907, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: Attack.m_Name
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 1729486261494403610, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1188323062}
+    - target: {fileID: 8705140056556160221, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1188323062}

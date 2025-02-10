@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9def736d89328164598b45ea26b0689e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentChar: {fileID: 1729486261494403610}
+  parentChar: {fileID: 0}
 --- !u!50 &6194691983620785639
 Rigidbody2D:
   serializedVersion: 4
@@ -159,10 +159,10 @@ GameObject:
   - component: {fileID: 8940570630105431961}
   - component: {fileID: 8940570630105431974}
   - component: {fileID: 8940570630105431973}
-  - component: {fileID: 1729486261494403610}
   - component: {fileID: 2003407431376437942}
   - component: {fileID: -6668982063835999907}
   - component: {fileID: 5654782468327757369}
+  - component: {fileID: 8705140056556160221}
   m_Layer: 3
   m_Name: CombatPlayer
   m_TagString: Player
@@ -285,21 +285,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6283668, y: 0.9401614}
   m_EdgeRadius: 0
---- !u!114 &1729486261494403610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8940570630105431962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a572a06221f834cb0883a6549002ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  timeInCombo: 0
-  inCombo: 0
 --- !u!95 &2003407431376437942
 Animator:
   serializedVersion: 4
@@ -349,3 +334,21 @@ MonoBehaviour:
   Attack: {fileID: -5151772618224436762, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
   MoveSpeed: 5
   animator: {fileID: 0}
+--- !u!114 &8705140056556160221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940570630105431962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8687d1ba8d75a60488b0db678ed4e497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  healthBar: {fileID: 0}
+  comboTimer:
+    cooldownTime: 0.7
+  attackCooldown:
+    cooldownTime: 1.5

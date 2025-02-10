@@ -2,6 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ DO NOT USE THIS CODE
+THIS IS OLD CODE THAT WAS DUMB AND STUPID AND BAD
+IGNORE THIS
+GO TO LEORACHAR2
+ */ 
+ 
+
+
+
+
 public class LeoraChar : BaseChar
 {
     public float comboTimer = 1.5f;

@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerActions : MonoBehaviour
 {
-    [SerializeField] LeoraChar leoraChar = null;
-
-    
+    [SerializeField] LeoraChar2 leoraChar = null;
 
     private void Awake()
     {
-        leoraChar = GetComponent<LeoraChar>();
+        leoraChar = GetComponent<LeoraChar2>();
+
+        //var gameplayActionMap = playerControls.GetAction
     }
 
+
+    //Update for LeoraChar
+    //IGNORE THIS STUPID STINKY CODE
+    /*
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
@@ -25,19 +30,28 @@ public class PlayerActions : MonoBehaviour
                 //leoraChar.comboTimer = 1.5f;
                 Attack();
             }
-            else if (/*leoraChar.isInCooldown() == false && */leoraChar.inCombo == true && leoraChar.animator.GetBool("ThirdCombo") == false) 
+            else if (leoraChar.inCombo == true && leoraChar.animator.GetBool("ThirdCombo") == false) 
             {
                 leoraChar.ResetCombo();
                 leoraChar.DoNextCombo();
             }
         }
-
-        
     }
+    */
 
-    private void Attack()
+    //Update for LeoraChar2
+    private void Update()
     {
-        leoraChar.TriggerAttackAnim();
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            //if (leoraChar.attackCooldown.isCoolingDown) return;
+
+            Debug.Log("Reading G Input");
+
+            //Sets the Attacking bool in the animator to true
+            leoraChar.DoNextCombo();
+        }
     }
 
     public void MagAttack()
