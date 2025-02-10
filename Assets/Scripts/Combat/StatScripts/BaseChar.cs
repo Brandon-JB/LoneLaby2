@@ -25,36 +25,14 @@ public class BaseChar : MonoBehaviour
 
     [SerializeField] TMP_Text healthBar;
 
-    protected float attackCooldown = 0.5f;
-    protected float timeAttacking = 0f;
-
-    protected bool isInAttack = false;
+    
 
     public virtual void Update()
     {
-        if (animator.GetBool("Attacking") == true)
-        {
-            timeAttacking += Time.deltaTime;
-        }
-
-        if (isInCooldown() == false)
-        {
-            StopAttackAnim();
-            timeAttacking = 0;
-        }
+       
     }
 
-    public bool isInCooldown()
-    {
-        if (timeAttacking <= attackCooldown && timeAttacking != 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    
 
     protected void SetMaxHealth()
     {
@@ -135,10 +113,6 @@ public class BaseChar : MonoBehaviour
         isInAttack = false;
     }*/
 
-    public void ResetCooldown()
-    {
-        timeAttacking = 0;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

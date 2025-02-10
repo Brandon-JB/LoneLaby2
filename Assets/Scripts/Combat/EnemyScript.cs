@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
@@ -22,6 +23,9 @@ public class EnemyScript : MonoBehaviour
 
     private Rigidbody2D enemyRB;
 
+    [SerializeField] private Cooldown cooldown;
+
+
     public bool canMove = true;
 
     private void Awake()
@@ -42,7 +46,11 @@ public class EnemyScript : MonoBehaviour
         if (DistanceFromPlayer > followRange)
         {
             enemyChar.animator.SetBool("isMoving", false);
+        }
 
+        if (!cooldown.isCoolingDown)
+        {
+            canMove = true;
         }
 
         //Debug.Log("Enemy is existing");
@@ -95,7 +103,32 @@ public class EnemyScript : MonoBehaviour
             //Attacking
             else if (DistanceFromPlayer <= attackRange)
             {
+                if (cooldown.isCoolingDown) return;
+
+                canMove = false;
+                //Getting the distances between the x and y coordinates
+                float xDistance = Mathf.Abs(this.transform.position.x) - Mathf.Abs(Player.transform.position.x);
+                float yDistance = Mathf.Abs(this.transform.position.y) - Mathf.Abs(Player.transform.position.y); ;
+
+                //Seeing whether the enemy is closer on the x or y coordinate
+                //Need to figure out a better way of doing this
+                if (xDistance < yDistance)
+                {
+                    enemyChar.animator.SetFloat("moveY", 0);
+                }
+                else if (xDistance > yDistance) 
+                {
+                    enemyChar.animator.SetFloat("moveX", 0);
+                }
+                else //if the distances are the same
+                {
+                    Debug.Log("X and y distances are the same");
+                }
+
                 enemyChar.animator.SetBool("Attacking", true);
+                
+                cooldown.StartCooldown();
+
             }
         }
     }

@@ -10,4 +10,5 @@ public class SlimeChar : BaseChar
         charName = "Slime";
         allied = false;
     }
+
 }

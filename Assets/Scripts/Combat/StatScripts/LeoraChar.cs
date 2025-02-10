@@ -8,7 +8,12 @@ public class LeoraChar : BaseChar
     public float timeInCombo = 0f;
 
     public bool inCombo = false;
-   
+
+    private float attackCooldown = 0.5f;
+    private float timeAttacking = 0f;
+
+    private bool isInAttack = false;
+
 
     //public bool isInFirstCombo = false;
 
@@ -20,6 +25,8 @@ public class LeoraChar : BaseChar
         inCombo = false;
         attackCooldown = 0.7f;
     }
+
+
     public override void Update()
     {
         if (inCombo == true)
@@ -44,6 +51,29 @@ public class LeoraChar : BaseChar
             timeAttacking = 0;
 
             StopAttackAnim();
+        }
+
+        if (animator.GetBool("Attacking") == true)
+        {
+            timeAttacking += Time.deltaTime;
+        }
+
+        if (isInCooldown() == false)
+        {
+            StopAttackAnim();
+            timeAttacking = 0;
+        }
+    }
+
+    public bool isInCooldown()
+    {
+        if (timeAttacking <= attackCooldown && timeAttacking != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -87,5 +117,10 @@ public class LeoraChar : BaseChar
             
             timeAttacking = 0;
         }
+    }
+
+    public void ResetCooldown()
+    {
+        timeAttacking = 0;
     }
 }
