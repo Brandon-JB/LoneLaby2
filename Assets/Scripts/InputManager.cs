@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public static Vector2 Movement;
+    public static bool attackPressed;
 
     private PlayerInput playerInput;
     private InputAction moveAction;
@@ -23,6 +24,7 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         Movement = moveAction.ReadValue<Vector2>();
+        attackPressed = attackAction.WasPressedThisFrame();
     }
 
 

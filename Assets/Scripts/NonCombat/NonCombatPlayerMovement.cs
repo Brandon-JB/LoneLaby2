@@ -12,8 +12,6 @@ public class NonCombatPlayerMovement : MonoBehaviour
     private Animator animator;
     private Vector2 movement;
 
-    private PlayerActions playAction;
-
     private const string horizontal = "Horizontal";
     private const string vertical = "Vertical";
     private const string LastH = "LastH";
@@ -25,12 +23,8 @@ public class NonCombatPlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        playAction = GetComponent<PlayerActions>();
 
         animator = GetComponent<Animator>();
-
-        animator.SetFloat("lastY", -1f);
-        animator.SetFloat("lastX", 0f);
     }
 
     private void Update()
@@ -49,68 +43,4 @@ public class NonCombatPlayerMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    /*void FixedUpdate()
-    {
-        if (animator.GetBool("Attacking") == false)
-        {
-            //Up
-            movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            if (Input.GetAxis("Vertical") > 0)
-            {
-                movementInput = new Vector2(0, Input.GetAxisRaw("Vertical"));
-                rb.MovePosition(rb.position + movementInput * MoveSpeed * Time.deltaTime);
-                //animations
-                animator.SetFloat("moveY", 1f);
-                animator.SetFloat("moveX", 0f);
-                animator.SetBool("isMoving", true);
-                animator.SetFloat("lastY", 1f);
-                animator.SetFloat("lastX", 0f);
-            }
-            //Down
-            else if (Input.GetAxis("Vertical") < 0)
-            {
-                movementInput = new Vector2(0, Input.GetAxisRaw("Vertical"));
-                rb.MovePosition(rb.position + movementInput * MoveSpeed * Time.deltaTime);                //animations
-                animator.SetFloat("moveY", -1f);
-                animator.SetFloat("moveX", 0f);
-                animator.SetBool("isMoving", true);
-                animator.SetFloat("lastY", -1f);
-                animator.SetFloat("lastX", 0f);
-            }
-            //Right
-            else if (Input.GetAxis("Horizontal") > 0)
-            {
-                movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
-                rb.MovePosition(rb.position + movementInput * MoveSpeed * Time.deltaTime);
-                animator.SetFloat("moveX", 1f);
-                animator.SetFloat("moveY", 0f);
-                animator.SetBool("isMoving", true);
-                animator.SetFloat("lastY", 0f);
-                animator.SetFloat("lastX", 1f);
-            }
-            //Left
-            else if (Input.GetAxis("Horizontal") < 0)
-            {
-                movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
-                rb.MovePosition(rb.position + movementInput * MoveSpeed * Time.deltaTime);
-                animator.SetFloat("moveX", -1f);
-                animator.SetFloat("moveY", 0f);
-                animator.SetBool("isMoving", true);
-                animator.SetFloat("lastY", 0f);
-                animator.SetFloat("lastX", -1f);
-            }
-            else
-            {
-                Input.ResetInputAxes();
-                movementInput = new Vector2(0, 0);
-                rb.MovePosition(rb.position + movementInput * MoveSpeed * Time.deltaTime);
-
-                animator.SetBool("isMoving", false);
-                animator.SetFloat("moveX", 0f);
-                animator.SetFloat("moveY", 0f);
-            }
-        }
-
-    }*/
 }
