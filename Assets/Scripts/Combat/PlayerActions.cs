@@ -13,8 +13,6 @@ public class PlayerActions : MonoBehaviour
     {
         leoraChar = GetComponent<LeoraChar2>();
 
-        //var gameplayActionMap = playerControls.GetAction
-
         
     }
 
