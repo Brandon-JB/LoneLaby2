@@ -6,7 +6,8 @@ public class LeoraChar2 : BaseChar
 {
 
     //Variable for the combo window.
-    [SerializeField] private Cooldown comboTimer;
+    //If the combo timer is "cooling down" then that just means it's in the combo window.
+    [SerializeField] public Cooldown comboTimer;
 
     //Variable for the cooldown time.
     [SerializeField] public Cooldown attackCooldown;
@@ -17,6 +18,9 @@ public class LeoraChar2 : BaseChar
     void Start()
     {
         charName = "Leora";
+
+        animator.SetFloat("lastY", 0f);
+        animator.SetFloat("lastX", 0f);
     }
 
 
