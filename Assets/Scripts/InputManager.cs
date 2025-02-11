@@ -24,7 +24,15 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         Movement = moveAction.ReadValue<Vector2>();
-        attackPressed = attackAction.WasPressedThisFrame();
+
+        if (attackAction.WasPressedThisFrame() )
+        {
+            attackPressed = true;
+        }
+        else
+        {
+            attackPressed = false;
+        }
     }
 
 
