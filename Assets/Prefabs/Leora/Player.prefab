@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8940570630105431961}
   - component: {fileID: 8940570630105431974}
   - component: {fileID: 8940570630105431973}
-  - component: {fileID: 1729486261494403610}
   - component: {fileID: 2003407431376437942}
   - component: {fileID: -6811035606680102610}
   m_Layer: 3
@@ -127,7 +126,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -136,23 +135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64046496, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1729486261494403610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8940570630105431962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a572a06221f834cb0883a6549002ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  healthBar: {fileID: 0}
-  comboTimer: 1.5
-  timeInCombo: 0
-  inCombo: 0
 --- !u!95 &2003407431376437942
 Animator:
   serializedVersion: 4
@@ -185,7 +167,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864cf50d06bc0eb4cafcb51cfcc08412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Movement: {fileID: 0}
-  Attack: {fileID: 0}
   MoveSpeed: 2
-  animator: {fileID: 0}
+  animator: {fileID: 2003407431376437942}
