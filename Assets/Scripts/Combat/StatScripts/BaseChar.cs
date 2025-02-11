@@ -122,24 +122,24 @@ public class BaseChar : MonoBehaviour
 
             HitboxChar hitboxChild = null;
 
-            Debug.Log("Triggered");
+            //Debug.Log(collision.gameObject.name + " Triggered " + this.gameObject.name);
 
             if (collision.tag == "Hitbox")
             {
                 otherCharTrigger = collision.GetComponent<BaseChar>();
 
-                Debug.Log("Hitbox triggered");
+                //Debug.Log("Hitbox triggered");
 
                 if (otherCharTrigger == null)
                 {
-                    Debug.Log("Other trigger not found");
+                    //Debug.Log("Other trigger not found");
 
                     hitboxChild = collision.GetComponent<HitboxChar>();
                     otherCharTrigger = hitboxChild.parentChar;
 
                     if (otherCharTrigger == null)
                     {
-                        Debug.Log("Unable to find parent character of hitbox");
+                        //Debug.Log("Unable to find parent character of hitbox");
                     }
                 }
 
@@ -158,8 +158,7 @@ public class BaseChar : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
-        animator.SetFloat("lastY", 0f);
-        animator.SetFloat("lastX", 0f);
+        
         animator.SetFloat("moveY", 0f);
         animator.SetFloat("moveX", 0f);
     }
