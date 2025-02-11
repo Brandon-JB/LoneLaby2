@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentChar: {fileID: 7487041304306391984}
+  type: Slimy
 --- !u!1 &7487041304306391988
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,8 +346,8 @@ MonoBehaviour:
   PlayerRB: {fileID: 0}
   Player: {fileID: 0}
   attackRange: 1.5
-  followRange: 6
-  moveSpeed: 4
+  followRange: 8
+  moveSpeed: 5
   cooldown:
     cooldownTime: 1.5
   canMove: 1

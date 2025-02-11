@@ -23,7 +23,7 @@ public class EnemyScript : MonoBehaviour
 
     private Rigidbody2D enemyRB;
 
-    [SerializeField] private Cooldown cooldown;
+    [SerializeField] public Cooldown cooldown;
 
 
     public bool canMove = true;

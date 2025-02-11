@@ -21,6 +21,9 @@ public class LeoraChar2 : BaseChar
     void Start()
     {
         charName = "Leora";
+
+        animator.SetFloat("LastH", 0);
+        animator.SetFloat("LastV", -1);
     }
 
 

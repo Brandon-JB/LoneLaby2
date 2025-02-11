@@ -10,8 +10,8 @@ public class Cooldown
     private float _nextFireTime;
 
     //Returns true if the current active game time is less than the _nextFireTime.
-    public bool isCoolingDown => Time.deltaTime < _nextFireTime;
+    public bool isCoolingDown => Time.time < _nextFireTime;
 
     //Sets the _nextFireTime variable to the set "cooldownTime" plus the current active game time.
-    public void StartCooldown() => _nextFireTime = Time.deltaTime + cooldownTime;
+    public void StartCooldown() => _nextFireTime = Time.time + cooldownTime;
 }

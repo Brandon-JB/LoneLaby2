@@ -5,6 +5,7 @@ using UnityEngine;
 public class HitboxChar : MonoBehaviour
 {
     public BaseChar parentChar;
-    
-    
+
+    public string type;
+
 }
