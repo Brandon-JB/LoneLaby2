@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CombatPlayerMovement : MonoBehaviour
+public class NonCombatPlayerMovement : MonoBehaviour
 {
-
+    
     [SerializeField] private float MoveSpeed = 5f;
-
+    
     private Rigidbody2D rb;
     private Animator animator;
     private Vector2 movement;
-
-    public InputAction attackAction;
 
     private const string horizontal = "Horizontal";
     private const string vertical = "Vertical";
@@ -25,12 +23,12 @@ public class CombatPlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
+
         animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        //Movement
         movement.Set(InputManager.Movement.x, InputManager.Movement.y);
 
         rb.velocity = movement * MoveSpeed;
@@ -43,13 +41,6 @@ public class CombatPlayerMovement : MonoBehaviour
             animator.SetFloat(LastH, movement.x);
             animator.SetFloat(LastV, movement.y);
         }
-
-        //Attacking
-        if (InputManager.attackPressed)
-        {
-            //do whatever for attacking
-        }
-         
     }
 
 }
