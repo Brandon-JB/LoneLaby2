@@ -7,11 +7,15 @@ public class PlayerActions : MonoBehaviour
 {
     [SerializeField] LeoraChar2 leoraChar = null;
 
+    
+
     private void Awake()
     {
         leoraChar = GetComponent<LeoraChar2>();
 
         //var gameplayActionMap = playerControls.GetAction
+
+        
     }
 
 
