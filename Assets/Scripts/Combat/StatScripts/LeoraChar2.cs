@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LeoraChar2 : BaseChar
@@ -12,15 +13,14 @@ public class LeoraChar2 : BaseChar
     //Variable for the cooldown time.
     [SerializeField] public Cooldown attackCooldown;
 
+    
+
     //public bool isInFirstCombo = false;
 
     // Start is called before the first frame update
     void Start()
     {
         charName = "Leora";
-
-        animator.SetFloat("lastY", 0f);
-        animator.SetFloat("lastX", 0f);
     }
 
 
@@ -51,5 +51,15 @@ public class LeoraChar2 : BaseChar
     public void DoNextCombo()
     {
         animator.SetBool("Attacking", true);
+    }
+
+    public void MagAttack()
+    {
+        animator.SetBool("Magicing", true);
+    }
+
+    public void EndMagick()
+    {
+        animator.SetBool("Magicing", false);
     }
 }

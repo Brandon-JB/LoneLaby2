@@ -7,10 +7,12 @@ public class InputManager : MonoBehaviour
 {
     public static Vector2 Movement;
     public static bool attackPressed;
+    public static bool magicPressed;
 
     private PlayerInput playerInput;
     private InputAction moveAction;
     private InputAction attackAction;
+    private InputAction magicAction;
 
     private void Awake()
     {
@@ -19,6 +21,8 @@ public class InputManager : MonoBehaviour
         moveAction = playerInput.actions["Movement"];
 
         attackAction = playerInput.actions["Attack"];
+
+        magicAction = playerInput.actions["Magic"];
     }
 
     private void Update()
@@ -32,6 +36,15 @@ public class InputManager : MonoBehaviour
         else
         {
             attackPressed = false;
+        }
+
+        if (magicAction.WasPressedThisFrame() )
+        {
+            magicPressed = true;
+        }
+        else
+        {
+            magicPressed = false;
         }
     }
 

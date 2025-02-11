@@ -12,8 +12,6 @@ public class CombatPlayerMovement : MonoBehaviour
     private Animator animator;
     private Vector2 movement;
 
-    public InputAction attackAction;
-
     private const string horizontal = "Horizontal";
     private const string vertical = "Vertical";
     private const string LastH = "LastH";
@@ -42,12 +40,6 @@ public class CombatPlayerMovement : MonoBehaviour
         {
             animator.SetFloat(LastH, movement.x);
             animator.SetFloat(LastV, movement.y);
-        }
-
-        //Attacking
-        if (InputManager.attackPressed)
-        {
-            //do whatever for attacking
         }
          
     }

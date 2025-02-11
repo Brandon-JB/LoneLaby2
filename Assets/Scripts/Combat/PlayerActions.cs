@@ -7,8 +7,6 @@ public class PlayerActions : MonoBehaviour
 {
     [SerializeField] LeoraChar2 leoraChar = null;
 
-    
-
     private void Awake()
     {
         leoraChar = GetComponent<LeoraChar2>();
@@ -44,7 +42,7 @@ public class PlayerActions : MonoBehaviour
     //Update for LeoraChar2
     private void Update()
     {
-
+        /*
         if (Input.GetKeyDown(KeyCode.G))
         {
             //if (leoraChar.attackCooldown.isCoolingDown) return;
@@ -60,11 +58,31 @@ public class PlayerActions : MonoBehaviour
             {
                 leoraChar.DoNextCombo();
             }
+        }*/
+
+
+        //Attacking
+        if (InputManager.attackPressed)
+        {
+            //Debug.Log("Reading G Input");
+
+            //Sets the Attacking bool in the animator to true
+            if (!leoraChar.attackCooldown.isCoolingDown)
+            {
+                leoraChar.DoNextCombo();
+            }
+            else if (leoraChar.comboTimer.isCoolingDown)
+            {
+                leoraChar.DoNextCombo();
+            }
         }
-    }
 
-    public void MagAttack()
-    {
+        //Magicking
+        if (InputManager.magicPressed)
+        {
+            Debug.Log("M Pressed");
 
+            leoraChar.MagAttack();
+        }
     }
 }

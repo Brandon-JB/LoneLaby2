@@ -25,7 +25,7 @@ public class BaseChar : MonoBehaviour
 
     [SerializeField] TMP_Text healthBar;
 
-    
+
 
     public virtual void Update()
     {
@@ -157,9 +157,5 @@ public class BaseChar : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-
-        
-        animator.SetFloat("moveY", 0f);
-        animator.SetFloat("moveX", 0f);
     }
 }
