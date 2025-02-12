@@ -82,8 +82,8 @@ public class BaseChar : MonoBehaviour
         
     }
 
-    protected void Death()
-    {
+    public virtual void Death()
+    {        
         SceneManager.LoadScene("Overworld");
         Destroy(this.gameObject);
     }
@@ -96,6 +96,24 @@ public class BaseChar : MonoBehaviour
     public void StopAttackAnim()
     {
         animator.SetBool("Attacking", false);
+    }
+
+    public void TriggerHurtAnim()
+    {
+        animator.SetBool("Hurt", true);
+        animator.SetBool("Attacking", false);
+
+        if (allied)
+        {
+            animator.SetBool("Magicing", false);
+            animator.SetBool("isInCombo", false);
+        }
+
+    }
+
+    public void StopHurtAnim()
+    {
+        animator.SetBool("Hurt", false);
     }
 
     public bool isAttacking()
@@ -148,6 +166,7 @@ public class BaseChar : MonoBehaviour
                     if (otherCharTrigger.allied != this.allied)
                     {
                         GotDamaged(10);
+                        TriggerHurtAnim();
                     }
                 }
             }

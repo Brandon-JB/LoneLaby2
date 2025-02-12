@@ -56,10 +56,9 @@ public class EnemyScript : MonoBehaviour
         //Debug.Log("Enemy is existing");
 
         //Movement
-        DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
-
         if (canMove == true)
         {
+            DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
             if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange) /*&& (PlayerController.isfrozen == false)*/)
             {
                 enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);

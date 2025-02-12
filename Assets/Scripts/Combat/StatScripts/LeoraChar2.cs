@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LeoraChar2 : BaseChar
 {
@@ -43,6 +44,16 @@ public class LeoraChar2 : BaseChar
         animator.SetBool("Attacking", false);
         comboTimer.StartCooldown();
         attackCooldown.StartCooldown();
+    }
+
+    public override void Death()
+    {
+        animator.SetBool("Death", true);
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("Overworld");
     }
 
     //An event to be called in the animator that goes at the end of the combo
