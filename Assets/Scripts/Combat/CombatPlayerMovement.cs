@@ -17,6 +17,8 @@ public class CombatPlayerMovement : MonoBehaviour
     private const string LastH = "LastH";
     private const string LastV = "LastV";
 
+    public bool canMove;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,22 +26,27 @@ public class CombatPlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
+
+        canMove = true;
     }
 
     private void Update()
     {
-        //Movement
-        movement.Set(InputManager.Movement.x, InputManager.Movement.y);
-
-        rb.velocity = movement * MoveSpeed;
-
-        animator.SetFloat(horizontal, movement.x);
-        animator.SetFloat(vertical, movement.y);
-
-        if (movement != Vector2.zero)
+        if (canMove == true)
         {
-            animator.SetFloat(LastH, movement.x);
-            animator.SetFloat(LastV, movement.y);
+            //Movement
+            movement.Set(InputManager.Movement.x, InputManager.Movement.y);
+
+            rb.velocity = movement * MoveSpeed;
+
+            animator.SetFloat(horizontal, movement.x);
+            animator.SetFloat(vertical, movement.y);
+
+            if (movement != Vector2.zero)
+            {
+                animator.SetFloat(LastH, movement.x);
+                animator.SetFloat(LastV, movement.y);
+            }
         }
          
     }

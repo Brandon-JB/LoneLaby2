@@ -89,6 +89,8 @@ public class EnemyScript : MonoBehaviour
 
                 if (movementInput.x > .5) movementInput.y = 0;
                 if (movementInput.y > .5) movementInput.x = 0;
+                if (movementInput.x < -.5) movementInput.y = 0;
+                if (movementInput.y < -.5) movementInput.x = 0;
 
                 if (movementInput != Vector2.zero)
                 {

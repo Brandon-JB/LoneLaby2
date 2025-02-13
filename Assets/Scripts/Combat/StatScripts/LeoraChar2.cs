@@ -14,6 +14,9 @@ public class LeoraChar2 : BaseChar
     //Variable for the cooldown time.
     [SerializeField] public Cooldown attackCooldown;
 
+    [SerializeField] private GameOver gameOverManager;
+
+    [SerializeField] private CombatPlayerMovement playerMovement;
     
 
     //public bool isInFirstCombo = false;
@@ -48,12 +51,13 @@ public class LeoraChar2 : BaseChar
 
     public override void Death()
     {
+        playerMovement.canMove = false;
         animator.SetBool("Death", true);
     }
 
     public void GameOver()
     {
-        SceneManager.LoadScene("Overworld");
+        gameOverManager.OnDeath();
     }
 
     //An event to be called in the animator that goes at the end of the combo

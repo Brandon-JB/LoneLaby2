@@ -28,7 +28,7 @@ public class PortalScript : MonoBehaviour
         }
         else if (name == "Exit")
         {
-            SceneManager.LoadScene("Overworld");
+            SceneManager.LoadScene("CombatMaps");
         }
         else if (name == "Church")
         {

@@ -52,6 +52,11 @@ public class BaseChar : MonoBehaviour
     protected void SetHealth(int health)
     {
         statsSheet["Health"] = health;
+
+        if (GetHealth() < 0)
+        {
+            statsSheet["Health"] = 0;
+        }
     }
 
     protected int GetMana()
@@ -62,6 +67,11 @@ public class BaseChar : MonoBehaviour
     protected void SetMana(int mana)
     {
         statsSheet["Mana"] = mana;
+
+        if (GetMana() < 0)
+        {
+            statsSheet["Mana"] = 0;
+        }
     }
 
     protected void GotDamaged(int incomingDamage)
@@ -79,12 +89,12 @@ public class BaseChar : MonoBehaviour
         {
             Death();
         }
-        
+
     }
 
     public virtual void Death()
     {        
-        SceneManager.LoadScene("Overworld");
+        SceneManager.LoadScene("NoCombatAreas");
         Destroy(this.gameObject);
     }
 
