@@ -17,8 +17,8 @@ public class LeoraChar2 : BaseChar
     [SerializeField] private GameOver gameOverManager;
 
     [SerializeField] private CombatPlayerMovement playerMovement;
-    
 
+    
     //public bool isInFirstCombo = false;
 
     // Start is called before the first frame update

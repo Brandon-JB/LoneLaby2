@@ -7,6 +7,8 @@ public class PlayerActions : MonoBehaviour
 {
     [SerializeField] LeoraChar2 leoraChar = null;
 
+    [SerializeField] private GameObject magicParticle;
+
     private void Awake()
     {
         leoraChar = GetComponent<LeoraChar2>();
@@ -83,6 +85,16 @@ public class PlayerActions : MonoBehaviour
             Debug.Log("M Pressed");
 
             leoraChar.MagAttack();
+
+            GameObject tempMagPart;
+
+            tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
+
+            MagicParticles tempMagManager = tempMagPart.GetComponent<MagicParticles>();
+
+            //Animator for particles would go here
+            tempMagManager.animator.SetBool("lightMag", true);
+
         }
     }
 }
