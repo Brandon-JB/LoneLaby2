@@ -25,6 +25,11 @@ public class BaseChar : MonoBehaviour
 
     [SerializeField] TMP_Text healthBar;
 
+    public Rigidbody2D charRB;
+
+    [SerializeField] private Vector2 knockbackDirection = Vector2.zero;
+
+    [SerializeField] private float strength = 3f;
 
 
     public virtual void Update()
@@ -74,12 +79,15 @@ public class BaseChar : MonoBehaviour
         }
     }
 
-    protected void GotDamaged(int incomingDamage)
+    protected void GotDamaged(int incomingDamage, GameObject otherAttacker)
     {
+
         //Debug.Log(charName + " Health: " + GetHealth());
         SetHealth(GetHealth() - incomingDamage);
         //Debug.Log(charName + " After damage health: " + GetHealth());
 
+        StartCoroutine(Knockback(otherAttacker));
+       
         if (allied)
         {
             healthBar.text = "Health: " + GetHealth() + "/" + statsSheet["MaxHealth"];
@@ -92,8 +100,52 @@ public class BaseChar : MonoBehaviour
 
     }
 
+    private IEnumerator Knockback(GameObject otherAttacker)
+    {
+        EnemyScript enemyMovement = null;
+        CombatPlayerMovement playerMovement = null;
+
+        if (!allied)
+        {
+            enemyMovement = this.GetComponent<EnemyScript>();
+        }
+        else
+        {
+            playerMovement = this.GetComponent<CombatPlayerMovement>();
+        }
+
+        knockbackDirection = (transform.position - otherAttacker.transform.position).normalized;
+
+        if (!allied)
+        {
+            enemyMovement.canMove = false;
+            Debug.Log("Launch enemy");
+        }
+        else
+        {
+            playerMovement.canMove = false;
+        }
+
+        charRB.AddForce(knockbackDirection * strength, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(0.3f);
+
+        if (GetHealth() > 0)
+        {
+            if (!allied)
+            {
+                enemyMovement.canMove = true;
+                
+            }
+            else
+            {
+                playerMovement.canMove = true;
+            }
+        }
+    }
+
     public virtual void Death()
-    {        
+    {
         SceneManager.LoadScene("NoCombatAreas");
         Destroy(this.gameObject);
     }
@@ -175,7 +227,7 @@ public class BaseChar : MonoBehaviour
                 {
                     if (otherCharTrigger.allied != this.allied)
                     {
-                        GotDamaged(10);
+                        GotDamaged(10, collision.gameObject);
                         TriggerHurtAnim();
                     }
                 }
@@ -186,5 +238,6 @@ public class BaseChar : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        charRB = GetComponent<Rigidbody2D>();
     }
 }

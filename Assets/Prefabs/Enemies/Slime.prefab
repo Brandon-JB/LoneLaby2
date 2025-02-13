@@ -310,6 +310,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   healthBar: {fileID: 0}
+  knockbackDirection: {x: 0, y: 0}
+  strength: 20
 --- !u!95 &7487041304306391985
 Animator:
   serializedVersion: 4
@@ -345,11 +347,11 @@ MonoBehaviour:
   enemyChar: {fileID: 0}
   PlayerRB: {fileID: 0}
   Player: {fileID: 0}
-  attackRange: 1.5
+  attackRange: 2
   followRange: 8
   moveSpeed: 5
   cooldown:
-    cooldownTime: 1.5
+    cooldownTime: 2
   canMove: 1
 --- !u!50 &6549770698280233058
 Rigidbody2D:
@@ -363,7 +365,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100000
+  m_Mass: 6
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -51,6 +52,8 @@ public class LeoraChar2 : BaseChar
 
     public override void Death()
     {
+        charRB.constraints = RigidbodyConstraints2D.FreezeAll;
+        charRB.velocity = Vector2.zero;
         playerMovement.canMove = false;
         animator.SetBool("Death", true);
     }

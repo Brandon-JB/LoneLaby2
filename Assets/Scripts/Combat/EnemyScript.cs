@@ -48,9 +48,13 @@ public class EnemyScript : MonoBehaviour
             enemyChar.animator.SetBool("isMoving", false);
         }
 
-        if (!cooldown.isCoolingDown)
+        if (!cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false)
         {
             canMove = true;
+        }
+        else if (enemyChar.animator.GetBool("Hurt") == true)
+        {
+            canMove = false;
         }
 
         //Debug.Log("Enemy is existing");
@@ -58,6 +62,8 @@ public class EnemyScript : MonoBehaviour
         //Movement
         if (canMove == true)
         {
+            enemyRB.velocity = Vector2.zero;
+
             DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
             if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange) /*&& (PlayerController.isfrozen == false)*/)
             {
@@ -87,10 +93,10 @@ public class EnemyScript : MonoBehaviour
                     movementInput.y = -1;
                 }
 
-                if (movementInput.x > .5) movementInput.y = 0;
+                /*if (movementInput.x > .5) movementInput.y = 0;
                 if (movementInput.y > .5) movementInput.x = 0;
                 if (movementInput.x < -.5) movementInput.y = 0;
-                if (movementInput.y < -.5) movementInput.x = 0;
+                if (movementInput.y < -.5) movementInput.x = 0;*/
 
                 if (movementInput != Vector2.zero)
                 {
