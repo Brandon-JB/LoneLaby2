@@ -1,0 +1,25 @@
+kisa.Move(0.35 0 -spd 3)
+nicol.Move(0.85 0 -spd 3)
+alan.Move(0.05 0 -spd 3)
+SetSprite(nicol flipped)
+SetSprite(kisa kisa)
+wait(0.75)
+Show(nicol)
+Show(alan)
+Show(kisa)
+Highlight(nicol -o true)
+nicol "Not bad, my friend! Your strength expands exponentially, what a glorious fight that was! One worthy of legend!"
+Highlight(alan -o true)
+alan "You're not so bad yourself. If Kisa was not here, you may have defeated me."
+Highlight(nicol -o true)
+nicol "Fair point, my companion! No matter, I shall continue to hone my skills and face you again soon! And then, I shall have my victory!"
+Highlight(alan -o true)
+alan "We shall see when the time comes. Are we ready to continue?"
+Highlight(kisa -o true)
+kisa "Yes, please. The sooner we defeat Morsophus, the sooner we can leave this dreadful place."
+Highlight(nicol -o true)
+nicol "Of course! I, Nicol, the greatest aristocat, have already solved all mysteries on this floor. Let us continue!"
+Hide(nicol)
+Hide(kisa)
+Hide(alan)
+endDialogue(false)

@@ -1,0 +1,32 @@
+kisa.Move(0.8 0 -spd 3)
+alan.Move(0.15 0 -spd 3)
+Hide(alan)
+Hide(kisa)
+SetSprite(kisa flipped)
+wait(0.75)
+Show(kisa)
+SetSprite(kisa flipped)
+Highlight(kisa -o true)
+kisa "Alan? What you will do once Morsophus falls?"
+Show(alan)
+Highlight(alan -o true)
+alan "I will return to my daily tasks."
+Highlight(kisa -o true)
+SetSprite(kisa kisa)
+kisa "Ah. That is... understandable."
+Highlight(alan -o true)
+alan "..."
+Highlight(kisa -o true)
+kisa "..."
+SetSprite(kisa flipped)
+kisa.Move(0.75 0 -spd 1)
+kisa "And what of Nicol?"
+Highlight(alan -o true)
+alan "What of him?"
+Highlight(kisa -o true)
+kisa "..."
+SetSprite(kisa kisa)
+kisa "Nevermind."
+Hide(kisa)
+Hide(alan)
+endMenuDialogue(true)

@@ -1,0 +1,12 @@
+alan.Move(0.15 0 -spd 3)
+wait(0.75)
+Show(alan)
+Highlight(alan -o true)
+alan "The constant pestering of all these undead is tiresome."
+alan.Move(0.175 0 -spd 1)
+alan "Still, if this is the strongest of the Lich's army then he will be laughable. I'd pity him if he weren't so foul."
+alan "Animating these bones... I doubt he looks any better. It could be argued I'm doing them all a favor, sending them back to the Hells."
+alan.Move(0.225 0 -spd 1)
+alan "I will show this overdue dead what it truly means to bring someone back to life. Someone worthwhile."
+Hide(alan)
+endDialogue(false)

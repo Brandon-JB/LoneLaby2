@@ -1,0 +1,92 @@
+alan.Move(0.4 0 -spd 3)
+nicol.Move(0.2 0 -spd 3)
+kisa.Move(0.0 0 -spd 3)
+sophie.Move(0.75 0 -spd 3)
+Hide(sophie)
+Hide(nicol)
+Hide(alan)
+Hide(kisa)
+wait(1)
+Show(sophie)
+Highlight(sophie -o true)
+sophie "Damn it all..."
+Show(alan)
+alan.SetPriority(1)
+Highlight(alan -o true)
+alan "We have won fairly Sophie. Will you let us help you now or would you prefer to go at it again and waste more time?"
+Highlight(sophie -o true)
+sophie.SetPriority(2)
+sophie "Do not add insult to injury with your words, you know well as I that I am honorable. If your wish is to join forces in wake of our duel, I will comply."
+Show(nicol)
+Highlight(nicol -o true)
+nicol "Most honorable, indeed! Welcome back, Sophia! So lovely to have you on our side."
+Show(kisa)
+Highlight(kisa -o true)
+kisa "Yes... good to have you back."
+SetSprite(nicol flipped)
+Highlight(nicol -o true)
+nicol "Kisa, you lack enthusiasm! Sophia has returned to our merry party!"
+Highlight(sophie -o true)
+sophie "Temporarily."
+Highlight(nicol -o true)
+SetSprite(nicol nicol)
+nicol "Temporarily! This calls for a celebration!"
+Highlight(sophie -o true)
+sophie "No it does not. My honor binds me until our original quest to slay Morsophus is completed. That will be the last you see of me, I will make sure of it."
+Highlight(kisa -o true)
+kisa "..."
+Highlight(alan -o true)
+alan.SetPriority(5)
+alan "We will have time for idle discussion later. For now, we should focus on finding a way forward."
+Highlight(nicol -o true)
+nicol "Ah, yes! The unopenable door! Come now, let us explore!"
+SetSprite(nicol flipped)
+nicol.Move(0 0 -spd 3.5)
+Hide(nicol)
+Highlight(sophie -o true)
+sophie "Lead on, Alan. I will follow."
+alan.Move(0 0 -spd 3)
+Hide(alan)
+wait(1)
+SetSprite(kisa flipped)
+sophie "Kisa."
+Highlight(kisa -o true)
+SetSprite(kisa kisa)
+kisa.Move(0.1 0 -spd 1)
+kisa "Y-yes Sophie?"
+Highlight(sophie -o true)
+sophie.Move(0.6 0 -spd 1)
+sophie "I... *sigh* In retrospect it is quite clear my words were bludgeoning last night. I still need time to sort out the matters of my own heart, but I can assure you my harshness was not intended."
+Highlight(kisa -o true)
+kisa "You mean..?"
+Highlight(sophie -o true)
+sophie "I was quite blindsighted by your confession, something I am not used to feeling.  I reacted with my discomfort in the moment."
+sophie "When morning came and you were acting strangely, I thought you were cross with me for needing time to consider."
+sophie "I see I hardly communicated that to you, and for these things, I apologize. I do not wish to be the cause of a rift between us."
+sophie "I ask you clearly now, would you allow me time to deliberate my feelings?"
+Highlight(kisa -o true)
+kisa.Move(0.25 0 -spd 2)
+kisa "Yes, yes of course!"
+kisa "I had thought I was being utterly rejected, but to learn I was mistaken is the most wonderful news. Amusing, is it not? Take your time, I do not mind the wait."
+Highlight(sophie -o true)
+sophie "I am thankful for your grace. Let us join the others, lest they wind up in trouble they cannot manage. The beasts on this floor are stronger than the rest."
+Hide(sophie)
+Hide(kisa)
+alan.SetPriority(0)
+nicol.SetPriority(0)
+kisa.SetPriority(0)
+sophie.SetPriority(0)
+endDialogue(false)
+
+
+
+
+
+
+
+
+
+
+
+
+

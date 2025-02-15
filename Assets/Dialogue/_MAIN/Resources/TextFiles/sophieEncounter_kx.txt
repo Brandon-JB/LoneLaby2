@@ -1,0 +1,58 @@
+alan.Move(0.1 0 -spd 3)
+kisa.Move(0.3 0 -spd 3)
+sophie.Move(0.85 0 -spd 3)
+Hide(sophie)
+Hide(kisa)
+Hide(alan)
+wait(0.75)
+Show(sophie)
+sophie.SetPriority(1)
+Highlight(sophie -o true)
+sophie "By the seven hells..."
+Show(alan)
+alan.SetPriority(2)
+Show(kisa)
+wait(1)
+Highlight(kisa -o true)
+kisa.SetPriority(2)
+kisa.Move(0.75 0 -spd 3)
+kisa "SOPHIE! Thank the Gods you are alive and well..."
+Highlight(sophie -o true)
+sophie "Kisa? What is with your franticness? And why do you embrace me?"
+Highlight(kisa -o true)
+kisa "Oh. My apologies."
+kisa.Move(0.65 0 -spd 2.5)
+wait(0.5)
+kisa "Alan he– I mean we encountered... Tell me, Sophie, have you met any specters in these halls? Ones that mimic the living?"
+Highlight(sophie -o true)
+sophie "Specters? I have vanquished a handful, though all were certainly ghoulish. I do not think them capable of such trickery."
+sophie.Move(0.825 0 -spd 1.5)
+sophie "Your tone worries me, why do you ask?"
+Highlight(kisa -o true)
+kisa "...We encountered Nicol, or what I thought to be Nicol. He-It looked and spoke as if he were our friend, but Alan slew him just as all the other creatures we encountered."
+kisa "I know I lack experience in these matters and reasoned that my eyes failed to see the mirage. But if what you say is true, I-I do not..."
+Highlight(sophie -o true)
+sophie.Move(0.6 0 -spd 2)
+kisa.Move(0.9 0 -spd 2)
+SetSprite(kisa flipped)
+sophie.SetPriority(3)
+sophie "Alan, is this true? Did Nicol meet his end by your hand?"
+Highlight(alan -o true)
+alan "..."
+Highlight(kisa -o true)
+Highlight(sophie -o true)
+sophie.Move(0.55 0 -spd 2)
+sophie "Answer."
+Highlight(alan -o true)
+alan "He was your ally, not mine."
+Highlight(sophie -o true)
+sophie "Is that how you live with your sins? By cowardishly setting aside your deceit? I will give you more than you deserve with this shred of honesty: Expect no mercy from this encounter, as Nicol found none from you."
+Hide(sophie)
+Hide(kisa)
+Hide(alan)
+alan.SetPriority(0)
+sophie.SetPriority(0)
+kisa.SetPriority(0)
+endDialogue(true)
+
+
