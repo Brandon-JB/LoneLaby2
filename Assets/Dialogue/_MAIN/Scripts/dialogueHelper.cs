@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using DG.Tweening;
+using DG.Tweening;
 
 public class dialogueHelper : MonoBehaviour
 {
@@ -14,11 +14,11 @@ public class dialogueHelper : MonoBehaviour
 
     private IEnumerator fadeinOutHelperText()
     {
-        //yield return new WaitForSeconds(3);
-        //pressSpaceTOConinute.DOFade(1, 1);
-        //yield return new WaitForSeconds(2);
-        //pressSpaceTOConinute.DOFade(0, 1);
         yield return new WaitForSeconds(3);
-        //pressSpaceTOConinute.gameObject.SetActive(false);
+        pressSpaceTOConinute.DOFade(1, 1);
+        yield return new WaitForSeconds(2);
+        pressSpaceTOConinute.DOFade(0, 1);
+        yield return new WaitForSeconds(3);
+        pressSpaceTOConinute.gameObject.SetActive(false);
     }
 }

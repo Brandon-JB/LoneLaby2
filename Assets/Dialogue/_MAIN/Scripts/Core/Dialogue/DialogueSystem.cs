@@ -55,7 +55,7 @@ namespace DIALOGUE
             if (_initialized) { return; }
             architect = new TextArchitect(dialogueContainer.dialogueText);
             architect.continueButton = this.continueButton;
-            //architect.speedMultiplier = audioStatics.TextSpeedMultiplier;
+            architect.speedMultiplier = audioStatics.TextSpeedMultiplier;
             // to share architects
             conversationManager = new ConversationManager(architect, charVoice);
         }
