@@ -10,8 +10,8 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene("NoCombatAreas");
     }
 
-    public void Quit()
+    public void Exit()
     {
-        Quit();
+        Application.Quit();
     }
 }

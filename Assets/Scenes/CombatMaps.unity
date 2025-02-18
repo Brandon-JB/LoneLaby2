@@ -91876,6 +91876,10 @@ PrefabInstance:
       propertyPath: attackAction.m_Name
       value: Attack
       objectReference: {fileID: 0}
+    - target: {fileID: 6483451813152639840, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: combatPortals
+      value: 
+      objectReference: {fileID: 1994960734}
     - target: {fileID: 7538191117456477938, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -91947,19 +91951,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8940570630105431962, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
   m_PrefabInstance: {fileID: 2025754098}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2025754100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025754099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf82168ef4031d542a04120c6a5622f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combatPortals: {fileID: 1994960734}
 --- !u!1 &2035085001
 GameObject:
   m_ObjectHideFlags: 0

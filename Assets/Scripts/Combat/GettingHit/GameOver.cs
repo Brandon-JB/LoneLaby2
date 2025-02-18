@@ -25,11 +25,13 @@ public class GameOver : MonoBehaviour
 
     public void Continue()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("CombatMaps");
     }
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 }

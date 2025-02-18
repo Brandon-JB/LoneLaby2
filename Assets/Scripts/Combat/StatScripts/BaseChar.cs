@@ -9,7 +9,7 @@ public class BaseChar : MonoBehaviour
 {
     public Dictionary<string, int> statsSheet = new Dictionary<string, int>()
     {
-        {"Strength", 10},
+        {"Strength", 5},
         {"Defense", 4},
         {"Health", 30},
         {"MaxHealth", 30},
@@ -30,6 +30,8 @@ public class BaseChar : MonoBehaviour
     [SerializeField] private Vector2 knockbackDirection = Vector2.zero;
 
     [SerializeField] private float strength = 3f;
+
+    [SerializeField] private GameObject hitboxChild = null;
 
 
     public virtual void Update()
@@ -64,7 +66,7 @@ public class BaseChar : MonoBehaviour
         }
     }
 
-    protected int GetMana()
+    public int GetMana()
     {
         return statsSheet["Mana"];
     }
@@ -135,7 +137,7 @@ public class BaseChar : MonoBehaviour
             if (!allied)
             {
                 enemyMovement.canMove = true;
-                
+                charRB.velocity = Vector3.zero;
             }
             else
             {
@@ -162,6 +164,7 @@ public class BaseChar : MonoBehaviour
 
     public void TriggerHurtAnim()
     {
+        DisableHitbox();
         animator.SetBool("Hurt", true);
         animator.SetBool("Attacking", false);
 
@@ -178,7 +181,7 @@ public class BaseChar : MonoBehaviour
         animator.SetBool("Hurt", false);
     }
 
-    public bool isAttacking()
+    private bool isAttacking()
     {
         return animator.GetBool("Attacking");
     }
@@ -192,6 +195,16 @@ public class BaseChar : MonoBehaviour
     {
         isInAttack = false;
     }*/
+
+    public void EnableHitbox()
+    {
+        hitboxChild.SetActive(true);
+    }
+
+    public void DisableHitbox()
+    {
+        hitboxChild.SetActive(false);
+    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -227,7 +240,8 @@ public class BaseChar : MonoBehaviour
                 {
                     if (otherCharTrigger.allied != this.allied)
                     {
-                        GotDamaged(10, collision.gameObject);
+                        collision.gameObject.SetActive(false);
+                        GotDamaged(otherCharTrigger.statsSheet["Strength"], collision.gameObject);
                         TriggerHurtAnim();
                     }
                 }
@@ -239,5 +253,6 @@ public class BaseChar : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         charRB = GetComponent<Rigidbody2D>();
+        
     }
 }

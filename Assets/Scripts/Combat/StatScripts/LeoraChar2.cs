@@ -15,6 +15,8 @@ public class LeoraChar2 : BaseChar
     //Variable for the cooldown time.
     [SerializeField] public Cooldown attackCooldown;
 
+    [SerializeField] public Cooldown magicCooldown;
+
     [SerializeField] private GameOver gameOverManager;
 
     [SerializeField] private CombatPlayerMovement playerMovement;
@@ -39,6 +41,8 @@ public class LeoraChar2 : BaseChar
         {
             animator.SetBool("isInCombo", false);
         }
+
+        
     }
 
     //A event to be called in the animator that starts both cooldownsa and preps the animator for whether the user continues the combo or not.
@@ -77,6 +81,8 @@ public class LeoraChar2 : BaseChar
     public void MagAttack()
     {
         animator.SetBool("Magicing", true);
+
+        SetMana(GetMana() - 1);
     }
 
     public void EndMagick()

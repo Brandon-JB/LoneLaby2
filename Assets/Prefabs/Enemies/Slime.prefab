@@ -310,8 +310,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   healthBar: {fileID: 0}
+  charRB: {fileID: 0}
   knockbackDirection: {x: 0, y: 0}
   strength: 20
+  hitboxChild: {fileID: 5767441807547043229}
 --- !u!95 &7487041304306391985
 Animator:
   serializedVersion: 4

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Cooldown
 {
-    [SerializeField] private float cooldownTime;
+    [SerializeField] public float cooldownTime;
     private float _nextFireTime;
 
     //Returns true if the current active game time is less than the _nextFireTime.
@@ -14,4 +14,9 @@ public class Cooldown
 
     //Sets the _nextFireTime variable to the set "cooldownTime" plus the current active game time.
     public void StartCooldown() => _nextFireTime = Time.time + cooldownTime;
+
+    public void Interupted()
+    {
+        _nextFireTime = Time.time;
+    }
 }

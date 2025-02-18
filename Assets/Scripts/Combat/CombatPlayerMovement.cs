@@ -35,7 +35,14 @@ public class CombatPlayerMovement : MonoBehaviour
         if (canMove == true)
         {
             //Movement
-            movement.Set(InputManager.Movement.x, InputManager.Movement.y);
+            if (animator.GetBool("Magicing") == false)
+            {
+                movement.Set(InputManager.Movement.x, InputManager.Movement.y);
+            }
+            else
+            {
+                movement.Set(0, 0);
+            }
 
             rb.velocity = movement * MoveSpeed;
 

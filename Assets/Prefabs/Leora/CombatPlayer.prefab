@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 8869209418615085635}
   - component: {fileID: 7538191117456477938}
   - component: {fileID: 5842062951379390051}
+  - component: {fileID: 720615281640796443}
   m_Layer: 3
   m_Name: Magick
   m_TagString: Untagged
@@ -262,6 +263,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1ef6e2b1f30564ea96bead24ab3893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &720615281640796443
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6664873387653602075}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8940570630105431962
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +300,7 @@ GameObject:
   - component: {fileID: -6668982063835999907}
   - component: {fileID: 5654782468327757369}
   - component: {fileID: 8705140056556160221}
+  - component: {fileID: 6483451813152639840}
   m_Layer: 3
   m_Name: CombatPlayer
   m_TagString: Player
@@ -466,9 +489,25 @@ MonoBehaviour:
   charRB: {fileID: 0}
   knockbackDirection: {x: 0, y: 0}
   strength: 20
+  hitboxChild: {fileID: 1307302628505304583}
   comboTimer:
     cooldownTime: 0.7
   attackCooldown:
     cooldownTime: 1.5
+  magicCooldown:
+    cooldownTime: 2
   gameOverManager: {fileID: 0}
   playerMovement: {fileID: 5654782468327757369}
+--- !u!114 &6483451813152639840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940570630105431962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf82168ef4031d542a04120c6a5622f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatPortals: {fileID: 0}
