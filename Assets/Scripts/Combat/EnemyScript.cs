@@ -113,17 +113,39 @@ public class EnemyScript : MonoBehaviour
                 if (cooldown.isCoolingDown) return;
 
                 canMove = false;
+
+                #region Somehow works
                 //Getting the distances between the x and y coordinates
-                float xDistance = Mathf.Abs(this.transform.position.x) - Mathf.Abs(Player.transform.position.x);
-                float yDistance = Mathf.Abs(this.transform.position.y) - Mathf.Abs(Player.transform.position.y); ;
+                float xDistance = Mathf.Abs(Mathf.Abs(this.transform.position.x) - Mathf.Abs(Player.transform.position.x));
+                float yDistance = Mathf.Abs(Mathf.Abs(this.transform.position.y) - Mathf.Abs(Player.transform.position.y));
+
+                //if the enemy is to the right of the player.
+                if (this.transform.position.x > Player.transform.position.x)
+                {
+                    enemyChar.animator.SetFloat("moveX", -1);
+                }
+                else //enemy is to the left of the player
+                {
+                    enemyChar.animator.SetFloat("moveX", 1);
+                }
+
+                //if the enemy is above the player.
+                if (this.transform.position.y > Player.transform.position.y)
+                {
+                    enemyChar.animator.SetFloat("moveY", -1);
+                }
+                else //enemy is below the player
+                {
+                    enemyChar.animator.SetFloat("moveY", 1);
+                }
 
                 //Seeing whether the enemy is closer on the x or y coordinate
                 //Need to figure out a better way of doing this
-                if (xDistance < yDistance)
+                if (xDistance > yDistance)
                 {
                     enemyChar.animator.SetFloat("moveY", 0);
                 }
-                else if (xDistance > yDistance) 
+                else if (xDistance < yDistance) 
                 {
                     enemyChar.animator.SetFloat("moveX", 0);
                 }
@@ -131,6 +153,8 @@ public class EnemyScript : MonoBehaviour
                 {
                     Debug.Log("X and y distances are the same");
                 }
+
+                #endregion
 
                 enemyChar.animator.SetBool("Attacking", true);
                 
