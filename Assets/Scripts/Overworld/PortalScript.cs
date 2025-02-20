@@ -38,7 +38,7 @@ public class PortalScript : MonoBehaviour
         {
             SceneManager.LoadScene("NoCombatAreas");
         }
-        else if (name == "TowerPortal")
+        else if (name == "CavePortal")
         {
             SceneManager.LoadScene("CombatMaps");
             //set var for where to go here
@@ -46,13 +46,13 @@ public class PortalScript : MonoBehaviour
         }
         else if (name == "MansionPortal")
         {
-            SceneManager.LoadScene("CombatMaps");
+            SceneManager.LoadScene("CombatMansion");
             //set var for where to go here
             whereGo = 2;
         }
         else if (name == "ForestPortal")
         {
-            SceneManager.LoadScene("CombatMaps");
+            SceneManager.LoadScene("CombatForest");
             //set var for where to go here
             whereGo = 3;
         }
