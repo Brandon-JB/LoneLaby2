@@ -44,6 +44,15 @@ public class CombatPlayerMovement : MonoBehaviour
                 movement.Set(0, 0);
             }
 
+            if (animator.GetBool("Attacking") || animator.GetBool("isInCombo"))
+            {
+                MoveSpeed = 1f;
+            }
+            else
+            {
+                MoveSpeed = 5f;
+            }
+
             rb.velocity = movement * MoveSpeed;
 
             animator.SetFloat(horizontal, movement.x);

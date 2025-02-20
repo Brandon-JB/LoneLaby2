@@ -29,7 +29,7 @@ public class BaseChar : MonoBehaviour
 
     [SerializeField] private Vector2 knockbackDirection = Vector2.zero;
 
-    [SerializeField] private float strength = 3f;
+    [SerializeField] private float strength = 20f;
 
     [SerializeField] private GameObject hitboxChild = null;
 
@@ -121,11 +121,14 @@ public class BaseChar : MonoBehaviour
         if (!allied)
         {
             enemyMovement.canMove = false;
+            //Knockback strength is multiplied due to enemies having much more mass
+            charRB.AddForce(knockbackDirection * (strength * 15000f), ForceMode2D.Impulse);
             Debug.Log("Launch enemy");
         }
         else
         {
             playerMovement.canMove = false;
+            charRB.AddForce(knockbackDirection * strength, ForceMode2D.Impulse);
         }
 
         charRB.AddForce(knockbackDirection * strength, ForceMode2D.Impulse);
@@ -148,7 +151,7 @@ public class BaseChar : MonoBehaviour
 
     public virtual void Death()
     {
-        SceneManager.LoadScene("NoCombatAreas");
+        //SceneManager.LoadScene("NoCombatAreas");
         Destroy(this.gameObject);
     }
 
