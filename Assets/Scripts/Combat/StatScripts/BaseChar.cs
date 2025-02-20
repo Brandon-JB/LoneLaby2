@@ -33,6 +33,9 @@ public class BaseChar : MonoBehaviour
 
     [SerializeField] private GameObject hitboxChild = null;
 
+    [SerializeField] private bool isParrying;
+    [SerializeField] private bool isPerfectParrying;
+
 
     public virtual void Update()
     {
@@ -209,6 +212,8 @@ public class BaseChar : MonoBehaviour
         hitboxChild.SetActive(false);
     }
 
+    
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -256,6 +261,7 @@ public class BaseChar : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         charRB = GetComponent<Rigidbody2D>();
-        
+        isParrying = false;
+        isPerfectParrying = false;
     }
 }
