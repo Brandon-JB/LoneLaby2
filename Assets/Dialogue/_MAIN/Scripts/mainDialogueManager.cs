@@ -212,7 +212,7 @@ public class mainDialogueManager : MonoBehaviour
             continueTextPrompt.SetActive(false);
             top.DOMove(tweenOutPositions[0].transform.position, 2);
             bottom.DOMove(tweenOutPositions[1].transform.position, 2);
-            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2);
+            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).OnComplete(() => { SceneManager.LoadScene("Overworld"); });
             //if (isBoss)
             //{
             //    battleFade.SetBool("BattleStarting", true);

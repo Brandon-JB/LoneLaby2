@@ -1,0 +1,17 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(speaker -enabled false)
+leora.Move(0.15 0 -spd 1000)
+wait(0.75)
+Show(leora)
+Highlight(leora -o true)
+leora "Hello it is I Leora from the hit game Lone Labyrinth 2"
+leora "This is a super awesome slay dialogue test!"
+Show(speaker)
+Highlight(speaker -o true)
+speaker as ??? "whoaaa you don't know who i am"
+speaker "well now you know who i am"
+Highlight(leora -o true)
+leora "ok bye have fun"
+Hide(leora)
+Hide(speaker)
+endDialogue(false)
