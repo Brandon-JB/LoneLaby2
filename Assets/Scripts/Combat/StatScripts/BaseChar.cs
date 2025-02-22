@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BaseChar : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class BaseChar : MonoBehaviour
     public Animator animator = null;
 
     [SerializeField] TMP_Text healthBar;
+    [SerializeField] TMP_Text manaBar;
+    [SerializeField] Slider hpSlider;
+    [SerializeField] Slider mpSlider;
 
     public Rigidbody2D charRB;
 
@@ -95,7 +99,8 @@ public class BaseChar : MonoBehaviour
        
         if (allied)
         {
-            healthBar.text = "Health: " + GetHealth() + "/" + statsSheet["MaxHealth"];
+            healthBar.text = GetHealth() + "/" + statsSheet["MaxHealth"];
+            hpSlider.value = ((float)GetHealth()) / statsSheet["MaxHealth"];
         }
 
         if (GetHealth() <= 0)
