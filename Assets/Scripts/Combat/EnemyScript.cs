@@ -48,11 +48,11 @@ public class EnemyScript : MonoBehaviour
             enemyChar.animator.SetBool("isMoving", false);
         }
 
-        if (!cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false)
+        if (!cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false && enemyChar.stunTimer.isCoolingDown == false)
         {
             canMove = true;
         }
-        else if (enemyChar.animator.GetBool("Hurt") == true)
+        else// if (enemyChar.animator.GetBool("Hurt") == true)
         {
             canMove = false;
         }

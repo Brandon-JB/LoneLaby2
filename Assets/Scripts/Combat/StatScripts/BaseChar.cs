@@ -46,6 +46,8 @@ public class BaseChar : MonoBehaviour
     [SerializeField] private SpriteRenderer testParrySprite;
     [SerializeField] public Cooldown parryCooldown;
 
+    [SerializeField] public Cooldown stunTimer;
+
 
     public virtual void Update()
     {
@@ -225,13 +227,17 @@ public class BaseChar : MonoBehaviour
 
                         if (isPerfectParrying)
                         {
-                            Debug.Log("Perfect Parry");
+                            //Debug.Log("Perfect Parry");
                             GotDamaged(otherCharTrigger.statsSheet["Strength"] / 10, otherCharTrigger.gameObject, 0);
+                            otherCharTrigger.stunTimer.cooldownTime = 2f;
+                            otherCharTrigger.stunTimer.StartCooldown();
                         }
                         else if (isParrying)
                         {
-                            Debug.Log("Parry");
+                            //Debug.Log("Parry");
                             GotDamaged(otherCharTrigger.statsSheet["Strength"] / 2, otherCharTrigger.gameObject, 0.5f);
+                            otherCharTrigger.stunTimer.cooldownTime = 1f;
+                            otherCharTrigger.stunTimer.StartCooldown();
                         }
                         else
                         {
@@ -327,5 +333,7 @@ public class BaseChar : MonoBehaviour
         charRB = GetComponent<Rigidbody2D>();
         isParrying = false;
         isPerfectParrying = false;
+
+        stunTimer.cooldownTime = 1;
     }
 }
