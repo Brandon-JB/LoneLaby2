@@ -10,7 +10,7 @@ public class BaseChar : MonoBehaviour
 {
     public Dictionary<string, int> statsSheet = new Dictionary<string, int>()
     {
-        {"Strength", 10},
+        {"Strength", 14},
         {"Defense", 4},
         {"Health", 50},
         {"MaxHealth", 50},
@@ -20,23 +20,30 @@ public class BaseChar : MonoBehaviour
 
     protected string charName = "";
 
-    protected bool allied = true;
+    public bool allied = true;
 
     public Animator animator = null;
 
+    private DropManager dropManager;
+
+    [Header("UI")]
     //Only for use with Leora. Kept here so there's only one damage script
     [SerializeField] public TMP_Text healthBar;
     [SerializeField] public TMP_Text manaBar;
     [SerializeField] Slider hpSlider;
     [SerializeField] public Slider mpSlider;
 
+    [Header("Knockback")]
     public Rigidbody2D charRB;
-
     [SerializeField] private Vector2 knockbackDirection = Vector2.zero;
-
     private float strength = 25f;
 
     [SerializeField] private GameObject hitboxChild = null;
+
+    [SerializeField] private Transform damagePopup;
+    
+
+
 
     [Header("Parrying")]
     [SerializeField] private bool isParrying;
@@ -72,14 +79,36 @@ public class BaseChar : MonoBehaviour
         return statsSheet["Health"];
     }
 
-    protected void SetHealth(int health)
+    public void SetHealth(int health)
     {
         statsSheet["Health"] = health;
+
+        if (GetHealth() > statsSheet["MaxHealth"])
+        {
+            SetMaxHealth();
+        }
+
+        if (allied)
+        {
+            healthBar.text = GetHealth() + "/" + statsSheet["MaxHealth"];
+            hpSlider.value = ((float)GetHealth()) / statsSheet["MaxHealth"];
+        }
 
         if (GetHealth() < 0)
         {
             statsSheet["Health"] = 0;
         }
+
+        
+    }
+
+    public void Heal(int healAmount)
+    {
+        SetHealth(GetHealth() + healAmount);
+
+        Transform healPopUpTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+        DamagePopUp damPopScript = healPopUpTransform.GetComponent<DamagePopUp>();
+        damPopScript.SetupInt(healAmount, "Health");
     }
 
     public int GetMana()
@@ -87,14 +116,37 @@ public class BaseChar : MonoBehaviour
         return statsSheet["Mana"];
     }
 
-    protected void SetMana(int mana)
+    public void SetMana(int mana)
     {
         statsSheet["Mana"] = mana;
+
+        if (GetMana() > statsSheet["MaxMana"])
+        {
+            SetMaxMana();
+        }
+
+        if (allied)
+        {
+            manaBar.text = GetMana() + "/" + statsSheet["MaxMana"];
+            mpSlider.value = ((float)GetMana()) / statsSheet["MaxMana"];
+        }
+
 
         if (GetMana() < 0)
         {
             statsSheet["Mana"] = 0;
         }
+
+      
+    }
+
+    public void RestoreMana(int restoreAmount)
+    {
+        SetMana(GetMana() + restoreAmount);
+
+        Transform manaPopUpTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+        DamagePopUp damPopScript = manaPopUpTransform.GetComponent<DamagePopUp>();
+        damPopScript.SetupInt(restoreAmount, "Mana");
     }
 
     #endregion
@@ -192,7 +244,7 @@ public class BaseChar : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (this.tag != "Hitbox")
+        if (this.tag != "Hitbox" && this.tag == "Enemy" || this.tag == "Player")
         {
             BaseChar otherCharTrigger = null;
 
@@ -225,26 +277,50 @@ public class BaseChar : MonoBehaviour
                     {
                         collision.gameObject.SetActive(false);
 
-                        if (isPerfectParrying)
+                        int incomingDamage = otherCharTrigger.statsSheet["Strength"] - statsSheet["Defense"];
+
+                        if (hitboxChild.isParryable)
                         {
-                            //Debug.Log("Perfect Parry");
-                            GotDamaged(otherCharTrigger.statsSheet["Strength"] / 10, otherCharTrigger.gameObject, 0);
-                            otherCharTrigger.stunTimer.cooldownTime = 2f;
-                            otherCharTrigger.stunTimer.StartCooldown();
-                        }
-                        else if (isParrying)
-                        {
-                            //Debug.Log("Parry");
-                            GotDamaged(otherCharTrigger.statsSheet["Strength"] / 2, otherCharTrigger.gameObject, 0.5f);
-                            otherCharTrigger.stunTimer.cooldownTime = 1f;
-                            otherCharTrigger.stunTimer.StartCooldown();
+                            if (isPerfectParrying)
+                            {
+                                //Debug.Log("Perfect Parry");
+                                GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
+                                otherCharTrigger.stunTimer.cooldownTime = 2f;
+                                otherCharTrigger.stunTimer.StartCooldown();
+                            }
+                            else if (isParrying)
+                            {
+                                //Debug.Log("Parry");
+                                GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
+                                otherCharTrigger.stunTimer.cooldownTime = 1f;
+                                otherCharTrigger.stunTimer.StartCooldown();
+                            }
+                            else
+                            {
+                                GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                                TriggerHurtAnim();
+                            }
                         }
                         else
                         {
-                            GotDamaged(otherCharTrigger.statsSheet["Strength"], otherCharTrigger.gameObject, 1);
+                            GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
                             TriggerHurtAnim();
                         }
                     }
+                }
+            }
+
+            if (collision.tag == "Drop")
+            {
+                if (this.allied)
+                {
+                    Drops drop = collision.GetComponent<Drops>();
+
+                    Debug.Log(drop.dropName + " Obtained");
+
+                    drop.WhatItemDo(this);
+
+                    Destroy(collision.gameObject);
                 }
             }
         }
@@ -255,15 +331,12 @@ public class BaseChar : MonoBehaviour
 
         //Debug.Log(charName + " Health: " + GetHealth());
         SetHealth(GetHealth() - incomingDamage);
+        Transform damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+        DamagePopUp damPopScript = damagePopupTransform.GetComponent<DamagePopUp>();
+        damPopScript.SetupInt(incomingDamage, "Damage");
         //Debug.Log(charName + " After damage health: " + GetHealth());
 
         StartCoroutine(Knockback(otherAttacker, stMod));
-
-        if (allied)
-        {
-            healthBar.text = GetHealth() + "/" + statsSheet["MaxHealth"];
-            hpSlider.value = ((float)GetHealth()) / statsSheet["MaxHealth"];
-        }
 
         if (GetHealth() <= 0)
         {
@@ -309,6 +382,7 @@ public class BaseChar : MonoBehaviour
         {
             if (!allied)
             {
+                enemyMovement.cooldown.Interupted();
                 enemyMovement.canMove = true;
                 charRB.velocity = Vector3.zero;
             }
@@ -322,6 +396,7 @@ public class BaseChar : MonoBehaviour
     public virtual void Death()
     {
         //SceneManager.LoadScene("NoCombatAreas");
+        dropManager.RandomizedDrops(this.transform.position, this.charName);
         Destroy(this.gameObject);
     }
 
@@ -335,5 +410,9 @@ public class BaseChar : MonoBehaviour
         isPerfectParrying = false;
 
         stunTimer.cooldownTime = 1;
+
+        dropManager = FindObjectOfType<DropManager>();
+
+        //Physics2D.IgnoreCollision();
     }
 }

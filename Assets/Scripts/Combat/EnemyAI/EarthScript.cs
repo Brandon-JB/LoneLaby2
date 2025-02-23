@@ -1,54 +1,26 @@
-using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Windows;
 
-public class EnemyScript : MonoBehaviour
+public class EarthScript : EnemyScript
 {
-    [SerializeField] public BaseChar enemyChar;
 
-    [SerializeField] public Rigidbody2D PlayerRB;
-    public GameObject Player;
+    private bool isActive = false;
 
-
-    [SerializeField] public float attackRange;
-    [SerializeField] public float followRange = 10f;
-    float DistanceFromPlayer;
-
-    private Vector2 movementInput;
-    [SerializeField] private float moveSpeed = 4f;
-
-    private Rigidbody2D enemyRB;
-
-    [SerializeField] public Cooldown cooldown;
-
-
-    public bool canMove = true;
-
-    private void Awake()
+    public void TurnActive()
     {
-        enemyChar = GetComponent<BaseChar>();
-
-        enemyRB = GetComponent<Rigidbody2D>();
-
-        Player = GameObject.Find("CombatPlayer");
-
-        PlayerRB = Player.GetComponent<Rigidbody2D>();
-
-        canMove = true;
+        isActive = true;
     }
 
-    private void Update()
+    // Update is called once per frame
+    public override void Update()
     {
         if (DistanceFromPlayer > followRange)
         {
             enemyChar.animator.SetBool("isMoving", false);
         }
 
-        if (!cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false && enemyChar.stunTimer.isCoolingDown == false)
+        if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false && isActive == true)
         {
             canMove = true;
         }
@@ -58,6 +30,16 @@ public class EnemyScript : MonoBehaviour
         }
 
         //Debug.Log("Enemy is existing");
+
+        if (enemyChar.animator.GetBool("isActive") == false)
+        {
+            DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
+
+            if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange))
+            {
+                enemyChar.animator.SetBool("isActive", true);
+            }
+        }
 
         //Movement
         if (canMove == true)
@@ -145,7 +127,7 @@ public class EnemyScript : MonoBehaviour
                 {
                     enemyChar.animator.SetFloat("moveY", 0);
                 }
-                else if (xDistance < yDistance) 
+                else if (xDistance < yDistance)
                 {
                     enemyChar.animator.SetFloat("moveX", 0);
                 }
@@ -157,20 +139,10 @@ public class EnemyScript : MonoBehaviour
                 #endregion
 
                 enemyChar.animator.SetBool("Attacking", true);
-                
+
                 cooldown.StartCooldown();
 
             }
         }
-    }
-
-    public void AllowMovement()
-    {
-        canMove = true;
-    }
-
-    public void OnDisable()
-    {
-        canMove = false;
     }
 }

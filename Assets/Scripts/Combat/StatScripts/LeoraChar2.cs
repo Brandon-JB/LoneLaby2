@@ -87,8 +87,6 @@ public class LeoraChar2 : BaseChar
         animator.SetBool("Magicing", true);
 
         SetMana(GetMana() - 1);
-        manaBar.text = GetMana() + "/" + statsSheet["MaxMana"];
-        mpSlider.value = ((float)GetMana()) / statsSheet["MaxMana"];
     }
 
     public void EndMagick()

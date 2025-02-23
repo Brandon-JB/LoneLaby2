@@ -274,7 +274,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6664873387653602075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -329,7 +329,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -569,6 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8687d1ba8d75a60488b0db678ed4e497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allied: 1
   animator: {fileID: 0}
   healthBar: {fileID: 0}
   manaBar: {fileID: 0}
@@ -576,14 +577,16 @@ MonoBehaviour:
   mpSlider: {fileID: 0}
   charRB: {fileID: 0}
   knockbackDirection: {x: 0, y: 0}
-  strength: 20
   hitboxChild: {fileID: 1307302628505304583}
+  damagePopup: {fileID: 3844901903003089880, guid: dbf6cc6177486f8448488a9f7d1e143f, type: 3}
   isParrying: 0
   isPerfectParrying: 0
   testParrySignal: {fileID: 561534749473051707}
   testParrySprite: {fileID: 4503397289608371393}
   parryCooldown:
     cooldownTime: 0.2
+  stunTimer:
+    cooldownTime: 0
   comboTimer:
     cooldownTime: 0.7
   attackCooldown:

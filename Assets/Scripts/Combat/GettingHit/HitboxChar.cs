@@ -8,4 +8,6 @@ public class HitboxChar : MonoBehaviour
 
     public string type;
 
+    public bool isParryable = true;
+
 }
