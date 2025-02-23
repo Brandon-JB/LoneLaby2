@@ -35,14 +35,18 @@ public class CombatPlayerMovement : MonoBehaviour
         if (canMove == true)
         {
             //Movement
-            if (animator.GetBool("Magicing") == false)
+            if (animator.GetBool("Magicing") == false && animator.GetBool("Parrying") == false)
             {
                 movement.Set(InputManager.Movement.x, InputManager.Movement.y);
             }
             else
             {
                 movement.Set(0, 0);
+
             }
+
+            animator.SetFloat(horizontal, movement.x);
+            animator.SetFloat(vertical, movement.y);
 
             if (animator.GetBool("Attacking") || animator.GetBool("isInCombo"))
             {
@@ -53,10 +57,7 @@ public class CombatPlayerMovement : MonoBehaviour
                 MoveSpeed = 5f;
             }
 
-            rb.velocity = movement * MoveSpeed;
-
-            animator.SetFloat(horizontal, movement.x);
-            animator.SetFloat(vertical, movement.y);
+            rb.velocity = movement * MoveSpeed;          
 
             if (movement != Vector2.zero)
             {

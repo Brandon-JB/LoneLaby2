@@ -28,6 +28,10 @@ public class LeoraChar2 : BaseChar
     void Start()
     {
         charName = "Leora";
+        allied = true;
+
+        healthBar.text = GetHealth() + "/" + statsSheet["MaxHealth"];
+        manaBar.text = GetMana() + "/" + statsSheet["MaxMana"];
 
         animator.SetFloat("LastH", 0);
         animator.SetFloat("LastV", -1);
@@ -83,6 +87,8 @@ public class LeoraChar2 : BaseChar
         animator.SetBool("Magicing", true);
 
         SetMana(GetMana() - 1);
+        manaBar.text = GetMana() + "/" + statsSheet["MaxMana"];
+        mpSlider.value = ((float)GetMana()) / statsSheet["MaxMana"];
     }
 
     public void EndMagick()

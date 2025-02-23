@@ -98,5 +98,11 @@ public class PlayerActions : MonoBehaviour
             tempMagManager.animator.SetBool("lightMag", true);
 
         }
+
+        //Parrying
+        if (InputManager.parryPressed && leoraChar.parryCooldown.isCoolingDown == false)
+        {
+            leoraChar.TriggerParryAnim();
+        }
     }
 }

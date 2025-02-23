@@ -18477,7 +18477,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: WASD to move. Press G to attack and M to cast blinding magic.
+  m_text: WASD to move. Press G to attack and M to cast blinding magic. Press T to
+    parry.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18504,8 +18505,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.68
-  m_fontSizeBase: 21.68
+  m_fontSize: 21.39
+  m_fontSizeBase: 21.39
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -93132,6 +93133,10 @@ PrefabInstance:
     - target: {fileID: 8869209418615085635, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876787556816172860, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431960, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_RootOrder

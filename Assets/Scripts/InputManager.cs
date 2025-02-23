@@ -8,11 +8,13 @@ public class InputManager : MonoBehaviour
     public static Vector2 Movement;
     public static bool attackPressed;
     public static bool magicPressed;
+    public static bool parryPressed;
 
     private PlayerInput playerInput;
     private InputAction moveAction;
     private InputAction attackAction;
     private InputAction magicAction;
+    private InputAction parryAction;
 
     private void Awake()
     {
@@ -23,6 +25,8 @@ public class InputManager : MonoBehaviour
         attackAction = playerInput.actions["Attack"];
 
         magicAction = playerInput.actions["Magic"];
+
+        parryAction = playerInput.actions["Parry"];
     }
 
     private void Update()
@@ -45,6 +49,15 @@ public class InputManager : MonoBehaviour
         else
         {
             magicPressed = false;
+        }
+
+        if (parryAction.WasPressedThisFrame() )
+        {
+            parryPressed = true;
+        }
+        else
+        {
+            parryPressed = false;
         }
     }
 
