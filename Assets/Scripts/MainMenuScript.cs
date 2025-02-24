@@ -7,7 +7,7 @@ public class MainMenuScript : MonoBehaviour
 {
     public void GoToGame()
     {
-        SceneManager.LoadScene("NoCombatAreas");
+        SceneManager.LoadScene("Dialogue");
     }
 
     public void Exit()
