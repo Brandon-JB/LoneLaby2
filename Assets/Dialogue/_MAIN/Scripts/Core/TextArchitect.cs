@@ -160,6 +160,7 @@ public class TextArchitect
     {
         while (tmpro.maxVisibleCharacters < tmpro.textInfo.characterCount) // while we still have text to display
         {
+            Debug.Log("I'm playing it man");
             audioPlayer.Play();
             yield return new WaitForSeconds(0.05f / speed);
         }

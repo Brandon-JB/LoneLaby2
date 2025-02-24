@@ -121,29 +121,30 @@ public class audioManager : MonoBehaviour
         SFXAvailable[ID].Play();
     }
 
-    //private void PlaySongUsingID(int ID, float speed)
-    //{
-    //    if (ID == 9)
-    //    {
-    //        BGMAvailable[10].volume = (audioStatics.SFXVolume * audioStatics.MasterVolume);
-    //        BGMAvailable[10].Play();
-    //        while (!BGMAvailable[10].isPlaying)
-    //        {
-    //            //play other music
-    //        }
-    //    } else
-    //    {
-    //        BGMAvailable[ID].Play();
-    //        BGMAvailable[ID].DOFade(audioStatics.BGMVolume * audioStatics.MasterVolume, speed).OnComplete(() =>
-    //        {
-    //            if (currentlyPlaying)
-    //            {
-    //                currentlyPlaying.Stop();
-    //            }
-    //            currentlyPlaying = BGMAvailable[ID];
-    //        });
-    //    }
-    //}
+    private void PlaySongUsingID(int ID, float speed)
+    {
+        if (ID == 9)
+        {
+            BGMAvailable[10].volume = (audioStatics.SFXVolume * audioStatics.MasterVolume);
+            BGMAvailable[10].Play();
+            while (!BGMAvailable[10].isPlaying)
+            {
+                //play other music
+            }
+        }
+        else
+        {
+            BGMAvailable[ID].Play();
+            BGMAvailable[ID].DOFade(audioStatics.BGMVolume * audioStatics.MasterVolume, speed).OnComplete(() =>
+            {
+                if (currentlyPlaying)
+                {
+                    currentlyPlaying.Stop();
+                }
+                currentlyPlaying = BGMAvailable[ID];
+            });
+        }
+    }
 
     private void playSongUsingID(int ID, float speed)
     {
