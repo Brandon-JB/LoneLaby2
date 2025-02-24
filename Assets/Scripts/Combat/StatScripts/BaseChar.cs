@@ -171,6 +171,7 @@ public class BaseChar : MonoBehaviour
 
         if (allied)
         {
+            animator.SetBool("Parrying", false);
             animator.SetBool("Magicing", false);
             animator.SetBool("isInCombo", false);
         }
