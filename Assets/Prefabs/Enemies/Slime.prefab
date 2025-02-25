@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 220814287161519678}
   - component: {fileID: 7378922477063169458}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1182711839797723848}
   - component: {fileID: 3872004712941919820}
   - component: {fileID: 6128468894897992982}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hitbox
   m_TagString: Hitbox
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 7487041304306391985}
   - component: {fileID: 6549770698280233058}
   - component: {fileID: 3361621675705611071}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -327,6 +327,7 @@ MonoBehaviour:
     cooldownTime: 0
   stunTimer:
     cooldownTime: 0
+  particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
 --- !u!95 &7487041304306391985
 Animator:
   serializedVersion: 4

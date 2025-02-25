@@ -10,12 +10,12 @@ public class LeoraChar2 : BaseChar
 
     //Variable for the combo window.
     //If the combo timer is "cooling down" then that just means it's in the combo window.
-    [SerializeField] public Cooldown comboTimer;
+    [SerializeField] public Cooldown comboTimer = new Cooldown();
 
     //Variable for the cooldown time.
-    [SerializeField] public Cooldown attackCooldown;
+    [SerializeField] public Cooldown attackCooldown = new Cooldown();
 
-    [SerializeField] public Cooldown magicCooldown;
+    [SerializeField] public Cooldown magicCooldown = new Cooldown();
 
     [SerializeField] private GameOver gameOverManager;
 
