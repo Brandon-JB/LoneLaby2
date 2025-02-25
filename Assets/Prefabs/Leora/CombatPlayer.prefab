@@ -211,6 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentChar: {fileID: 8705140056556160221}
   type: Physical
+  isParryable: 1
 --- !u!50 &6194691983620785639
 Rigidbody2D:
   serializedVersion: 4
@@ -587,6 +588,7 @@ MonoBehaviour:
     cooldownTime: 0.2
   stunTimer:
     cooldownTime: 0
+  particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
   comboTimer:
     cooldownTime: 0.7
   attackCooldown:

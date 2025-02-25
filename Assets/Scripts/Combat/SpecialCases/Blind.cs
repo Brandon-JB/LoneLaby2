@@ -19,6 +19,7 @@ public class Blind : MonoBehaviour
             {
                 enemyChar.stunTimer.cooldownTime = 4;
                 enemyChar.stunTimer.StartCooldown();
+                enemyChar.SpawnParticle("stunFX", collision.transform.position, collision.transform, enemyChar.stunTimer.cooldownTime);
             }
         }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Cooldown
 {
-    [SerializeField] public float cooldownTime;
+    [SerializeField] public float cooldownTime = 100;
     private float _nextFireTime;
 
     //Returns true if the current active game time is less than the _nextFireTime.

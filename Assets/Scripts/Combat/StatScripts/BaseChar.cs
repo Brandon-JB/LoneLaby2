@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class BaseChar : MonoBehaviour
 {
@@ -51,9 +52,11 @@ public class BaseChar : MonoBehaviour
 
     [SerializeField] private GameObject testParrySignal;
     [SerializeField] private SpriteRenderer testParrySprite;
-    [SerializeField] public Cooldown parryCooldown;
+    [SerializeField] public Cooldown parryCooldown = new Cooldown();
 
-    [SerializeField] public Cooldown stunTimer;
+    [SerializeField] public Cooldown stunTimer = new Cooldown();
+
+    [SerializeField] private MagicParticles particleManager;
 
 
     public virtual void Update()
@@ -198,6 +201,15 @@ public class BaseChar : MonoBehaviour
         parryCooldown.StartCooldown();
     }
 
+    public void SpawnParticle(string particleName, Vector3 position, Transform parentTransform, float lifetime)
+    {
+        MagicParticles particle = Instantiate(particleManager, position, Quaternion.identity, parentTransform);
+        particle.lifetime.cooldownTime = lifetime;
+        particle.lifetime.StartCooldown();
+        particle.animator.SetBool(particleName, true);
+        particle.startedAnimating = true;
+    }
+
     #endregion
 
     #region Getting hit
@@ -286,8 +298,10 @@ public class BaseChar : MonoBehaviour
                             {
                                 //Debug.Log("Perfect Parry");
                                 GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
+                                //Debug.Log(otherCharTrigger.gameObject.name);
                                 otherCharTrigger.stunTimer.cooldownTime = 2f;
                                 otherCharTrigger.stunTimer.StartCooldown();
+                                otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                             }
                             else if (isParrying)
                             {
@@ -295,6 +309,7 @@ public class BaseChar : MonoBehaviour
                                 GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
                                 otherCharTrigger.stunTimer.cooldownTime = 1f;
                                 otherCharTrigger.stunTimer.StartCooldown();
+                                otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                             }
                             else
                             {
