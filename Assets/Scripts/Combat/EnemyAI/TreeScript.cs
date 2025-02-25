@@ -5,21 +5,23 @@ using UnityEngine;
 public class TreeScript : EnemyScript
 {
     private bool isActive = false;
+    [SerializeField] private BoxCollider2D hurtBox = null;
 
     public void TurnActive()
     {
         isActive = true;
+        hurtBox.enabled = true;
     }
 
     // Update is called once per frame
     public override void Update()
     {
-        if (DistanceFromPlayer > followRange)
+        if (DistanceFromPlayer > followRange && canMove == true)
         {
             enemyChar.animator.SetBool("isMoving", false);
         }
 
-        if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false && isActive == true)
+        if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false && isActive == true && enemyChar.animator.GetBool("Hurt") == false)
         {
             canMove = true;
         }

@@ -91,15 +91,15 @@ public class BaseChar : MonoBehaviour
             SetMaxHealth();
         }
 
+        if (GetHealth() < 0)
+        {
+            statsSheet["Health"] = 0;
+        }
+
         if (allied)
         {
             healthBar.text = GetHealth() + "/" + statsSheet["MaxHealth"];
             hpSlider.value = ((float)GetHealth()) / statsSheet["MaxHealth"];
-        }
-
-        if (GetHealth() < 0)
-        {
-            statsSheet["Health"] = 0;
         }
 
         
@@ -128,18 +128,16 @@ public class BaseChar : MonoBehaviour
             SetMaxMana();
         }
 
-        if (allied)
-        {
-            manaBar.text = GetMana() + "/" + statsSheet["MaxMana"];
-            mpSlider.value = ((float)GetMana()) / statsSheet["MaxMana"];
-        }
-
-
         if (GetMana() < 0)
         {
             statsSheet["Mana"] = 0;
         }
 
+        if (allied)
+        {
+            manaBar.text = GetMana() + "/" + statsSheet["MaxMana"];
+            mpSlider.value = ((float)GetMana()) / statsSheet["MaxMana"];
+        }
       
     }
 
@@ -325,7 +323,7 @@ public class BaseChar : MonoBehaviour
                     }
                 }
             }
-
+            //on walking into a drop
             if (collision.tag == "Drop")
             {
                 if (this.allied)
