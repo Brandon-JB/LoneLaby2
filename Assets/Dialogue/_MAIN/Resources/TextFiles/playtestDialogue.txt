@@ -8,8 +8,9 @@ leora "Hello it is I Leora from the hit game Lone Labyrinth 2"
 leora "This is a super awesome slay dialogue test!"
 Show(speaker)
 Highlight(speaker -o true)
-speaker as ??? "whoaaa you don't know who i am"
-speaker "well now you know who i am"
+speaker.Move(0.9 0 -spd 1000)
+speaker as ??? "This is testing the renaming function"
+speaker "i also dont have a sprite for the speaker of truth yet so say hi to placeholder alan ooohhh blue alan"
 Highlight(leora -o true)
 leora "ok bye have fun"
 Hide(leora)

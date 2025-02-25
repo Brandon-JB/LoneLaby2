@@ -894,7 +894,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -93.297, y: 30}
+  m_AnchoredPosition: {x: -95, y: 30}
   m_SizeDelta: {x: 99.934, y: 14.6077}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223604964
@@ -919,8 +919,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Space
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 41a4eba5cb8a3f44393afb44038869c4, type: 2}
-  m_sharedMaterial: {fileID: 1344521631348791302, guid: 41a4eba5cb8a3f44393afb44038869c4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 898fc7d16b17e764d9ecf8d46ecfb94f, type: 2}
+  m_sharedMaterial: {fileID: 2851218141102660006, guid: 898fc7d16b17e764d9ecf8d46ecfb94f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3657,6 +3657,7 @@ GameObject:
   - component: {fileID: 1153040786}
   - component: {fileID: 1153040788}
   - component: {fileID: 1153040787}
+  - component: {fileID: 1153040789}
   m_Layer: 5
   m_Name: continue
   m_TagString: Untagged
@@ -3704,7 +3705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 811a61c03a6c3714c83c6cea142c1f7f, type: 3}
+  m_Sprite: {fileID: -260322794, guid: 7973928b060d2444988586ae6d7ba71d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3722,6 +3723,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153040785}
   m_CullTransparentMesh: 1
+--- !u!95 &1153040789
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153040785}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: df0de75392508ea48affe6be1f59db19, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1162092119
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,7 +4677,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394804244}
   m_Enabled: 1
-  m_Alpha: -0
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
