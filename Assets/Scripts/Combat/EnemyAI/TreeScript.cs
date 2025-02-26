@@ -5,7 +5,7 @@ using UnityEngine;
 public class TreeScript : EnemyScript
 {
     private bool isActive = false;
-    [SerializeField] private BoxCollider2D hurtBox = null;
+    [SerializeField] private CapsuleCollider2D hurtBox = null;
 
     public void TurnActive()
     {
@@ -47,10 +47,24 @@ public class TreeScript : EnemyScript
         {
             enemyRB.velocity = Vector2.zero;
 
+            Vector2 movePosition;
+
+            float VerticalDistance = Mathf.Abs(this.transform.position.y - Player.transform.position.y);
+
             DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
-            if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange) /*&& (PlayerController.isfrozen == false)*/)
+            if ((DistanceFromPlayer <= followRange && (DistanceFromPlayer > attackRange || VerticalDistance > 1)) /*&& (PlayerController.isfrozen == false)*/)
             {
-                enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);
+
+                if (Player.transform.position.x > transform.position.x)
+                {
+                    movePosition = new Vector2(PlayerRB.transform.position.x - 2, PlayerRB.transform.position.y);
+                }
+                else
+                {
+                    movePosition = new Vector2(PlayerRB.transform.position.x + 2, PlayerRB.transform.position.y);
+                }
+
+                enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePosition, moveSpeed * Time.deltaTime);
 
 
                 //EnemyRB.transform.position = Vector2.MoveTowards(EnemyRB.transform.position, PlayerRB.transform.position, Speed * Time.deltaTime);
@@ -112,6 +126,7 @@ public class TreeScript : EnemyScript
                     enemyChar.animator.SetFloat("moveX", 1);
                 }
 
+                /*
                 //if the enemy is above the player.
                 if (this.transform.position.y > Player.transform.position.y)
                 {
@@ -135,7 +150,7 @@ public class TreeScript : EnemyScript
                 else //if the distances are the same
                 {
                     Debug.Log("X and y distances are the same");
-                }
+                }*/
 
                 #endregion
 
