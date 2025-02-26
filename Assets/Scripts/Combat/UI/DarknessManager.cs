@@ -7,18 +7,27 @@ public class DarknessManager : MonoBehaviour
 {
     public Image DarknessImage;
     public Sprite[] sprites;
-    public float ChangeTime = 5f;
+    public float ChangeTime = 30f;
+    public float timer = 0f;
 
     private int currentIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(AdvanceDarkness());
+        
     }
 
     void Update()
     {
+        timer += Time.deltaTime;
+        if (timer >= ChangeTime) 
+        {
+            timer = 0f;
+            currentIndex++;
+            DarknessImage.sprite = sprites[currentIndex];
+        }
+
         if(InputManager.magicPressed)
         {
             currentIndex = 0;
@@ -26,13 +35,5 @@ public class DarknessManager : MonoBehaviour
         }
     }
 
-    IEnumerator AdvanceDarkness()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(ChangeTime);
-            currentIndex++;
-            DarknessImage.sprite = sprites[currentIndex];
-        }
-    }
+
 }
