@@ -11,6 +11,7 @@ public class TreeScript : EnemyScript
     {
         isActive = true;
         hurtBox.enabled = true;
+        followRange = 7;
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class TreeScript : EnemyScript
         {
             DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
 
-            if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange))
+            if (DistanceFromPlayer <= followRange) //&& DistanceFromPlayer > attackRange))
             {
                 enemyChar.animator.SetBool("isActive", true);
             }
