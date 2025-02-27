@@ -210,7 +210,7 @@ public class BaseChar : MonoBehaviour
 
     #endregion
 
-    #region Getting hit
+    #region Getting hit and Also TriggerEnter
 
     #region Parrying
 

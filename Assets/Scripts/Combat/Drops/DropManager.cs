@@ -10,7 +10,7 @@ public class DropManager : MonoBehaviour
     {
         int randomNum = Random.Range(1, 31);
 
-        //randomNum = 30;
+        randomNum = 30;
 
         if (randomNum >= 1 && randomNum <= 15)
         {

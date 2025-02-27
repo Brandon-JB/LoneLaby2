@@ -5,12 +5,16 @@ using UnityEngine;
 public class Drops : MonoBehaviour
 {
     public string dropName;
+    public string itemName = "";
     //public SpriteRenderer spriteRenderer;
     private Animator animator;
+
+    [SerializeField] private GameOverAndUI UIHandler;
 
     private void Awake()
     {
         //spriteRenderer = GetComponent<SpriteRenderer>();
+        UIHandler = FindObjectOfType<GameOverAndUI>();
         animator = GetComponent<Animator>();
     }
 
@@ -36,39 +40,57 @@ public class Drops : MonoBehaviour
         }
         else if (dropName == "Item")
         {
+            /*
+            switch(enemyName)
+            {
+                case "Slime":
+                    animator.SetBool("ATKRing", true);
+                    itemName = "ATKRing";
+                    break;
+                case "EarthElement":
+                    animator.SetBool("MPRing", true);
+                    itemName = "MPRing";
+                    break;
+                case "TreeMimic":
+                    break;
+            }*/
             if (enemyName == "Slime")
             {
                 animator.SetBool("ATKRing", true);
+                itemName = "ATKRing";
             }
-            if (enemyName == "EarthElement")
+            if (enemyName == "EarthElement" || enemyName == "TreeMimic")
             {
                 animator.SetBool("MPRing", true);
+                itemName = "MPRing";
             }
+
             //Insert other enemies when they get added
         }
     }
 
     public void WhatItemDo(BaseChar charScript)
     {
-        if (dropName == "Small HP")
+        switch(dropName)
         {
-            charScript.Heal(25);
-        }
-        else if (dropName == "Small MP")
-        {
-            charScript.RestoreMana(2);
-        }
-        else if (dropName == "Large HP")
-        {
-            charScript.Heal(50);
-        }
-        else if (dropName == "Large MP")
-        {
-            charScript.RestoreMana(4);
-        }
-        else if (dropName == "Item")
-        {
+            case "Small HP":
+                charScript.Heal(25);
+                break;
+            case "Small MP":
+                charScript.RestoreMana(2);
+                break;
+            case "Large HP":
+                charScript.Heal(50);
+                break;
+            case "Large MP":
+                charScript.RestoreMana(4);
+                break;
+            case "Item":
+                //Debug.Log("Item");
 
+                UIHandler.OpenItemMenu(itemName);
+
+                break;
         }
     }
 }
