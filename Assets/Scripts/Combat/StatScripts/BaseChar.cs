@@ -12,12 +12,24 @@ public class BaseChar : MonoBehaviour
     public Dictionary<string, int> statsSheet = new Dictionary<string, int>()
     {
         {"Strength", 14},
+        {"MagAttack", 10},
         {"Defense", 4},
         {"Health", 50},
         {"MaxHealth", 50},
         {"Mana", 4},
         {"MaxMana", 4}
     };
+
+    public void ChangeStats(int strength, int magATK, int Defense, int HP, int MP)
+    {
+        statsSheet["Strength"] = strength;
+        statsSheet["MagAttack"] = magATK;
+        statsSheet["Defense"] = Defense;
+        statsSheet["Health"] = HP;
+        statsSheet["MaxHealth"] = HP;
+        statsSheet["Mana"] = MP;
+        statsSheet["MaxMana"] = MP;
+    }
 
     protected string charName = "";
 
@@ -340,21 +352,25 @@ public class BaseChar : MonoBehaviour
         }
     }
 
-    protected void GotDamaged(int incomingDamage, GameObject otherAttacker, float stMod)
+    public void GotDamaged(int incomingDamage, GameObject otherAttacker, float stMod)
     {
 
         //Debug.Log(charName + " Health: " + GetHealth());
-        SetHealth(GetHealth() - incomingDamage);
-        Transform damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
-        DamagePopUp damPopScript = damagePopupTransform.GetComponent<DamagePopUp>();
-        damPopScript.SetupInt(incomingDamage, "Damage");
-        //Debug.Log(charName + " After damage health: " + GetHealth());
-
-        StartCoroutine(Knockback(otherAttacker, stMod));
-
-        if (GetHealth() <= 0)
+        if (GetHealth() > 0)
         {
-            Death();
+
+            SetHealth(GetHealth() - incomingDamage);
+            Transform damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+            DamagePopUp damPopScript = damagePopupTransform.GetComponent<DamagePopUp>();
+            damPopScript.SetupInt(incomingDamage, "Damage");
+            //Debug.Log(charName + " After damage health: " + GetHealth());
+
+            StartCoroutine(Knockback(otherAttacker, stMod));
+
+            if (GetHealth() <= 0)
+            {
+                Death();
+            }
         }
 
     }

@@ -348,6 +348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1ef6e2b1f30564ea96bead24ab3893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leoraChar: {fileID: 8705140056556160221}
+  magicType: 
 --- !u!50 &720615281640796443
 Rigidbody2D:
   serializedVersion: 4
@@ -544,6 +546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leoraChar: {fileID: 0}
   magicParticle: {fileID: 7029962831616942848, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
+  tempMagPart: {fileID: 0}
 --- !u!114 &5654782468327757369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,11 +595,13 @@ MonoBehaviour:
   comboTimer:
     cooldownTime: 0.7
   attackCooldown:
-    cooldownTime: 1.5
+    cooldownTime: 1.4
   magicCooldown:
     cooldownTime: 2
   gameOverManager: {fileID: 0}
   playerMovement: {fileID: 5654782468327757369}
+  magHitbox: {fileID: 6664873387653602075}
+  magicType: lightMag
 --- !u!114 &6483451813152639840
 MonoBehaviour:
   m_ObjectHideFlags: 0

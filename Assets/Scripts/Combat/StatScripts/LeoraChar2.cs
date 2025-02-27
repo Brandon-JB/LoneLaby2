@@ -21,6 +21,10 @@ public class LeoraChar2 : BaseChar
 
     [SerializeField] private CombatPlayerMovement playerMovement;
 
+    [SerializeField] private GameObject magHitbox;
+
+    public string magicType = "";
+
     
     //public bool isInFirstCombo = false;
 
@@ -35,6 +39,8 @@ public class LeoraChar2 : BaseChar
 
         animator.SetFloat("LastH", 0);
         animator.SetFloat("LastV", -1);
+
+        magHitbox.SetActive(false);
     }
 
 
@@ -86,7 +92,21 @@ public class LeoraChar2 : BaseChar
     {
         animator.SetBool("Magicing", true);
 
+        MagicEffects magEffects = magHitbox.GetComponent<MagicEffects>();
+
+        magEffects.magicType = magicType;
+
         SetMana(GetMana() - 1);
+    }
+
+    public void EnableMagHitbox()
+    {
+        magHitbox.SetActive(true);
+    }
+
+    public void DisableMagHitbox()
+    {
+        magHitbox.SetActive(false);
     }
 
     public void EndMagick()

@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +10,8 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] LeoraChar2 leoraChar = null;
 
     [SerializeField] private GameObject magicParticle;
+
+    [SerializeField] private GameObject tempMagPart;
 
     private void Awake()
     {
@@ -79,6 +83,11 @@ public class PlayerActions : MonoBehaviour
             }
         }
 
+        if (tempMagPart != null && leoraChar.animator.GetBool("Hurt"))
+        {
+            Destroy(tempMagPart);
+        }
+
         //Magicking
         if (InputManager.magicPressed && leoraChar.magicCooldown.isCoolingDown == false && leoraChar.GetMana() > 0)
         {
@@ -88,14 +97,9 @@ public class PlayerActions : MonoBehaviour
 
             leoraChar.MagAttack();
 
-            GameObject tempMagPart;
+            //GameObject tempMagPart;
 
-            tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
-
-            MagicParticles tempMagManager = tempMagPart.GetComponent<MagicParticles>();
-
-            //Animator for particles would go here
-            tempMagManager.animator.SetBool("lightMag", true);
+            //Spawn the magic particles in the animator using the functions below
 
         }
 
@@ -105,4 +109,21 @@ public class PlayerActions : MonoBehaviour
             leoraChar.TriggerParryAnim();
         }
     }
+
+    #region Magic Animator Particles
+    public void SpawnLightParticle()
+    {
+        if (leoraChar.magicType == "lightMag")
+        {
+
+            tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
+
+            MagicParticles tempMagManager = tempMagPart.GetComponent<MagicParticles>();
+
+            //Animator for particles would go here
+            tempMagManager.animator.SetBool(leoraChar.magicType, true);
+        }
+    }
+
+    #endregion
 }
