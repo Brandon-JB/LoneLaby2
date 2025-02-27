@@ -48,7 +48,7 @@ public class CombatPortals : MonoBehaviour
 
         if (name == "Exit")
         {
-            SceneManager.LoadScene("NoCombatAreas");
+            SceneManager.LoadScene("Overworld");
         }
     }
 }
