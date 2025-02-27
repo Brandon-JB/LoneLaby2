@@ -31,6 +31,7 @@ public class DarknessManager : MonoBehaviour
         if(InputManager.magicPressed)
         {
             currentIndex = 0;
+            timer = 0f;
             DarknessImage.sprite = sprites[currentIndex];
         }
     }
