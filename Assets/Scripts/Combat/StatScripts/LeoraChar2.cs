@@ -17,7 +17,7 @@ public class LeoraChar2 : BaseChar
 
     [SerializeField] public Cooldown magicCooldown = new Cooldown();
 
-    [SerializeField] private GameOver gameOverManager;
+    [SerializeField] private GameOverAndUI gameOverManager;
 
     [SerializeField] private CombatPlayerMovement playerMovement;
 
