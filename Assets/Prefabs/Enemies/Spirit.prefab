@@ -112,8 +112,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5767441807547043229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.39, y: -0.94, z: 0}
-  m_LocalScale: {x: 1.07, y: 1.07, z: 1.07}
+  m_LocalPosition: {x: -0, y: -0.6283, z: 0}
+  m_LocalScale: {x: 3.031989, y: 1.4733901, z: 1.07}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7487041304306391987}
@@ -161,7 +161,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.14921284, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.045612335, a: 0.49019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -230,9 +230,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9def736d89328164598b45ea26b0689e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentChar: {fileID: 0}
-  type: Slimy
-  isParryable: 1
+  parentChar: {fileID: 7572114003500749229}
+  type: Grabby
+  isParryable: 0
 --- !u!1 &7487041304306391988
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,12 +353,13 @@ MonoBehaviour:
   enemyChar: {fileID: 0}
   PlayerRB: {fileID: 0}
   Player: {fileID: 0}
-  attackRange: 0
-  followRange: 10
-  moveSpeed: 4
+  attackRange: 0.5
+  followRange: 7
+  moveSpeed: 6
   cooldown:
-    cooldownTime: 100
+    cooldownTime: 3
   canMove: 1
+  hurtbox: {fileID: 7487041304306391989}
 --- !u!114 &7572114003500749229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,8 +380,8 @@ MonoBehaviour:
   mpSlider: {fileID: 0}
   charRB: {fileID: 0}
   knockbackDirection: {x: 0, y: 0}
-  hitboxChild: {fileID: 0}
-  damagePopup: {fileID: 0}
+  hitboxChild: {fileID: 5767441807547043229}
+  damagePopup: {fileID: 3844901903003089880, guid: dbf6cc6177486f8448488a9f7d1e143f, type: 3}
   isParrying: 0
   isPerfectParrying: 0
   testParrySignal: {fileID: 0}
@@ -389,4 +390,4 @@ MonoBehaviour:
     cooldownTime: 100
   stunTimer:
     cooldownTime: 100
-  particleManager: {fileID: 0}
+  particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
