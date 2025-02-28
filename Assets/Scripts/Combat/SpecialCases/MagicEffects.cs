@@ -22,6 +22,7 @@ public class MagicEffects : MonoBehaviour
             enemyChar = collision.GetComponent<BaseChar>();
 
             enemyChar.GotDamaged(leoraChar.statsSheet["MagAttack"], enemyChar.gameObject, 0);
+            enemyChar.TriggerHurtAnim();
 
             if (magicType == "lightMag")
             {
