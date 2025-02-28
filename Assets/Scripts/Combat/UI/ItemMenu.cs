@@ -33,6 +33,10 @@ public class ItemMenu : MonoBehaviour
                 itemText.text = "ADV Mana Ring";
                 itemImage.sprite = items[1];
                 break;
+            case "HPRing":
+                itemText.text = "ADV Health Ring";
+                itemImage.sprite = items[2];
+                break;
         }
     }
 }

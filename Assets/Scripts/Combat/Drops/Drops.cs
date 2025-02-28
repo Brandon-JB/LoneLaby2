@@ -54,7 +54,7 @@ public class Drops : MonoBehaviour
                 case "TreeMimic":
                     break;
             }*/
-            if (enemyName == "Slime")
+            if (enemyName == "Slime" || enemyName == "Sword")
             {
                 animator.SetBool("ATKRing", true);
                 itemName = "ATKRing";
@@ -63,6 +63,11 @@ public class Drops : MonoBehaviour
             {
                 animator.SetBool("MPRing", true);
                 itemName = "MPRing";
+            }
+            if (enemyName == "Spirit" || enemyName == "Shield")
+            {
+                animator.SetBool("HPRing", true);
+                itemName = "HPRing";
             }
 
             //Insert other enemies when they get added
