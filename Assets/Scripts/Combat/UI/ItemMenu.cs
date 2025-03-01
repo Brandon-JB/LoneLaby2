@@ -14,6 +14,7 @@ public class ItemMenu : MonoBehaviour
 
     [SerializeField] private Image itemImage;
     [SerializeField] private TMP_Text itemText;
+    [SerializeField] private TMP_Text itemDescription;
 
     public void CloseMenu()
     {
@@ -26,16 +27,19 @@ public class ItemMenu : MonoBehaviour
         switch (dropName)
         {
             case "ATKRing":
-                itemText.text = "ADV Attack Ring";
+                itemText.text = "Gained a new Ring!";
                 itemImage.sprite = items[0];
+                itemDescription.text = "Plcaeholder";
                 break;
             case "MPRing":
-                itemText.text = "ADV Mana Ring";
+                itemText.text = "Gained a new Ring!";
                 itemImage.sprite = items[1];
+                itemDescription.text = "Plcaeholder";
                 break;
             case "HPRing":
-                itemText.text = "ADV Health Ring";
+                itemText.text = "Gained a new Ring!";
                 itemImage.sprite = items[2];
+                itemDescription.text = "Plcaeholder";
                 break;
         }
     }

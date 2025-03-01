@@ -86790,7 +86790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.00076293945}
+  m_AnchoredPosition: {x: -0.00012207031, y: -0.00079345703}
   m_SizeDelta: {x: 238.7, y: 149.14}
   m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!114 &1380237773
@@ -93277,6 +93277,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2328942682067606492, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328942682067606492, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.9144897
+      objectReference: {fileID: 0}
     - target: {fileID: 4057515452893318722, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
       propertyPath: m_Name
       value: UIManager
@@ -93459,11 +93467,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6146734659155122529, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -10.295776
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6146734659155122529, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 99.38202
+      value: -174
       objectReference: {fileID: 0}
     - target: {fileID: 7576657308565644890, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
       propertyPath: m_SizeDelta.x
