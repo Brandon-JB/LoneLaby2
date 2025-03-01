@@ -70,6 +70,7 @@ public class LeoraChar2 : BaseChar
         charRB.velocity = Vector2.zero;
         playerMovement.canMove = false;
         animator.SetBool("Death", true);
+        gameOverManager.FadeOutUI();
     }
 
     public void GameOver()

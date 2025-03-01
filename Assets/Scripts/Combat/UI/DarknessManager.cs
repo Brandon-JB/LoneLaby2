@@ -10,7 +10,7 @@ public class DarknessManager : MonoBehaviour
     public float ChangeTime = 30f;
     public float timer = 0f;
 
-    private int currentIndex = 0;
+    //private int currentIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class DarknessManager : MonoBehaviour
 
         if(InputManager.magicPressed)
         {
-            currentIndex = 0;
+            //currentIndex = 0;
             timer = 0f;
             DarknessImage.DOKill();
             DarknessImage.DOFade(0, 1f).OnComplete(() =>
