@@ -10,12 +10,14 @@ public class Drops : MonoBehaviour
     private Animator animator;
 
     [SerializeField] private GameOverAndUI UIHandler;
+    [SerializeField] private UIOnGameObject uiongame;
 
     private void Awake()
     {
         //spriteRenderer = GetComponent<SpriteRenderer>();
         UIHandler = FindObjectOfType<GameOverAndUI>();
         animator = GetComponent<Animator>();
+        uiongame = GetComponent<UIOnGameObject>();
     }
 
     public void SetUpItem(string lName, string enemyName)
@@ -92,9 +94,7 @@ public class Drops : MonoBehaviour
                 break;
             case "Item":
                 //Debug.Log("Item");
-
-                UIHandler.OpenItemMenu(itemName);
-
+                UIHandler.OpenItemMenu(itemName, uiongame.spawnUiOnGameObject(itemName));
                 break;
         }
     }

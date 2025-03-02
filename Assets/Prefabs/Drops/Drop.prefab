@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8016368929994148354}
   - component: {fileID: 8641818749216278367}
   - component: {fileID: 2838635861072921477}
+  - component: {fileID: 3581821966239814871}
   m_Layer: 0
   m_Name: Drop
   m_TagString: Drop
@@ -100,7 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropName: 
-  spriteRenderer: {fileID: 8576978854636383028}
+  itemName: 
+  UIHandler: {fileID: 0}
+  uiongame: {fileID: 3581821966239814871}
 --- !u!61 &8641818749216278367
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +150,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3581821966239814871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155707023862539881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87dac54ce9de4264fbf073ce4c814454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiCanvas: {fileID: 0}
+  items:
+  - {fileID: 21300000, guid: 0c8b9a4dad550c14c9de77c3312c6fa5, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  targetPos: {fileID: 0}

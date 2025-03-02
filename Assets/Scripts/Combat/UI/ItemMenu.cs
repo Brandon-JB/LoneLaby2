@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ItemMenu : MonoBehaviour
 {
@@ -16,31 +17,50 @@ public class ItemMenu : MonoBehaviour
     [SerializeField] private TMP_Text itemText;
     [SerializeField] private TMP_Text itemDescription;
 
+    //For Movement
+
+    [SerializeField] private Transform infoHolder;
+    [SerializeField] private Transform[] locations;
+
+    [SerializeField] private CanvasGroup itemHolder;
+
     public void CloseMenu()
     {
         Time.timeScale = 1f;
-        menu.SetActive(false);
+        infoHolder.DOMove(locations[1].position, 1f);
+        itemHolder.DOFade(0, 1f).OnComplete(() =>
+        {
+            menu.SetActive(false);
+        });
     }
 
     public void ChangeTextAndSprite(string dropName)
     {
+        //Commented out the lines about assigning the image, will add back later
+
         switch (dropName)
         {
             case "ATKRing":
                 itemText.text = "Gained a new Ring!";
-                itemImage.sprite = items[0];
-                itemDescription.text = "Plcaeholder";
+                //itemImage.sprite = items[0];
+                itemDescription.text = "When worn, increases the wearer's attack by 25.";
                 break;
             case "MPRing":
                 itemText.text = "Gained a new Ring!";
-                itemImage.sprite = items[1];
-                itemDescription.text = "Plcaeholder";
+                //itemImage.sprite = items[1];
+                itemDescription.text = "When worn, increases the wearer's Mana by 25.";
                 break;
             case "HPRing":
                 itemText.text = "Gained a new Ring!";
-                itemImage.sprite = items[2];
-                itemDescription.text = "Plcaeholder";
+                //itemImage.sprite = items[2];
+                itemDescription.text = "When worn, increases the wearer's HP by 50.";
                 break;
         }
+    }
+
+    private void OnEnable()
+    {
+        infoHolder.DOMove(locations[0].position,1f);
+        itemHolder.DOFade(1, 1.25f);
     }
 }
