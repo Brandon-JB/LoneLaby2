@@ -68,7 +68,7 @@ public class PlayerActions : MonoBehaviour
 
 
         //Attacking
-        if (InputManager.attackPressed)
+        if (InputManager.attackPressed )
         {
             //Debug.Log("Reading G Input");
 
@@ -104,7 +104,7 @@ public class PlayerActions : MonoBehaviour
         }
 
         //Parrying
-        if (InputManager.parryPressed && leoraChar.parryCooldown.isCoolingDown == false)
+        if (InputManager.parryPressed && leoraChar.parryCooldown.isCoolingDown == false && leoraChar.animator.GetBool("Hurt") == false)
         {
             leoraChar.TriggerParryAnim();
         }

@@ -52,6 +52,7 @@ public class BaseChar : MonoBehaviour
     private float strength = 25f;
 
     [SerializeField] private GameObject hitboxChild = null;
+    [SerializeField] private HitboxChar hbChildScript;
 
     [SerializeField] private Transform damagePopup;
     
@@ -59,10 +60,10 @@ public class BaseChar : MonoBehaviour
 
 
     [Header("Parrying")]
-    [SerializeField] private bool isParrying;
-    [SerializeField] private bool isPerfectParrying;
+    public bool isParrying;
+    public bool isPerfectParrying;
 
-    [SerializeField] private GameObject testParrySignal;
+    public GameObject testParrySignal;
     [SerializeField] private SpriteRenderer testParrySprite;
     [SerializeField] public Cooldown parryCooldown = new Cooldown();
 
@@ -184,6 +185,7 @@ public class BaseChar : MonoBehaviour
 
         if (allied)
         {
+            testParrySignal.SetActive(false);
             animator.SetBool("Parrying", false);
             animator.SetBool("Magicing", false);
             animator.SetBool("isInCombo", false);
@@ -193,6 +195,11 @@ public class BaseChar : MonoBehaviour
     public void StopHurtAnim()
     {
         animator.SetBool("Hurt", false);
+
+        if (allied)
+        {
+            testParrySignal.SetActive(false);
+        }
     }
 
     private bool isAttacking()
@@ -257,12 +264,16 @@ public class BaseChar : MonoBehaviour
 
     public void EnableHitbox()
     {
-        hitboxChild.SetActive(true);
+        if (hbChildScript.alreadyHit == false)
+        {
+            hitboxChild.SetActive(true);
+        }
     }
 
     public void DisableHitbox()
     {
         hitboxChild.SetActive(false);
+        hbChildScript.alreadyHit = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -296,8 +307,9 @@ public class BaseChar : MonoBehaviour
 
                 if (otherCharTrigger != null)
                 {
-                    if (otherCharTrigger.allied != this.allied)
+                    if (otherCharTrigger.allied != this.allied || otherCharTrigger.charName == "EarthElement")
                     {
+                        hitboxChild.alreadyHit = true;
                         collision.gameObject.SetActive(false);
 
                         int incomingDamage = otherCharTrigger.statsSheet["Strength"] - statsSheet["Defense"];
@@ -344,7 +356,7 @@ public class BaseChar : MonoBehaviour
                 {
                     Drops drop = collision.GetComponent<Drops>();
 
-                    Debug.Log(drop.dropName + " Obtained");
+                    //Debug.Log(drop.dropName + " Obtained");
 
                     drop.WhatItemDo(this);
 

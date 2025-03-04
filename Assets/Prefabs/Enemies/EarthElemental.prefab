@@ -207,6 +207,7 @@ MonoBehaviour:
   parentChar: {fileID: 6116129534614110795}
   type: Explody
   isParryable: 0
+  alreadyHit: 0
 --- !u!58 &39411715387776095
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -349,6 +350,7 @@ MonoBehaviour:
   charRB: {fileID: 0}
   knockbackDirection: {x: 0, y: 0}
   hitboxChild: {fileID: 5767441807547043229}
+  hbChildScript: {fileID: 6128468894897992982}
   damagePopup: {fileID: 3844901903003089880, guid: dbf6cc6177486f8448488a9f7d1e143f, type: 3}
   isParrying: 0
   isPerfectParrying: 0

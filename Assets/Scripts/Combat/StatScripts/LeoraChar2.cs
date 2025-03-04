@@ -71,6 +71,9 @@ public class LeoraChar2 : BaseChar
         playerMovement.canMove = false;
         animator.SetBool("Death", true);
         gameOverManager.FadeOutUI();
+        testParrySignal.SetActive(false);
+        isParrying = false;
+        isPerfectParrying = false;
     }
 
     public void GameOver()

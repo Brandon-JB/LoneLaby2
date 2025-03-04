@@ -233,6 +233,7 @@ MonoBehaviour:
   parentChar: {fileID: 2032490484906467798}
   type: Stabby
   isParryable: 1
+  alreadyHit: 0
 --- !u!1 &7487041304306391988
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +355,7 @@ MonoBehaviour:
   charRB: {fileID: 0}
   knockbackDirection: {x: 0, y: 0}
   hitboxChild: {fileID: 5767441807547043229}
+  hbChildScript: {fileID: 6128468894897992982}
   damagePopup: {fileID: 3844901903003089880, guid: dbf6cc6177486f8448488a9f7d1e143f, type: 3}
   isParrying: 0
   isPerfectParrying: 0

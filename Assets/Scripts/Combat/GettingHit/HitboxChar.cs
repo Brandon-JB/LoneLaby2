@@ -10,4 +10,6 @@ public class HitboxChar : MonoBehaviour
 
     public bool isParryable = true;
 
+    public bool alreadyHit = false;
+
 }
