@@ -276,7 +276,7 @@ public class BaseChar : MonoBehaviour
         hbChildScript.alreadyHit = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (this.tag != "Hitbox" && this.tag == "Enemy" || this.tag == "Player")
         {
