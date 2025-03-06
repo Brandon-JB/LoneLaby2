@@ -8,7 +8,9 @@ public class PortalScript : MonoBehaviour
     //set #'s for each portal
     public static int whereGo;
     public static int LastPortal = 0;
-    // 1 = City, 2 = Cave, 3 = Mansion, 4 = Forest, 5 = Church
+
+    public LevelLoader LevelLoader;
+    // 1 = City, 2 = Cave, 3 = Mansion, 4 = Forest, 5 = Church, 6 = Overworld
     
     // Start is called before the first frame update
     void Start()
@@ -31,34 +33,40 @@ public class PortalScript : MonoBehaviour
         else if (name == "Exit")
         {
             SceneManager.LoadScene("Overworld");
+            whereGo = 6;
         }
         else if (name == "Church")
         {
             //send to church
             LastPortal = 5;
+            whereGo = 5;
         }
         else if (name == "CityPortal")
         {
-            SceneManager.LoadScene("NoCombatAreas");
+            LevelLoader.LoadNextLevel();
             LastPortal = 1;
+            whereGo = 1;
         }
         else if (name == "CavePortal")
         {
-            SceneManager.LoadScene("CombatMaps");
+            LevelLoader.LoadNextLevel();
             //set var for where to go here
             LastPortal = 2;
+            whereGo = 2;
         }
         else if (name == "MansionPortal")
         {
-            SceneManager.LoadScene("CombatMansion");
+            LevelLoader.LoadNextLevel();
             //set var for where to go here
             LastPortal = 3;
+            whereGo = 3;
         }
         else if (name == "ForestPortal")
         {
-            SceneManager.LoadScene("CombatForest");
+            LevelLoader.LoadNextLevel();
             //set var for where to go here
             LastPortal = 4;
+            whereGo = 4;
         }
     }
 }
