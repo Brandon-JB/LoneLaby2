@@ -9,19 +9,39 @@ public class LucanScript : EnemyScript
 
     [SerializeField] private Cooldown dashCooldown;
 
+    private bool isDashing;
+
+    public BoxCollider2D hurtbox;
+
+    private Vector2 dashTarget;
+
+    [SerializeField] private Cooldown timeBetweenDashes;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        isDashing = false;
     }
 
     //Have the ai walk around normally and do the mace swing while periodically doing the charge attack. As the boss's health gets lower, they do the charge attack more often
     //until they are eventually doing it nearly every attack.
 
+    public void DisableHurtbox()
+    {
+        hurtbox.enabled = false;
+        enemyChar.animator.SetBool("inDash", true);
+    }
+
+    public void EnableHurtbox()
+    {
+        hurtbox.enabled = true;
+        enemyChar.animator.SetBool("inDash", false);
+    }
+
     public override void Update()
     {
 
-        if (DistanceFromPlayer > followRange)
+        if (DistanceFromPlayer > followRange || DistanceFromPlayer < attackRange || isDashing)
         {
             enemyChar.animator.SetBool("isMoving", false);
         }
@@ -37,25 +57,42 @@ public class LucanScript : EnemyScript
 
         //Debug.Log("Enemy is existing");
 
+        if (isDashing && enemyChar.animator.GetBool("inDash"))
+        {
+            if (!timeBetweenDashes.isCoolingDown)
+            {
+                //CONTINUE WORK HERE
+            }
+        }
+
+
         //Movement
         if (canMove == true)
         {
-            if (!dashCooldown.isCoolingDown)
+            if (!dashCooldown.isCoolingDown && !isDashing)
             {
                 dashCooldown.StartCooldown();
 
                 //Coin flip on whether lucan will dash
                 if (Random.Range(0, 2) == 0)
                 {
+                    isDashing = true;
+
+                    enemyChar.animator.SetBool("shieldRush", true);
+
                     //Lucan goes to the left side
                     if (Random.Range(0, 2) == 0)
                     {
-                        //this.transform.position = new Vector3(bottomLeftArenaBounds.x, Player.transform.position.y, 0);
+                        //Setting dash animation and marking the side he dashes to
+                        enemyChar.animator.SetFloat("moveX", -1);
+                        dashTarget = new Vector2(bottomLeftArenaBounds.x, this.transform.position.y);
                     }
                     //Lucan goes to the right side
                     else
                     {
-                        //this.transform.position = new Vector3(topRightArenaBounds.x, Player.transform.position.y, 0);
+                        //Setting dash animation and marking the side he dashes to
+                        enemyChar.animator.SetFloat("moveX", 1);
+                        dashTarget = new Vector2(topRightArenaBounds.x, this.transform.position.y);
                     }
                 }
                 else
@@ -67,7 +104,7 @@ public class LucanScript : EnemyScript
             enemyRB.velocity = Vector2.zero;
 
             DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
-            if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange) /*&& (PlayerController.isfrozen == false)*/)
+            if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange) /*&& (PlayerController.isfrozen == false)*/ && !isDashing)
             {
                 enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);
 
@@ -112,6 +149,8 @@ public class LucanScript : EnemyScript
             //Attacking
             else if (DistanceFromPlayer <= attackRange)
             {
+                
+
                 if (cooldown.isCoolingDown) return;
 
                 canMove = false;

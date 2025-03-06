@@ -112,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5767441807547043229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2, y: -0.41, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.51, z: 0}
   m_LocalScale: {x: 1.07, y: 1.07, z: 1.07}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -390,7 +390,10 @@ MonoBehaviour:
   followRange: 20
   moveSpeed: 4
   cooldown:
-    cooldownTime: 1
+    cooldownTime: 1.5
   canMove: 1
+  bottomLeftArenaBounds: {x: 0, y: 0, z: 0}
+  topRightArenaBounds: {x: 0, y: 0, z: 0}
   dashCooldown:
     cooldownTime: 5
+  hurtbox: {fileID: 7487041304306391989}
