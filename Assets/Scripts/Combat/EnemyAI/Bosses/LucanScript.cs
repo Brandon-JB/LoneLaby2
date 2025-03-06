@@ -17,6 +17,8 @@ public class LucanScript : EnemyScript
 
     [SerializeField] private Cooldown timeBetweenDashes;
 
+    public Cooldown specialStunTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,12 +32,26 @@ public class LucanScript : EnemyScript
     {
         hurtbox.enabled = false;
         enemyChar.animator.SetBool("inDash", true);
+        enemyChar.animator.SetBool("shieldRush", false);
     }
 
     public void EnableHurtbox()
     {
         hurtbox.enabled = true;
         enemyChar.animator.SetBool("inDash", false);
+    }
+
+    public void TriggerStunAnimation()
+    {
+        isDashing = false;
+        EnableHurtbox();
+        enemyChar.animator.SetBool("stunned", true);
+        enemyChar.StopAttackAnim();
+    }
+    
+    public void StopStunAnimation()
+    {
+        enemyChar.animator.SetBool("stunned", false);
     }
 
     public override void Update()
@@ -46,7 +62,7 @@ public class LucanScript : EnemyScript
             enemyChar.animator.SetBool("isMoving", false);
         }
 
-        if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false)
+        if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false && !specialStunTimer.isCoolingDown)
         {
             canMove = true;
         }
@@ -55,13 +71,40 @@ public class LucanScript : EnemyScript
             canMove = false;
         }
 
+        if (!specialStunTimer.isCoolingDown)
+        {
+            enemyChar.animator.SetBool("stunned", false);
+        }
+
         //Debug.Log("Enemy is existing");
 
         if (isDashing && enemyChar.animator.GetBool("inDash"))
         {
             if (!timeBetweenDashes.isCoolingDown)
             {
-                //CONTINUE WORK HERE
+                //If Lucan hasn't reached is target yet
+                if (Vector3.Distance(enemyRB.transform.position, dashTarget) > 1)
+                {
+                    enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, dashTarget, moveSpeed * 10 * Time.deltaTime);
+                }
+                else
+                {
+                    timeBetweenDashes.StartCooldown();
+
+                    enemyChar.ResetHitbox();
+
+                    this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
+                    
+                    //IIf the enemy is closer to the left side of arena than the right side.
+                    if (Vector3.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector3.Distance(enemyRB.transform.position, topRightArenaBounds))
+                    {
+                        dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
+                    }
+                    else
+                    {
+                        dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
+                    }
+                }
             }
         }
 

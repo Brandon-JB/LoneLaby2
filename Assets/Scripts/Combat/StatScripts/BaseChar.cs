@@ -31,7 +31,7 @@ public class BaseChar : MonoBehaviour
         statsSheet["MaxMana"] = MP;
     }
 
-    protected string charName = "";
+    public string charName = "";
 
     public bool allied = true;
 
@@ -273,6 +273,11 @@ public class BaseChar : MonoBehaviour
     public void DisableHitbox()
     {
         hitboxChild.SetActive(false);
+        ResetHitbox();
+    }
+
+    public void ResetHitbox()
+    {
         hbChildScript.alreadyHit = false;
     }
 
@@ -314,6 +319,10 @@ public class BaseChar : MonoBehaviour
 
                         int incomingDamage = otherCharTrigger.statsSheet["Strength"] - statsSheet["Defense"];
 
+                        GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                        TriggerHurtAnim();
+
+                        /* Parrying moved to Leora
                         if (hitboxChild.isParryable)
                         {
                             if (isPerfectParrying)
@@ -345,7 +354,7 @@ public class BaseChar : MonoBehaviour
                         {
                             GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
                             TriggerHurtAnim();
-                        }
+                        }*/
                     }
                 }
             }
