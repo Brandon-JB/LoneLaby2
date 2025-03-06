@@ -51,9 +51,139 @@ public class LeoraChar2 : BaseChar
         {
             animator.SetBool("isInCombo", false);
         }
-
-        
     }
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (this.tag != "Hitbox" && this.tag == "Enemy" || this.tag == "Player")
+        {
+            BaseChar otherCharTrigger = null;
+
+            HitboxChar hitboxChild = null;
+
+            //Debug.Log(collision.gameObject.name + " Triggered " + this.gameObject.name);
+
+            if (collision.tag == "Hitbox")
+            {
+                otherCharTrigger = collision.GetComponent<BaseChar>();
+
+                //Debug.Log("Hitbox triggered");
+
+                if (otherCharTrigger == null)
+                {
+                    //Debug.Log("Other trigger not found");
+
+                    hitboxChild = collision.GetComponent<HitboxChar>();
+                    otherCharTrigger = hitboxChild.parentChar;
+
+                    if (otherCharTrigger == null)
+                    {
+                        //Debug.Log("Unable to find parent character of hitbox");
+                    }
+                }
+
+                if (otherCharTrigger != null)
+                {
+                    if (otherCharTrigger.allied != this.allied)
+                    {
+                        hitboxChild.alreadyHit = true;
+                        collision.gameObject.SetActive(false);
+
+                        int incomingDamage = otherCharTrigger.statsSheet["Strength"] - statsSheet["Defense"];
+
+                        if (hitboxChild.isParryable)
+                        {
+                            //If the player parried anything other than a boss
+                            if (otherCharTrigger.charName != "Lucan")
+                            {
+                                if (isPerfectParrying)
+                                {
+                                    //Debug.Log("Perfect Parry");
+                                    GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
+                                    otherCharTrigger.TriggerHurtAnim();
+                                    //Debug.Log(otherCharTrigger.gameObject.name);
+                                    otherCharTrigger.stunTimer.cooldownTime = 2f;
+                                    otherCharTrigger.stunTimer.StartCooldown();
+                                    otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                                }
+                                else if (isParrying)
+                                {
+                                    //Debug.Log("Parry");
+                                    GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
+                                    otherCharTrigger.TriggerHurtAnim();
+                                    otherCharTrigger.stunTimer.cooldownTime = 1f;
+                                    otherCharTrigger.stunTimer.StartCooldown();
+                                    otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                                }
+                                else
+                                {
+                                    GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                                    TriggerHurtAnim();
+                                }
+                            }
+                            //if lucan got parried
+                            else if (otherCharTrigger.charName == "Lucan")
+                            {
+                                LucanScript lucanScript = otherCharTrigger.GetComponent<LucanScript>();
+
+                                //If lucan is dashing
+                                if (otherCharTrigger.animator.GetBool("inDash"))
+                                {
+                                    lucanScript.TriggerStunAnimation();
+                                    lucanScript.specialStunTimer.StartCooldown();
+                                }
+                                else
+                                {
+                                    if (isPerfectParrying)
+                                    {
+                                        //Debug.Log("Perfect Parry");
+                                        GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
+                                        //Debug.Log(otherCharTrigger.gameObject.name);
+                                        otherCharTrigger.stunTimer.cooldownTime = 1f;
+                                        otherCharTrigger.stunTimer.StartCooldown();
+                                        otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                                    }
+                                    else if (isParrying)
+                                    {
+                                        //Debug.Log("Parry");
+                                        GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
+                                        otherCharTrigger.stunTimer.cooldownTime = 0.5f;
+                                        otherCharTrigger.stunTimer.StartCooldown();
+                                        otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                                    }
+                                    else
+                                    {
+                                        GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                                        TriggerHurtAnim();
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                            TriggerHurtAnim();
+                        }
+                    }
+                }
+            }
+            //on walking into a drop
+            if (collision.tag == "Drop")
+            {
+                if (this.allied)
+                {
+                    Drops drop = collision.GetComponent<Drops>();
+
+                    //Debug.Log(drop.dropName + " Obtained");
+
+                    drop.WhatItemDo(this);
+
+                    Destroy(collision.gameObject);
+                }
+            }
+        }
+    }
+
 
     //A event to be called in the animator that starts both cooldownsa and preps the animator for whether the user continues the combo or not.
     public void StartComboTimer()

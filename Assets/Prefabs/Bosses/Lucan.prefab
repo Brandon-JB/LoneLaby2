@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f5b681d5b2bc1343b4bcd893c897697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charName: 
   allied: 1
   animator: {fileID: 0}
   healthBar: {fileID: 0}
@@ -392,8 +393,12 @@ MonoBehaviour:
   cooldown:
     cooldownTime: 1.5
   canMove: 1
-  bottomLeftArenaBounds: {x: 0, y: 0, z: 0}
-  topRightArenaBounds: {x: 0, y: 0, z: 0}
+  bottomLeftArenaBounds: {x: 60, y: 0, z: 0}
+  topRightArenaBounds: {x: 160, y: 0, z: 0}
   dashCooldown:
     cooldownTime: 5
   hurtbox: {fileID: 7487041304306391989}
+  timeBetweenDashes:
+    cooldownTime: 3
+  specialStunTimer:
+    cooldownTime: 5
