@@ -50,12 +50,12 @@ public class LucanScript : EnemyScript
                     //Lucan goes to the left side
                     if (Random.Range(0, 2) == 0)
                     {
-                        this.transform.position = new Vector3(bottomLeftArenaBounds.x, Player.transform.position.y, 0);
+                        //this.transform.position = new Vector3(bottomLeftArenaBounds.x, Player.transform.position.y, 0);
                     }
                     //Lucan goes to the right side
                     else
                     {
-                        this.transform.position = new Vector3(topRightArenaBounds.x, Player.transform.position.y, 0);
+                        //this.transform.position = new Vector3(topRightArenaBounds.x, Player.transform.position.y, 0);
                     }
                 }
                 else
