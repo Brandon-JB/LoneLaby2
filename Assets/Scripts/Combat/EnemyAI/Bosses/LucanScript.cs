@@ -37,6 +37,7 @@ public class LucanScript : EnemyScript
 
     public void EnableHurtbox()
     {
+        Debug.Log("Hurtbox active");
         hurtbox.enabled = true;
         enemyChar.animator.SetBool("inDash", false);
     }
@@ -44,6 +45,7 @@ public class LucanScript : EnemyScript
     public void TriggerStunAnimation()
     {
         isDashing = false;
+        enemyChar.SpawnParticle("stunFX", this.transform.position, this.transform, specialStunTimer.cooldownTime);
         EnableHurtbox();
         enemyChar.animator.SetBool("stunned", true);
         enemyChar.StopAttackAnim();
@@ -52,6 +54,7 @@ public class LucanScript : EnemyScript
     public void StopStunAnimation()
     {
         enemyChar.animator.SetBool("stunned", false);
+        timeBetweenDashes.StartCooldown();
     }
 
     public override void Update()
@@ -69,11 +72,6 @@ public class LucanScript : EnemyScript
         else// if (enemyChar.animator.GetBool("Hurt") == true)
         {
             canMove = false;
-        }
-
-        if (!specialStunTimer.isCoolingDown)
-        {
-            enemyChar.animator.SetBool("stunned", false);
         }
 
         //Debug.Log("Enemy is existing");
@@ -108,11 +106,21 @@ public class LucanScript : EnemyScript
             }
         }
 
+        if (enemyChar.animator.GetBool("stunned"))
+        {
+            dashCooldown.StartCooldown();
+
+            if (!specialStunTimer.isCoolingDown)
+            {
+                enemyChar.animator.SetBool("stunned", false);
+            }
+        }
+
 
         //Movement
         if (canMove == true)
         {
-            if (!dashCooldown.isCoolingDown && !isDashing)
+            if (!dashCooldown.isCoolingDown && !isDashing )
             {
                 dashCooldown.StartCooldown();
 

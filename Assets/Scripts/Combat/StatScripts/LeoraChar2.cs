@@ -126,15 +126,14 @@ public class LeoraChar2 : BaseChar
                             {
                                 LucanScript lucanScript = otherCharTrigger.GetComponent<LucanScript>();
 
-                                //If lucan is dashing
-                                if (otherCharTrigger.animator.GetBool("inDash"))
+                                if (isPerfectParrying)
                                 {
-                                    lucanScript.TriggerStunAnimation();
-                                    lucanScript.specialStunTimer.StartCooldown();
-                                }
-                                else
-                                {
-                                    if (isPerfectParrying)
+                                    if (otherCharTrigger.animator.GetBool("inDash"))
+                                    {
+                                        lucanScript.specialStunTimer.StartCooldown();
+                                        lucanScript.TriggerStunAnimation();
+                                    }
+                                    else
                                     {
                                         //Debug.Log("Perfect Parry");
                                         GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
@@ -143,7 +142,15 @@ public class LeoraChar2 : BaseChar
                                         otherCharTrigger.stunTimer.StartCooldown();
                                         otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                                     }
-                                    else if (isParrying)
+                                }
+                                else if (isParrying)
+                                {
+                                    if (otherCharTrigger.animator.GetBool("inDash"))
+                                    {
+                                        lucanScript.specialStunTimer.StartCooldown();
+                                        lucanScript.TriggerStunAnimation();
+                                    }
+                                    else
                                     {
                                         //Debug.Log("Parry");
                                         GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
@@ -151,12 +158,13 @@ public class LeoraChar2 : BaseChar
                                         otherCharTrigger.stunTimer.StartCooldown();
                                         otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                                     }
-                                    else
-                                    {
-                                        GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
-                                        TriggerHurtAnim();
-                                    }
                                 }
+                                else
+                                {
+                                    GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                                    TriggerHurtAnim();
+                                }
+                               
                             }
                         }
                         else

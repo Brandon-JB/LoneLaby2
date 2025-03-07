@@ -273,12 +273,13 @@ public class BaseChar : MonoBehaviour
     public void DisableHitbox()
     {
         hitboxChild.SetActive(false);
-        ResetHitbox();
+        hbChildScript.alreadyHit = false;
     }
 
     public void ResetHitbox()
     {
         hbChildScript.alreadyHit = false;
+        hitboxChild.SetActive(true);
     }
 
     public virtual void OnTriggerEnter2D(Collider2D collision)
