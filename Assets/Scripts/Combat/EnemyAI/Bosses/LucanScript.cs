@@ -7,22 +7,24 @@ public class LucanScript : EnemyScript
     [SerializeField] private Vector3 bottomLeftArenaBounds;
     [SerializeField] private Vector3 topRightArenaBounds;
 
+
+    [Header("Dashing")]
+
     [SerializeField] private Cooldown dashCooldown;
-
     private bool isDashing;
-
     public BoxCollider2D hurtbox;
-
     private Vector2 dashTarget;
-
     [SerializeField] private Cooldown timeBetweenDashes;
-
     public Cooldown specialStunTimer;
+
+    [SerializeField] private int dashCount;
+    [SerializeField] private int dashLimit = 4;
 
     // Start is called before the first frame update
     void Start()
     {
         isDashing = false;
+        dashCount = 0;
     }
 
     //Have the ai walk around normally and do the mace swing while periodically doing the charge attack. As the boss's health gets lower, they do the charge attack more often
@@ -37,7 +39,7 @@ public class LucanScript : EnemyScript
 
     public void EnableHurtbox()
     {
-        Debug.Log("Hurtbox active");
+        //Debug.Log("Hurtbox active");
         hurtbox.enabled = true;
         enemyChar.animator.SetBool("inDash", false);
     }
@@ -45,6 +47,7 @@ public class LucanScript : EnemyScript
     public void TriggerStunAnimation()
     {
         isDashing = false;
+        enemyChar.DisableHitbox();
         enemyChar.SpawnParticle("stunFX", this.transform.position, this.transform, specialStunTimer.cooldownTime);
         EnableHurtbox();
         enemyChar.animator.SetBool("stunned", true);
@@ -87,20 +90,46 @@ public class LucanScript : EnemyScript
                 }
                 else
                 {
-                    timeBetweenDashes.StartCooldown();
-
-                    enemyChar.ResetHitbox();
-
-                    this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
-                    
-                    //IIf the enemy is closer to the left side of arena than the right side.
-                    if (Vector3.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector3.Distance(enemyRB.transform.position, topRightArenaBounds))
+                    //If lucan has dashed less than 4 times
+                    if (dashCount < dashLimit)
                     {
-                        dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
+                        dashCount++;
+                        timeBetweenDashes.StartCooldown();
+
+                        enemyChar.ResetHitbox();
+
+                        this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
+
+                        //IIf the enemy is closer to the left side of arena than the right side.
+                        if (Vector3.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector3.Distance(enemyRB.transform.position, topRightArenaBounds))
+                        {
+                            dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
+                        }
+                        else
+                        {
+                            dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
+                        }
                     }
-                    else
+                    //Final Dash
+                    else if (dashCount == dashLimit)
                     {
-                        dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
+                        dashCount++;
+
+                        enemyChar.ResetHitbox();
+
+                        this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
+
+                        dashTarget = new Vector2((topRightArenaBounds.x + bottomLeftArenaBounds.x) / 2, Player.transform.position.y);
+                    }
+                    //Reach middle
+                    else if (dashCount > dashLimit)
+                    {
+                        dashCount = 0;
+
+                        isDashing = false;
+                        enemyChar.DisableHitbox();
+                        EnableHurtbox();
+                        enemyChar.StopAttackAnim();
                     }
                 }
             }
