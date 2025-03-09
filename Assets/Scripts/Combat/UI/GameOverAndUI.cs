@@ -7,6 +7,8 @@ using DG.Tweening;
 
 public class GameOverAndUI : MonoBehaviour
 {
+
+    [SerializeField] private HueShiftManager hsm; // For making the hue change of the bg
     [SerializeField] private GameObject gameplayHUD;
     [SerializeField] private GameObject gameOverHUD;
     [SerializeField] private CanvasGroup battleUI;
@@ -42,6 +44,12 @@ public class GameOverAndUI : MonoBehaviour
             });
         });
 
+    }
+
+    //Yes yes I know this just calls another function from another script but the battle character has too much going on and this is easier
+    public void StartGameOverHueShift()
+    {
+        hsm.StartHueTransitionSingle();
     }
 
     public void Continue()

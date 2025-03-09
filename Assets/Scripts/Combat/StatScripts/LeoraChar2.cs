@@ -212,6 +212,7 @@ public class LeoraChar2 : BaseChar
         testParrySignal.SetActive(false);
         isParrying = false;
         isPerfectParrying = false;
+        gameOverManager.StartGameOverHueShift();
     }
 
     public void GameOver()
