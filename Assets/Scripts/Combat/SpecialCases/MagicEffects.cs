@@ -17,7 +17,7 @@ public class MagicEffects : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "Hitbox" && collision.tag == "Enemy")
+        if (collision.tag != "Hitbox" && ( collision.tag == "Enemy" || collision.tag == "Boss" ))
         {
             enemyChar = collision.GetComponent<BaseChar>();
 
@@ -28,7 +28,7 @@ public class MagicEffects : MonoBehaviour
             {
                 //Debug.Log(collision.gameObject.name);
 
-                if (!enemyChar.allied)
+                if (!enemyChar.allied || collision.tag != "Boss")
                 {
                     enemyChar.stunTimer.cooldownTime = 4;
                     enemyChar.stunTimer.StartCooldown();
