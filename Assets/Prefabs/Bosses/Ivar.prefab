@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 8
-  m_Sprite: {fileID: 948815658, guid: e76dab2706389884f941e77c0e017d08, type: 3}
+  m_Sprite: {fileID: -1646112280, guid: 89e91a951508b854393943eadfbd71a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -94,9 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 906857317157580716}
   - component: {fileID: 6602419153568630577}
-  - component: {fileID: 1182711839797723848}
   - component: {fileID: 3872004712941919820}
   - component: {fileID: 6128468894897992982}
+  - component: {fileID: 1121853375675676074}
   m_Layer: 7
   m_Name: Hitbox
   m_TagString: Hitbox
@@ -112,8 +112,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5767441807547043229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -0.51, z: 0}
-  m_LocalScale: {x: 1.07, y: 1.07, z: 1.07}
+  m_LocalPosition: {x: -0.07, y: -0.09, z: 0}
+  m_LocalScale: {x: 4.3988776, y: 4.3988776, z: 4.3988776}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7487041304306391987}
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: -1646342453
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.14921284, g: 1, b: 0, a: 0.4117647}
   m_FlipX: 0
   m_FlipY: 0
@@ -171,32 +171,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1182711839797723848
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5767441807547043229}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &3872004712941919820
 Rigidbody2D:
   serializedVersion: 4
@@ -230,10 +204,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9def736d89328164598b45ea26b0689e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentChar: {fileID: 6845481318518674274}
-  type: Dark
-  isParryable: 1
+  parentChar: {fileID: 0}
+  type: Blood
+  isParryable: 0
   alreadyHit: 0
+--- !u!58 &1121853375675676074
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767441807547043229}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &7487041304306391988
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,11 +236,10 @@ GameObject:
   - component: {fileID: 7487041304306391989}
   - component: {fileID: 7487041304306391985}
   - component: {fileID: 6549770698280233058}
-  - component: {fileID: 6845481318518674274}
-  - component: {fileID: 4162863000404215161}
+  - component: {fileID: 572614739619670666}
   m_Layer: 7
-  m_Name: Lucan
-  m_TagString: Boss
+  m_Name: Ivar
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,7 +297,7 @@ Animator:
   m_GameObject: {fileID: 7487041304306391988}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3c6f78207500bbc4089e123ceaf7bc57, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6cef383aa79256e4ab4df34ee4dfb962, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -339,7 +328,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &6845481318518674274
+--- !u!114 &572614739619670666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -348,7 +337,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7487041304306391988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f5b681d5b2bc1343b4bcd893c897697, type: 3}
+  m_Script: {fileID: 11500000, guid: 009da24c1c194b14fa621931cd9be2ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   charName: 
@@ -372,35 +361,3 @@ MonoBehaviour:
   stunTimer:
     cooldownTime: 100
   particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
---- !u!114 &4162863000404215161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7487041304306391988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb62c7e58ce88d74599200f23898e4c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyChar: {fileID: 0}
-  PlayerRB: {fileID: 0}
-  Player: {fileID: 0}
-  attackRange: 2
-  followRange: 20
-  moveSpeed: 4
-  cooldown:
-    cooldownTime: 1.5
-  canMove: 1
-  bottomLeftArenaBounds: {x: 60, y: 0, z: 0}
-  topRightArenaBounds: {x: 160, y: 0, z: 0}
-  dashCooldown:
-    cooldownTime: 5
-  hurtbox: {fileID: 7487041304306391989}
-  timeBetweenDashes:
-    cooldownTime: 3
-  specialStunTimer:
-    cooldownTime: 5
-  dashCount: 0
-  dashLimit: 4

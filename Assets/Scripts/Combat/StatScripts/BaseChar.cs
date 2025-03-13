@@ -284,7 +284,7 @@ public class BaseChar : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (this.tag != "Hitbox" && this.tag == "Enemy" || this.tag == "Player")
+        if (this.tag != "Hitbox" && ( this.tag == "Enemy" || this.tag == "Boss" ) || this.tag == "Player")
         {
             BaseChar otherCharTrigger = null;
 
@@ -389,7 +389,10 @@ public class BaseChar : MonoBehaviour
             damPopScript.SetupInt(incomingDamage, "Damage");
             //Debug.Log(charName + " After damage health: " + GetHealth());
 
-            StartCoroutine(Knockback(otherAttacker, stMod));
+            if (this.tag != "Boss")
+            {
+                StartCoroutine(Knockback(otherAttacker, stMod));
+            }
 
             if (GetHealth() <= 0)
             {
@@ -417,7 +420,10 @@ public class BaseChar : MonoBehaviour
 
         if (!allied)
         {
-            enemyMovement.canMove = false;
+            if (enemyMovement != null)
+            {
+                enemyMovement.canMove = false;
+            }
             //Knockback strength is multiplied due to enemies having much more mass
             charRB.AddForce(knockbackDirection * ((stMod * strength) * 10000f), ForceMode2D.Impulse);
             //Debug.Log("Launch enemy");
@@ -436,8 +442,11 @@ public class BaseChar : MonoBehaviour
         {
             if (!allied)
             {
-                enemyMovement.cooldown.Interupted();
-                enemyMovement.canMove = true;
+                if (enemyMovement != null)
+                {
+                    enemyMovement.cooldown.Interupted();
+                    enemyMovement.canMove = true;
+                }
                 charRB.velocity = Vector3.zero;
             }
             else

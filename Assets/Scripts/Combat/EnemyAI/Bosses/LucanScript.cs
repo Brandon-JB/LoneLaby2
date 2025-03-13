@@ -20,6 +20,8 @@ public class LucanScript : EnemyScript
     [SerializeField] private int dashCount;
     [SerializeField] private int dashLimit = 4;
 
+    [SerializeField] private int dashSpeed = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,7 +88,7 @@ public class LucanScript : EnemyScript
                 //If Lucan hasn't reached is target yet
                 if (Vector3.Distance(enemyRB.transform.position, dashTarget) > 1)
                 {
-                    enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, dashTarget, moveSpeed * 10 * Time.deltaTime);
+                    enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, dashTarget, moveSpeed * dashSpeed * Time.deltaTime);
                 }
                 else
                 {
