@@ -26,5 +26,9 @@ public class CombatContact : MonoBehaviour
             combatPortals.TeleportPlayer(collision.name);
         }
 
+        if (collision.tag == "Chest" && InputManager.interactPressed == true)
+        {
+            //Open Chest
+        }
     }
 }
