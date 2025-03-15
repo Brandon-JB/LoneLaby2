@@ -15,6 +15,9 @@ public class pauseMenuManager : MonoBehaviour
     [SerializeField] private CanvasGroup equipTXT;
     [SerializeField] private CanvasGroup background;
 
+    [SerializeField] private CanvasGroup equipBack;
+    [SerializeField] private CanvasGroup questBack;
+
 
     [SerializeField] private Transform[] startLocations;
     [SerializeField] private Transform[] equipLocations;
@@ -36,6 +39,9 @@ public class pauseMenuManager : MonoBehaviour
         mainButtons.alpha = 0;
         mainButtons.gameObject.SetActive(true);
         mainButtons.DOFade(1, 1);
+
+        equipBack.gameObject.SetActive(false);
+        questBack.gameObject.SetActive(false);
     }
 
     public void goToQuests()
@@ -45,7 +51,12 @@ public class pauseMenuManager : MonoBehaviour
         equipMenu.DOMove(questsLocations[2].position, 1f);
         questsTXT.DOFade(1, 1);
 
-        mainButtons.DOFade(0, 0.5f).OnComplete(() => { mainButtons.gameObject.SetActive(false); });
+        mainButtons.DOFade(0, 0.5f).OnComplete(() => { 
+            mainButtons.gameObject.SetActive(false);
+            questBack.alpha = 0f;
+            questBack.gameObject.SetActive(true);
+            questBack.DOFade(1, 1f);
+        });
 
         leoraAnimator.SetTrigger("enterQuest");
     }
@@ -56,11 +67,19 @@ public class pauseMenuManager : MonoBehaviour
         questMenu.DOMove(equipLocations[2].position, 1f);
         equipTXT.DOFade(1, 1);
 
-        mainButtons.DOFade(0, 0.5f).OnComplete(() => { mainButtons.gameObject.SetActive(false); });
+        mainButtons.DOFade(0, 0.5f).OnComplete(() => { 
+            mainButtons.gameObject.SetActive(false);
+            equipBack.alpha = 0f;
+            equipBack.gameObject.SetActive(true);
+            equipBack.DOFade(1, 1f); });
 
         leoraAnimator.SetTrigger("enterEquip");
     }
 
+
+    /// <summary>
+    /// NOTE!! LATER CHANGE THIS DEPENDING ON WHERE THEY LAST WERE!!!
+    /// </summary>
     public void returnToCenter()
     {
         //Reset ALL spaces
@@ -74,8 +93,16 @@ public class pauseMenuManager : MonoBehaviour
 
         equipTXT.DOFade(0, 1);
         questsTXT.DOFade(0, 1);
-        leoraAnimator.SetTrigger("enterPause");
         ResetLeoraAnimator();
+        leoraAnimator.SetTrigger("enterPause");
+
+        equipBack.DOFade(0, 0.5f).OnComplete(() => {
+            equipBack.gameObject.SetActive(false);
+        });
+
+        questBack.DOFade(0, 0.5f).OnComplete(() => {
+            questBack.gameObject.SetActive(false);
+        });
     }
 
     public void seeSideQuests()
@@ -98,8 +125,6 @@ public class pauseMenuManager : MonoBehaviour
         leoraAnimator.ResetTrigger("exitQuest");
         leoraAnimator.ResetTrigger("exitEquip");
     }
-
-
 
     //Put Equipment UI Stuff here
 }
