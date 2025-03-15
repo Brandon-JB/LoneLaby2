@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpenPauseMenu : MonoBehaviour
 {
 
-    public static bool canOpenPause = false;
+    public static bool canOpenPause = true;
 
     [SerializeField] private GameObject quickPauseMenu;
     [SerializeField] private GameObject pauseMenuObject;
