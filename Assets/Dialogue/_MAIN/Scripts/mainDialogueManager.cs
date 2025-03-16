@@ -37,12 +37,12 @@ public class mainDialogueManager : MonoBehaviour
     // when loading something from resources, you dont specify the file extension
     //[SerializeField] private TextAsset fileName;
     public bool dialogueRunning = false; // Track if dialogue coroutine is running
-    private string fileName = "prologue";
+    //private string fileName = "prologue";
 
     private string currentlyRunningText = "";
 
     //Used for testing.
-    private bool testingDialogueRan = false;
+    //private bool testingDialogueRan = false;
 
     private void Start()
     {
@@ -60,11 +60,11 @@ public class mainDialogueManager : MonoBehaviour
     //Used for testing. Comment out for the actual game.
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && testingDialogueRan == false)
-        {
-            testingDialogueRan = true;
-            dialogueSTART("SaveConvo/floor2end_kn");
-        }
+        //if (Input.GetKeyDown(KeyCode.C) && testingDialogueRan == false)
+        //{
+        //    testingDialogueRan = true;
+        //    dialogueSTART("SaveConvo/floor2end_kn");
+        //}
     }
 
     //MUST PASS IN THE 
@@ -173,6 +173,13 @@ public class mainDialogueManager : MonoBehaviour
             //    firstSign.enabled = true;
             //}
             //for determining endings
+            switch (currentlyRunningText)
+            {
+                case "openingCutscene":
+                    fadeOut.DOFade(1, 3).OnComplete(() => { SceneManager.LoadScene("NoCombatAreas"); });
+                    break;
+            }
+
             //switch (currentlyRunningText) // if this is the end of a route
             //{
             //    case "end_genocide":// 0 = everyone dead
@@ -360,14 +367,14 @@ public class mainDialogueManager : MonoBehaviour
         //        }
         //        break;
         //}
-        //if (whichImage >= 0 && whichImage <= cutsceneScenes.Length)
-        //{
-        //    cutsceneScenes[whichImage].SetActive(true);
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("You need to pass in a number from 0 to " + cutsceneScenes.Length.ToString() + "for cutscenes! See _MainDialogueManager game object for the list of cutscenes.");
-        //}
+        if (whichImage >= 0 && whichImage <= cutsceneScenes.Length)
+        {
+            cutsceneScenes[whichImage].SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("You need to pass in a number from 0 to " + cutsceneScenes.Length.ToString() + "for cutscenes! See _MainDialogueManager game object for the list of cutscenes.");
+        }
 
     }
 }
