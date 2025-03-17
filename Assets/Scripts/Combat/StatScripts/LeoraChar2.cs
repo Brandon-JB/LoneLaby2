@@ -41,6 +41,8 @@ public class LeoraChar2 : BaseChar
         animator.SetFloat("LastV", -1);
 
         magHitbox.SetActive(false);
+
+        ChangeStats(14, 10, 4, 100, 10);
     }
 
 
@@ -241,7 +243,7 @@ public class LeoraChar2 : BaseChar
 
         magEffects.magicType = magicType;
 
-        SetMana(GetMana() - 1);
+        SetMana(GetMana() - 2);
     }
 
     public void EnableMagHitbox()
