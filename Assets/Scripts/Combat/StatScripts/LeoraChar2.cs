@@ -71,9 +71,14 @@ public class LeoraChar2 : BaseChar
 
                 if (otherCharTrigger == null)
                 {
-                    //Debug.Log("Other trigger not found");
-
                     hitboxChild = collision.GetComponent<HitboxChar>();
+
+                    if (hitboxChild == null)
+                    {
+                        hitboxChild = collision.GetComponentInParent<HitboxChar>();
+                        //Debug.Log("Child not found");
+                    }
+
                     otherCharTrigger = hitboxChild.parentChar;
 
                     if (otherCharTrigger == null)

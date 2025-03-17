@@ -7,6 +7,13 @@ public class EarthScript : EnemyScript
 
     private bool isActive = false;
 
+    [SerializeField] private GameObject warningField;
+
+    public void TriggerWarningSign()
+    {
+        warningField.SetActive(true);
+    }
+
     public void TurnActive()
     {
         isActive = true;

@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 7487041304306391985}
   - component: {fileID: 6549770698280233058}
   - component: {fileID: 572614739619670666}
+  - component: {fileID: 6457879087906451900}
   m_Layer: 7
   m_Name: Ivar
   m_TagString: Enemy
@@ -361,3 +362,28 @@ MonoBehaviour:
   stunTimer:
     cooldownTime: 100
   particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
+--- !u!114 &6457879087906451900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487041304306391988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c936f0030b5425a44aa25562c72f7c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ivarChar: {fileID: 572614739619670666}
+  Player: {fileID: 0}
+  bottomLeftArenaBounds: {x: 0, y: 0}
+  topRightArenaBounds: {x: 0, y: 0}
+  enemySpawnPosition: {x: 0, y: 0}
+  summonList:
+  - {fileID: 7487041304306391988, guid: cebb2edf026006e4d97a892264a625a9, type: 3}
+  - {fileID: 7487041304306391988, guid: b6d482f47d8988b42bee14473806e587, type: 3}
+  projectilePrefab: {fileID: 2865469907293863706, guid: 74a10ffa69ca86c45abfa7dcc0cc36a3, type: 3}
+  castingCooldown:
+    cooldownTime: 6
+  ivarRB: {fileID: 6549770698280233058}
+  moveSpeed: 3
