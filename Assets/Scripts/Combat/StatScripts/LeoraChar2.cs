@@ -45,6 +45,19 @@ public class LeoraChar2 : BaseChar
         ChangeStats(14, 10, 4, 100, 10);
     }
 
+    public override void TriggerHurtAnim()
+    {
+        base.TriggerHurtAnim();
+
+        DisableMagHitbox();
+    }
+
+    public override void StopHurtAnim()
+    {
+        base.StopHurtAnim();
+
+        DisableMagHitbox();
+    }
 
     public override void Update()
     {
@@ -254,6 +267,7 @@ public class LeoraChar2 : BaseChar
     public void DisableMagHitbox()
     {
         magHitbox.SetActive(false);
+        //Debug.Log("Disable mag hitbox");
     }
 
     public void EndMagick()

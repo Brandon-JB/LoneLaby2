@@ -177,7 +177,7 @@ public class BaseChar : MonoBehaviour
         animator.SetBool("Attacking", false);
     }
 
-    public void TriggerHurtAnim()
+    public virtual void TriggerHurtAnim()
     {
         animator.SetBool("Hurt", true);
         animator.SetBool("Attacking", false);
@@ -192,7 +192,7 @@ public class BaseChar : MonoBehaviour
         }
     }
 
-    public void StopHurtAnim()
+    public virtual void StopHurtAnim()
     {
         animator.SetBool("Hurt", false);
 

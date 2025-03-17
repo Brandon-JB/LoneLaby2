@@ -42,20 +42,35 @@ public class Drops : MonoBehaviour
         }
         else if (dropName == "Item")
         {
-            /*
+            
             switch(enemyName)
             {
                 case "Slime":
-                    animator.SetBool("ATKRing", true);
-                    itemName = "ATKRing";
+                    animator.SetBool("ATKHPRing", true);
+                    itemName = "ATKHPRing";
                     break;
                 case "EarthElement":
-                    animator.SetBool("MPRing", true);
-                    itemName = "MPRing";
+                    animator.SetBool("ATKRing", true);
+                    itemName = "AdvATKRing";
                     break;
                 case "TreeMimic":
+                    animator.SetBool("MPRing", true);
+                    itemName = "AdvMPRing";
                     break;
-            }*/
+                case "Sword":
+                    animator.SetBool("ATKMPRing", true);
+                    itemName = "ATKMPRing";
+                    break;
+                case "Spirit":
+                    animator.SetBool("HPRing", true);
+                    itemName = "AdvHPRing";
+                    break;
+                case "Shield":
+                    animator.SetBool("HPMPRing", true);
+                    itemName = "HPMPRing";
+                    break;
+            }
+            /*
             if (enemyName == "Slime" || enemyName == "Sword")
             {
                 animator.SetBool("ATKRing", true);
@@ -70,9 +85,7 @@ public class Drops : MonoBehaviour
             {
                 animator.SetBool("HPRing", true);
                 itemName = "HPRing";
-            }
-
-            //Insert other enemies when they get added
+            }*/
         }
     }
 

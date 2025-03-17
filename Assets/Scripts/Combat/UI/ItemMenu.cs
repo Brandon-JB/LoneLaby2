@@ -40,17 +40,17 @@ public class ItemMenu : MonoBehaviour
 
         switch (dropName)
         {
-            case "ATKRing":
+            case "AdvATKRing":
                 itemText.text = "Gained a new Ring!";
                 //itemImage.sprite = items[0];
                 itemDescription.text = "When worn, increases the wearer's attack by 25.";
                 break;
-            case "MPRing":
+            case "AdvMPRing":
                 itemText.text = "Gained a new Ring!";
                 //itemImage.sprite = items[1];
                 itemDescription.text = "When worn, increases the wearer's Mana by 25.";
                 break;
-            case "HPRing":
+            case "AdvHPRing":
                 itemText.text = "Gained a new Ring!";
                 //itemImage.sprite = items[2];
                 itemDescription.text = "When worn, increases the wearer's HP by 50.";

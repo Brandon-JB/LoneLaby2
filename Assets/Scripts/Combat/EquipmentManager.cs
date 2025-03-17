@@ -19,7 +19,10 @@ public class EquipmentManager : MonoBehaviour
         {"AdvMPRing", false },
         {"ATKRing", false },
         {"MPRing", false },
-        {"HPRing", false }
+        {"HPRing", false },
+        {"ATKMPRing", false },
+        {"HPMPRing", false },
+        {"ATKHPRing", false }
     };
 
     static public Dictionary<string, bool> amuletSlot = new Dictionary<string, bool>()
@@ -50,7 +53,10 @@ public class EquipmentManager : MonoBehaviour
         {"AdvMPRing", false },
         {"ATKRing", false },
         {"MPRing", false },
-        {"HPRing", false }
+        {"HPRing", false },
+        {"ATKMPRing", false },
+        {"HPMPRing", false },
+        {"ATKHPRing", false }
     };
 
     static public Dictionary<string, bool> ringSlot3 = new Dictionary<string, bool>()
@@ -60,7 +66,10 @@ public class EquipmentManager : MonoBehaviour
         {"AdvMPRing", false },
         {"ATKRing", false },
         {"MPRing", false },
-        {"HPRing", false }
+        {"HPRing", false },
+        {"ATKMPRing", false },
+        {"HPMPRing", false },
+        {"ATKHPRing", false }
     };
 
     static public Dictionary<string, bool> equippedRings = new Dictionary<string, bool>()
@@ -70,7 +79,10 @@ public class EquipmentManager : MonoBehaviour
         {"AdvMPRing", false },
         {"ATKRing", false },
         {"MPRing", false },
-        {"HPRing", false }
+        {"HPRing", false },
+        {"ATKMPRing", false },
+        {"HPMPRing", false },
+        {"ATKHPRing", false }
     };
 
     public void EquipAmulet(string amuletChosen)
