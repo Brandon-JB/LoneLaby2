@@ -17,7 +17,7 @@ public class IvarScript : MonoBehaviour
 
     [Header("Casting")]
     [SerializeField] private GameObject[] summonList;
-    private GameObject[] enemyList;
+    private GameObject[] enemyList = { };
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Cooldown castingCooldown;
 
@@ -53,31 +53,57 @@ public class IvarScript : MonoBehaviour
         }
 
         //Casting
-        if (castingCooldown.isCoolingDown == false)
+        if (castingCooldown.isCoolingDown == false && ivarChar.animator.GetBool("Casting") == false)
         {
-            castingCooldown.StartCooldown();
+            TriggerCastAnim();
+        }
+    }
 
-            int whichMove = 0;
+    private void TriggerCastAnim()
+    {
+        ivarChar.animator.SetBool("Casting", true);
+    }
 
-            //Limits the amount of enemies
-            if (enemyList.Count() <= 4)
-            {
-                whichMove = Random.Range(0, 2);
-            }
+    public void TriggerStunAnim()
+    {
+        ivarChar.animator.SetBool("Stunned", true);
+    }
 
-            switch (whichMove)
-            {
-                //Projectile
-                case 0:
-                    GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
-                    IvarProjectile projScript = projectile.GetComponent<IvarProjectile>();
-                    projScript.parentChar = this.ivarChar;
-                    break;
-                //Summoning
-                case 1:
-                    enemyList.Append(Instantiate(summonList[Random.Range(0, summonList.Count())], enemySpawnPosition, Quaternion.identity));
-                    break;
-            }
+    public void StopCastAnim()
+    {
+        castingCooldown.StartCooldown();
+        ivarChar.animator.SetBool("Casting", false);
+    }
+
+    public void StopStunAnim()
+    {
+        ivarChar.animator.SetBool("Stunned", false);
+    }
+
+    public void CastSpell()
+    {
+        castingCooldown.StartCooldown();
+
+        int whichMove = 0;
+
+        //Limits the amount of enemies
+        if (enemyList == null || enemyList.Count() <= 4)
+        {
+            whichMove = Random.Range(0, 2);
+        }
+
+        switch (whichMove)
+        {
+            //Projectile
+            case 0:
+                GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
+                IvarProjectile projScript = projectile.GetComponent<IvarProjectile>();
+                projScript.parentChar = this.ivarChar;
+                break;
+            //Summoning
+            case 1:
+                    enemyList.Append(Instantiate(summonList[Random.Range(0, summonList.Length)], enemySpawnPosition, Quaternion.identity));
+                break;
         }
     }
 }

@@ -15,7 +15,7 @@ public class SwordScript : EnemyScript
     {
         if (DistanceFromPlayer > followRange)
         {
-            enemyChar.animator.SetBool("isMoving", false);
+            //enemyChar.animator.SetBool("isMoving", false);
         }
 
         if (!cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false && enemyChar.stunTimer.isCoolingDown == false)

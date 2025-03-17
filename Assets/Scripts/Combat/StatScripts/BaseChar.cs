@@ -303,6 +303,7 @@ public class BaseChar : MonoBehaviour
                     //Debug.Log("Other trigger not found");
 
                     hitboxChild = collision.GetComponent<HitboxChar>();
+
                     otherCharTrigger = hitboxChild.parentChar;
 
                     if (otherCharTrigger == null)
