@@ -9,5 +9,7 @@ public class IvarChar : BaseChar
     {
         allied = false;
         charName = "Ivar";
+
+        ChangeStats(10, 0, 4, 100, 0);
     }
 }

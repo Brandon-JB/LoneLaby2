@@ -54,7 +54,7 @@ public class BaseChar : MonoBehaviour
     [SerializeField] private GameObject hitboxChild = null;
     [SerializeField] private HitboxChar hbChildScript;
 
-    [SerializeField] private Transform damagePopup;
+    [SerializeField] public Transform damagePopup;
     
 
 
@@ -358,20 +358,6 @@ public class BaseChar : MonoBehaviour
                             TriggerHurtAnim();
                         }*/
                     }
-                }
-            }
-            //on walking into a drop
-            if (collision.tag == "Drop")
-            {
-                if (this.allied)
-                {
-                    Drops drop = collision.GetComponent<Drops>();
-
-                    //Debug.Log(drop.dropName + " Obtained");
-
-                    drop.WhatItemDo(this);
-
-                    Destroy(collision.gameObject);
                 }
             }
         }

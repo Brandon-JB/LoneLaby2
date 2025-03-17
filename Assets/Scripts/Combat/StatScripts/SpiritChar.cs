@@ -9,5 +9,7 @@ public class SpiritChar : BaseChar
     {
         allied = false;
         charName = "Spirit";
+
+        ChangeStats(7, 0, 2, 60, 0);
     }
 }

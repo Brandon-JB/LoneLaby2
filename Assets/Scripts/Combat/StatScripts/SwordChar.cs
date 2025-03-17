@@ -10,5 +10,7 @@ public class SwordChar : BaseChar
     {
         charName = "Sword";
         allied = false;
+
+        ChangeStats(13, 0, 1, 40, 0);
     }
 }

@@ -183,16 +183,13 @@ public class LeoraChar2 : BaseChar
             //on walking into a drop
             if (collision.tag == "Drop")
             {
-                if (this.allied)
-                {
-                    Drops drop = collision.GetComponent<Drops>();
+                Drops drop = collision.GetComponent<Drops>();
 
-                    //Debug.Log(drop.dropName + " Obtained");
+                //Debug.Log(drop.dropName + " Obtained");
 
-                    drop.WhatItemDo(this);
+                drop.WhatItemDo(this);
 
-                    Destroy(collision.gameObject);
-                }
+                Destroy(collision.gameObject);
             }
         }
     }

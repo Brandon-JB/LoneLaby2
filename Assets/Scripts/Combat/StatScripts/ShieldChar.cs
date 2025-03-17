@@ -9,6 +9,8 @@ public class ShieldChar : BaseChar
     {
         charName = "Shield";
         allied = false;
+
+        ChangeStats(6, 0, 9, 35, 0);
     }
 
 }

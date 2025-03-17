@@ -9,5 +9,17 @@ public class EarthElementalChar : BaseChar
     {
         charName = "EarthElement";
         allied = false;
+
+        ChangeStats(20, 99999, 99999, 99999, 99999);
+    }
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Hitbox")
+        {
+            Transform damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+            DamagePopUp damPopScript = damagePopupTransform.GetComponent<DamagePopUp>();
+            damPopScript.SetupInt(0, "Damage");
+        }
     }
 }
