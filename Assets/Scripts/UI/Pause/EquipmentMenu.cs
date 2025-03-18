@@ -168,7 +168,7 @@ public class EquipmentMenu : MonoBehaviour
             {
                 //glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
 
-                Debug.Log("Glowing Ring is " + item);
+                //Debug.Log("Glowing Ring is " + item);
                 foreach (var ring in EquipmentManager.ringSlot1)
                 {
                     if (item == ring.Key && ring.Value == true)

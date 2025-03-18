@@ -15,7 +15,7 @@ public class EquipmentManager : MonoBehaviour
         {"KisaAmulet", false },
         {"SophieAmulet", false },
         {"AdvATKRing", false },
-        {"AdvHPRing", false },
+        {"AdvHPRing", true },
         {"AdvMPRing", true },
         {"ATKRing", true },
         {"MPRing", true },
@@ -72,6 +72,13 @@ public class EquipmentManager : MonoBehaviour
     };
 
     private List<string> itemsToUnEquip = new List<string>();
+
+    private LeoraChar2 leoraChar;
+
+    private void Start()
+    {
+        leoraChar = GameObject.Find("CombatPlayer").GetComponent<LeoraChar2>();
+    }
 
     public void EquipAmulet(string amuletChosen, bool isUnequipping = false)
     {
@@ -137,6 +144,7 @@ public class EquipmentManager : MonoBehaviour
             for (int i = 0; i < itemsToUnEquip.Count; i++)
             {
                 //Debug.Log(itemsToUnEquip[i]);
+                RemoveRingBonus(itemsToUnEquip[i]);
                 ringSlot1[itemsToUnEquip[i]] = false;
                 equippedRings[itemsToUnEquip[i]] = false;
             }
@@ -150,6 +158,7 @@ public class EquipmentManager : MonoBehaviour
         //equipping the ring
         if (!isUnequipping)
         {
+            ApplyRingBonus(ringChosen);
             ringSlot1[ringChosen] = true;
             equippedRings[ringChosen] = true;
 
@@ -184,6 +193,7 @@ public class EquipmentManager : MonoBehaviour
             for (int i = 0; i < itemsToUnEquip.Count; i++)
             {
                 //Debug.Log(itemsToUnEquip[i]);
+                RemoveRingBonus(itemsToUnEquip[i]);
                 ringSlot2[itemsToUnEquip[i]] = false;
                 equippedRings[itemsToUnEquip[i]] = false;
             }
@@ -197,6 +207,7 @@ public class EquipmentManager : MonoBehaviour
         //equipping the ring
         if (!isUnequipping)
         {
+            ApplyRingBonus(ringChosen);
             ringSlot2[ringChosen] = true;
             equippedRings[ringChosen] = true;
 
@@ -216,20 +227,78 @@ public class EquipmentManager : MonoBehaviour
 
     public void RemoveRingBonus(string ring)
     {
+        Dictionary<string, int> baseStatSheet = new Dictionary<string, int>(leoraChar.statsSheet);
+
         switch (ring)
         {
             case "AdvATKRing":
-
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 10);
+                break;
+            case "AdvHPRing":
+                leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] - 50);
+                break;
+            case "AdvMPRing":
+                leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] - 10);
+                break;
+            case "ATKRing":
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 5);
+                break;
+            case "MPRing":
+                leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] - 5);
+                break;
+            case "HPRing":
+                leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] - 25);
+                break;
+            case "ATKMPRing":
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 5);
+                leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] - 5);
+                break;
+            case "HPMPRing":
+                leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] - 25);
+                leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] - 5);
+                break;
+            case "ATKHPRing":
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 5);
+                leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] - 25);
                 break;
         }
     }
 
     public void ApplyRingBonus(string ring)
     {
+        Dictionary<string, int> baseStatSheet = new Dictionary<string, int>(leoraChar.statsSheet);
+
         switch (ring)
         {
             case "AdvATKRing":
-
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 10);
+                break;
+            case "AdvHPRing":
+                leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] + 50);
+                break;
+            case "AdvMPRing":
+                leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] + 10);
+                break;
+            case "ATKRing":
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 5);
+                break;
+            case "MPRing":
+                leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] + 5);
+                break;
+            case "HPRing":
+                leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] + 25);
+                break;
+            case "ATKMPRing":
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 5);
+                leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] + 5);
+                break;
+            case "HPMPRing":
+                leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] + 25);
+                leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] + 5);
+                break;
+            case "ATKHPRing":
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 5);
+                leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] + 25);
                 break;
         }
     }

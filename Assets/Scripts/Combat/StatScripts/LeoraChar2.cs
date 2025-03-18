@@ -34,6 +34,8 @@ public class LeoraChar2 : BaseChar
         charName = "Leora";
         allied = true;
 
+        ChangeStats(14, 10, 4, 100, 10);
+
         healthBar.text = GetHealth() + "/" + statsSheet["MaxHealth"];
         manaBar.text = GetMana() + "/" + statsSheet["MaxMana"];
 
@@ -42,7 +44,6 @@ public class LeoraChar2 : BaseChar
 
         magHitbox.SetActive(false);
 
-        ChangeStats(14, 10, 4, 100, 10);
     }
 
     public override void TriggerHurtAnim()

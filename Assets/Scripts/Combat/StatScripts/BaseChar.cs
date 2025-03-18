@@ -31,6 +31,94 @@ public class BaseChar : MonoBehaviour
         statsSheet["MaxMana"] = MP;
     }
 
+    public void ChangeSpecificStat(string stat, int newValue)
+    {
+        bool atMaxHealth = false;
+        bool atMaxMana = false;
+        float statPercent = 0;
+
+        if (stat == "MaxHealth")
+        {
+            if (GetHealth() == GetMaxHealth())
+            {
+                atMaxHealth = true;
+            }
+            else
+            {
+                statPercent = (float)GetHealth() / (float)GetMaxHealth();
+            }
+        }
+
+        if (stat == "MaxMana")
+        {
+            if (GetMana() == GetMaxMana())
+            {
+                atMaxMana = true;
+            }
+            else
+            {
+                statPercent = (float)GetMana() / (float)GetMaxMana();
+            }
+        }
+
+        //if the stat being changed is not health for mana
+        if ((stat != "MaxHealth" && stat != "MaxMana") || (atMaxHealth || atMaxMana))
+        {
+            statsSheet[stat] = newValue;
+        }
+        else
+        {
+            //If the stat needs to be changed to a percentage of what it originally was
+            if (statPercent != 0)
+            {
+                statsSheet[stat] = newValue;
+
+                if (stat == "MaxHealth")
+                {
+                    //Only changes the players health to be a percentage of their max health if they lose max health while not being at max health
+                    if (statsSheet[stat] < GetHealth())
+                    {
+                        //Debug.Log("Stat percent: " + statPercent);
+                        statsSheet["Health"] = (int)((float)newValue * statPercent);
+                    }
+                }
+                else if (stat == "MaxMana")
+                {
+                    //Only changes the players health to be a percentage of their max mana if they lose max mana while not being at max mana
+                    if (statsSheet[stat] < GetMana())
+                    {
+                        statsSheet["Mana"] = (int)((float)newValue * statPercent);
+                    }
+                }
+            }
+        }
+
+
+        if (GetHealth() > GetMaxHealth() || atMaxHealth)
+        {
+            SetMaxHealth();
+        }
+
+        if (GetMana() > GetMaxMana() || atMaxMana)
+        {
+            SetMaxMana();
+        }
+
+        if (allied)
+        {
+            if (stat == "MaxHealth")
+            {
+                healthBar.text = GetHealth() + "/" + GetMaxHealth();
+                hpSlider.value = ((float)GetHealth()) / GetMaxHealth();
+            }
+            else if (stat == "MaxMana")
+            {
+                manaBar.text = GetMana() + "/" + GetMaxMana();
+                mpSlider.value = ((float)GetMana()) / GetMaxMana();
+            }
+        }
+    }
+
     public string charName = "";
 
     public bool allied = true;
@@ -82,12 +170,12 @@ public class BaseChar : MonoBehaviour
 
     protected void SetMaxHealth()
     {
-        statsSheet["Health"] = statsSheet["MaxHealth"];
+        statsSheet["Health"] = GetMaxHealth();
     }
 
     protected void SetMaxMana()
     {
-        statsSheet["Mana"] = statsSheet["MaxMana"];
+        statsSheet["Mana"] = GetMaxMana();
     }
 
     protected int GetHealth()
@@ -95,11 +183,21 @@ public class BaseChar : MonoBehaviour
         return statsSheet["Health"];
     }
 
+    protected int GetMaxHealth()
+    {
+        return statsSheet["MaxHealth"];
+    }
+
+    protected int GetMaxMana()
+    {
+        return statsSheet["MaxMana"];
+    }
+
     public void SetHealth(int health)
     {
         statsSheet["Health"] = health;
 
-        if (GetHealth() > statsSheet["MaxHealth"])
+        if (GetHealth() > GetMaxHealth())
         {
             SetMaxHealth();
         }
@@ -111,8 +209,8 @@ public class BaseChar : MonoBehaviour
 
         if (allied)
         {
-            healthBar.text = GetHealth() + "/" + statsSheet["MaxHealth"];
-            hpSlider.value = ((float)GetHealth()) / statsSheet["MaxHealth"];
+            healthBar.text = GetHealth() + "/" + GetMaxHealth();
+            hpSlider.value = ((float)GetHealth()) / GetMaxHealth();
         }
 
         
@@ -136,7 +234,7 @@ public class BaseChar : MonoBehaviour
     {
         statsSheet["Mana"] = mana;
 
-        if (GetMana() > statsSheet["MaxMana"])
+        if (GetMana() > GetMaxMana())
         {
             SetMaxMana();
         }
@@ -148,8 +246,8 @@ public class BaseChar : MonoBehaviour
 
         if (allied)
         {
-            manaBar.text = GetMana() + "/" + statsSheet["MaxMana"];
-            mpSlider.value = ((float)GetMana()) / statsSheet["MaxMana"];
+            manaBar.text = GetMana() + "/" + GetMaxMana();
+            mpSlider.value = ((float)GetMana()) / GetMaxMana();
         }
       
     }
