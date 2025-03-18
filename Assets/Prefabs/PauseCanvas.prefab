@@ -335,7 +335,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7362144936778045298}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3865808506282749767}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &648543456771019668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,7 +761,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8188682918411926588}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5483347877627629844}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &539949012965913809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1150,7 @@ GameObject:
   - component: {fileID: 6424721012918605816}
   - component: {fileID: 9176435632433530141}
   m_Layer: 5
-  m_Name: amuletHolder_advmp
+  m_Name: HPMPRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1656,7 +1680,7 @@ GameObject:
   - component: {fileID: 4983404587774743187}
   - component: {fileID: 3938187002197858545}
   m_Layer: 5
-  m_Name: amuletHolder_thunderstorm
+  m_Name: SophieAmulet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2041,7 +2065,7 @@ GameObject:
   - component: {fileID: 4369269399549873990}
   - component: {fileID: 8219002657779780529}
   m_Layer: 5
-  m_Name: amuletHolder_blood
+  m_Name: BloodAmulet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2229,7 +2253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 745407741967560265}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7903258094669494802}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6380238571349303196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3053,7 +3089,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3920360816933526234}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6568598428233903597}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &86603810229955304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3466,7 +3514,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2978072194043468099}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7062613697322429368}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8345056830425374306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3744,7 +3804,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8106550353013174763}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1317681363909237478}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2675989406462082926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4067,7 +4139,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c918f8984e27e540886557d98f0445b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 752ffeb756876404487eb763ad2a2265, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5224,7 +5296,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6004399981944641743}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8888621399222871901}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8483308877679514657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5713,7 +5797,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6714344523860549264}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3559586427131326037}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7912765147611976139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5938,7 +6034,7 @@ GameObject:
   - component: {fileID: 5573700713037188646}
   - component: {fileID: 39955501585566120}
   m_Layer: 5
-  m_Name: amuletHolder_advhp
+  m_Name: ATKHPRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6014,7 +6110,7 @@ GameObject:
   - component: {fileID: 7063595290597561521}
   - component: {fileID: 7917129688735087743}
   m_Layer: 5
-  m_Name: amuletHolder_mp
+  m_Name: MPRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6503,7 +6599,7 @@ GameObject:
   - component: {fileID: 937383150404305585}
   - component: {fileID: 8830600958103095800}
   m_Layer: 5
-  m_Name: amuletHolder_hp
+  m_Name: HPRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6716,7 +6812,7 @@ GameObject:
   - component: {fileID: 8912078170031080033}
   - component: {fileID: 5169654710948976577}
   m_Layer: 5
-  m_Name: AdvAttack_holder
+  m_Name: AttackMP_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6826,7 +6922,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3432318041737708133}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7941039365322886575}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5169654710948976577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7050,7 +7158,7 @@ GameObject:
   - component: {fileID: 2315164465712487940}
   - component: {fileID: 9117533227413228882}
   m_Layer: 5
-  m_Name: amuletHolder_advmag
+  m_Name: AdvMPReading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8945,7 +9053,7 @@ GameObject:
   - component: {fileID: 6878649963601927929}
   - component: {fileID: 3010572301363259959}
   m_Layer: 5
-  m_Name: amuletHolder_dark
+  m_Name: DarkAmulet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9462,7 +9570,7 @@ GameObject:
   - component: {fileID: 385807954165595731}
   - component: {fileID: 1381769574159645015}
   m_Layer: 5
-  m_Name: amuletHolder_atk
+  m_Name: ATKRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9650,7 +9758,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4319346564458677491}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5847697667406215021}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8378911849328838985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9829,7 +9949,7 @@ GameObject:
   - component: {fileID: 6631288305516842908}
   - component: {fileID: 2822550861467268019}
   m_Layer: 5
-  m_Name: amuletHolder_advatk
+  m_Name: ATKMPRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10390,7 +10510,7 @@ GameObject:
   - component: {fileID: 887092689731895096}
   - component: {fileID: 1008908067388884797}
   m_Layer: 5
-  m_Name: amuletHolder_mind
+  m_Name: MindAmulet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10655,7 +10775,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8649526748279563509}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7765100537745278517}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6853020384945651249
 GameObject:
   m_ObjectHideFlags: 0
@@ -10928,7 +11060,7 @@ GameObject:
   - component: {fileID: 4577627696986145341}
   - component: {fileID: 8723197908562531479}
   m_Layer: 5
-  m_Name: AdvMP
+  m_Name: hpmp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10982,7 +11114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 56847e83a779c0040be3ed71911bfc3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b8491888341e1c49b61a36e4d432337, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11004,7 +11136,7 @@ GameObject:
   - component: {fileID: 7658640681397970949}
   - component: {fileID: 7655512498496104597}
   m_Layer: 5
-  m_Name: amuletHolder_advatk
+  m_Name: AdvATKRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11524,7 +11656,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 251035429030356414}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1067923810374937811}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7305296803916376801
 GameObject:
   m_ObjectHideFlags: 0
@@ -11907,7 +12051,7 @@ GameObject:
   - component: {fileID: 2265333610950256943}
   - component: {fileID: 265891785712618307}
   m_Layer: 5
-  m_Name: AdvHP_Holder
+  m_Name: ATKHP_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12017,7 +12161,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2785159645134480828}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3304721974453155897}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &265891785712618307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12107,7 +12263,7 @@ GameObject:
   - component: {fileID: 296490033086842757}
   - component: {fileID: 2329256285821783192}
   m_Layer: 5
-  m_Name: amuletHolder_tenacity
+  m_Name: AlanAmulet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12335,7 +12491,7 @@ GameObject:
   - component: {fileID: 4527370873613279216}
   - component: {fileID: 1501762978362464905}
   m_Layer: 5
-  m_Name: amuletHolder_performance
+  m_Name: KisaAmulet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12411,7 +12567,7 @@ GameObject:
   - component: {fileID: 3836705004913627362}
   - component: {fileID: 6254220399528896025}
   m_Layer: 5
-  m_Name: AdvAttack
+  m_Name: atkmp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12465,7 +12621,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0c8b9a4dad550c14c9de77c3312c6fa5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f3ab3c9c9e1699469198f21e2844c0f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12489,7 +12645,7 @@ GameObject:
   - component: {fileID: 6119133023996401808}
   - component: {fileID: 8228991994552623781}
   m_Layer: 5
-  m_Name: AdvMP_Holder
+  m_Name: HPMPRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12599,7 +12755,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3912849808359470361}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 738111369802846548}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8228991994552623781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14877,7 +15045,7 @@ GameObject:
   - component: {fileID: 8253755916241079749}
   - component: {fileID: 2778822045815287623}
   m_Layer: 5
-  m_Name: amuletHolder_advhp
+  m_Name: AdvHPRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15234,7 +15402,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3378685593732303877}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3792595018462500136}
+        m_TargetAssemblyTypeName: EquipmentMenu, Assembly-CSharp
+        m_MethodName: EquipItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3307616491354486584}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8764502301462092364
 MonoBehaviour:
   m_ObjectHideFlags: 0

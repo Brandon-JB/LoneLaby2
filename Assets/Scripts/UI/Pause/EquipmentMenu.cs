@@ -100,10 +100,30 @@ public class EquipmentMenu : MonoBehaviour
         return false;
     }
 
+    private bool checkIfWearingItem(Dictionary<string, bool> wornEquipment, string key)
+    {
+        foreach (var equip in wornEquipment)
+        {
+            if (equip.Value == true) return true;
+        }
+        return false;
+    }
+
 
     public void EquipItem(GameObject glowToCheckIfEquipped)
     {
         string item = glowToCheckIfEquipped.name;// hey YOU! RENAME ALL THE GLOW ITEMS IN THE MORNING!! CALL THIS SCRIPT!! thanks pookums
+
+        //check if we can even equip this thing
+
+        if (EquipmentManager.equipmentObtained[item] == false)
+        {
+            //Hey loser! You don't have the item! HAHA
+
+            //Play an angry sfx
+            return;
+        }
+
 
         //If this is an amulet, just do it. If this is a ring, figure out what ring we're overwriting.
         if (item.Substring(item.Length - 6) == "Amulet")
