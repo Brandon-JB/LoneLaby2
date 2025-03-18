@@ -51,6 +51,10 @@ public class EquipmentMenu : MonoBehaviour
     [SerializeField] private GameObject[] amuletIcons_borders;
 
     [SerializeField] private Sprite[] amuletsForLeoraShadow;
+
+    private GameObject lastActiveAmulet = null;
+    private GameObject lastEquippedRing1 = null;
+
     public void Start()
     {
         // Check what items the player has and display them accordingly
@@ -116,7 +120,7 @@ public class EquipmentMenu : MonoBehaviour
 
     public void EquipItem(GameObject glowToCheckIfEquipped)
     {
-        string item = glowToCheckIfEquipped.name;// hey YOU! RENAME ALL THE GLOW ITEMS IN THE MORNING!! CALL THIS SCRIPT!! thanks pookums
+        string item = glowToCheckIfEquipped.name;
 
         //check if we can even equip this thing
 
@@ -132,8 +136,17 @@ public class EquipmentMenu : MonoBehaviour
         //If this is an amulet, just do it. If this is a ring, figure out what ring we're overwriting.
         if (item.Substring(item.Length - 6) == "Amulet")
         {
+            if (lastActiveAmulet != null && lastActiveAmulet != glowToCheckIfEquipped )
+            {
+                lastActiveAmulet.SetActive(false);
+            }
+
             equipmentManager.EquipAmulet(item, glowToCheckIfEquipped.activeInHierarchy);
             hudEquipment.changeHUDOnEquip(item, 1);
+
+            lastActiveAmulet = glowToCheckIfEquipped;
+
+            //glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
         }
         else
         {
@@ -145,6 +158,77 @@ public class EquipmentMenu : MonoBehaviour
             //    //Two rings are equipped. Overwrite first one
             //    equipmentManager.EquipRing1(item);
             //} else
+
+            //bool wearingRings = checkIfWearingRing(EquipmentManager.equippedRings);
+
+            bool isInRingSlot1 = false;
+
+            //if the clicked ring is equipped
+            if (glowToCheckIfEquipped.activeInHierarchy)
+            {
+                //glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
+
+                Debug.Log("Glowing Ring is " + item);
+                foreach (var ring in EquipmentManager.ringSlot1)
+                {
+                    if (item == ring.Key && ring.Value == true)
+                    {
+                        isInRingSlot1 = true;
+                    }
+                }
+
+                //if the equipped ring is in ring slot 1
+                if (isInRingSlot1)
+                {
+                    lastEquippedRing1 = glowToCheckIfEquipped;
+
+                    equipmentManager.EquipRing1(item, true);
+                    hudEquipment.changeHUDOnEquip(item, 0);
+                }
+                //If the equipped ring is in ring slot 2
+                else
+                {
+                    equipmentManager.EquipRing2(item, true);
+                    hudEquipment.changeHUDOnEquip(item, 2);
+                }
+            }
+            //if the clicked ring is not equipped
+            else
+            {
+                //if either ring slot 1 or 2 are available
+                if (!checkIfWearingRing(EquipmentManager.ringSlot1) || !checkIfWearingRing(EquipmentManager.ringSlot2))
+                {
+                    //glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
+
+                    //Ring slot one
+                    if (!ringSlot1)
+                    {
+                        lastEquippedRing1 = glowToCheckIfEquipped;
+
+                        equipmentManager.EquipRing1(item, false);
+                        hudEquipment.changeHUDOnEquip(item, 0);
+                    }
+                    //ring slot two
+                    else
+                    {
+                        equipmentManager.EquipRing2(item, false);
+                        hudEquipment.changeHUDOnEquip(item, 2);
+                    }
+                }
+                //Do nothing
+                else
+                {
+                    lastEquippedRing1.SetActive(false);
+
+                    lastEquippedRing1 = glowToCheckIfEquipped;
+
+                    equipmentManager.EquipRing1(item, false);
+                    hudEquipment.changeHUDOnEquip(item, 0);
+                }
+            }
+
+
+            /*
             if (ringSlot1)
             {
                 //Honestly, we just need to check if the first slot is in use. If not, defaults to second slot
@@ -169,9 +253,12 @@ public class EquipmentMenu : MonoBehaviour
                 }
                 hudEquipment.changeHUDOnEquip(item, 0);
             }
+            */
+
         }
 
         glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
+
         //hudEquipment.changeHUDOnEquip(item,1);
     }
 
