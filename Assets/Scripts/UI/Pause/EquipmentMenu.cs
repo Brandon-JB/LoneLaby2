@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class EquipmentMenu : MonoBehaviour
 {
 
+    private HUD_Equipment hudEquipment;
+
     [SerializeField] private Color tintColor;
 
     [SerializeField] private Image[] LeoraShadowEquipment;
@@ -60,8 +62,10 @@ public class EquipmentMenu : MonoBehaviour
         checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders);
         checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders);
 
-
         // Finally, if they do have something equipped, show it on Leora's sprite
+
+        hudEquipment = GameObject.FindWithTag("HUD").GetComponent<HUD_Equipment>();
+
     }
 
 
@@ -129,6 +133,7 @@ public class EquipmentMenu : MonoBehaviour
         if (item.Substring(item.Length - 6) == "Amulet")
         {
             equipmentManager.EquipAmulet(item, glowToCheckIfEquipped.activeInHierarchy);
+            hudEquipment.changeHUDOnEquip(item, 1);
         }
         else
         {
@@ -145,16 +150,29 @@ public class EquipmentMenu : MonoBehaviour
                 //Honestly, we just need to check if the first slot is in use. If not, defaults to second slot
                 //glow to check if equipped is here to check if someone pressed this to unequip an item. if it's on, that means someone wants it off. if that makes sense
                 equipmentManager.EquipRing2(item, glowToCheckIfEquipped.activeInHierarchy);
+                hudEquipment.changeHUDOnEquip(item, 2);
                 //} else if (ringSlot2)
                 //{
                 //    equipmentManager.EquipRing1(item);
                 //}
                 //if nothing is equipped, defaults to slot 1
+
+            }
+            else
+            {
                 equipmentManager.EquipRing1(item, glowToCheckIfEquipped.activeInHierarchy);
+
+                //If HUD isn't set, make sure that it is.
+                if (!hudEquipment)
+                {
+                    hudEquipment = GameObject.FindWithTag("HUD").GetComponent<HUD_Equipment>();
+                }
+                hudEquipment.changeHUDOnEquip(item, 0);
             }
         }
 
         glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
+        //hudEquipment.changeHUDOnEquip(item,1);
     }
 
 }

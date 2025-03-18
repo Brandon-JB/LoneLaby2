@@ -7,7 +7,7 @@ public class EquipmentManager : MonoBehaviour
 
     static public Dictionary<string, bool> equipmentObtained = new Dictionary<string, bool>()
     {
-        {"BloodAmulet", false },
+        {"BloodAmulet", true },
         {"MindAmulet", false },
         {"DarkAmulet", false },
         {"AlanAmulet", false },
@@ -16,7 +16,7 @@ public class EquipmentManager : MonoBehaviour
         {"AdvATKRing", false },
         {"AdvHPRing", false },
         {"AdvMPRing", false },
-        {"ATKRing", false },
+        {"ATKRing", true },
         {"MPRing", false },
         {"HPRing", false },
         {"ATKMPRing", false },

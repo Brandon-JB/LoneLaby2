@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 5025460134833739324}
   m_Layer: 5
   m_Name: EquipmentUI
-  m_TagString: Untagged
+  m_TagString: HUD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -965,6 +965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4057515452848069480}
   - component: {fileID: 7433810690055240954}
+  - component: {fileID: 6097777854927438200}
   m_Layer: 5
   m_Name: Leora and HPMP
   m_TagString: Untagged
@@ -1007,6 +1008,40 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &6097777854927438200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057515452848069481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b78796440a82314cb7e33acb27529e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment:
+  - {fileID: 2113584882920130471}
+  - {fileID: 2419933088931987277}
+  - {fileID: 1783928564871578200}
+  amuletUI:
+  - {fileID: -398658331, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  - {fileID: -1985557012, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  - {fileID: -1427239323, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  - {fileID: 733102614, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  - {fileID: 750277891, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  - {fileID: -520308660, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  ringUI:
+  - {fileID: 1185844001, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  - {fileID: 1473597270, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  - {fileID: 1820740198, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  - {fileID: -1451640150, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  - {fileID: -1219190873, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  - {fileID: 326097498, guid: 756527bf22d546e4090262f06335e15e, type: 3}
+  - {fileID: 965162946, guid: e1d1d8ebf9880e04491e5614d19ee092, type: 3}
+  - {fileID: 177291291, guid: e1d1d8ebf9880e04491e5614d19ee092, type: 3}
+  - {fileID: 397010851, guid: e1d1d8ebf9880e04491e5614d19ee092, type: 3}
+  voidImage: {fileID: 21300000, guid: 26045db6532361f4fa15a760f2e773c7, type: 3}
 --- !u!1 &4057515452893318722
 GameObject:
   m_ObjectHideFlags: 0
