@@ -4,7 +4,7 @@ using DG.Tweening;
 
 public class UIOnGameObject : MonoBehaviour
 {
-    public Canvas uiCanvas; // Assign your Canvas in the Inspector
+    public Canvas uiCanvas;
 
     public Transform targetPos;
 

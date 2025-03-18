@@ -13,7 +13,6 @@ public class EquipmentManager : MonoBehaviour
         {"AlanAmulet", false },
         {"KisaAmulet", false },
         {"SophieAmulet", false },
-        {"BloodAmulet", false },
         {"AdvATKRing", false },
         {"AdvHPRing", false },
         {"AdvMPRing", false },
@@ -32,8 +31,7 @@ public class EquipmentManager : MonoBehaviour
         {"DarkAmulet", false },
         {"AlanAmulet", false },
         {"KisaAmulet", false },
-        {"SophieAmulet", false },
-        {"BloodAmulet", false },
+        {"SophieAmulet", false }
     };
 
     static public Dictionary<string, bool> ringSlot1 = new Dictionary<string, bool>()
@@ -85,7 +83,7 @@ public class EquipmentManager : MonoBehaviour
         {"ATKHPRing", false }
     };
 
-    public void EquipAmulet(string amuletChosen)
+    public void EquipAmulet(string amuletChosen, bool isUnequipping = false)
     {
         foreach(var amulet in amuletSlot)
         {
@@ -96,10 +94,13 @@ public class EquipmentManager : MonoBehaviour
             }
         }
         //equipping the chosen amulet
-        amuletSlot[amuletChosen] = true;
+        if (!isUnequipping)
+        {
+            amuletSlot[amuletChosen] = true;
+        }
     }
 
-    public void EquipRing1(string ringChosen)
+    public void EquipRing1(string ringChosen, bool isUnequipping = false)
     {
         foreach (var ring in ringSlot1)
         {
@@ -112,11 +113,14 @@ public class EquipmentManager : MonoBehaviour
         }
 
         //equipping the ring
-        ringSlot1[ringChosen] = true;
-        equippedRings[ringChosen] = true;
+        if (!isUnequipping)
+        {
+            ringSlot1[ringChosen] = true;
+            equippedRings[ringChosen] = true;
+        }
     }
 
-    public void EquipRing2(string ringChosen)
+    public void EquipRing2(string ringChosen, bool isUnequipping = false)
     {
         foreach (var ring in ringSlot2)
         {
@@ -129,11 +133,14 @@ public class EquipmentManager : MonoBehaviour
         }
 
         //equipping the ring
-        ringSlot2[ringChosen] = true;
-        equippedRings[ringChosen] = true;
+        if (!isUnequipping)
+        {
+            ringSlot2[ringChosen] = true;
+            equippedRings[ringChosen] = true;
+        }
     }
 
-    public void EquipRing3(string ringChosen)
+    public void EquipRing3(string ringChosen, bool isUnequipping = false)
     {
         foreach (var ring in ringSlot3)
         {
@@ -145,8 +152,11 @@ public class EquipmentManager : MonoBehaviour
             }
         }
         //equipping the ring
-        ringSlot3[ringChosen] = true;
-        equippedRings[ringChosen] = true;
+        if (!isUnequipping)
+        {
+            ringSlot3[ringChosen] = true;
+            equippedRings[ringChosen] = true;
+        }
     }
 
     public void RemoveRingBonus(string ring)
