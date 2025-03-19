@@ -60,7 +60,7 @@ public class EnemyScript : MonoBehaviour
         //Debug.Log("Enemy is existing");
 
         //Movement
-        if (canMove == true)
+        if (canMove == true && enemyChar.animator.GetBool("Attacking") == false)
         {
             enemyRB.velocity = Vector2.zero;
 

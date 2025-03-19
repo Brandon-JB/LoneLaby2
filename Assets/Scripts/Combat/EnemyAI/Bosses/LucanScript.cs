@@ -73,6 +73,7 @@ public class LucanScript : EnemyScript
         if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false && !specialStunTimer.isCoolingDown)
         {
             canMove = true;
+            //enemyChar.animator.SetBool("stunned", false);
         }
         else// if (enemyChar.animator.GetBool("Hurt") == true)
         {
@@ -149,7 +150,7 @@ public class LucanScript : EnemyScript
 
 
         //Movement
-        if (canMove == true)
+        if (canMove == true && enemyChar.animator.GetBool("Attacking") == false)
         {
             if (!dashCooldown.isCoolingDown && !isDashing )
             {

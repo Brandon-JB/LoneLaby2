@@ -30,7 +30,7 @@ public class SwordScript : EnemyScript
         //Debug.Log("Enemy is existing");
 
         //Movement
-        if (canMove == true)
+        if (canMove == true && enemyChar.animator.GetBool("Attacking") == false)
         {
             enemyRB.velocity = Vector2.zero;
 

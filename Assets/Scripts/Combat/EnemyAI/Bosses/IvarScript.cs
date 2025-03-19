@@ -38,7 +38,7 @@ public class IvarScript : MonoBehaviour
     void Update()
     {
         //Moving
-        if (ivarChar.animator.GetBool("Stunned") == false && ivarChar.animator.GetBool("Casting") == false)
+        if (ivarChar.animator.GetBool("stunned") == false && ivarChar.animator.GetBool("Casting") == false)
         {
             //if ivar is close to the target point
             if (Vector2.Distance(this.transform.position, moveTargetPosition) < 1)
@@ -66,7 +66,7 @@ public class IvarScript : MonoBehaviour
 
     public void TriggerStunAnim()
     {
-        ivarChar.animator.SetBool("Stunned", true);
+        ivarChar.animator.SetBool("stunned", true);
     }
 
     public void StopCastAnim()
@@ -77,7 +77,7 @@ public class IvarScript : MonoBehaviour
 
     public void StopStunAnim()
     {
-        ivarChar.animator.SetBool("Stunned", false);
+        ivarChar.animator.SetBool("stunned", false);
     }
 
     public void CastSpell()

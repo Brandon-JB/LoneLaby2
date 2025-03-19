@@ -10,19 +10,19 @@ public class EquipmentManager : MonoBehaviour
     {
         {"BloodAmulet", true },
         {"MindAmulet", true },
-        {"DarkAmulet", false },
-        {"AlanAmulet", false },
-        {"KisaAmulet", false },
-        {"SophieAmulet", false },
-        {"AdvATKRing", false },
+        {"DarkAmulet", true },
+        {"AlanAmulet", true },
+        {"KisaAmulet", true },
+        {"SophieAmulet", true },
+        {"AdvATKRing", true },
         {"AdvHPRing", true },
         {"AdvMPRing", true },
         {"ATKRing", true },
         {"MPRing", true },
-        {"HPRing", false },
-        {"ATKMPRing", false },
-        {"HPMPRing", false },
-        {"ATKHPRing", false }
+        {"HPRing", true },
+        {"ATKMPRing", true },
+        {"HPMPRing", true },
+        {"ATKHPRing", true }
     };
 
     static public Dictionary<string, bool> amuletSlot = new Dictionary<string, bool>()
@@ -98,6 +98,8 @@ public class EquipmentManager : MonoBehaviour
             {
                 //Debug.Log(itemsToUnEquip[i]);
                 amuletSlot[itemsToUnEquip[i]] = false;
+                RemoveAmuletBonus(itemsToUnEquip[i]);
+                //Debug.Log("Removed " + itemsToUnEquip[i] + " bonus");
             }
         }
 
@@ -109,6 +111,8 @@ public class EquipmentManager : MonoBehaviour
         //equipping the chosen amulet
         if (!isUnequipping)
         {
+            ApplyAmuletBonus(amuletChosen);
+            //Debug.Log("Added " + amuletChosen + " bonus");
             amuletSlot[amuletChosen] = true;
 
             /*foreach (var amulet in amuletSlot)
@@ -302,4 +306,54 @@ public class EquipmentManager : MonoBehaviour
                 break;
         }
     }
+
+    public void RemoveAmuletBonus(string amulet)
+    {
+        switch (amulet)
+        {
+            case "BloodAmulet":
+                leoraChar.magicType = "lightMap";
+                break;
+            case "MindAmulet":
+                leoraChar.magicType = "lightMag";
+                break;
+            case "DarkAmulet":
+                leoraChar.magicType = "lightMag";
+                break;
+            case "AlanAmulet":
+                leoraChar.alanAmuletActive = false;
+                break;
+            case "KisaAmulet":
+                leoraChar.kisaAmuletActive = false;
+                break;
+            case "SophieAmulet":
+                leoraChar.sophieAmuletActive = false;
+                break;
+        }
+    }
+
+    public void ApplyAmuletBonus(string amulet)
+        {
+            switch (amulet)
+            {
+                case "BloodAmulet":
+                leoraChar.magicType = "bloodMag";
+                    break;
+                case "MindAmulet":
+                leoraChar.magicType = "mindMag";
+                    break;
+                case "DarkAmulet":
+                leoraChar.magicType = "darkMag";
+                    break;
+                case "AlanAmulet":
+                leoraChar.alanAmuletActive = true;
+                    break;
+                case "KisaAmulet":
+                leoraChar.kisaAmuletActive = true;
+                    break;
+                case "SophieAmulet":
+                leoraChar.sophieAmuletActive = true;
+                    break;
+            }
+        }
 }

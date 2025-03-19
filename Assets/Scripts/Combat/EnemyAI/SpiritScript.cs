@@ -79,7 +79,7 @@ public class SpiritScript : EnemyScript
         }
 
         //Movement
-        if (canMove == true)
+        if (canMove == true && enemyChar.animator.GetBool("Attacking") == false)
         {
             enemyRB.velocity = Vector2.zero;
 

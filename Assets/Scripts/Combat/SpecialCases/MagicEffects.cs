@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MagicEffects : MonoBehaviour
@@ -30,10 +31,38 @@ public class MagicEffects : MonoBehaviour
 
                 if (!enemyChar.allied || collision.tag != "Boss")
                 {
-                    enemyChar.stunTimer.cooldownTime = 4;
+                    enemyChar.stunTimer.cooldownTime = 3;
                     enemyChar.stunTimer.StartCooldown();
                     enemyChar.SpawnParticle("stunFX", collision.transform.position, collision.transform, enemyChar.stunTimer.cooldownTime);
                 }
+                else if (collision.tag == "Boss")
+                {
+                    /*enemyChar.stunTimer.cooldownTime = 1.5f;
+                    enemyChar.stunTimer.StartCooldown();
+                    enemyChar.SpawnParticle("stunFX", collision.transform.position, collision.transform, enemyChar.stunTimer.cooldownTime);*/
+                }
+            }
+            else if (magicType == "bloodMag")
+            {
+                leoraChar.Heal(5);
+            }
+            else if (magicType == "mindMag")
+            {
+                if (collision.tag != "Boss")
+                {
+                    enemyChar.slowTimer.StartCooldown();
+                    enemyChar.animator.speed = 0.5f;
+                }
+                else
+                {
+                    enemyChar.slowTimer.cooldownTime = 3;
+                    enemyChar.slowTimer.StartCooldown();
+                    enemyChar.animator.speed = 0.5f;
+                }
+            }
+            else if (magicType == "darkMag")
+            {
+
             }
             else
             {

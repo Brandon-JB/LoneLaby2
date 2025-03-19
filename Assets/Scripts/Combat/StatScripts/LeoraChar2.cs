@@ -25,14 +25,25 @@ public class LeoraChar2 : BaseChar
 
     public string magicType = "";
 
+    [Header("AmuletEffects")]
+
+    public bool alanAmuletActive = false;
+    public bool kisaAmuletActive = false;
+    public bool sophieAmuletActive = false;
+
     
     //public bool isInFirstCombo = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        //Initializing Leora
         charName = "Leora";
         allied = true;
+        magicType = "lightMag";
+        alanAmuletActive = false;
+        kisaAmuletActive = false;
+        sophieAmuletActive = false;
 
         ChangeStats(14, 10, 4, 100, 10);
 
@@ -203,7 +214,7 @@ public class LeoraChar2 : BaseChar
 
                 //Debug.Log(drop.dropName + " Obtained");
 
-                drop.WhatItemDo(this);
+                drop.WhatItemDo(this, kisaAmuletActive);
 
                 Destroy(collision.gameObject);
             }

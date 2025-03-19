@@ -125,5 +125,44 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
+    public void SpawnBloodParticle()
+    {
+        if (leoraChar.magicType == "bloodMag")
+        {
+            tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
+
+            MagicParticles tempMagManager = tempMagPart.GetComponent<MagicParticles>();
+
+            //Animator for particles would go here
+            tempMagManager.animator.SetBool(leoraChar.magicType, true);
+        }
+    }
+
+    public void SpawnMindParticle()
+    {
+        if (leoraChar.magicType == "mindMag")
+        {
+            tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
+
+            MagicParticles tempMagManager = tempMagPart.GetComponent<MagicParticles>();
+
+            //Animator for particles would go here
+            tempMagManager.animator.SetBool(leoraChar.magicType, true);
+        }
+    }
+
+    public void SpawnDarkParticle()
+    { 
+        if (leoraChar.magicType == "darkMag")
+        {
+            tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
+
+            MagicParticles tempMagManager = tempMagPart.GetComponent<MagicParticles>();
+
+            //Animator for particles would go here
+            tempMagManager.animator.SetBool(leoraChar.magicType, true);
+        }
+    }
+
     #endregion
 }

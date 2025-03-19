@@ -89,26 +89,52 @@ public class Drops : MonoBehaviour
         }
     }
 
-    public void WhatItemDo(BaseChar charScript)
+    public void WhatItemDo(BaseChar charScript, bool kisaAmuletEquipped)
     {
-        switch(dropName)
+        if (!kisaAmuletEquipped)
         {
-            case "Small HP":
-                charScript.Heal(25);
-                break;
-            case "Small MP":
-                charScript.RestoreMana(2);
-                break;
-            case "Large HP":
-                charScript.Heal(50);
-                break;
-            case "Large MP":
-                charScript.RestoreMana(4);
-                break;
-            case "Item":
-                //Debug.Log("Item");
-                UIHandler.OpenItemMenu(itemName, uiongame.spawnUiOnGameObject(itemName));
-                break;
+            switch (dropName)
+            {
+                case "Small HP":
+                    charScript.Heal(25);
+                    break;
+                case "Small MP":
+                    charScript.RestoreMana(2);
+                    break;
+                case "Large HP":
+                    charScript.Heal(50);
+                    break;
+                case "Large MP":
+                    charScript.RestoreMana(4);
+                    break;
+                case "Item":
+                    //Debug.Log("Item");
+                    UIHandler.OpenItemMenu(itemName, uiongame.spawnUiOnGameObject(itemName));
+                    break;
+            }
+        }
+        //double drops from kisa amulet
+        else
+        {
+            switch (dropName)
+            {
+                case "Small HP":
+                    charScript.Heal(50);
+                    break;
+                case "Small MP":
+                    charScript.RestoreMana(4);
+                    break;
+                case "Large HP":
+                    charScript.Heal(100);
+                    break;
+                case "Large MP":
+                    charScript.RestoreMana(8);
+                    break;
+                case "Item":
+                    //Debug.Log("Item");
+                    UIHandler.OpenItemMenu(itemName, uiongame.spawnUiOnGameObject(itemName));
+                    break;
+            }
         }
     }
 }
