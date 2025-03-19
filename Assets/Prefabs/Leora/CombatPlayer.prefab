@@ -574,6 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8687d1ba8d75a60488b0db678ed4e497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charName: 
   allied: 1
   animator: {fileID: 0}
   healthBar: {fileID: 0}
@@ -594,6 +595,8 @@ MonoBehaviour:
   stunTimer:
     cooldownTime: 0
   particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
+  slowTimer:
+    cooldownTime: 100
   comboTimer:
     cooldownTime: 0.7
   attackCooldown:
@@ -604,6 +607,9 @@ MonoBehaviour:
   playerMovement: {fileID: 5654782468327757369}
   magHitbox: {fileID: 6664873387653602075}
   magicType: lightMag
+  alanAmuletActive: 0
+  kisaAmuletActive: 0
+  sophieAmuletActive: 0
 --- !u!114 &6483451813152639840
 MonoBehaviour:
   m_ObjectHideFlags: 0
