@@ -11,8 +11,9 @@ public class MainMenuScript : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1.0f;
         bg.alpha = 1.0f;
-        bg.DOFade(0, 1f);
+        bg.DOFade(0, 1f).SetUpdate(true);
     }
 
     public void GoToGame()
@@ -20,9 +21,8 @@ public class MainMenuScript : MonoBehaviour
         //AT SOME POINT CHECK IF WE HAVE SAVE DATA!
 
         //If there is save data, go to last saved area. If there is NOT save data, play opening cutscene
-
         mainDialogueManager.dialogueSTART("openingCutscene");
-        bg.DOFade(1, 1f);
+        bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true);
         //SceneManager.LoadScene("Dialogue");
     }
 

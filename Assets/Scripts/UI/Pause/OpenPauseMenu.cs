@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,10 +23,14 @@ public class OpenPauseMenu : MonoBehaviour
             if(canOpenPause)
             {
                 //Open main pause menu
+                //Hypothetically, will make time scale 0 if pause menu is closing and 1 if pause menu is opening
+                Time.timeScale = Convert.ToInt32(pauseMenuObject.activeInHierarchy);
                 pauseMenuObject.SetActive(!pauseMenuObject.activeInHierarchy);
             } else
             {
                 //Open quick pause
+                //Hypothetically, will make time scale 0 if pause menu is closing and 1 if pause menu is opening
+                Time.timeScale = Convert.ToInt32(quickPauseMenu.activeInHierarchy);
                 quickPauseMenu.SetActive(!quickPauseMenu.activeInHierarchy);
             }
         }

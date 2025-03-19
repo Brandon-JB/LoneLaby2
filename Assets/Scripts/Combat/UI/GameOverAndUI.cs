@@ -38,8 +38,10 @@ public class GameOverAndUI : MonoBehaviour
         gameplayHUD.SetActive(false);
         gameOverHUD.SetActive(true);
 
-        gameOverText.DOFade(1, 2).OnComplete(() => {
-            buttonGraphics.DOFade(1, 1).OnComplete(() => {
+        Time.timeScale = 0;
+
+        gameOverText.DOFade(1, 2).SetUpdate(true).OnComplete(() => {
+            buttonGraphics.DOFade(1, 1).SetUpdate(true).OnComplete(() => {
                 buttons.SetActive(true);
             });
         });
@@ -80,9 +82,9 @@ public class GameOverAndUI : MonoBehaviour
 
         itemMenuHUD.SetActive(true);
 
-        itemOnScreen.DOMove(itemTransform.position, 1);
+        itemOnScreen.DOMove(itemTransform.position, 1).SetUpdate(true);
 
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
 
         ItemMenu itemMenu = itemMenuHUD.GetComponent<ItemMenu>();
 
@@ -92,6 +94,6 @@ public class GameOverAndUI : MonoBehaviour
     //Fades out All UI while death anim plays
     public void FadeOutUI()
     {
-        battleUI.DOFade(0, 2);
+        battleUI.DOFade(0, 2).SetUpdate(true);
     }
 }

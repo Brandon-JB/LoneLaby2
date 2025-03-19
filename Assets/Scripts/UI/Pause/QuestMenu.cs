@@ -14,11 +14,11 @@ public class QuestMenu : MonoBehaviour
 
     public void GoToSideQuest()
     {
-        wholeQuestMenu.DOMove(locations[1].position, 1f);
+        wholeQuestMenu.DOMove(locations[1].position, 1f).SetUpdate(true);
     }
 
     public void GoToCoreQuests()
     {
-        wholeQuestMenu.DOMove(locations[0].position, 1f);
+        wholeQuestMenu.DOMove(locations[0].position, 1f).SetUpdate(true);
     }
 }

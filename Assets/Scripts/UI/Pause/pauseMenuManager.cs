@@ -35,10 +35,10 @@ public class pauseMenuManager : MonoBehaviour
         ResetLeoraAnimator();
 
         //Play Leora on enable anim
-        background.DOFade(1, 1);
+        background.DOFade(1, 1).SetUpdate(true);
         mainButtons.alpha = 0;
         mainButtons.gameObject.SetActive(true);
-        mainButtons.DOFade(1, 1);
+        mainButtons.DOFade(1, 1).SetUpdate(true);
 
         equipBack.gameObject.SetActive(false);
         questBack.gameObject.SetActive(false);
@@ -46,32 +46,32 @@ public class pauseMenuManager : MonoBehaviour
 
     public void goToQuests()
     {
-        questMenu.DOMove(questsLocations[0].position, 1f);
-        leoraAnimator.transform.DOMove(questsLocations[1].position, 1f);
-        equipMenu.DOMove(questsLocations[2].position, 1f);
-        questsTXT.DOFade(1, 1);
+        questMenu.DOMove(questsLocations[0].position, 1f).SetUpdate(true);
+        leoraAnimator.transform.DOMove(questsLocations[1].position, 1f).SetUpdate(true);
+        equipMenu.DOMove(questsLocations[2].position, 1f).SetUpdate(true);
+        questsTXT.DOFade(1, 1).SetUpdate(true);
 
-        mainButtons.DOFade(0, 0.5f).OnComplete(() => { 
+        mainButtons.DOFade(0, 0.5f).SetUpdate(true).OnComplete(() => { 
             mainButtons.gameObject.SetActive(false);
             questBack.alpha = 0f;
             questBack.gameObject.SetActive(true);
-            questBack.DOFade(1, 1f);
+            questBack.DOFade(1, 1f).SetUpdate(true);
         });
 
         leoraAnimator.SetTrigger("enterQuest");
     }
     public void goToEquip()
     {
-        equipMenu.DOMove(equipLocations[0].position, 1f);
-        leoraAnimator.transform.DOMove(equipLocations[1].position, 1f);
-        questMenu.DOMove(equipLocations[2].position, 1f);
-        equipTXT.DOFade(1, 1);
+        equipMenu.DOMove(equipLocations[0].position, 1f).SetUpdate(true);
+        leoraAnimator.transform.DOMove(equipLocations[1].position, 1f).SetUpdate(true);
+        questMenu.DOMove(equipLocations[2].position, 1f).SetUpdate(true);
+        equipTXT.DOFade(1, 1).SetUpdate(true);
 
-        mainButtons.DOFade(0, 0.5f).OnComplete(() => { 
+        mainButtons.DOFade(0, 0.5f).SetUpdate(true).OnComplete(() => { 
             mainButtons.gameObject.SetActive(false);
             equipBack.alpha = 0f;
             equipBack.gameObject.SetActive(true);
-            equipBack.DOFade(1, 1f); });
+            equipBack.DOFade(1, 1f).SetUpdate(true); });
 
         leoraAnimator.SetTrigger("enterEquip");
     }
@@ -83,36 +83,36 @@ public class pauseMenuManager : MonoBehaviour
     public void returnToCenter()
     {
         //Reset ALL spaces
-        equipMenu.DOMove(startLocations[0].position, 1f);
-        questMenu.DOMove(startLocations[1].position, 1f);
-        leoraAnimator.transform.DOMove(startLocations[2].position, 1f);
+        equipMenu.DOMove(startLocations[0].position, 1f).SetUpdate(true);
+        questMenu.DOMove(startLocations[1].position, 1f).SetUpdate(true);
+        leoraAnimator.transform.DOMove(startLocations[2].position, 1f).SetUpdate(true);
 
         mainButtons.alpha = 0;
         mainButtons.gameObject.SetActive(true);
-        mainButtons.DOFade(1, 1);
+        mainButtons.DOFade(1, 1).SetUpdate(true);
 
-        equipTXT.DOFade(0, 1);
-        questsTXT.DOFade(0, 1);
+        equipTXT.DOFade(0, 1).SetUpdate(true);
+        questsTXT.DOFade(0, 1).SetUpdate(true);
         ResetLeoraAnimator();
         leoraAnimator.SetTrigger("enterPause");
 
-        equipBack.DOFade(0, 0.5f).OnComplete(() => {
+        equipBack.DOFade(0, 0.5f).SetUpdate(true).OnComplete(() => {
             equipBack.gameObject.SetActive(false);
         });
 
-        questBack.DOFade(0, 0.5f).OnComplete(() => {
+        questBack.DOFade(0, 0.5f).SetUpdate(true).OnComplete(() => {
             questBack.gameObject.SetActive(false);
         });
     }
 
     public void seeSideQuests()
     {
-        questMenu.DOMove(questsLocations[2].position, 1f);
+        questMenu.DOMove(questsLocations[2].position, 1f).SetUpdate(true);
     }
 
     public void backToMainQuests()
     {
-        questMenu.DOMove(questsLocations[2].position, 1f);
+        questMenu.DOMove(questsLocations[2].position, 1f).SetUpdate(true);
     }
 
 

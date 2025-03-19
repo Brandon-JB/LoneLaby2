@@ -27,8 +27,8 @@ public class ItemMenu : MonoBehaviour
     public void CloseMenu()
     {
         Time.timeScale = 1f;
-        infoHolder.DOMove(locations[1].position, 1f);
-        itemHolder.DOFade(0, 1f).OnComplete(() =>
+        infoHolder.DOMove(locations[1].position, 1f).SetUpdate(true);
+        itemHolder.DOFade(0, 1f).SetUpdate(true).OnComplete(() =>
         {
             menu.SetActive(false);
         });
@@ -60,7 +60,7 @@ public class ItemMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        infoHolder.DOMove(locations[0].position,1f);
-        itemHolder.DOFade(1, 1.25f);
+        infoHolder.DOMove(locations[0].position,1f).SetUpdate(true);
+        itemHolder.DOFade(1, 1.25f).SetUpdate(true);
     }
 }
