@@ -62,7 +62,7 @@ public class MagicEffects : MonoBehaviour
             }
             else if (magicType == "darkMag")
             {
-
+                //Debug.Log("Do nothing");
             }
             else
             {
