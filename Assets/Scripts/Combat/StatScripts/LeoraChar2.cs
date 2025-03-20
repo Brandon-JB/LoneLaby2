@@ -23,6 +23,8 @@ public class LeoraChar2 : BaseChar
 
     [SerializeField] private GameObject magHitbox;
 
+    [SerializeField] private GameObject darkMagFollowup;
+
     public string magicType = "";
 
     [Header("AmuletEffects")]
@@ -285,5 +287,15 @@ public class LeoraChar2 : BaseChar
     public void EndMagick()
     {
         animator.SetBool("Magicing", false);
+
+        if (magicType == "darkMag")
+        {
+            GameObject tempMagPart = Instantiate(darkMagFollowup, this.transform.position, Quaternion.identity, this.transform);
+
+            DarkMagicAoE tempMagManager = tempMagPart.GetComponent<DarkMagicAoE>();
+
+            //Animator for particles would go here
+            tempMagManager.animator.SetBool("darkFollowup", true);
+        }
     }
 }
