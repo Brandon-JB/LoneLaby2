@@ -69,6 +69,7 @@ public class EquipmentMenu : MonoBehaviour
         // Finally, if they do have something equipped, show it on Leora's sprite
 
         hudEquipment = GameObject.FindWithTag("HUD").GetComponent<HUD_Equipment>();
+        Debug.Log(hudEquipment.name);
 
     }
 
