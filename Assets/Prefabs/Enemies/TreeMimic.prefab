@@ -206,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentChar: {fileID: 4562397720410807198}
   type: Slamming
-  isParryable: 0
+  isParryable: 1
   alreadyHit: 0
 --- !u!61 &3615107107549015653
 BoxCollider2D:
@@ -346,6 +346,8 @@ MonoBehaviour:
   stunTimer:
     cooldownTime: 100
   particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
+  slowTimer:
+    cooldownTime: 100
 --- !u!114 &6545300512134027559
 MonoBehaviour:
   m_ObjectHideFlags: 0

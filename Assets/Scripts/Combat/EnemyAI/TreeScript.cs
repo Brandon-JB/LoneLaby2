@@ -40,6 +40,7 @@ public class TreeScript : EnemyScript
             if (DistanceFromPlayer <= followRange) //&& DistanceFromPlayer > attackRange))
             {
                 enemyChar.animator.SetBool("isActive", true);
+                followRange = 8;
             }
         }
 

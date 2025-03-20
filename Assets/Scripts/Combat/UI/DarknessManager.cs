@@ -10,6 +10,8 @@ public class DarknessManager : MonoBehaviour
     public float ChangeTime = 30f;
     public float timer = 0f;
 
+    private LeoraChar2 leoraChar;
+
     //private int currentIndex = 0;
 
     // Start is called before the first frame update
@@ -17,7 +19,9 @@ public class DarknessManager : MonoBehaviour
     {
         DarknessImage.enabled = true;
         DarknessImage.DOFade(1, 30f);
+        leoraChar = FindObjectOfType<LeoraChar2>();
     }
+
 
     void Update()
     {
@@ -29,7 +33,7 @@ public class DarknessManager : MonoBehaviour
         //    DarknessImage.sprite = sprites[currentIndex];
         //}
 
-        if(InputManager.magicPressed)
+        if(InputManager.magicPressed && leoraChar.magicType == "lightMag")
         {
             //currentIndex = 0;
             timer = 0f;

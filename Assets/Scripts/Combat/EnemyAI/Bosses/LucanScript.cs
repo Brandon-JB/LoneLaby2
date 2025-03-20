@@ -7,6 +7,7 @@ public class LucanScript : EnemyScript
     [SerializeField] private Vector3 bottomLeftArenaBounds;
     [SerializeField] private Vector3 topRightArenaBounds;
 
+    private bool firstPhase;
 
     [Header("Dashing")]
 
@@ -27,6 +28,7 @@ public class LucanScript : EnemyScript
     {
         isDashing = false;
         dashCount = 0;
+        firstPhase = true;
     }
 
     //Have the ai walk around normally and do the mace swing while periodically doing the charge attack. As the boss's health gets lower, they do the charge attack more often
@@ -64,6 +66,11 @@ public class LucanScript : EnemyScript
 
     public override void Update()
     {
+
+        if (firstPhase && (enemyChar.GetHealth() <= (enemyChar.GetMaxHealth() / 3)))
+        { 
+
+        }
 
         if (DistanceFromPlayer > followRange || DistanceFromPlayer < attackRange || isDashing)
         {
