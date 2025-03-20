@@ -184,12 +184,12 @@ public class BaseChar : MonoBehaviour
         statsSheet["Mana"] = GetMaxMana();
     }
 
-    protected int GetHealth()
+    public int GetHealth()
     {
         return statsSheet["Health"];
     }
 
-    protected int GetMaxHealth()
+    public int GetMaxHealth()
     {
         return statsSheet["MaxHealth"];
     }
