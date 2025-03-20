@@ -22,6 +22,7 @@ public class pauseMenuManager : MonoBehaviour
     [SerializeField] private Transform[] startLocations;
     [SerializeField] private Transform[] equipLocations;
     [SerializeField] private Transform[] questsLocations;
+    [SerializeField] private GameObject[] objectsToTurnOff;
 
 
     private void OnEnable()
@@ -42,6 +43,15 @@ public class pauseMenuManager : MonoBehaviour
 
         equipBack.gameObject.SetActive(false);
         questBack.gameObject.SetActive(false);
+
+        questsTXT.alpha = 0;
+        equipTXT.alpha = 0;
+
+        //Make sure everything that should be off is off
+        foreach (GameObject obj in objectsToTurnOff)
+        {
+            obj.SetActive(false);
+        }
     }
 
     public void goToQuests()
@@ -94,7 +104,14 @@ public class pauseMenuManager : MonoBehaviour
         equipTXT.DOFade(0, 1).SetUpdate(true);
         questsTXT.DOFade(0, 1).SetUpdate(true);
         ResetLeoraAnimator();
-        leoraAnimator.SetTrigger("enterPause");
+
+        if (equipBack.gameObject.activeInHierarchy) // We're exiting the 
+        {
+            leoraAnimator.SetTrigger("exitEquip");
+        } else
+        {
+            leoraAnimator.SetTrigger("exitQuest");
+        }
 
         equipBack.DOFade(0, 0.5f).SetUpdate(true).OnComplete(() => {
             equipBack.gameObject.SetActive(false);

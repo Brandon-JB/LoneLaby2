@@ -44,7 +44,7 @@ public class HUD_Equipment : MonoBehaviour
 
     public void changeHUDOnEquip(string item, int location)
     {
-        if (item == null) { equipment[location].sprite = voidImage; }
+        if (item == "") { equipment[location].sprite = voidImage; return; }
 
         //If null is not passed in, that means it is being equipped somewhere.
 

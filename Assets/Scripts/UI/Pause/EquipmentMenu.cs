@@ -142,7 +142,14 @@ public class EquipmentMenu : MonoBehaviour
             }
 
             equipmentManager.EquipAmulet(item, glowToCheckIfEquipped.activeInHierarchy);
-            hudEquipment.changeHUDOnEquip(item, 1);
+
+            if (glowToCheckIfEquipped.activeInHierarchy)
+            {
+                hudEquipment.changeHUDOnEquip("", 1);
+            } else
+            {
+                hudEquipment.changeHUDOnEquip(item, 1);
+            }
 
             lastActiveAmulet = glowToCheckIfEquipped;
 
@@ -183,13 +190,28 @@ public class EquipmentMenu : MonoBehaviour
                     lastEquippedRing1 = glowToCheckIfEquipped;
 
                     equipmentManager.EquipRing1(item, true);
-                    hudEquipment.changeHUDOnEquip(item, 0);
+
+                    if (glowToCheckIfEquipped.activeInHierarchy)
+                    {
+                        hudEquipment.changeHUDOnEquip("", 0);
+                    }
+                    else
+                    {
+                        hudEquipment.changeHUDOnEquip(item, 0);
+                    }
                 }
                 //If the equipped ring is in ring slot 2
                 else
                 {
                     equipmentManager.EquipRing2(item, true);
-                    hudEquipment.changeHUDOnEquip(item, 2);
+                    if (glowToCheckIfEquipped.activeInHierarchy)
+                    {
+                        hudEquipment.changeHUDOnEquip("", 2);
+                    }
+                    else
+                    {
+                        hudEquipment.changeHUDOnEquip(item, 2);
+                    }
                 }
             }
             //if the clicked ring is not equipped
@@ -206,13 +228,27 @@ public class EquipmentMenu : MonoBehaviour
                         lastEquippedRing1 = glowToCheckIfEquipped;
 
                         equipmentManager.EquipRing1(item, false);
-                        hudEquipment.changeHUDOnEquip(item, 0);
+                        if (glowToCheckIfEquipped.activeInHierarchy)
+                        {
+                            hudEquipment.changeHUDOnEquip("", 0);
+                        }
+                        else
+                        {
+                            hudEquipment.changeHUDOnEquip(item, 0);
+                        }
                     }
                     //ring slot two
                     else
                     {
                         equipmentManager.EquipRing2(item, false);
-                        hudEquipment.changeHUDOnEquip(item, 2);
+                        if (glowToCheckIfEquipped.activeInHierarchy)
+                        {
+                            hudEquipment.changeHUDOnEquip("", 2);
+                        }
+                        else
+                        {
+                            hudEquipment.changeHUDOnEquip(item, 2);
+                        }
                     }
                 }
                 //Do nothing
@@ -223,7 +259,14 @@ public class EquipmentMenu : MonoBehaviour
                     lastEquippedRing1 = glowToCheckIfEquipped;
 
                     equipmentManager.EquipRing1(item, false);
-                    hudEquipment.changeHUDOnEquip(item, 0);
+                    if (glowToCheckIfEquipped.activeInHierarchy)
+                    {
+                        hudEquipment.changeHUDOnEquip("", 0);
+                    }
+                    else
+                    {
+                        hudEquipment.changeHUDOnEquip(item, 0);
+                    }
                 }
             }
 
@@ -258,7 +301,7 @@ public class EquipmentMenu : MonoBehaviour
         }
 
         glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
-
+        
         //hudEquipment.changeHUDOnEquip(item,1);
     }
 

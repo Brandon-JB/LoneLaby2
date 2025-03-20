@@ -2722,8 +2722,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.539, y: -44.217}
-  m_SizeDelta: {x: 169.2185, y: 235.4346}
+  m_AnchoredPosition: {x: 28, y: -35}
+  m_SizeDelta: {x: 220.6445, y: 245.8925}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5316001203927687520
 CanvasRenderer:
@@ -2753,7 +2753,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c16f7f58e060a224abe9befa4cadce49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc14f5df46c70b2479de535d38381ac6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5805,7 +5805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -156.46, y: -34.3127}
+  m_AnchoredPosition: {x: 24, y: -34.3127}
   m_SizeDelta: {x: 163.65, y: 215.6274}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3304147910079421084
@@ -7447,7 +7447,7 @@ MonoBehaviour:
         m_MethodName: EquipItem
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 7941039365322886575}
+          m_ObjectArgument: {fileID: 6020825885104616355}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -8368,7 +8368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -162.97548, y: -48.169838}
+  m_AnchoredPosition: {x: -65, y: -48.169838}
   m_SizeDelta: {x: 127.3968, y: 246.0075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8548189498528773484
@@ -13439,7 +13439,7 @@ GameObject:
   - component: {fileID: 6119133023996401808}
   - component: {fileID: 8228991994552623781}
   m_Layer: 5
-  m_Name: HPMPRing
+  m_Name: HPMPRing_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14509,6 +14509,22 @@ MonoBehaviour:
   - {fileID: 8535330224915553519}
   - {fileID: 6483423631490310070}
   - {fileID: 2363721296290670851}
+  objectsToTurnOff:
+  - {fileID: 3908173759463783202}
+  - {fileID: 3309456272413764076}
+  - {fileID: 5133471301354920254}
+  - {fileID: 3040245658194020264}
+  - {fileID: 689444209226572283}
+  - {fileID: 9205455454442065235}
+  - {fileID: 5008070690032254662}
+  - {fileID: 789430066961423601}
+  - {fileID: 1950837023009606343}
+  - {fileID: 2873133535142516616}
+  - {fileID: 4818412165846381649}
+  - {fileID: 2380749398117203630}
+  - {fileID: 937731511830399610}
+  - {fileID: 8402248662336173826}
+  - {fileID: 4062357603234596498}
 --- !u!1 &8148172629522242522
 GameObject:
   m_ObjectHideFlags: 0
