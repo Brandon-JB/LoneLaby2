@@ -10,7 +10,7 @@ public class LucanChar : BaseChar
         charName = "Lucan";
         allied = false;
 
-        ChangeStats(10, 0, 4, 100, 0);
+        ChangeStats(15, 0, 6, 32, 0);
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)

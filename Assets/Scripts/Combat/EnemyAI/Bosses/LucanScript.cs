@@ -8,6 +8,7 @@ public class LucanScript : EnemyScript
     [SerializeField] private Vector3 topRightArenaBounds;
 
     private bool firstPhase;
+    private bool secondPhase;
 
     [Header("Dashing")]
 
@@ -29,6 +30,7 @@ public class LucanScript : EnemyScript
         isDashing = false;
         dashCount = 0;
         firstPhase = true;
+        secondPhase = false;
     }
 
     //Have the ai walk around normally and do the mace swing while periodically doing the charge attack. As the boss's health gets lower, they do the charge attack more often
@@ -51,6 +53,7 @@ public class LucanScript : EnemyScript
     public void TriggerStunAnimation()
     {
         isDashing = false;
+        dashCount = 0;
         enemyChar.DisableHitbox();
         enemyChar.SpawnParticle("stunFX", this.transform.position, this.transform, specialStunTimer.cooldownTime);
         EnableHurtbox();
@@ -66,10 +69,20 @@ public class LucanScript : EnemyScript
 
     public override void Update()
     {
-
-        if (firstPhase && (enemyChar.GetHealth() <= (enemyChar.GetMaxHealth() / 3)))
-        { 
-
+        //Phase change
+        if (firstPhase && (enemyChar.GetHealth() <= (enemyChar.GetMaxHealth() / 2)))
+        {
+            //SecondPhase
+            firstPhase = false;
+            secondPhase = true;
+            dashLimit += 3;
+            dashSpeed += 2;
+        }
+        else if (secondPhase && enemyChar.GetHealth() <= (enemyChar.GetMaxHealth() / 4))
+        {
+            //Final Phase
+            secondPhase = false;
+            dashSpeed += 4;
         }
 
         if (DistanceFromPlayer > followRange || DistanceFromPlayer < attackRange || isDashing)
@@ -100,10 +113,52 @@ public class LucanScript : EnemyScript
                 }
                 else
                 {
-                    //If lucan has dashed less than 4 times
-                    if (dashCount < dashLimit)
+                    if (firstPhase || secondPhase)
                     {
-                        dashCount++;
+                        //If lucan has dashed less than 4 times
+                        if (dashCount < dashLimit)
+                        {
+                            dashCount++;
+                            timeBetweenDashes.StartCooldown();
+
+                            enemyChar.ResetHitbox();
+
+                            this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
+
+                            //IIf the enemy is closer to the left side of arena than the right side.
+                            if (Vector3.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector3.Distance(enemyRB.transform.position, topRightArenaBounds))
+                            {
+                                dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
+                            }
+                            else
+                            {
+                                dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
+                            }
+                        }
+                        //Final Dash
+                        else if (dashCount == dashLimit)
+                        {
+                            dashCount++;
+
+                            enemyChar.ResetHitbox();
+
+                            this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
+
+                            dashTarget = new Vector2((topRightArenaBounds.x + bottomLeftArenaBounds.x) / 2, Player.transform.position.y);
+                        }
+                        //Reach middle
+                        else if (dashCount > dashLimit)
+                        {
+                            dashCount = 0;
+
+                            isDashing = false;
+                            enemyChar.DisableHitbox();
+                            EnableHurtbox();
+                            enemyChar.StopAttackAnim();
+                        }
+                    }
+                    else
+                    {
                         timeBetweenDashes.StartCooldown();
 
                         enemyChar.ResetHitbox();
@@ -119,27 +174,6 @@ public class LucanScript : EnemyScript
                         {
                             dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
                         }
-                    }
-                    //Final Dash
-                    else if (dashCount == dashLimit)
-                    {
-                        dashCount++;
-
-                        enemyChar.ResetHitbox();
-
-                        this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
-
-                        dashTarget = new Vector2((topRightArenaBounds.x + bottomLeftArenaBounds.x) / 2, Player.transform.position.y);
-                    }
-                    //Reach middle
-                    else if (dashCount > dashLimit)
-                    {
-                        dashCount = 0;
-
-                        isDashing = false;
-                        enemyChar.DisableHitbox();
-                        EnableHurtbox();
-                        enemyChar.StopAttackAnim();
                     }
                 }
             }
