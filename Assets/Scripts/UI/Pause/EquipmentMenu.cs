@@ -146,9 +146,11 @@ public class EquipmentMenu : MonoBehaviour
             if (glowToCheckIfEquipped.activeInHierarchy)
             {
                 hudEquipment.changeHUDOnEquip("", 1);
+                LeoraShadowEquipment[1].sprite = hudEquipment.uglyAssSwitchStatement("", amuletsForLeoraShadow);
             } else
             {
                 hudEquipment.changeHUDOnEquip(item, 1);
+                LeoraShadowEquipment[1].sprite = hudEquipment.uglyAssSwitchStatement(item, amuletsForLeoraShadow);
             }
 
             lastActiveAmulet = glowToCheckIfEquipped;
@@ -194,10 +196,12 @@ public class EquipmentMenu : MonoBehaviour
                     if (glowToCheckIfEquipped.activeInHierarchy)
                     {
                         hudEquipment.changeHUDOnEquip("", 0);
+                        LeoraShadowEquipment[0].sprite = hudEquipment.uglyAssSwitchStatement("", ringsForLeoraShadow);
                     }
                     else
                     {
                         hudEquipment.changeHUDOnEquip(item, 0);
+                        LeoraShadowEquipment[0].sprite = hudEquipment.uglyAssSwitchStatement(item, ringsForLeoraShadow);
                     }
                 }
                 //If the equipped ring is in ring slot 2
@@ -207,10 +211,12 @@ public class EquipmentMenu : MonoBehaviour
                     if (glowToCheckIfEquipped.activeInHierarchy)
                     {
                         hudEquipment.changeHUDOnEquip("", 2);
+                        LeoraShadowEquipment[2].sprite = hudEquipment.uglyAssSwitchStatement("", ringsForLeoraShadow);
                     }
                     else
                     {
                         hudEquipment.changeHUDOnEquip(item, 2);
+                        LeoraShadowEquipment[2].sprite = hudEquipment.uglyAssSwitchStatement(item, ringsForLeoraShadow);
                     }
                 }
             }
@@ -231,10 +237,12 @@ public class EquipmentMenu : MonoBehaviour
                         if (glowToCheckIfEquipped.activeInHierarchy)
                         {
                             hudEquipment.changeHUDOnEquip("", 0);
+                            LeoraShadowEquipment[0].sprite = hudEquipment.uglyAssSwitchStatement("", ringsForLeoraShadow);
                         }
                         else
                         {
                             hudEquipment.changeHUDOnEquip(item, 0);
+                            LeoraShadowEquipment[0].sprite = hudEquipment.uglyAssSwitchStatement(item, ringsForLeoraShadow);
                         }
                     }
                     //ring slot two
@@ -244,10 +252,12 @@ public class EquipmentMenu : MonoBehaviour
                         if (glowToCheckIfEquipped.activeInHierarchy)
                         {
                             hudEquipment.changeHUDOnEquip("", 2);
+                            LeoraShadowEquipment[2].sprite = hudEquipment.uglyAssSwitchStatement("", ringsForLeoraShadow);
                         }
                         else
                         {
                             hudEquipment.changeHUDOnEquip(item, 2);
+                            LeoraShadowEquipment[2].sprite = hudEquipment.uglyAssSwitchStatement(item, ringsForLeoraShadow);
                         }
                     }
                 }
@@ -262,10 +272,12 @@ public class EquipmentMenu : MonoBehaviour
                     if (glowToCheckIfEquipped.activeInHierarchy)
                     {
                         hudEquipment.changeHUDOnEquip("", 0);
+                        LeoraShadowEquipment[0].sprite = hudEquipment.uglyAssSwitchStatement("", ringsForLeoraShadow);
                     }
                     else
                     {
                         hudEquipment.changeHUDOnEquip(item, 0);
+                        LeoraShadowEquipment[0].sprite = hudEquipment.uglyAssSwitchStatement(item, ringsForLeoraShadow);
                     }
                 }
             }

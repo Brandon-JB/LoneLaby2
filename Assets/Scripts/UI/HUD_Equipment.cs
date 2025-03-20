@@ -52,7 +52,7 @@ public class HUD_Equipment : MonoBehaviour
     }
 
 
-    private Sprite uglyAssSwitchStatement(string item, Sprite[] arrayOfSprites)
+    public Sprite uglyAssSwitchStatement(string item, Sprite[] arrayOfSprites)
     {
         switch (item)
         {
