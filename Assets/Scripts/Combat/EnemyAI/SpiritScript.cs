@@ -7,6 +7,18 @@ public class SpiritScript : EnemyScript
     [SerializeField] private BoxCollider2D hurtbox;
     private bool ableToMove = false;
 
+    [SerializeField] private GameObject warningAoE;
+
+    public void EnableWarning()
+    {
+        warningAoE.SetActive(true);
+    }
+
+    public void DisableWarning()
+    {
+        warningAoE.SetActive(false);
+    }
+
     public void EnableHurtbox()
     {
         hurtbox.enabled = true;

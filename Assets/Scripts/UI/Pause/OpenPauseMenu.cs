@@ -18,6 +18,8 @@ public class OpenPauseMenu : MonoBehaviour
     {
         //I don't know how to do the user input stuff so we can do that later
 
+        //NOTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11 COULD MESS UP TIMESCALE JUNK! 
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(canOpenPause)
