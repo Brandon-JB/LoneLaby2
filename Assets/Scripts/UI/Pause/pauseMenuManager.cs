@@ -33,6 +33,7 @@ public class pauseMenuManager : MonoBehaviour
         equipMenu.position = startLocations[0].position;
         questMenu.position = startLocations[1].position;
         leoraAnimator.transform.position = startLocations[2].position;
+        this.transform.position = startLocations[3].position;
         leoraAnimator.SetTrigger("enterPause");
         ResetLeoraAnimator();
 
@@ -149,4 +150,24 @@ public class pauseMenuManager : MonoBehaviour
     }
 
     //Put Equipment UI Stuff here
+
+    public void goToOptions()
+    {
+        //move the entiiiirrreeee UI
+        this.transform.DOMove(startLocations[4].position,1).SetUpdate(true);
+        mainButtons.DOFade(0, 0.5f).SetUpdate(true).OnComplete(() => {
+            mainButtons.gameObject.SetActive(false);
+            equipBack.alpha = 0f;
+        });
+    }
+
+    public void exitOptions()
+    {
+        //move the entiiiirrreeee UI
+        this.transform.DOMove(startLocations[3].position, 1).SetUpdate(true);
+
+        mainButtons.alpha = 0;
+        mainButtons.gameObject.SetActive(true);
+        mainButtons.DOFade(1, 1).SetUpdate(true);
+    }
 }

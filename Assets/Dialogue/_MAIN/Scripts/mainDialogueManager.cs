@@ -370,6 +370,23 @@ public class mainDialogueManager : MonoBehaviour
         if (whichImage >= 0 && whichImage <= cutsceneScenes.Length)
         {
             cutsceneScenes[whichImage].SetActive(true);
+            switch(whichImage)
+            {
+                case 17:
+                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[3].transform.position, 1f);
+                    break;
+                case 18:
+                    cutsceneScenes[whichImage-1].transform.DOMove(cutsceneScenes[4].transform.position, 1f);
+                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[3].transform.position, 1f);
+                    break;
+                case 19:
+                    cutsceneScenes[whichImage - 1].transform.DOMove(cutsceneScenes[4].transform.position, 1f);
+                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[3].transform.position, 1f);
+                    break;
+                case 20:
+                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[4].transform.position, 1f);
+                    break;
+            }
         }
         else
         {
