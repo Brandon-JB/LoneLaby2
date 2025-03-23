@@ -5,6 +5,21 @@ using UnityEngine;
 
 public class IvarScript : MonoBehaviour
 {
+
+    //IMPORTANT
+    //LOOK AT THIS 
+    //IMPORTANT
+    //LOOK AT THIS 
+    //IMPORTANT
+    //LOOK AT THIS 
+    //IMPORTANT
+    //LOOK AT THIS 
+    //IMPORTANT
+    //LOOK AT THIS 
+    //IMPORTANT
+    //LOOK AT THIS 
+    //Bounds and Phase change need to be assigned in the editor
+
     [SerializeField] private IvarChar ivarChar;
 
     [SerializeField] private GameObject Player;
@@ -36,8 +51,10 @@ public class IvarScript : MonoBehaviour
     public GameObject darknessEffect;
     private bool firstTeleportHappened;
     public GameObject firstTPObject;
+    public GameObject ivarFirstTPObject;
     private bool secondTeleportHappened;
     public GameObject secondTPObject;
+    public GameObject ivarSecondTPObject;
 
     [Header("Massive Damage Cast")]
     [SerializeField] private Cooldown timeUntilBigAttack;
@@ -118,20 +135,33 @@ public class IvarScript : MonoBehaviour
                 TriggerTPCast();
             }
 
-            //Interupt the big cast and cause a stun
-            if (bigCasting && damageTaken >= damageThreshold)
+            //Massive attack during the maze
+            if (bigCasting)
             {
-                TriggerStunAnim();
-                bigCasting = false;
-                ivarChar.animator.SetBool("bigAttack", false);
-                timeUntilBigAttack.Interupted();
-            }
-            else if (bigCasting && !timeUntilBigAttack.isCoolingDown)
-            {
-                bigCasting = false;
-                ivarChar.animator.SetBool("bigAttack", false);
-                leoraChar.GotDamaged(50, this.gameObject, 0);
-                leoraChar.TriggerHurtAnim();
+                if (damageTaken >= damageThreshold)
+                {
+                    TriggerStunAnim();
+                    bigCasting = false;
+                    ivarChar.animator.SetBool("bigAttack", false);
+                    timeUntilBigAttack.Interupted();
+
+                    //Sending Ivar and player back to normal area
+                    Player.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, ((bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2) - 2);
+                    this.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, (bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2);
+                }
+                else if (!timeUntilBigAttack.isCoolingDown)
+                {
+                    bigCasting = false;
+                    ivarChar.animator.SetBool("bigAttack", false);
+                    leoraChar.GotDamaged(50, this.gameObject, 0);
+                    leoraChar.TriggerHurtAnim();
+                    
+                    //Sending Ivar and player back to normal arena
+                    Player.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, ((bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2) - 2);
+                    this.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, (bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2);
+                }
+                
+
             }
         }
     }
@@ -155,12 +185,14 @@ public class IvarScript : MonoBehaviour
         {
             case 1:
                 Player.transform.position = firstTPObject.transform.position;
+                this.transform.position = ivarFirstTPObject.transform.position;
                 darknessEffect.SetActive(true);
                 firstTeleportHappened = true;
                 break;
 
             case 2:
                 Player.transform.position = secondTPObject.transform.position;
+                this.transform.position = ivarSecondTPObject.transform.position;
                 darknessEffect.SetActive(true);
                 secondTeleportHappened = true;
                 break;
