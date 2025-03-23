@@ -105,19 +105,21 @@ public class LeoraChar2 : BaseChar
                     if (hitboxChild == null)
                     {
                         hitboxChild = collision.GetComponentInParent<HitboxChar>();
-                        //Debug.Log("Child not found");
+                        Debug.Log("Child not found");
                     }
 
                     otherCharTrigger = hitboxChild.parentChar;
 
                     if (otherCharTrigger == null)
                     {
-                        //Debug.Log("Unable to find parent character of hitbox");
+                        Debug.Log("Unable to find parent character of hitbox");
                     }
                 }
 
                 if (otherCharTrigger != null)
                 {
+                    hitboxChild = collision.GetComponent<HitboxChar>();
+
                     if (otherCharTrigger.allied != this.allied)
                     {
                         hitboxChild.alreadyHit = true;
@@ -210,7 +212,7 @@ public class LeoraChar2 : BaseChar
                 }
             }
             //on walking into a drop
-            if (collision.tag == "Drop")
+            else if (collision.tag == "Drop")
             {
                 Drops drop = collision.GetComponent<Drops>();
 
@@ -219,6 +221,12 @@ public class LeoraChar2 : BaseChar
                 drop.WhatItemDo(this, kisaAmuletActive);
 
                 Destroy(collision.gameObject);
+            }
+            //On walking into environmental damage AKA Ivar fire wall
+            else if (collision.tag == "Environmental")
+            {
+                GotDamaged(20, collision.gameObject, 1);
+                TriggerHurtAnim();
             }
         }
     }

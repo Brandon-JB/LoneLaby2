@@ -17,9 +17,12 @@ public class IvarScript : MonoBehaviour
 
     [Header("Casting")]
     [SerializeField] private GameObject[] summonList;
-    private GameObject[] enemyList = { };
+    private List<GameObject> enemyList =  new List<GameObject>();
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Cooldown castingCooldown;
+    public Animator castParticleAnimator;
+
+    private int whichMoveToCast;
 
     [Header("Moving")]
     private bool isMoving;
@@ -55,6 +58,23 @@ public class IvarScript : MonoBehaviour
         //Casting
         if (castingCooldown.isCoolingDown == false && ivarChar.animator.GetBool("Casting") == false)
         {
+            whichMoveToCast = 0;
+
+            for (int i = 0; i < enemyList.Count; i++)
+            {
+                if (enemyList[i] == null)
+                {
+                    enemyList.RemoveAt(i);
+                }
+            }
+
+            //Limits the amount of enemies
+            if (enemyList == null || enemyList.Count() <= 4)
+            {
+                whichMoveToCast = Random.Range(0, 2);
+            }
+
+
             TriggerCastAnim();
         }
     }
@@ -62,6 +82,18 @@ public class IvarScript : MonoBehaviour
     private void TriggerCastAnim()
     {
         ivarChar.animator.SetBool("Casting", true);
+
+        switch (whichMoveToCast)
+        {
+            //Projectile
+            case 0:
+                castParticleAnimator.SetBool("projectile", true);
+                break;
+            //Summoning
+            case 1:
+                castParticleAnimator.SetBool("summon", true);
+                break;
+        }
     }
 
     public void TriggerStunAnim()
@@ -84,15 +116,10 @@ public class IvarScript : MonoBehaviour
     {
         castingCooldown.StartCooldown();
 
-        int whichMove = 0;
+        castParticleAnimator.SetBool("summon", false);
+        castParticleAnimator.SetBool("projectile", false);
 
-        //Limits the amount of enemies
-        if (enemyList == null || enemyList.Count() <= 4)
-        {
-            whichMove = Random.Range(0, 2);
-        }
-
-        switch (whichMove)
+        switch (whichMoveToCast)
         {
             //Projectile
             case 0:
@@ -102,7 +129,7 @@ public class IvarScript : MonoBehaviour
                 break;
             //Summoning
             case 1:
-                    enemyList.Append(Instantiate(summonList[Random.Range(0, summonList.Length)], enemySpawnPosition, Quaternion.identity));
+                    enemyList.Add(Instantiate(summonList[Random.Range(0, summonList.Length)], enemySpawnPosition, Quaternion.identity));
                 break;
         }
     }
