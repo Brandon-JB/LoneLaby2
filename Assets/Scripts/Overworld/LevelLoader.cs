@@ -21,6 +21,7 @@ public class LevelLoader : MonoBehaviour
     public void LoadNextLevel()
     {
         areaNumber = PortalScript.whereGo - 1;
+        Debug.Log(SceneNames[areaNumber] + " " + areaNumber);
         StartCoroutine(LoadLevel(SceneNames[areaNumber], areaNumber));
     }
 
@@ -28,26 +29,27 @@ public class LevelLoader : MonoBehaviour
     {
         if (areaNumber == 0)
         {
-            animator[areaNumber].SetBool("IsTown", true);
+            animator[0].SetBool("IsTown", true);
         }
         else if (areaNumber == 1)
         {
-            animator[areaNumber].SetBool("IsCave", true);
+            animator[0].SetBool("IsCave", true);
         }
         else if (areaNumber == 2)
         {
-            animator[areaNumber].SetBool("IsForest", true);
+            animator[0].SetBool("IsMansion", true);
         }
         else if (areaNumber == 3)
         {
-            animator[areaNumber].SetBool("IsMansion", true);
+            animator[0].SetBool("IsForest", true);
         }
 
 
-        animator[areaNumber].SetTrigger("Start");
+        animator[0].SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(SceneName);
+        PlayerMovement.CanWalk = true;
     }
 }

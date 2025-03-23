@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform movePoint;
     public LayerMask SolidObjects;
     public float Timer = 1;
-    public bool CanWalk = true;
+    public static bool CanWalk = true;
 
     // Start is called before the first frame update
     void Start()
