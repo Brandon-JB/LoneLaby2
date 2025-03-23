@@ -122,6 +122,12 @@ public class LeoraChar2 : BaseChar
 
                     if (otherCharTrigger.allied != this.allied)
                     {
+                        if (hitboxChild == null)
+                        {
+                            hitboxChild = collision.GetComponentInParent<HitboxChar>();
+                            //Debug.Log("Child not found");
+                        }
+
                         hitboxChild.alreadyHit = true;
                         collision.gameObject.SetActive(false);
 

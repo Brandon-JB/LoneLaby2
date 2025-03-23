@@ -466,10 +466,11 @@ MonoBehaviour:
   parryCooldown:
     cooldownTime: 100
   stunTimer:
-    cooldownTime: 100
+    cooldownTime: 5
   particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
   slowTimer:
     cooldownTime: 100
+  ivarScript: {fileID: 6457879087906451900}
 --- !u!114 &6457879087906451900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ivarChar: {fileID: 572614739619670666}
   Player: {fileID: 0}
+  isActive: 0
   bottomLeftArenaBounds: {x: 0, y: 0}
   topRightArenaBounds: {x: 0, y: 0}
   enemySpawnPosition: {x: 0, y: 0}
@@ -496,3 +498,11 @@ MonoBehaviour:
   castParticleAnimator: {fileID: 6650909456639093376}
   ivarRB: {fileID: 6549770698280233058}
   moveSpeed: 3
+  darknessEffect: {fileID: 0}
+  firstTPObject: {fileID: 0}
+  secondTPObject: {fileID: 0}
+  timeUntilBigAttack:
+    cooldownTime: 100
+  damageThreshold: 0
+  damageTaken: 0
+  bigCasting: 0

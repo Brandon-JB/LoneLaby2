@@ -8,6 +8,9 @@ public class IvarScript : MonoBehaviour
     [SerializeField] private IvarChar ivarChar;
 
     [SerializeField] private GameObject Player;
+    private LeoraChar2 leoraChar;
+
+    public bool isActive;
 
     [Header("Vectors")]
     [SerializeField] private Vector2 bottomLeftArenaBounds;
@@ -29,10 +32,33 @@ public class IvarScript : MonoBehaviour
     [SerializeField] private Rigidbody2D ivarRB;
     [SerializeField] private float moveSpeed;
 
+    [Header("Phase Change")]
+    public GameObject darknessEffect;
+    private bool firstTeleportHappened;
+    public GameObject firstTPObject;
+    private bool secondTeleportHappened;
+    public GameObject secondTPObject;
+
+    [Header("Massive Damage Cast")]
+    [SerializeField] private Cooldown timeUntilBigAttack;
+    public int damageThreshold;
+    public int damageTaken;
+    public bool bigCasting;
+
+    //1 for the first teleport, 2 for the second teleport
+    private int teleportNum = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        bigCasting = false;
+        isActive = false;
+
         Player = GameObject.Find("CombatPlayer");
+        leoraChar = Player.GetComponent<LeoraChar2>();
+
+        firstTeleportHappened = false;
+        secondTeleportHappened = false;
 
         moveTargetPosition = new Vector2(Random.Range(bottomLeftArenaBounds.x, topRightArenaBounds.x), Random.Range(bottomLeftArenaBounds.y, topRightArenaBounds.y));
     }
@@ -40,43 +66,111 @@ public class IvarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Moving
-        if (ivarChar.animator.GetBool("stunned") == false && ivarChar.animator.GetBool("Casting") == false)
+        if (isActive)
         {
-            //if ivar is close to the target point
-            if (Vector2.Distance(this.transform.position, moveTargetPosition) < 1)
+            //Moving
+            if (ivarChar.animator.GetBool("stunned") == false && ivarChar.animator.GetBool("Casting") == false && ivarChar.animator.GetBool("tpCast") == false && ivarChar.animator.GetBool("bigAttack") == false)
             {
-                //Chooses a random position from within the arena bounds
-                moveTargetPosition = new Vector2(Random.Range(bottomLeftArenaBounds.x, topRightArenaBounds.x), Random.Range(bottomLeftArenaBounds.y, topRightArenaBounds.y));
-            }
-            else
-            {
-                ivarRB.transform.position = Vector2.MoveTowards(ivarRB.transform.position, moveTargetPosition, moveSpeed * Time.deltaTime);
-            }
-        }
-
-        //Casting
-        if (castingCooldown.isCoolingDown == false && ivarChar.animator.GetBool("Casting") == false)
-        {
-            whichMoveToCast = 0;
-
-            for (int i = 0; i < enemyList.Count; i++)
-            {
-                if (enemyList[i] == null)
+                //if ivar is close to the target point
+                if (Vector2.Distance(this.transform.position, moveTargetPosition) < 1)
                 {
-                    enemyList.RemoveAt(i);
+                    //Chooses a random position from within the arena bounds
+                    moveTargetPosition = new Vector2(Random.Range(bottomLeftArenaBounds.x, topRightArenaBounds.x), Random.Range(bottomLeftArenaBounds.y, topRightArenaBounds.y));
+                }
+                else
+                {
+                    ivarRB.transform.position = Vector2.MoveTowards(ivarRB.transform.position, moveTargetPosition, moveSpeed * Time.deltaTime);
                 }
             }
 
-            //Limits the amount of enemies
-            if (enemyList == null || enemyList.Count() <= 4)
+            //Casting
+            if (castingCooldown.isCoolingDown == false && ivarChar.animator.GetBool("Casting") == false && ivarChar.animator.GetBool("tpCast") == false && ivarChar.animator.GetBool("bigAttack") == false && ivarChar.animator.GetBool("stunned") == false)
             {
-                whichMoveToCast = Random.Range(0, 2);
+                whichMoveToCast = 0;
+
+                for (int i = 0; i < enemyList.Count; i++)
+                {
+                    if (enemyList[i] == null)
+                    {
+                        enemyList.RemoveAt(i);
+                    }
+                }
+
+                //Limits the amount of enemies
+                if (enemyList == null || enemyList.Count() <= 4)
+                {
+                    whichMoveToCast = Random.Range(0, 2);
+                }
+
+
+                TriggerCastAnim();
             }
 
+            //Teleporting to the fire mazes
+            if (firstTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 2)
+            {
+                teleportNum = 1;
+                TriggerTPCast();
+            }
+            else if (secondTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 4)
+            {
+                teleportNum = 2;
+                TriggerTPCast();
+            }
 
-            TriggerCastAnim();
+            //Interupt the big cast and cause a stun
+            if (bigCasting && damageTaken >= damageThreshold)
+            {
+                TriggerStunAnim();
+                bigCasting = false;
+                ivarChar.animator.SetBool("bigAttack", false);
+                timeUntilBigAttack.Interupted();
+            }
+            else if (bigCasting && !timeUntilBigAttack.isCoolingDown)
+            {
+                bigCasting = false;
+                ivarChar.animator.SetBool("bigAttack", false);
+                leoraChar.GotDamaged(50, this.gameObject, 0);
+                leoraChar.TriggerHurtAnim();
+            }
         }
+    }
+
+    private void TriggerTPCast()
+    {
+        ivarChar.animator.SetBool("tpCast", true);
+        ivarChar.animator.SetBool("bigAttack", true);
+    }
+
+    public void StopTPCast()
+    {
+        ivarChar.animator.SetBool("tpCast", false);
+    }
+
+    public void Teleport()
+    {
+        damageTaken = 0;
+
+        switch (teleportNum)
+        {
+            case 1:
+                Player.transform.position = firstTPObject.transform.position;
+                darknessEffect.SetActive(true);
+                firstTeleportHappened = true;
+                break;
+
+            case 2:
+                Player.transform.position = secondTPObject.transform.position;
+                darknessEffect.SetActive(true);
+                secondTeleportHappened = true;
+                break;
+            default:
+                Debug.Log("Wrong teleport number");
+                break;
+        }
+
+        timeUntilBigAttack.StartCooldown();
+        bigCasting = true; 
     }
 
     private void TriggerCastAnim()
@@ -98,6 +192,8 @@ public class IvarScript : MonoBehaviour
 
     public void TriggerStunAnim()
     {
+        ivarChar.SpawnParticle("stunFX", ivarChar.transform.position, ivarChar.transform, ivarChar.stunTimer.cooldownTime);
+        ivarChar.stunTimer.StartCooldown();
         ivarChar.animator.SetBool("stunned", true);
     }
 

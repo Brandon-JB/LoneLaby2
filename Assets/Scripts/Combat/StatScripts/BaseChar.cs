@@ -309,6 +309,7 @@ public class BaseChar : MonoBehaviour
     public virtual void StopHurtAnim()
     {
         animator.SetBool("Hurt", false);
+        DisableHitbox();
 
         if (allied)
         {
@@ -597,7 +598,7 @@ public class BaseChar : MonoBehaviour
         isParrying = false;
         isPerfectParrying = false;
 
-        stunTimer.cooldownTime = 1;
+        //stunTimer.cooldownTime = 1;
         slowTimer.cooldownTime = 6;
 
         dropManager = FindObjectOfType<DropManager>();
