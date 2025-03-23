@@ -52,4 +52,12 @@ public class DropManager : MonoBehaviour
             //Debug.Log("item");
         }
     }
+
+    public void SpecificDrop(Vector3 dropLocation, string item)
+    {
+
+        GameObject drops = Instantiate(dropPrefab, dropLocation, Quaternion.identity);
+        Drops dropScript = drops.GetComponent<Drops>();
+        dropScript.SetUpItem(item, "");
+    }
 }

@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class BloodCrystalScript : MonoBehaviour
 {
-    //MAKE CRYSTAL DROP A SMALL HEAL ON DESTRUCTION
+    //IMPORTANT
+    //LOOK AT THIS 
+    //IMPORTANT
+    //LOOK AT THIS 
+    //IMPORTANT
+    //LOOK AT THIS 
+    //IMPORTANT
+    //LOOK AT THIS 
+    //IMPORTANT
+    //LOOK AT THIS 
+    //IMPORTANT
+    //LOOK AT THIS 
+    //The Viin script needs to be assigned manually in the editor.
 
 
     public int health = 4;
@@ -21,10 +33,12 @@ public class BloodCrystalScript : MonoBehaviour
 
     public Cooldown noShieldTimer;
 
+    private DropManager dropManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        dropManager = FindObjectOfType<DropManager>();
     }
 
     // Update is called once per frame
@@ -35,9 +49,10 @@ public class BloodCrystalScript : MonoBehaviour
             animator.SetBool("Death", true);
         }
 
-        if (!isShielded && !noShieldTimer.isCoolingDown)
+        if (!animator.GetBool("Death") && !isShielded && !noShieldTimer.isCoolingDown)
         {
             bloodShieldAnimator.SetBool("despawn", false);
+            bloodShieldAnimator.SetBool("spawn", true);
             isShielded = true;
         }
     }
@@ -45,8 +60,8 @@ public class BloodCrystalScript : MonoBehaviour
     public void RemoveCrystalBuffs()
     {
         viinScript.viinChar.AddToSpecificStat("Strength", -2);
-        viinScript.attackCooldown.cooldownTime -= 0.5f;
-        viinScript.attackLimit += 5;
+        viinScript.attackCooldown.cooldownTime += 0.5f;
+        viinScript.attackLimit -= 5;
     }
 
     public void EnableHurtBox()
@@ -59,6 +74,12 @@ public class BloodCrystalScript : MonoBehaviour
     public void DisableHurtbox()
     {
         hurtbox.enabled = false;
+    }
+
+    public void TriggerDespawnAnimation()
+    {
+        animator.SetBool("despawning", true);
+        bloodShieldAnimator.SetBool("despawn", true);
     }
 
     public void StopDespawnAnimation()
@@ -81,18 +102,29 @@ public class BloodCrystalScript : MonoBehaviour
     public void SpawnShield()
     {
         bloodShieldAnimator.SetBool("spawn", true);
+        bloodShieldAnimator.SetBool("despawn", false);
     }
 
 
     public void DespawnShield()
     {
         bloodShieldAnimator.SetBool("despawn", true);
+        bloodShieldAnimator.SetBool("spawn", false);
     }
 
-    //"Destroy" yeah no
     public void DestroyCrystal()
     {
+        dropManager.SpecificDrop(this.transform.position, "Small HP");
+        
+        viinScript.MarkAsDestroyed();
+        viinScript.DespawnBloodOrbs();
         RemoveCrystalBuffs();
+
+        viinScript.WarningObject.SetActive(false);
+        viinScript.viinChar.DisableHitbox();
+
+        //viinScript.transform.position = new Vector2((viinScript.bottomLeftArenaBounds.x + viinScript.topRightArenaBounds.x) / 2, (viinScript.bottomLeftArenaBounds.y + viinScript.topRightArenaBounds.y) / 2);
+        viinScript.viinChar.StopAttackAnim();
         viinScript.viinChar.animator.SetBool("stunned", true);
         viinScript.AttackCount = 0;
         viinScript.viinChar.animator.SetBool("shortStun", false);
@@ -140,7 +172,7 @@ public class BloodCrystalScript : MonoBehaviour
             }
 
             //if Viin hits the shield
-            if (otherCharTrigger.charName == "Viin")
+            if (otherCharTrigger.charName == "Viin" && isShielded)
             {
                 DespawnShield();
                 isShielded = false;
