@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ViinScript : MonoBehaviour
@@ -7,7 +8,7 @@ public class ViinScript : MonoBehaviour
     [SerializeField] private Vector3 bottomLeftArenaBounds;
     [SerializeField] private Vector3 topRightArenaBounds;
 
-    [SerializeField] private ViinChar viinChar;
+    [SerializeField] public ViinChar viinChar;
 
     [SerializeField] private Rigidbody2D viinRB;
 
@@ -19,7 +20,7 @@ public class ViinScript : MonoBehaviour
 
     public bool isActive = false;
 
-    [SerializeField] private Cooldown attackCooldown;
+    [SerializeField] public Cooldown attackCooldown;
 
     private bool isAttacking = false;
 
@@ -31,31 +32,53 @@ public class ViinScript : MonoBehaviour
     [SerializeField] private Transform WarningTransform;
 
     [SerializeField] private Transform AttackAoETransform;
+
+    public float attackVariation = 1;
     
     [Header("First Phase")]
 
-    private int AttackCount;
+    public int AttackCount;
 
-    private int attackLimit = 3;
-
-    private bool firstPhase = true;
+    public int attackLimit = 3;
 
     [Header("Second Phase")]
 
-    private int bloodOrbCount = 0;
+    //crystal buffs layout
+    /*
+     * Start of fight: 4 second attack cooldown speed, 3 attack limit
+     * First wave of crystal spawning: 3 second attack cooldown speed, + 3 attack dive limit
+     * Each crystal buff: -0.5 second attack cooldown speed, + 5 attack dive limit
+     */
+
+    private bool firstCrystalsSpawned = false;
+    private bool secondCrystalsSpawned = false;
+    private bool thirdCrystalsSpawned = false;
+
+    public Dictionary<int, bool> CrystalDestroyed = new Dictionary<int, bool>()
+    {
+        { 0, false },
+        { 1, false },
+        { 2, false },
+    };
+
+    public BloodCrystalScript[] bloodCrystals; 
 
     // Start is called before the first frame update
     void Start()
     {
         isActive = false;
-        bloodOrbCount = 0;
-        firstPhase = true;
         isAttacking = false;
+
+        firstCrystalsSpawned = false;
+        secondCrystalsSpawned = false;
+        thirdCrystalsSpawned = false;
 
         WarningObject.SetActive(false);
         viinChar.DisableHitbox();
 
+        attackCooldown.cooldownTime = 4;
         attackLimit = 3;
+        AttackCount = 0;
 
         viinChar = GetComponent<ViinChar>();
 
@@ -68,7 +91,17 @@ public class ViinScript : MonoBehaviour
 
     public void SpawnBloodOrbs()
     {
-
+        foreach(var crystal in CrystalDestroyed)
+        {
+            //for each crystal not destroyed
+            if (crystal.Value == false) 
+            {
+                viinChar.AddToSpecificStat("Strength", 2);
+                bloodCrystals[crystal.Key].StartSpawnAnimation();
+                attackCooldown.cooldownTime -= 0.5f;
+                attackLimit += 5;
+            }
+        }
     }
 
     public void StopStunAnim()
@@ -79,6 +112,16 @@ public class ViinScript : MonoBehaviour
     public void TriggerStunAnim()
     {
         viinChar.animator.SetBool("stunned", true);
+    }
+
+    public void TriggerShortStun()
+    {
+        viinChar.animator.SetBool("shortStun", true);
+    }
+
+    public void EndShortStun()
+    {
+        viinChar.animator.SetBool("shortStun", false);
     }
 
     public void EnableHurtbox()
@@ -93,8 +136,11 @@ public class ViinScript : MonoBehaviour
 
     private void Update()
     {
-        if (isActive && !viinChar.animator.GetBool("stunned") && !isAttacking)
+        if (isActive && !viinChar.animator.GetBool("stunned") && !viinChar.animator.GetBool("shortStun") && !isAttacking)
         {
+            //small opening after few attacks
+            //big opening after crystal break
+            //attack off cooldown
             if (!attackCooldown.isCoolingDown)
             {
                 if (AttackCount < attackLimit)
@@ -109,17 +155,38 @@ public class ViinScript : MonoBehaviour
 
                     attackCooldown.StartCooldown();
 
-                    viinChar.animator.SetBool("stunned", true);
+                    TriggerShortStun();
 
                     AttackCount = 0;
                 }
             }
+
+            //Spawning the first wave of crystals at 75% health
+            if (!firstCrystalsSpawned && viinChar.GetHealth() < (viinChar.GetMaxHealth() - (viinChar.GetMaxHealth() / 4 )))
+            {
+                attackLimit += 3;
+                attackCooldown.cooldownTime = 3;
+                SpawnBloodOrbs();
+            }
+
+            //Spawning the second wave of crystals at 50% health
+            if (!secondCrystalsSpawned && viinChar.GetHealth() < viinChar.GetMaxHealth() / 2)
+            {
+                SpawnBloodOrbs();
+            }
+
+            //Spawning the third wave of crystals at 25% health
+            if (!thirdCrystalsSpawned && viinChar.GetHealth() < viinChar.GetMaxHealth() / 4)
+            {
+                SpawnBloodOrbs();
+            }
+            
         }
     }
 
     private IEnumerator WarningForAttack()
     {
-        this.transform.position = new Vector2(Player.transform.position.x, Player.transform.position.y);
+        this.transform.position = new Vector2(Player.transform.position.x + Random.Range(-attackVariation, attackVariation), Player.transform.position.y + Random.Range(-attackVariation, attackVariation));
 
         WarningTransform.localScale = new Vector2(Vector2.one.x * AoESize, Vector2.one.y * AoESize);
         AttackAoETransform.localScale = new Vector2(Vector2.one.x * AoESize, Vector2.one.y * AoESize);

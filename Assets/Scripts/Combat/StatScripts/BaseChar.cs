@@ -119,6 +119,16 @@ public class BaseChar : MonoBehaviour
         }
     }
 
+    public int GetSpecificStat(string stat)
+    {
+        return statsSheet[stat];
+    }
+
+    public void AddToSpecificStat(string stat, int addedValue)
+    {
+        ChangeSpecificStat(stat, GetSpecificStat(stat) + addedValue);
+    }
+
     public string charName = "";
 
     public bool allied = true;
