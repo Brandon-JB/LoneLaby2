@@ -32,8 +32,8 @@ public class PortalScript : MonoBehaviour
         }
         else if (name == "Exit")
         {
-            SceneManager.LoadScene("Overworld");
             whereGo = 6;
+            SceneManager.LoadScene("Overworld");
         }
         else if (name == "Church")
         {
@@ -43,30 +43,37 @@ public class PortalScript : MonoBehaviour
         }
         else if (name == "CityPortal")
         {
-            LevelLoader.LoadNextLevel();
             LastPortal = 1;
             whereGo = 1;
+            PlayerMovement.CanWalk = false;
+            LevelLoader.LoadNextLevel();
+            
+
         }
         else if (name == "CavePortal")
         {
-            LevelLoader.LoadNextLevel();
             //set var for where to go here
             LastPortal = 2;
             whereGo = 2;
+            PlayerMovement.CanWalk = false;
+            LevelLoader.LoadNextLevel();
+
         }
         else if (name == "MansionPortal")
         {
-            LevelLoader.LoadNextLevel();
-            //set var for where to go here
             LastPortal = 3;
             whereGo = 3;
+            PlayerMovement.CanWalk = false;
+            LevelLoader.LoadNextLevel();
+
         }
         else if (name == "ForestPortal")
         {
-            LevelLoader.LoadNextLevel();
-            //set var for where to go here
             LastPortal = 4;
             whereGo = 4;
+            PlayerMovement.CanWalk = false;
+            LevelLoader.LoadNextLevel();
+
         }
     }
 }
