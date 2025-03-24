@@ -292,7 +292,7 @@ public class LeoraChar2 : BaseChar
     public void EnableMagHitbox()
     {
         magHitbox.SetActive(true);
-        if (darknessManager != null)
+        if (darknessManager != null && magicType == "lightMag")
         {
             darknessManager.turnoffDarkness();
         }
