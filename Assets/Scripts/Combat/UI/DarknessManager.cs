@@ -20,57 +20,73 @@ public class DarknessManager : MonoBehaviour
     void Start()
     {
         DarknessImage.enabled = true;
-        DarknessImage.DOFade(1, 30f);
+        fadeDarkness1();
         leoraChar = FindObjectOfType<LeoraChar2>();
     }
 
 
-    void Update()
-    {
-        //timer += Time.deltaTime;
-        //if (timer >= ChangeTime) 
-        //{
-        //    timer = 0f;
-        //    currentIndex++;
-        //    DarknessImage.sprite = sprites[currentIndex];
-        //}
+    //void Update()
+    //{
+    //    //timer += Time.deltaTime;
+    //    //if (timer >= ChangeTime) 
+    //    //{
+    //    //    timer = 0f;
+    //    //    currentIndex++;
+    //    //    DarknessImage.sprite = sprites[currentIndex];
+    //    //}
 
-        if(InputManager.magicPressed && leoraChar.magicType == "lightMag")
+    //    //if(InputManager.magicPressed && leoraChar.magicType == "lightMag")
+    //    //{
+    //    //    //currentIndex = 0;
+    //    //    timer = 0f;
+    //    //    DarknessImage.DOKill();
+    //    //    DarknessImage2.DOKill();
+    //    //    DarknessImage3.DOKill();
+    //    //    DarknessImage2.DOFade(0, 1f).SetEase(Ease.Linear);
+    //    //    DarknessImage3.DOFade(0, 1f).SetEase(Ease.Linear);
+    //    //    DarknessImage.DOFade(0, 1f).SetEase(Ease.Linear).OnComplete(() =>
+    //    //    {
+    //    //        fadeDarkness1();
+    //    //    });
+    //    //    //DarknessImage.sprite = sprites[currentIndex];
+    //    //}
+    //}
+
+    public void turnoffDarkness()
+    {
+        DarknessImage.DOKill();
+        DarknessImage2.DOKill();
+        DarknessImage3.DOKill();
+        DarknessImage2.DOFade(0, 0.35f).SetEase(Ease.InQuint);
+        DarknessImage3.DOFade(0, 0.35f).SetEase(Ease.InQuint);
+        DarknessImage.DOFade(0, 0.35f).SetEase(Ease.InQuint).OnComplete(() =>
         {
-            //currentIndex = 0;
-            timer = 0f;
-            DarknessImage.DOKill();
-            DarknessImage2.DOKill();
-            DarknessImage3.DOKill();
-            DarknessImage2.DOFade(0, 1f).SetEase(Ease.Linear);
-            DarknessImage3.DOFade(0, 1f).SetEase(Ease.Linear);
-            DarknessImage.DOFade(0, 1f).SetEase(Ease.Linear).OnComplete(() =>
-            {
-                fadeDarkness1();
-            });
-            //DarknessImage.sprite = sprites[currentIndex];
-        }
+            fadeDarkness1();
+        });
     }
 
     private void fadeDarkness1()
     {
-        DarknessImage.DOFade(1, 30f).SetEase(Ease.Linear).OnComplete(() =>
+        DarknessImage.DOFade(1, ChangeTime).SetEase(Ease.Linear).OnComplete(() =>
         {
+            Debug.Log("Done!");
             fadeDarkness2();
         });
     }
 
     private void fadeDarkness2()
     {
-        DarknessImage2.DOFade(1, 30f).SetEase(Ease.Linear).OnComplete(() =>
+        Debug.Log("Starting to fade other");
+        DarknessImage2.DOFade(1, ChangeTime).SetEase(Ease.Linear).OnComplete(() =>
         {
-            DarknessImage.DOFade(1, 30f);
+            Debug.Log("Done again!");
+            fadeDarkness3();
         });
     }
 
     private void fadeDarkness3()
     {
-        DarknessImage3.DOFade(1, 30f).SetEase(Ease.Linear);
+        DarknessImage3.DOFade(1, ChangeTime).SetEase(Ease.Linear);
     }
 
 

@@ -33,7 +33,9 @@ public class LeoraChar2 : BaseChar
     public bool kisaAmuletActive = false;
     public bool sophieAmuletActive = false;
 
-    
+    //For Darkness
+    private DarknessManager darknessManager;
+
     //public bool isInFirstCombo = false;
 
     // Start is called before the first frame update
@@ -56,7 +58,7 @@ public class LeoraChar2 : BaseChar
         animator.SetFloat("LastV", -1);
 
         magHitbox.SetActive(false);
-
+        darknessManager = GameObject.FindObjectOfType<DarknessManager>();
     }
 
     public override void TriggerHurtAnim()
@@ -290,6 +292,10 @@ public class LeoraChar2 : BaseChar
     public void EnableMagHitbox()
     {
         magHitbox.SetActive(true);
+        if (darknessManager != null)
+        {
+            darknessManager.turnoffDarkness();
+        }
     }
 
     public void DisableMagHitbox()
