@@ -13,7 +13,7 @@ public class IvarChar : BaseChar
         allied = false;
         charName = "Ivar";
 
-        ChangeStats(10, 0, 4, 100, 0);
+        ChangeStats(10, 0, 4, 150, 0);
     }
 
     public override void Update()
@@ -68,41 +68,14 @@ public class IvarChar : BaseChar
 
                         LeoraChar2 leoraChar = otherCharTrigger.GetComponent<LeoraChar2>();
 
-                        //Crit possible from sophie amulet
-                        if (leoraChar.sophieAmuletActive)
+                        if (ivarScript.bigCasting)
                         {
-                            int critOrNo = Random.Range(1, 21);
-
-                            critOrNo = 20;
-
-                            if (critOrNo == 20)
-                            {
-                                incomingDamage = incomingDamage * 2;
-                            }
-
-                            Vector3 critPosition = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-                            Transform damagePopupTransform = Instantiate(damagePopup, critPosition, Quaternion.identity);
-                            DamagePopUp damPopScript = damagePopupTransform.GetComponent<DamagePopUp>();
-                            damPopScript.SetupString("Critical!");
-                            
-                            if (ivarScript.bigCasting)
-                            {
-                                ivarScript.damageTaken += incomingDamage;
-                            }
-
-                            GotDamaged(incomingDamage, otherCharTrigger.gameObject, 0);
-                            TriggerHurtAnim();
+                            ivarScript.damageTaken += incomingDamage;
                         }
-                        else
-                        {
-                            if (ivarScript.bigCasting)
-                            {
-                                ivarScript.damageTaken += incomingDamage;
-                            }
 
-                            GotDamaged(incomingDamage, otherCharTrigger.gameObject, 0);
-                            TriggerHurtAnim();
-                        }
+                        GotDamaged(incomingDamage, otherCharTrigger.gameObject, 0);
+                        TriggerHurtAnim();
+
 
                         /* Parrying moved to Leora
                         if (hitboxChild.isParryable)
@@ -141,5 +114,11 @@ public class IvarChar : BaseChar
                 }
             }
         }
+    }
+
+    public override void Death()
+    {
+        //put whatever code to trigger the end of boss fight things
+        Destroy(this.gameObject);
     }
 }

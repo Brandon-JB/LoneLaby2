@@ -137,6 +137,8 @@ public class BaseChar : MonoBehaviour
 
     private DropManager dropManager;
 
+    private LeoraChar2 leoraChar2;
+
     [Header("UI")]
     //Only for use with Leora. Kept here so there's only one damage script
     [SerializeField] public TMP_Text healthBar;
@@ -438,12 +440,13 @@ public class BaseChar : MonoBehaviour
 
                         LeoraChar2 leoraChar = otherCharTrigger.GetComponent<LeoraChar2>();
                         
-                        //Crit possible from sophie amulet
+                        /*//Crit possible from sophie amulet
+                         *Moved it to gotDamaged
                         if (leoraChar.sophieAmuletActive)
                         {
                             int critOrNo = Random.Range(1, 21);
 
-                            critOrNo = 20;
+                            //critOrNo = 20;
 
                             if (critOrNo == 20)
                             {
@@ -458,10 +461,10 @@ public class BaseChar : MonoBehaviour
                             TriggerHurtAnim();
                         }
                         else
-                        {
-                            GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
-                            TriggerHurtAnim();
-                        }
+                        */
+                        GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                        TriggerHurtAnim();
+                        
 
                         /* Parrying moved to Leora
                         if (hitboxChild.isParryable)
@@ -508,6 +511,26 @@ public class BaseChar : MonoBehaviour
         //Debug.Log(charName + " Health: " + GetHealth());
         if (GetHealth() > 0)
         {
+            //Crit possible from sophie amulet
+            if (!allied && leoraChar2.sophieAmuletActive)
+            {
+                int critOrNo = Random.Range(1, 21);
+
+                //critOrNo = 20;
+
+                if (critOrNo == 20)
+                {
+                    incomingDamage = incomingDamage * 2;
+
+                    Vector3 critPosition = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                    Transform critTransform = Instantiate(damagePopup, critPosition, Quaternion.identity);
+                    DamagePopUp critPopUpScript = critTransform.GetComponent<DamagePopUp>();
+                    critPopUpScript.SetupString("Critical!");
+                }
+
+                
+            }
+
 
             SetHealth(GetHealth() - incomingDamage);
             Transform damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
@@ -597,6 +620,8 @@ public class BaseChar : MonoBehaviour
         charRB = GetComponent<Rigidbody2D>();
         isParrying = false;
         isPerfectParrying = false;
+
+        leoraChar2 = FindObjectOfType<LeoraChar2>();
 
         //stunTimer.cooldownTime = 1;
         slowTimer.cooldownTime = 6;

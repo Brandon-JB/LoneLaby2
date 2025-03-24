@@ -488,7 +488,7 @@ MonoBehaviour:
   isActive: 0
   bottomLeftArenaBounds: {x: 0, y: 0}
   topRightArenaBounds: {x: 0, y: 0}
-  enemySpawnPosition: {x: 0, y: 0}
+  enemySpawnPosition: {fileID: 0}
   summonList:
   - {fileID: 7487041304306391988, guid: cebb2edf026006e4d97a892264a625a9, type: 3}
   - {fileID: 7487041304306391988, guid: b6d482f47d8988b42bee14473806e587, type: 3}
@@ -500,9 +500,11 @@ MonoBehaviour:
   moveSpeed: 3
   darknessEffect: {fileID: 0}
   firstTPObject: {fileID: 0}
+  ivarFirstTPObject: {fileID: 0}
   secondTPObject: {fileID: 0}
+  ivarSecondTPObject: {fileID: 0}
   timeUntilBigAttack:
-    cooldownTime: 100
-  damageThreshold: 0
+    cooldownTime: 20
+  damageThreshold: 30
   damageTaken: 0
   bigCasting: 0

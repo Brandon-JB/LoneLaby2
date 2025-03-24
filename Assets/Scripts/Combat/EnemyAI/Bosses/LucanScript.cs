@@ -172,7 +172,7 @@ public class LucanScript : EnemyScript
                             this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
 
                             //IIf the enemy is closer to the left side of arena than the right side.
-                            if (Vector3.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector3.Distance(enemyRB.transform.position, topRightArenaBounds))
+                            if (Mathf.Abs(enemyRB.transform.position.x - bottomLeftArenaBounds.x) < Mathf.Abs(enemyRB.transform.position.x - topRightArenaBounds.x))
                             {
                                 dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
                             }

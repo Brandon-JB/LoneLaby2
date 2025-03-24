@@ -10,7 +10,7 @@ public class LucanChar : BaseChar
         charName = "Lucan";
         allied = false;
 
-        ChangeStats(15, 0, 6, 32, 0);
+        ChangeStats(15, 0, 6, 150, 0);
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)
@@ -52,31 +52,17 @@ public class LucanChar : BaseChar
 
                     LeoraChar2 leoraChar = otherCharTrigger.GetComponent<LeoraChar2>();
 
-                    //Crit possible from sophie amulet
-                    if (leoraChar.sophieAmuletActive)
-                    {
-                        int critOrNo = Random.Range(1, 21);
+                    GotDamaged(incomingDamage, otherCharTrigger.gameObject, 0);
 
-                        critOrNo = 20;
-
-                        if (critOrNo == 20)
-                        {
-                            incomingDamage = incomingDamage * 2;
-                        }
-
-                        Vector3 critPosition = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-                        Transform damagePopupTransform = Instantiate(damagePopup, critPosition, Quaternion.identity);
-                        DamagePopUp damPopScript = damagePopupTransform.GetComponent<DamagePopUp>();
-                        damPopScript.SetupString("Critical!");
-                        GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
-                    }
-                    else
-                    {
-                        GotDamaged(incomingDamage, otherCharTrigger.gameObject, 0);
-                    }
                 }
             }
         }
 
+    }
+
+    public override void Death()
+    {
+        //put whatever code to trigger the end of boss fight things
+        Destroy(this.gameObject);
     }
 }

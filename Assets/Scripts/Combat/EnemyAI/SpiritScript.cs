@@ -60,7 +60,7 @@ public class SpiritScript : EnemyScript
 
     public override void Update()
     {
-        if (DistanceFromPlayer > followRange || canMove == false)
+        if (DistanceFromPlayer > followRange || canMove == false || enemyChar.animator.GetBool("Hurt"))
         {
             enemyChar.animator.SetBool("isMoving", false);
         }
@@ -80,7 +80,7 @@ public class SpiritScript : EnemyScript
         {
             DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
 
-            if (DistanceFromPlayer <= followRange && !cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false) //&& DistanceFromPlayer > attackRange))
+            if (DistanceFromPlayer <= followRange && !cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false && !enemyChar.stunTimer.isCoolingDown) //&& DistanceFromPlayer > attackRange))
             {
                 StartWalk();
             }

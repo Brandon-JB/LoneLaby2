@@ -30,7 +30,7 @@ public class IvarScript : MonoBehaviour
     [Header("Vectors")]
     [SerializeField] private Vector2 bottomLeftArenaBounds;
     [SerializeField] private Vector2 topRightArenaBounds;
-    [SerializeField] private Vector2 enemySpawnPosition;
+    [SerializeField] private GameObject enemySpawnPosition;
     private Vector2 moveTargetPosition;
 
     [Header("Casting")]
@@ -144,6 +144,7 @@ public class IvarScript : MonoBehaviour
                     bigCasting = false;
                     ivarChar.animator.SetBool("bigAttack", false);
                     timeUntilBigAttack.Interupted();
+                    darknessEffect.SetActive(false);
 
                     //Sending Ivar and player back to normal area
                     Player.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, ((bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2) - 2);
@@ -155,7 +156,8 @@ public class IvarScript : MonoBehaviour
                     ivarChar.animator.SetBool("bigAttack", false);
                     leoraChar.GotDamaged(50, this.gameObject, 0);
                     leoraChar.TriggerHurtAnim();
-                    
+                    darknessEffect.SetActive(false);
+
                     //Sending Ivar and player back to normal arena
                     Player.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, ((bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2) - 2);
                     this.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, (bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2);
@@ -257,7 +259,7 @@ public class IvarScript : MonoBehaviour
                 break;
             //Summoning
             case 1:
-                    enemyList.Add(Instantiate(summonList[Random.Range(0, summonList.Length)], enemySpawnPosition, Quaternion.identity));
+                    enemyList.Add(Instantiate(summonList[Random.Range(0, summonList.Length)], enemySpawnPosition.transform.position, Quaternion.identity));
                 break;
         }
     }

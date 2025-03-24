@@ -201,7 +201,7 @@ public class ViinScript : MonoBehaviour
             }
 
             //Spawning the first wave of crystals at 75% health
-            if (!firstCrystalsSpawned && viinChar.GetHealth() <= (viinChar.GetMaxHealth() - (viinChar.GetMaxHealth() / 4 )))
+            if (!firstCrystalsSpawned && viinChar.GetHealth() <= (viinChar.GetMaxHealth() - (viinChar.GetMaxHealth() / 4 )) && viinChar.GetHealth() > viinChar.GetMaxHealth() / 2)
             {
                 firstCrystalsSpawned = true;
                 attackLimit += 3;
@@ -210,8 +210,14 @@ public class ViinScript : MonoBehaviour
             }
 
             //Spawning the second wave of crystals at 50% health
-            if (!secondCrystalsSpawned && viinChar.GetHealth() <= viinChar.GetMaxHealth() / 2)
+            if (!secondCrystalsSpawned && viinChar.GetHealth() <= viinChar.GetMaxHealth() / 2 && viinChar.GetHealth() > viinChar.GetMaxHealth() / 4)
             {
+                if (!firstCrystalsSpawned)
+                {
+                    attackLimit += 3;
+                    attackCooldown.cooldownTime = 3;
+                }
+
                 secondCrystalsSpawned = true;
                 SpawnBloodOrbs();
             }
