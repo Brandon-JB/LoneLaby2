@@ -163,7 +163,7 @@ public class BaseChar : MonoBehaviour
     public bool isParrying;
     public bool isPerfectParrying;
 
-    public GameObject testParrySignal;
+    public GameObject ParryIndicator;
     [SerializeField] private SpriteRenderer testParrySprite;
     [SerializeField] public Cooldown parryCooldown = new Cooldown();
 
@@ -301,7 +301,7 @@ public class BaseChar : MonoBehaviour
 
         if (allied)
         {
-            testParrySignal.SetActive(false);
+            ParryIndicator.SetActive(false);
             animator.SetBool("Parrying", false);
             animator.SetBool("Magicing", false);
             animator.SetBool("isInCombo", false);
@@ -315,7 +315,7 @@ public class BaseChar : MonoBehaviour
 
         if (allied)
         {
-            testParrySignal.SetActive(false);
+            ParryIndicator.SetActive(false);
         }
     }
 
@@ -352,8 +352,8 @@ public class BaseChar : MonoBehaviour
 
     public void StartParryWindow()
     {
-        testParrySprite.color = Color.yellow;
-        testParrySignal.SetActive(true);
+        //testParrySprite.color = Color.yellow;
+        ParryIndicator.SetActive(true);
         isParrying = true;
         //Debug.Log("Parry Window");
     }
@@ -361,20 +361,22 @@ public class BaseChar : MonoBehaviour
     public void EndParryWindow()
     {
         isParrying = false;
-        testParrySignal.SetActive(false);
+        ParryIndicator.SetActive(false);
     }
 
     public void StartPerfectParryWindow()
     {
-        testParrySprite.color = Color.green;
+        //testParrySprite.color = Color.green;
+        //ParryIndicator.SetActive(true);
         isPerfectParrying = true;
         //Debug.Log("Perfect Parry Window");
     }
 
     public void EndPerfectParryWindow()
     {
+        //ParryIndicator.SetActive(false);
         isPerfectParrying = false;
-        testParrySprite.color = Color.yellow;
+        //testParrySprite.color = Color.yellow;
     }
 
     #endregion
