@@ -12,4 +12,11 @@ public class SpiritChar : BaseChar
 
         ChangeStats(9, 0, 2, 60, 0);
     }
+
+    public override void TriggerHurtAnim()
+    {
+        base.TriggerHurtAnim();
+
+        animator.SetBool("StartWalk", false);
+    }
 }

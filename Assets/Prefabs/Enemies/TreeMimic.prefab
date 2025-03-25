@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 5767441807547043229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.36, y: 0, z: 0}
-  m_LocalScale: {x: 2.341724, y: 1.775, z: 5}
+  m_LocalScale: {x: 2.066337, y: 1.775, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7487041304306391987}
@@ -367,7 +367,7 @@ MonoBehaviour:
   followRange: 4.5
   moveSpeed: 4
   cooldown:
-    cooldownTime: 1.5
+    cooldownTime: 3
   canMove: 1
   hurtBox: {fileID: 8979296179439397568}
 --- !u!70 &8979296179439397568
