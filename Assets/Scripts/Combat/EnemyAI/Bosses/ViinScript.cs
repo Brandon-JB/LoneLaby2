@@ -151,6 +151,11 @@ public class ViinScript : MonoBehaviour
     public void TriggerStunAnim()
     {
         viinChar.animator.SetBool("stunned", true);
+        viinChar.StopAttackAnim();
+        viinChar.animator.SetBool("stunned", true);
+        AttackCount = 0;
+        viinChar.animator.SetBool("shortStun", false);
+        viinChar.StopAttackAnim();
     }
 
     public void TriggerShortStun()
@@ -190,7 +195,7 @@ public class ViinScript : MonoBehaviour
                 }
                 else
                 {
-                    this.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, (bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2);
+                    this.transform.position = new Vector2(Player.transform.position.x + Random.Range(-attackVariation, attackVariation), Player.transform.position.y + Random.Range(-attackVariation, attackVariation));//new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, (bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2);
 
                     attackCooldown.StartCooldown();
 

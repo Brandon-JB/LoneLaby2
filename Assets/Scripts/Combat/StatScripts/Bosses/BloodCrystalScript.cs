@@ -128,10 +128,12 @@ public class BloodCrystalScript : MonoBehaviour
         viinScript.viinChar.DisableHitbox();
 
         //viinScript.transform.position = new Vector2((viinScript.bottomLeftArenaBounds.x + viinScript.topRightArenaBounds.x) / 2, (viinScript.bottomLeftArenaBounds.y + viinScript.topRightArenaBounds.y) / 2);
-        viinScript.viinChar.StopAttackAnim();
+        /*viinScript.viinChar.StopAttackAnim();
         viinScript.viinChar.animator.SetBool("stunned", true);
         viinScript.AttackCount = 0;
-        viinScript.viinChar.animator.SetBool("shortStun", false);
+        viinScript.viinChar.animator.SetBool("shortStun", false);*/
+
+        viinScript.TriggerStunAnim();
     }
 
     public void StopHurtAnim()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ViinChar : BaseChar
 {
@@ -64,6 +65,7 @@ public class ViinChar : BaseChar
     public override void Death()
     {
         //put whatever code to trigger the end of boss fight things
+        SceneManager.LoadScene("Overworld");
         Destroy(this.gameObject);
     }
 }
