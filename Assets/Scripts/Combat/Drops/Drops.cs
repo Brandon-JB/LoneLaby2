@@ -18,6 +18,9 @@ public class Drops : MonoBehaviour
         UIHandler = FindObjectOfType<GameOverAndUI>();
         animator = GetComponent<Animator>();
         uiongame = GetComponent<UIOnGameObject>();
+
+        //Used for spawning specific drops
+        SetUpItem(dropName, "");
     }
 
     public void SetUpItem(string lName, string enemyName)

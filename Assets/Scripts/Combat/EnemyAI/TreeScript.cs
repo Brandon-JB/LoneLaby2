@@ -29,6 +29,7 @@ public class TreeScript : EnemyScript
         else// if (enemyChar.animator.GetBool("Hurt") == true)
         {
             canMove = false;
+            enemyChar.animator.SetBool("isMoving", false);
         }
 
         //Debug.Log("Enemy is existing");

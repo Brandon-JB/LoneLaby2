@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 7652783620200534438}
   - component: {fileID: 3690730430989585452}
   - component: {fileID: 6427381792599227085}
+  - component: {fileID: 5748166597746329307}
+  - component: {fileID: 4532301513434920886}
   m_Layer: 0
   m_Name: BloodShield
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +107,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &5748166597746329307
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2280100758889616707}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.097302675}
+  serializedVersion: 2
+  m_Radius: 1.9026973
+--- !u!114 &4532301513434920886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2280100758889616707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb34527c4dbe7eb4c83f10a9ce158ab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodCrystal: {fileID: 3537498925848498860}
 --- !u!1 &6155707023862539881
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +210,7 @@ MonoBehaviour:
   hurtbox: {fileID: 2245929233472777235}
   viinScript: {fileID: 0}
   bloodShieldAnimator: {fileID: 6427381792599227085}
+  shieldCollider: {fileID: 5748166597746329307}
   noShieldTimer:
     cooldownTime: 10
 --- !u!61 &2245929233472777235

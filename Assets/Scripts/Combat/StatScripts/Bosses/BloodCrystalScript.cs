@@ -31,6 +31,8 @@ public class BloodCrystalScript : MonoBehaviour
 
     public Animator bloodShieldAnimator;
 
+    public CircleCollider2D shieldCollider;
+
     public Cooldown noShieldTimer;
 
     private DropManager dropManager;
@@ -51,9 +53,7 @@ public class BloodCrystalScript : MonoBehaviour
 
         if (!animator.GetBool("Death") && !isShielded && !noShieldTimer.isCoolingDown)
         {
-            bloodShieldAnimator.SetBool("despawn", false);
-            bloodShieldAnimator.SetBool("spawn", true);
-            isShielded = true;
+            SpawnShield();
         }
     }
 
@@ -101,6 +101,8 @@ public class BloodCrystalScript : MonoBehaviour
 
     public void SpawnShield()
     {
+        shieldCollider.enabled = true;
+        isShielded = true;
         bloodShieldAnimator.SetBool("spawn", true);
         bloodShieldAnimator.SetBool("despawn", false);
     }
@@ -108,6 +110,8 @@ public class BloodCrystalScript : MonoBehaviour
 
     public void DespawnShield()
     {
+        shieldCollider.enabled = false;
+
         bloodShieldAnimator.SetBool("despawn", true);
         bloodShieldAnimator.SetBool("spawn", false);
     }
@@ -169,14 +173,6 @@ public class BloodCrystalScript : MonoBehaviour
                 DamagePopUp damPopScript = damagePopupTransform.GetComponent<DamagePopUp>();
                 damPopScript.SetupInt(otherCharTrigger.GetSpecificStat("Strength"), "Damage");
                 animator.SetBool("hurt", true);
-            }
-
-            //if Viin hits the shield
-            if (otherCharTrigger.charName == "Viin" && isShielded)
-            {
-                DespawnShield();
-                isShielded = false;
-                noShieldTimer.StartCooldown();
             }
         }
     }
