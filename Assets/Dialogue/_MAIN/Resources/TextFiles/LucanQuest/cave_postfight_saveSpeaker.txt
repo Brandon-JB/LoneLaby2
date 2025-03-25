@@ -1,0 +1,24 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(verita -enabled false)
+leora.Move(0.15 0 -spd 1000)
+Highlight(leora -o true)
+leora "Oh, God of Truth, hear my prayers. "
+leora "... What have I done? I disregarded a direct order. I have stepped from the clear path of truth, just as Lucan did... is this how he felt–"
+leora "No, there are greater things to speculate. What shall I tell the Order? To lie is a sin, but there is no space for the weak of will within your halls."
+leora "Your justice is unshakable and we knights are supposed to be just as unflinching. Perhaps if I was, I could have done it. "
+leora "But... it cannot be known for certain whether his presence could have salvaged Grest. And in his retreat, Lucan did save lives that day. They were not the lives intended, but does that make them worth less? Can I condemn a man for not choosing the path of certain bloodshed?"
+Show(verita)
+Highlight(verita -o true)
+verita "<b>At last, thine eyes begin to see.</b>"
+Highlight(leora -o true)
+leora "(Verita…? Is it truly—?)"
+Highlight(verita -o true)
+verita "<b>Aye, Child of the Light. I have watched thy path, thy sorrow, thy doubt.</b>"
+verita "<b>Not all truths be sharp as steel, nor all wisdom plain to see. Truth may rest on both sides of a blade, even when the hands that wield it stand opposed.</b>"
+verita "<b>Not all choices are simple, nor all roads paved with righteousness. Yet of all who walk beneath My gaze, thou art among the few who seek not power, nor wealth, but justice. That alone is worthy of praise.</b>"
+verita "<b>For this, I grant thee My blessing. Yet know that 'tis not a gift freely given, but one thou hast earned. Thine understanding of justice hath deepened, and so too shall thy strength.</b>"
+Highlight(leora -o true)
+leora "(I... T-thank you, Verita. This blessing means more than I can express.)"
+Highlight(verita -o true)
+verita "<b>Go now, Justiciar of Light. Though bound by the Order’s oath, let not thy mind be bound with it.</b>"
+endDialogue(false)

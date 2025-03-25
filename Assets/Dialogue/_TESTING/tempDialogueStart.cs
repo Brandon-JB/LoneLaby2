@@ -8,6 +8,7 @@ public class tempDialogueStart : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("I am in the dialogue scene");
         MDM.dialogueSTART("introducingSuspects");
     }
 }
