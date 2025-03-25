@@ -1,0 +1,7 @@
+CreateCharacter(leora -enabled false)
+leora.Move(0.15 0 -spd 1000)
+Show(leora)
+Highlight(leora -o true)
+leora "(Lucan… Oathbreaker. How does one cast aside their sacred duty? To perish in battle is a knight's greatest honor, yet to flee? What a disgrace.)"
+leora "(The Order shall see justice done. He may not surrender willingly, but I am prepared. The Light shall guide my way.)"
+endDialogue(false)

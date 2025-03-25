@@ -176,7 +176,9 @@ public class mainDialogueManager : MonoBehaviour
             switch (currentlyRunningText)
             {
                 case "openingCutscene":
-                    fadeOut.DOFade(1, 3).OnComplete(() => { SceneManager.LoadScene("NoCombatAreas"); });
+                    Debug.Log("I am sending you to the dialogue scene");
+                    SceneManager.LoadScene("Dialogue");
+                    //fadeOut.DOFade(1, 3).OnComplete(() => { SceneManager.LoadScene("Dialogue"); });
                     break;
             }
 
@@ -219,6 +221,8 @@ public class mainDialogueManager : MonoBehaviour
             continueTextPrompt.SetActive(false);
             top.DOMove(tweenOutPositions[0].transform.position, 2);
             bottom.DOMove(tweenOutPositions[1].transform.position, 2);
+            //CHANGE THIS KATIE YOU ARE STUPID AND NEED TO DIE
+
             dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).OnComplete(() => { SceneManager.LoadScene("Overworld"); });
             //if (isBoss)
             //{

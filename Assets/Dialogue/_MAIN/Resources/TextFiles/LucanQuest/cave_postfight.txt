@@ -1,0 +1,24 @@
+Show(lucan)
+Highlight(lucan -o true)
+lucan "Tch... I have grown out of practice. It is your luck, Dame, that I am not in my prime."
+Show(leora)
+Highlight(leora -o true)
+leora "I have bested you, Lucan. I do not wish to spill your blood, but you must return to the capital. It is Verita's will."
+Highlight(lucan -o true)
+lucan "...I was like you once. A loyal hound, eager to serve. I knew the Order's game and played my part."
+lucan "But one mistake—one moment of defiance—and I was cast aside. They would rather see me dead than acknowledge their own folly. My oath? I care nothing for it. I did what was right."
+lucan "That is the difference between us, Justiciar. I follow what is right—you follow what you are told."
+lucan "What happens when the Order commands you to take an innocent life? Will you obey without question?"
+Highlight(leora -o true)
+leora "... The Order would never demand such a thing."
+Highlight(lucan -o true)
+lucan "Would they not? You speak of Zaro's missing citizens—have you ever considered the Order's hand in their disappearance?"
+Highlight(leora -o true)
+leora "You dare accuse the Order of kidnapping?"
+Highlight(lucan -o true)
+lucan "Similar cases broke out in my days under the oath. It is an obedience test-- a ploy they pull when they wish for their enemy's quick demise. Capture a few people from the slums, wrongfully accuse someone they don't like, and wait for their justiciars to carry out their orders. This is a ruse, Dame."
+Highlight(leora -o true)
+leora "No... You're distorting the truth. Hundreds died because of you. You're only lying to protect yourself."
+Highlight(lucan -o true)
+lucan "Then do it. Condemn me. Sentence me to death over one order."
+endDialogue(false)
