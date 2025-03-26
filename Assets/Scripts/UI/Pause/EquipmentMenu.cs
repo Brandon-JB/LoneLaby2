@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,8 @@ public class EquipmentMenu : MonoBehaviour
 {
 
     private HUD_Equipment hudEquipment;
+
+    [SerializeField] private TextMeshProUGUI[] texts;
 
     [SerializeField] private Color tintColor;
 
@@ -55,22 +58,20 @@ public class EquipmentMenu : MonoBehaviour
     private GameObject lastActiveAmulet = null;
     private GameObject lastEquippedRing1 = null;
 
-    public void Start()
+    public void OnEnable()
     {
         // Check what items the player has and display them accordingly
         checkIfObtained(EquipmentManager.equipmentObtained, itemIcons);
         //checkIfObtained(amuletsObtained, amuletIcons);
 
         // Then, do they have anything equipped? If so, change the border of the box
-        checkIfWearing(EquipmentManager.amuletSlot, amuletIcons_borders);
-        checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders);
-        checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders);
+        checkIfWearing(EquipmentManager.amuletSlot, amuletIcons_borders, 1);
+        checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders, 0);
+        checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders, 2);
 
         // Finally, if they do have something equipped, show it on Leora's sprite
 
-        hudEquipment = GameObject.FindWithTag("HUD").GetComponent<HUD_Equipment>();
-        Debug.Log(hudEquipment.name);
-
+        hudEquipment = FindObjectOfType<HUD_Equipment>();
     }
 
 
@@ -86,7 +87,8 @@ public class EquipmentMenu : MonoBehaviour
         }
     }
 
-    private void checkIfWearing(Dictionary<string, bool> wornEquipment, GameObject[] uiImages)
+    //Slot number is for changing the HUD
+    private void checkIfWearing(Dictionary<string, bool> wornEquipment, GameObject[] uiImages, int slotNumber)
     {
         int i = 0;
         foreach (var equip in wornEquipment)
@@ -94,7 +96,15 @@ public class EquipmentMenu : MonoBehaviour
             if (i >= uiImages.Length) break; // Prevents out-of-bounds errors
 
             uiImages[i].SetActive(equip.Value);
-            if (equip.Value) break; // Just stop the function if equip is true
+            if (equip.Value)
+            {
+                if (hudEquipment == null)
+                {
+                    hudEquipment = FindObjectOfType<HUD_Equipment>();
+                }
+                hudEquipment.changeHUDOnEquip(equip.Key, slotNumber);
+                break; // Just stop the function if equip is true
+            }
             //uiImages[i].color = equip.Value ? Color.white : tintColor;
             i++;
         }
@@ -121,6 +131,11 @@ public class EquipmentMenu : MonoBehaviour
 
     public void EquipItem(GameObject glowToCheckIfEquipped)
     {
+        if (hudEquipment == null)
+        {
+            hudEquipment = GameObject.FindWithTag("HUD").GetComponent<HUD_Equipment>();
+        }
+        texts[0].text = "Didn't even get to the bottom. Item name is " +glowToCheckIfEquipped.name;
         string item = glowToCheckIfEquipped.name;
 
         //check if we can even equip this thing
@@ -141,19 +156,23 @@ public class EquipmentMenu : MonoBehaviour
             {
                 lastActiveAmulet.SetActive(false);
             }
-
+            texts[0].text = "Trying to equip amulet...";
             equipmentManager.EquipAmulet(item, glowToCheckIfEquipped.activeInHierarchy);
-
+            texts[0].text = "Equipped amulet!";
             if (glowToCheckIfEquipped.activeInHierarchy)
             {
+                texts[0].text = "Change HUD (ring is equipped, unequip it)";
                 hudEquipment.changeHUDOnEquip("", 1);
+                texts[0].text = "Change Leora Sprite (ring is equipped, unequip it)";
                 LeoraShadowEquipment[1].sprite = hudEquipment.uglyAssSwitchStatement("", amuletsForLeoraShadow);
             } else
             {
+                texts[0].text = "Change HUD (ring is NOT equipped)";
                 hudEquipment.changeHUDOnEquip(item, 1);
+                texts[0].text = "Change Leora Sprite (ring is NOT equipped)";
                 LeoraShadowEquipment[1].sprite = hudEquipment.uglyAssSwitchStatement(item, amuletsForLeoraShadow);
             }
-
+            texts[0].text = "Set as last active amulet";
             lastActiveAmulet = glowToCheckIfEquipped;
 
             //glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
@@ -312,9 +331,9 @@ public class EquipmentMenu : MonoBehaviour
             */
 
         }
-
+        texts[0].text = "Item glow is " + glowToCheckIfEquipped.activeInHierarchy + ". Item name is " + item;
         glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
-        
+        texts[1].text = "Item glow is " + glowToCheckIfEquipped.activeInHierarchy;
         //hudEquipment.changeHUDOnEquip(item,1);
     }
 

@@ -30,7 +30,7 @@ public class itemDescOnHover : MonoBehaviour
 
     private IEnumerator ShowUIAfterDelay(string itemName)
     {
-        yield return new WaitForSecondsRealtime(2f); // Wait for 2 seconds
+        yield return new WaitForSecondsRealtime(0.5f); // Wait for 2 seconds
 
         //Check if we even have this thing
 
