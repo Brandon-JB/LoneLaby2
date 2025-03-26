@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class EquipmentMenu : MonoBehaviour
 {
@@ -102,7 +103,17 @@ public class EquipmentMenu : MonoBehaviour
                 {
                     hudEquipment = FindObjectOfType<HUD_Equipment>();
                 }
+                switch (slotNumber)
+                {
+                    case 0:
+                        equipmentManager.EquipRing1(equip.Key); break;
+                    case 1:
+                        equipmentManager.EquipAmulet(equip.Key); break;
+                    case 2:
+                        equipmentManager.EquipRing2(equip.Key); break;
+                }
                 hudEquipment.changeHUDOnEquip(equip.Key, slotNumber);
+                LeoraShadowEquipment[slotNumber].sprite = hudEquipment.uglyAssSwitchStatement(equip.Key, slotNumber == 1? amuletsForLeoraShadow : ringsForLeoraShadow);
                 break; // Just stop the function if equip is true
             }
             //uiImages[i].color = equip.Value ? Color.white : tintColor;
