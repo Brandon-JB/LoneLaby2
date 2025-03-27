@@ -7,10 +7,12 @@ public class CombatPlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private float MoveSpeed = 5f;
+    private float defaultMoveSpeed;
 
     private Rigidbody2D rb;
     private Animator animator;
     private Vector2 movement;
+    [SerializeField] private float attackingMoveSpeed = 1f;
 
     private const string horizontal = "Horizontal";
     private const string vertical = "Vertical";
@@ -28,6 +30,8 @@ public class CombatPlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
 
         canMove = true;
+
+        defaultMoveSpeed = MoveSpeed;
     }
 
     private void Update()
@@ -50,11 +54,11 @@ public class CombatPlayerMovement : MonoBehaviour
 
             if (animator.GetBool("Attacking") || animator.GetBool("isInCombo"))
             {
-                MoveSpeed = 1f;
+                MoveSpeed = attackingMoveSpeed;
             }
             else
             {
-                MoveSpeed = 5f;
+                MoveSpeed = defaultMoveSpeed;
             }
 
             rb.velocity = movement * MoveSpeed;          

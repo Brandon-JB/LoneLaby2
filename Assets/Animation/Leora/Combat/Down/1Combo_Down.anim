@@ -39,23 +39,23 @@ AnimationClip:
       value: {fileID: -1494865018, guid: 0838130aba606274c8235d53d9d09319, type: 3}
     - time: 0.016666668
       value: {fileID: -445613118, guid: 0838130aba606274c8235d53d9d09319, type: 3}
-    - time: 0.16666667
+    - time: 0.083333336
       value: {fileID: 326825963, guid: 0838130aba606274c8235d53d9d09319, type: 3}
-    - time: 0.33333334
+    - time: 0.16666667
       value: {fileID: 1699452820, guid: 0838130aba606274c8235d53d9d09319, type: 3}
-    - time: 0.35
+    - time: 0.18333334
       value: {fileID: 1627065158, guid: 0838130aba606274c8235d53d9d09319, type: 3}
-    - time: 0.38333333
+    - time: 0.21666667
       value: {fileID: -1776240821, guid: 0838130aba606274c8235d53d9d09319, type: 3}
-    - time: 0.4
+    - time: 0.23333333
       value: {fileID: 122201881, guid: 0838130aba606274c8235d53d9d09319, type: 3}
-    - time: 0.41666666
+    - time: 0.25
       value: {fileID: -886906822, guid: 0838130aba606274c8235d53d9d09319, type: 3}
-    - time: 0.43333334
+    - time: 0.26666668
       value: {fileID: -372295433, guid: 0838130aba606274c8235d53d9d09319, type: 3}
-    - time: 0.45
+    - time: 0.28333333
       value: {fileID: -1599643795, guid: 0838130aba606274c8235d53d9d09319, type: 3}
-    - time: 0.46666667
+    - time: 0.3
       value: {fileID: 207390364, guid: 0838130aba606274c8235d53d9d09319, type: 3}
     attribute: m_Sprite
     path: 
@@ -99,7 +99,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.33333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -176,21 +176,21 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.38333333
+  - time: 0.21666667
     functionName: EnableHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.46666667
+  - time: 0.3
     functionName: StartComboTimer
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
+  - time: 0.33333334
     functionName: DisableHitbox
     data: 
     objectReferenceParameter: {fileID: 0}

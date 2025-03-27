@@ -150,6 +150,7 @@ public class ViinScript : MonoBehaviour
 
     public void TriggerStunAnim()
     {
+        
         viinChar.animator.SetBool("stunned", true);
         viinChar.StopAttackAnim();
         viinChar.animator.SetBool("stunned", true);
@@ -161,6 +162,17 @@ public class ViinScript : MonoBehaviour
     public void TriggerShortStun()
     {
         viinChar.animator.SetBool("shortStun", true);
+    }
+
+    public void SpawnShortStunParticle()
+    {
+        //Debug.Log("Seconds: " + viinChar.animator.GetCurrentAnimatorStateInfo(0).length);
+        //viinChar.SpawnParticle("stunFX", viinChar.transform.position, viinChar.transform, viinChar.animator.GetCurrentAnimatorStateInfo(0).length - 0.2f);
+    }
+    public void SpawnLongStunParticle()
+    {
+        //Debug.Log("Seconds: " + viinChar.animator.GetCurrentAnimatorStateInfo(0).length);
+        viinChar.SpawnParticle("stunFX", viinChar.transform.position, viinChar.transform, viinChar.animator.GetCurrentAnimatorStateInfo(0).length - 0.7f);
     }
 
     public void EndShortStun()

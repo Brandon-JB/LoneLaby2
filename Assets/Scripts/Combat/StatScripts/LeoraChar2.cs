@@ -64,6 +64,8 @@ public class LeoraChar2 : BaseChar
     public override void TriggerHurtAnim()
     {
         base.TriggerHurtAnim();
+        isParrying = false;
+        isPerfectParrying = false;
 
         DisableMagHitbox();
     }
@@ -146,18 +148,27 @@ public class LeoraChar2 : BaseChar
                                     GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
                                     otherCharTrigger.TriggerHurtAnim();
                                     //Debug.Log(otherCharTrigger.gameObject.name);
-                                    otherCharTrigger.stunTimer.cooldownTime = 2f;
+                                    otherCharTrigger.stunTimer.cooldownTime = 3.5f;
                                     otherCharTrigger.stunTimer.StartCooldown();
                                     otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                                    if (otherCharTrigger.tag != "Boss")
+                                    {
+                                        otherCharTrigger.StartCoroutine(otherCharTrigger.Knockback(this.gameObject, 3));
+                                    }
                                 }
                                 else if (isParrying)
                                 {
                                     //Debug.Log("Parry");
                                     GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
                                     otherCharTrigger.TriggerHurtAnim();
-                                    otherCharTrigger.stunTimer.cooldownTime = 1f;
+                                    otherCharTrigger.stunTimer.cooldownTime = 2f;
                                     otherCharTrigger.stunTimer.StartCooldown();
                                     otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                                    if (otherCharTrigger.tag != "Boss")
+                                    {
+                                        //Debug.Log("Parry");
+                                        otherCharTrigger.StartCoroutine(otherCharTrigger.Knockback(this.gameObject, 1.5f));
+                                    }
                                 }
                                 else
                                 {

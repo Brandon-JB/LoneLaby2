@@ -5,13 +5,14 @@ using UnityEngine;
 public class TreeScript : EnemyScript
 {
     private bool isActive = false;
+    public float activeFollowRange = 10;
     [SerializeField] private CapsuleCollider2D hurtBox = null;
 
     public void TurnActive()
     {
         isActive = true;
         hurtBox.enabled = true;
-        followRange = 7;
+        followRange = activeFollowRange;
     }
 
     // Update is called once per frame

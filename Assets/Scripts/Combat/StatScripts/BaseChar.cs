@@ -553,7 +553,7 @@ public class BaseChar : MonoBehaviour
 
     }
 
-    private IEnumerator Knockback(GameObject otherAttacker, float stMod)
+    public IEnumerator Knockback(GameObject otherAttacker, float stMod)
     {
         EnemyScript enemyMovement = null;
         CombatPlayerMovement playerMovement = null;

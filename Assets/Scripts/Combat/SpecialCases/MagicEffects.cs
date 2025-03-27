@@ -29,9 +29,9 @@ public class MagicEffects : MonoBehaviour
             {
                 //Debug.Log(collision.gameObject.name);
 
-                if (!enemyChar.allied || collision.tag != "Boss")
+                if (!enemyChar.allied && collision.tag != "Boss")
                 {
-                    enemyChar.stunTimer.cooldownTime = 3;
+                    enemyChar.stunTimer.cooldownTime = 3.5f;
                     enemyChar.stunTimer.StartCooldown();
                     enemyChar.SpawnParticle("stunFX", collision.transform.position, collision.transform, enemyChar.stunTimer.cooldownTime);
                 }
