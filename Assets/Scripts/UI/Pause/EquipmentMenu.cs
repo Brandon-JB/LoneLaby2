@@ -103,14 +103,14 @@ public class EquipmentMenu : MonoBehaviour
                 {
                     hudEquipment = FindObjectOfType<HUD_Equipment>();
                 }
+
                 switch (slotNumber)
                 {
-                    case 0:
-                        equipmentManager.EquipRing1(equip.Key); break;
                     case 1:
-                        equipmentManager.EquipAmulet(equip.Key); break;
-                    case 2:
-                        equipmentManager.EquipRing2(equip.Key); break;
+                        equipmentManager.ApplyAmuletBonus(equip.Key); break;
+                    default:
+                        Debug.Log("Ring effect applied");
+                        equipmentManager.ApplyRingBonus(equip.Key); break;
                 }
                 hudEquipment.changeHUDOnEquip(equip.Key, slotNumber);
                 LeoraShadowEquipment[slotNumber].sprite = hudEquipment.uglyAssSwitchStatement(equip.Key, slotNumber == 1? amuletsForLeoraShadow : ringsForLeoraShadow);
