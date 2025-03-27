@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class ViinChar : BaseChar
 {
+
+    [SerializeField] private GameObject killSpareMenu;
+
     // Start is called before the first frame update
     void Start()
     {
         charName = "Viin";
         allied = false;
 
-        ChangeStats(14, 0, 4, 150, 0);
+        ChangeStats(14, 0, 4, 10, 0);
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)
@@ -65,7 +68,8 @@ public class ViinChar : BaseChar
     public override void Death()
     {
         //put whatever code to trigger the end of boss fight things
-        SceneManager.LoadScene("Overworld");
+        //SceneManager.LoadScene("Overworld");
+        killSpareMenu.SetActive(true);
         Destroy(this.gameObject);
     }
 }

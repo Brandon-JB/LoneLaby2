@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System.Xml.Linq;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class killSpareManager : MonoBehaviour
 {
@@ -88,6 +89,10 @@ public class killSpareManager : MonoBehaviour
 
         sideL.DOMove(locations[0].position, 1f);
         sideR.DOMove(locations[1].position, 1f);
+
+        yield return new WaitForSecondsRealtime(1.5f);
+
+        SceneManager.LoadScene("Overworld");
         StopAllCoroutines();
     }
 
