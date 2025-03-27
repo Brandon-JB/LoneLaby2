@@ -17,9 +17,9 @@ public class EquipmentManager : MonoBehaviour
         {"AdvATKRing", true },
         {"AdvHPRing", true },
         {"AdvMPRing", true },
-        {"ATKRing", true },
-        {"MPRing", true },
-        {"HPRing", true },
+        {"ATKRing", false },
+        {"MPRing", false },
+        {"HPRing", false },
         {"ATKMPRing", true },
         {"HPMPRing", true },
         {"ATKHPRing", true }
@@ -78,6 +78,11 @@ public class EquipmentManager : MonoBehaviour
     private void Start()
     {
         leoraChar = GameObject.Find("CombatPlayer").GetComponent<LeoraChar2>();
+    }
+
+    public void GainedEquipment(string itemName)
+    {
+        equipmentObtained[itemName] = true;
     }
 
     public void EquipAmulet(string amuletChosen, bool isUnequipping = false)
