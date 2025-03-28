@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class saveUI : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class saveUI : MonoBehaviour
 
     public static bool isSaveOpen;
     [SerializeField] private CanvasGroup leoraforFade;
+    [SerializeField] private CanvasGroup background;
     [SerializeField] private Transform[] locations;
     [SerializeField] private Transform leoraToMove;
 
@@ -21,11 +23,14 @@ public class saveUI : MonoBehaviour
 
     [SerializeField] private GameObject[] buttonsToDisable;
 
+    [SerializeField] private GameObject menu;
+
     // Start is called before the first frame update
     void Start()
     {
         isSaveOpen = false;
         leoraforFade.alpha = 0f;
+        background.alpha = 0f;
         leoraToMove.DOMove(locations[1].position, 0.5f).SetUpdate(true).OnComplete(() => {
             OPENSAVEMENU();
         });
@@ -34,10 +39,12 @@ public class saveUI : MonoBehaviour
 
     public void OPENSAVEMENU()
     {
+        menu.SetActive(true);
         isSaveOpen = true;
         //
         Time.timeScale = 0f;
         leoraforFade.alpha = 0f;
+        background.DOFade(1, 0.5f).SetUpdate(true);
         leoraforFade.DOFade(1, 0.5f).SetUpdate(true).OnComplete(() => {
             buttonsToDisable[0].SetActive(true);
             buttonsToDisable[1].SetActive(true);
@@ -52,19 +59,21 @@ public class saveUI : MonoBehaviour
         buttonsToDisable[1].SetActive(false);
         isSaveOpen = false;
         leoraforFade.DOFade(0, 0.5f).SetUpdate(true);
+        background.DOFade(0, 0.5f).SetUpdate(true);
         leoraToMove.DOMove(locations[1].position, 0.25f).SetUpdate(true).SetEase(Ease.OutCubic).OnComplete(() => {
             buttonAnimators[0].SetFloat("speed", 1f);
             buttonAnimators[1].SetFloat("speed", 1f);
             buttonAnimators[2].SetFloat("speed", 1f);
+            menu.SetActive(false);
             Time.timeScale = 1f;
         });
     }
 
     public void confirmSave()
     {
-        DOTween.To(() => buttonAnimators[0].GetFloat("speed"), x => buttonAnimators[0].SetFloat("speed", x), 3f, 0.5f).SetUpdate(true);
-        DOTween.To(() => buttonAnimators[1].GetFloat("speed"), x => buttonAnimators[1].SetFloat("speed", x), 3f, 0.5f).SetUpdate(true);
-        DOTween.To(() => buttonAnimators[2].GetFloat("speed"), x => buttonAnimators[2].SetFloat("speed", x), 3f, 0.5f).SetUpdate(true);
+        DOTween.To(() => buttonAnimators[0].GetFloat("speed"), x => buttonAnimators[0].SetFloat("speed", x), 7f, 0.5f).SetUpdate(true);
+        DOTween.To(() => buttonAnimators[1].GetFloat("speed"), x => buttonAnimators[1].SetFloat("speed", x), 7f, 0.5f).SetUpdate(true);
+        DOTween.To(() => buttonAnimators[2].GetFloat("speed"), x => buttonAnimators[2].SetFloat("speed", x), 7f, 0.5f).SetUpdate(true);
 
         buttonsToDisable[0].SetActive(false);
         buttonsToDisable[1].SetActive(false);
