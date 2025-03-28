@@ -56,16 +56,17 @@ public class TreeScript : EnemyScript
             float VerticalDistance = Mathf.Abs(this.transform.position.y - Player.transform.position.y);
 
             DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
-            if ((DistanceFromPlayer <= followRange && (DistanceFromPlayer > attackRange || VerticalDistance > 1)) /*&& (PlayerController.isfrozen == false)*/)
+            if ((DistanceFromPlayer <= followRange && (DistanceFromPlayer > attackRange))) //|| VerticalDistance > 0.5)) /*&& (PlayerController.isfrozen == false)*/)
             {
 
+                //Variations to positions are to fit sprite
                 if (Player.transform.position.x > transform.position.x)
                 {
-                    movePosition = new Vector2(PlayerRB.transform.position.x - 2, PlayerRB.transform.position.y);
+                    movePosition = new Vector2(PlayerRB.transform.position.x - 2, PlayerRB.transform.position.y + 1);
                 }
                 else
                 {
-                    movePosition = new Vector2(PlayerRB.transform.position.x + 2, PlayerRB.transform.position.y);
+                    movePosition = new Vector2(PlayerRB.transform.position.x + 2, PlayerRB.transform.position.y + 1);
                 }
 
                 enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePosition, moveSpeed * Time.deltaTime);
