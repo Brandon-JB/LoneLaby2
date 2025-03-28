@@ -19,16 +19,12 @@ public class GameOverAndUI : MonoBehaviour
     [SerializeField] private CanvasGroup buttonGraphics;
     [SerializeField] private GameObject buttons;
 
-    // Item Obtained Menu
-    [SerializeField] private Transform itemTransform;
-    [SerializeField] private RectTransform itemOnScreen;
-
 
     private void Start()
     {
         gameplayHUD.SetActive(true);
         gameOverHUD.SetActive(false);
-        itemMenuHUD.SetActive(false);
+        //itemMenuHUD.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -68,21 +64,7 @@ public class GameOverAndUI : MonoBehaviour
 
     public void OpenItemMenu(string itemName, RectTransform uiToMove)
     {
-        //Delete the old one
-        if (itemOnScreen != null)
-        {
-            Destroy(itemOnScreen.gameObject);
-        }
-
-        //Assign the new one
-        itemOnScreen = uiToMove;
-
-        //Make it a child to this game object
-        itemOnScreen.SetParent(itemTransform);
-
         itemMenuHUD.SetActive(true);
-
-        itemOnScreen.DOMove(itemTransform.position, 1).SetUpdate(true);
 
         Time.timeScale = 0;
 

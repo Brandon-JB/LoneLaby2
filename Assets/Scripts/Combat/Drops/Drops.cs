@@ -9,15 +9,14 @@ public class Drops : MonoBehaviour
     //public SpriteRenderer spriteRenderer;
     private Animator animator;
 
-    [SerializeField] private GameOverAndUI UIHandler;
+    [SerializeField] private ItemMenu UIHandler;
     [SerializeField] private UIOnGameObject uiongame;
 
     private void Awake()
     {
         //spriteRenderer = GetComponent<SpriteRenderer>();
-        UIHandler = FindObjectOfType<GameOverAndUI>();
+        UIHandler = FindObjectOfType<ItemMenu>();
         animator = GetComponent<Animator>();
-        uiongame = GetComponent<UIOnGameObject>();
 
         //Used for spawning specific drops
         SetUpItem(dropName, "");
@@ -112,7 +111,12 @@ public class Drops : MonoBehaviour
                     break;
                 case "Item":
                     //Debug.Log("Item");
-                    UIHandler.OpenItemMenu(itemName, uiongame.spawnUiOnGameObject(itemName));
+                    if(UIHandler == null)
+                    {
+                        UIHandler = FindObjectOfType<ItemMenu>();
+                    }
+                    UIHandler.openItemMenu(itemName);
+                    //UIHandler.OpenItemMenu(itemName, uiongame.spawnUiOnGameObject(itemName));
                     break;
             }
         }
@@ -134,8 +138,13 @@ public class Drops : MonoBehaviour
                     charScript.RestoreMana(8);
                     break;
                 case "Item":
+                    if (UIHandler == null)
+                    {
+                        UIHandler = FindObjectOfType<ItemMenu>();
+                    }
                     //Debug.Log("Item");
-                    UIHandler.OpenItemMenu(itemName, uiongame.spawnUiOnGameObject(itemName));
+                    UIHandler.openItemMenu(itemName);
+                    //UIHandler.OpenItemMenu(itemName, uiongame.spawnUiOnGameObject(itemName));
                     break;
             }
         }

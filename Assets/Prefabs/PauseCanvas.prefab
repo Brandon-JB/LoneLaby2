@@ -10430,8 +10430,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.5534, y: -0.0533}
-  m_SizeDelta: {x: 167.1867, y: 70.0306}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160.4098, y: 64.7058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6724267451622039996
 CanvasRenderer:
@@ -10461,7 +10461,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: bro its 2:41 am i am crashing out send help
+  m_text: The gemstone of the amulet is a deep burgundy, so deep it almost looks
+    like blackberry jam. When rubbed, it coats your fingers in an odd red substance,
+    not quite blood but not quite... normal. <color=#92dae8>Allows Leora to use Blood
+    Magic.</color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22ea09a1914e7f7438588e5b0bd15c23, type: 2}
   m_sharedMaterial: {fileID: -914684645224612307, guid: 22ea09a1914e7f7438588e5b0bd15c23, type: 2}
@@ -10470,8 +10473,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4291420374
+  m_fontColor: {r: 0.8392125, g: 0.8773585, b: 0.78962266, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10488,12 +10491,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 16
+  m_fontSize: 7.7
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 6
-  m_fontSizeMax: 12
+  m_fontSizeMax: 8
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 4096
@@ -11113,8 +11116,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0007019, y: 1.3845}
-  m_SizeDelta: {x: 255.33, y: 31.2747}
+  m_AnchoredPosition: {x: 0.1204, y: 0.0668}
+  m_SizeDelta: {x: 243.5901, y: 22.4098}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1766011597830027430
 CanvasRenderer:
@@ -11153,8 +11156,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293450386
+  m_fontColor: {r: 0.57254905, g: 0.854902, b: 0.909804, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11171,15 +11174,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -12469,7 +12472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8654052071717002299
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16016,7 +16019,7 @@ MonoBehaviour:
   itemNameTXT: {fileID: 8598454525997722816}
   itemDescTXT: {fileID: 6751347433463511421}
   allItemNames:
-  - Amulet of Blood
+  - Amulet of the Body
   - Amulet of the Mind
   - Amulet of the Heart
   - Amulet of Tenacity
@@ -16034,37 +16037,48 @@ MonoBehaviour:
   allItemDescs:
   - The gemstone of the amulet is a deep burgundy, so deep it almost looks like blackberry
     jam. When rubbed, it coats your fingers in an odd red substance, not quite blood
-    but not quite... normal. Allows Leora to use Blood Magic.
+    but not quite... normal. <color=#92dae8>Allows Leora to use Blood Magic.</color>
   - Unstable is the only way to describe this amulet, the gemstone cracking from
     the inside out. The longer it is worn, the more cracks appear. It is only a matter
-    of time before it crumbles, yet it is still passed from wearer to wearer. Allows
-    Leora to use Psychic Magic.
+    of time before it crumbles, yet it is still passed from wearer to wearer. <color=#92dae8>Allows
+    Leora to use Psychic Magic.</color>
   - This amulet is rough around the edges, carved into the shape of a heart with
-    loving yet inexperienced hands. This once pure gemstone has eroded with time,
-    the clear quartz now a dull, muted black. Allows Leora to use Dark magic.
-  - Even in the deepest darkness this amulet shines, it's deep crimson subtle yet
-    persistent. The light never fades, only flickers. Increases Leora's attack based
-    on how many criminals are condemned.
+    kind yet inexperienced hands. This once pure gemstone has eroded with time, the
+    clear quartz now a dull, muted black. <color=#92dae8>Allows Leora to use Dark
+    magic.</color>
+  - "Even in the deepest darkness, this amulet shines\u2013 it's fiery orange subtle
+    yet persistent. <color=#92dae8>Increases Leora's attack based on how many criminals
+    are condemned.</color>"
   - The amulet emits a gentle hum, even if not worn. It is a calming tune, one that
-    could turn the most horrid monster docile. Health and Mana pickups restore double
-    their original value.
-  - 
-  - Greatly increases Leora's attack.
+    could turn the most horrid monster docile. <color=#92dae8>Health and Mana pickups
+    restore double their original value.</color>
+  - The gem of this amulet crackles and shimmers, almost as if there was a storm
+    rumbling within a glassy enclosure. <color=#92dae8> Allows Leora to critical
+    hit for double damage but reduces base attack while equipped.</color>
+  - The gemstone sparkles a vibrant vermillion, the metal polished and begging to
+    be worn. <color=#92dae8>Greatly increases Leora's attack.</color>
   - The gemstone glitters like leaves dancing in the wind, the metal polished and
-    begging to be worn. Increases Leora's Health by 50 points.
+    begging to be worn. <color=#92dae8>Increases Leora's Health by 50 points.</color>
   - The gemstone shimmers like the sun illuminating a sea, the metal polished and
-    begging to be worn. Increases Leora's Mana by 10 points.
-  - The gemstone gives a subtle glimpse of crimson, but it is aging. The metal was
-    high-quality, but has begun withering with time. Slightly increases Leora's attack.
-  - The gemstone gives a subtle glimpse of ocean blue, but it is aging. The metal
-    was high-quality, but has begun withering with time. Increases Leora's Mana by
-    5 points.
+    begging to be worn. <color=#92dae8>Increases Leora's Mana by 10 points.</color>
+  - The gemstone gives a subtle glimpse of crimson, but it is weakening. The metal
+    was once high-quality, but has begun withering with time. <color=#92dae8>Slightly
+    increases Leora's attack.</color>
+  - The gemstone gives a subtle glimpse of ocean blue, but it is weakening. The metal
+    was once high-quality, but has begun withering with time. <color=#92dae8>Increases
+    Leora's Mana by 5 points.</color>
   - The gemstone gives a subtle glimpse of emerald green, but it is aging. The metal
-    was high-quality, but has begun withering with time. Increases Leora's Health
-    by 25 points.
-  - Atk +5 / Max MP + 5
-  - Max HP +25 / Max MP +5
-  - Atk +5 / Max HP+25
+    was high-quality, but has begun withering with time. <color=#92dae8>Increases
+    Leora's Health by 25 points.</color>
+  - "Crimson and teal fuse into one in this ring\u2019s gemstone, symbolizing the
+    unity of might and magic. <color=#92dae8>Increase Leora\u2019s Mana by 5 points
+    and slightly increase Leora\u2019s attack.</color>"
+  - "Forest green and teal fuse into one in this ring\u2019s gemstone, symbolizing
+    the unity of vigor and magic. <color=#92dae8>Increase Leora\u2019s HP by 25 points
+    and her Mana by 5 points</color>  "
+  - "Crimson and forest green fuse into one in this ring\u2019s gemstone, symbolizing
+    the unity of might and magic. <color=#92dae8>Increase Leora\u2019s HP by 25 points
+    and slightly increase Leora\u2019s attack.</color>"
 --- !u!114 &3792595018462500136
 MonoBehaviour:
   m_ObjectHideFlags: 0
