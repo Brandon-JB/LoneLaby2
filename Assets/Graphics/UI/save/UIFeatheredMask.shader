@@ -4,10 +4,11 @@ Shader "UI/FeatheredMask"
     {
         _MainTex ("Sprite Texture", 2D) = "white" {}
         _MaskTex ("Mask Texture", 2D) = "white" {}
+        _MaskOffset ("Mask Offset", Vector) = (0,0,0,0)
     }
     SubShader
     {
-        Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
+        Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" }
         Pass
         {
             Blend SrcAlpha OneMinusSrcAlpha
@@ -28,11 +29,13 @@ Shader "UI/FeatheredMask"
 
             sampler2D _MainTex;
             sampler2D _MaskTex;
+            float4 _MaskOffset;
 
             v2f vert (appdata_t v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
+                // Use the default UV for the main texture
                 o.uv = v.uv;
                 return o;
             }
@@ -40,8 +43,10 @@ Shader "UI/FeatheredMask"
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                fixed4 mask = tex2D(_MaskTex, i.uv);
-                col.a *= mask.a; // Apply the mask's alpha to the main texture
+                // Adjust the UVs for the mask texture by adding an offset
+                float2 maskUV = i.uv + _MaskOffset.xy;
+                fixed4 mask = tex2D(_MaskTex, maskUV);
+                col.a *= mask.a;
                 return col;
             }
             ENDCG
