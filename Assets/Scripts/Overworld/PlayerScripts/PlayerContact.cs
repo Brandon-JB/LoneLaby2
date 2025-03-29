@@ -6,6 +6,7 @@ public class PlayerContact : MonoBehaviour
 {
     private Rigidbody2D rb;
     public PortalScript portalScript;
+    public RoomTeleport roomTP;
     public Spawner spawner;
     private string Location;
 
@@ -34,6 +35,11 @@ public class PlayerContact : MonoBehaviour
                 spawner.SpawnObject(Location);
             }
 
+        }
+
+        if (collision.tag == "Room")
+        {
+            roomTP.Teleport(collision.name);
         }
 
     }
