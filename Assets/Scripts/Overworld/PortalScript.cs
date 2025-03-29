@@ -10,6 +10,9 @@ public class PortalScript : MonoBehaviour
     public static int LastPortal = 0;
 
     public LevelLoader LevelLoader;
+    public GameObject Player;
+    public GameObject ChurchGO;
+    public GameObject ChurchLEAVE;
     // 1 = City, 2 = Cave, 3 = Mansion, 4 = Forest, 5 = Church, 6 = Overworld
     
     // Start is called before the first frame update
@@ -37,7 +40,13 @@ public class PortalScript : MonoBehaviour
         }
         else if (name == "Church")
         {
-            //send to church
+            Player.transform.position = ChurchGO.transform.position;
+            LastPortal = 5;
+            whereGo = 5;
+        }
+        else if (name == "ChurchLeave")
+        {
+            Player.transform.position = ChurchLEAVE.transform.position;
             LastPortal = 5;
             whereGo = 5;
         }
@@ -74,6 +83,10 @@ public class PortalScript : MonoBehaviour
             PlayerMovement.CanWalk = false;
             LevelLoader.LoadNextLevel();
 
+        }
+        else if (name == "Training")
+        {
+            SceneManager.LoadScene("TrainingGrounds");
         }
     }
 }
