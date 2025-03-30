@@ -36,6 +36,7 @@ public class CombatPlayerMovement : MonoBehaviour
 
     private void Update()
     {
+
         if (canMove == true)
         {
             //Movement

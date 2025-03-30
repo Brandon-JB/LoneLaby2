@@ -28,13 +28,13 @@ public class ItemMenu : MonoBehaviour
     public void CloseMenu()
     {
         Time.timeScale = 1f;
-        infoHolder.DOMove(locations[1].position, 0.5f).SetUpdate(true);
-        itemHolder.DOFade(0, 1f).SetUpdate(true).OnComplete(() =>
+        itemImage.gameObject.SetActive(false);
+        leoraAnimator.enabled = true;
+        infoHolder.DOMove(locations[1].position, 0.5f).SetUpdate(true).OnComplete(() =>
+        //itemHolder.DOFade(0, 1f).SetUpdate(true).OnComplete(() =>
         {
             infoHolder.position = locations[2].position;
             menu.SetActive(false);
-            itemImage.gameObject.SetActive(false);
-            leoraAnimator.enabled = true;
             Time.timeScale = 1;
         });
     }
@@ -134,7 +134,7 @@ public class ItemMenu : MonoBehaviour
 
         ChangeTextAndSprite(itemName);
         infoHolder.DOMove(locations[0].position, 0.5f).SetUpdate(true);
-        itemHolder.DOFade(1, 1f).SetUpdate(true);
+        //itemHolder.DOFade(1, 1f).SetUpdate(true);
         itemImage.gameObject.SetActive(true);
         leoraAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         leoraAnimator.enabled = false;

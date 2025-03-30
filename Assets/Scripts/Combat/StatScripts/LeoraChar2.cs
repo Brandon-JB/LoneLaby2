@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Bson;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,6 +27,8 @@ public class LeoraChar2 : BaseChar
     [SerializeField] private GameObject darkMagFollowup;
 
     public string magicType = "";
+
+    [SerializeField] private BoxCollider2D hurtbox;
 
     [Header("AmuletEffects")]
 
@@ -66,6 +69,7 @@ public class LeoraChar2 : BaseChar
         base.TriggerHurtAnim();
         isParrying = false;
         isPerfectParrying = false;
+        EnableHurtbox();
 
         DisableMagHitbox();
     }
@@ -271,6 +275,17 @@ public class LeoraChar2 : BaseChar
         isParrying = false;
         isPerfectParrying = false;
         gameOverManager.StartGameOverHueShift();
+    }
+
+    //used for invincibility
+    public void DisableHurtbox()
+    {
+        hurtbox.enabled = false;
+    }
+
+    public void EnableHurtbox()
+    {
+        hurtbox.enabled = true;
     }
 
     public void GameOver()
