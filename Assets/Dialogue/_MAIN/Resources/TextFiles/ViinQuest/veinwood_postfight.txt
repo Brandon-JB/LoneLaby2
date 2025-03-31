@@ -10,7 +10,8 @@ Highlight(leora -o true)
 leora "Do not test me. I will drag you to Zaro on the brink of death if I must. "
 Highlight(viin -o true)
 viin "No, darling. You cannot kill me... because if you do, you kill Vaang."
-"Highlight(leora -o true)
+Highlight(leora -o true)
+leora.Move(0.125 0 -spd 1)
 leora "What?! What in the hells do you mean?"
 Highlight(viin -o true)
 viin "Hahaha! Oh, is it still not clear? We are soulbound. I tried to fuse our souls—to become one. Viin and Vaang, no longer two, but Tao. "
@@ -21,6 +22,7 @@ Highlight(viin -o true)
 viin "Spare me the sermon, Justiciar. I don't care what you think of me. All you need to know is this—if I fall, so does Vaang. That sweet, self-sacrificing fool you all adore? Gone."
 viin "Sure, the Order could absorb the orphanage. But I've seen Vaang. He gives everything to those children. They're his. He's their father in all but name. And if he dies, those kids will be left with nothing. Again."
 Highlight(leora -o true)
+leora.Move(0.15 0 -spd 1)
 leora "You act as if I am falsely hanging a saint. You speak of righteousness, yet you have slain countless knights. You are a murderer, and you would kill again if let free."
 Highlight(viin -o true)
 viin "And?"

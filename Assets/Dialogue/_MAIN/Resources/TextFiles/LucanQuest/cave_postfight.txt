@@ -1,3 +1,7 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(lucan -enabled false)
+leora.Move(0.15 0 -spd 1000)
+lucan.Move(0.95 0 -spd 1000)
 Show(lucan)
 Highlight(lucan -o true)
 lucan "Tch... I have grown out of practice. It is your luck, Dame, that I am not in my prime."
@@ -16,7 +20,8 @@ lucan "Would they not? You speak of Zaro's missing citizens—have you ever cons
 Highlight(leora -o true)
 leora "You dare accuse the Order of kidnapping?"
 Highlight(lucan -o true)
-lucan "Similar cases broke out in my days under the oath. It is an obedience test-- a ploy they pull when they wish for their enemy's quick demise. Capture a few people from the slums, wrongfully accuse someone they don't like, and wait for their justiciars to carry out their orders. This is a ruse, Dame."
+lucan "Similar cases broke out in my days under the oath."
+lucan "It is an obedience test— a ploy they pull when they wish for their enemy's quick demise. Capture a few people from the slums, accuse someone they need gone, and wait for their justiciars to carry out their orders. This is a ruse, Dame."
 Highlight(leora -o true)
 leora "No... You're distorting the truth. Hundreds died because of you. You're only lying to protect yourself."
 Highlight(lucan -o true)

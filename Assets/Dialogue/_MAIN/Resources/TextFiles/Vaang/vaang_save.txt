@@ -1,7 +1,7 @@
 CreateCharacter(leora -enabled false)
 CreateCharacter(vaang -enabled false)
 leora.Move(0.15 0 -spd 1000)
-vaang.Move(0.95 0 -spd 1000)
+vaang.Move(0.9 0 -spd 1000)
 wait(0.5)
 Show(leora)
 Highlight(leora -o true)
@@ -17,7 +17,7 @@ vaang "Yes... that sounds like her."
 vaang "As much as I love her, my sister wields our bond as a tool. Leverage. Another card to play when all else fails. It is one of the many things I... disapprove of."
 vaang "Still, she is not in Zaro. That alone tells me her ploy worked. Even now, she refuses to take accountability for the harm she has caused."
 Highlight(leora -o true)
-leora "I do not believe it was a ploy. If what she said was true-if capturing her meant harming you-then I would rather she walk free. I will not see an innocent man suffer for a crime he did not commit."
+leora "I do not believe it was a ploy. If what she said was true—if capturing her meant harming you—then I would rather she walk free. I will not see an innocent man suffer for a crime he did not commit."
 Highlight(vaang -o true)
 vaang "That is... honorable, Leora. I wish I had even a fraction of your sense of justice."
 vaang "I appreciate you. And I am sorry to have been an obstacle in your path. I imagine this would have been a far simpler decision if I were not in the picture."
