@@ -31,6 +31,8 @@ public class pauseMenuManager : MonoBehaviour
     {
         //Commented out to spare us for now
         ////Reset EVERYTHING
+        ///
+        DOTween.KillAll();
         equipMenu.position = startLocations[0].position;
         questMenu.position = startLocations[1].position;
         leoraAnimator.transform.position = startLocations[2].position;

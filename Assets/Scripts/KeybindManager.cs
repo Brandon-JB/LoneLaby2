@@ -57,6 +57,7 @@ public class KeybindManager : MonoBehaviour
 
         InputAction action = controls.FindAction(actionName);
         if (action == null) return;
+        string oldBinding = action.bindings[0].effectivePath;
 
         action.Disable();
         string originalKeyText = buttonText.text;
@@ -67,6 +68,7 @@ public class KeybindManager : MonoBehaviour
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
+                Debug.Log(action.bindings[0].ToDisplayString());
                 string newBinding = action.bindings[0].effectivePath;
 
                 // Restricted keys (WASD)
@@ -74,6 +76,10 @@ public class KeybindManager : MonoBehaviour
                 if (restrictedKeys.Contains(newBinding))
                 {
                     StartCoroutine(ShowTemporaryMessage(buttonText, "<size=75%>Invalid Key</size>", originalKeyText));
+
+                    // Apply old binding, just in case
+                    action.ApplyBindingOverride(0, oldBinding);
+
                     action.Enable();
                     rebindOperation.Dispose();
                     return;
@@ -85,6 +91,10 @@ public class KeybindManager : MonoBehaviour
                     if (existingAction != action && existingAction.bindings[0].effectivePath == newBinding)
                     {
                         StartCoroutine(ShowTemporaryMessage(buttonText, "<size=75%>Key is in use!</size>", originalKeyText));
+
+                        // Apply old binding, just in case
+                        action.ApplyBindingOverride(0, oldBinding);
+
                         action.Enable();
                         rebindOperation.Dispose();
                         return;
@@ -92,7 +102,7 @@ public class KeybindManager : MonoBehaviour
                 }
 
 
-                Debug.Log("Applying");
+
                 // Apply new binding
                 action.ApplyBindingOverride(0, newBinding);
                 buttonText.text = action.bindings[0].ToDisplayString();
@@ -102,6 +112,7 @@ public class KeybindManager : MonoBehaviour
                 isRebinding = false; // Reset flag
             })
             .Start();
+        Debug.Log(action.bindings[0].ToDisplayString());
     }
 
 
@@ -160,8 +171,8 @@ public class KeybindManager : MonoBehaviour
             rebindOperation?.Cancel(); // Cancel the operation if it's running
             rebindOperation?.Dispose();
             isRebinding = false;
-            OpenPauseMenu.GLOBALcanOpenPause = true;
         }
+        OpenPauseMenu.GLOBALcanOpenPause = true;
     }
 
 
