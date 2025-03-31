@@ -9,6 +9,8 @@ public class OpenPauseMenu : MonoBehaviour
 
     public static bool canOpenPause = true;
 
+    public static bool GLOBALcanOpenPause = true;
+
     [SerializeField] private GameObject quickPauseMenu;
     [SerializeField] private GameObject pauseMenuObject;
 
@@ -20,7 +22,7 @@ public class OpenPauseMenu : MonoBehaviour
 
         //NOTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11 COULD MESS UP TIMESCALE JUNK! 
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && GLOBALcanOpenPause)
         {
             if(canOpenPause)
             {

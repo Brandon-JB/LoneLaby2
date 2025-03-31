@@ -13,6 +13,7 @@ public class pauseMenuManager : MonoBehaviour
     [SerializeField] private CanvasGroup mainButtons;
     [SerializeField] private CanvasGroup questsTXT;
     [SerializeField] private CanvasGroup equipTXT;
+    [SerializeField] private CanvasGroup optionsTXT;
     [SerializeField] private CanvasGroup background;
 
     [SerializeField] private CanvasGroup equipBack;
@@ -48,6 +49,7 @@ public class pauseMenuManager : MonoBehaviour
 
         questsTXT.alpha = 0;
         equipTXT.alpha = 0;
+        optionsTXT.alpha = 0;
         leoraAnimatorEquipment.alpha = 0;
 
         //Make sure everything that should be off is off
@@ -154,7 +156,9 @@ public class pauseMenuManager : MonoBehaviour
     public void goToOptions()
     {
         //move the entiiiirrreeee UI
+        OpenPauseMenu.GLOBALcanOpenPause = false;
         this.transform.DOMove(startLocations[4].position,1).SetUpdate(true);
+        optionsTXT.DOFade(1, 1).SetUpdate(true);
         mainButtons.DOFade(0, 0.5f).SetUpdate(true).OnComplete(() => {
             mainButtons.gameObject.SetActive(false);
             equipBack.alpha = 0f;
@@ -165,7 +169,7 @@ public class pauseMenuManager : MonoBehaviour
     {
         //move the entiiiirrreeee UI
         this.transform.DOMove(startLocations[3].position, 1).SetUpdate(true);
-
+        optionsTXT.DOFade(0, 1).SetUpdate(true);
         mainButtons.alpha = 0;
         mainButtons.gameObject.SetActive(true);
         mainButtons.DOFade(1, 1).SetUpdate(true);
