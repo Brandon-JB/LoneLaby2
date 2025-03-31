@@ -1,6 +1,8 @@
 CreateCharacter(leora -enabled false)
 leora.Move(0.15 0 -spd 1000)
+wait(0.5)
 Show(leora)
 Highlight(leora -o true)
-leora "(The Order believes the Scepter of Truth lies here. If so, Ivar will not be far… I must retrieve him before further damage is done.)"
+leora "(The Order believes the Scepter of Truth lies here. If so, Ivar will not be far... I must retrieve him before further damage is done.)"
+Hide(leora)
 endDialogue(false)

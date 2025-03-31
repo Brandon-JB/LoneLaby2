@@ -1,0 +1,35 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(alan -enabled false)
+leora.Move(0.15 0 -spd 1000)
+alan.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(leora)
+Highlight(leora -o true)
+leora "I see you are healing well, Alan. Good."
+Show(alan)
+Highlight(alan -o true)
+alan "...Yeah Doesn't mean I'm not irritated about the whole situation. Damned elemental."
+Highlight(leora -o true)
+leora "(Alan-- my apprentice. Typically he would join me on quests such as these, but I doubt he's eager to join me after what transpired last time.)"
+leora "Don't dwell on it. Though, jumping directly into an elemental's explosion is an... unusual tactic. I suggest not trying it again."
+Highlight(alan -o true)
+alan "I was under the impression that knights defend other knights. That elemental nearly killed you-"
+Highlight(leora -o true)
+leora "We do defend one another, but you are not a knight. You are a trainee-my <i>apprentice</i>. Your impulse was noble, but unnecessary. What you call a devastating blow is a mere scratch to me."
+Highlight(alan -o true)
+alan "You're bluffing. It doesn't matter how much armor you wear, it's a damn explosion."
+Highlight(leora -o true)
+leora "Alan. Language."
+leora "Still, getting awfully competitive, are we? Do you wish to make it a bet?"
+Highlight(alan -o true)
+alan "Absolutely. You and your fancy platemail-I bet you can't take down five of those earth elementals."
+Highlight(leora -o true)
+leora "And I know I can. Without a shadow of a doubt. Do you have your bet money ready?"
+Highlight(alan -o true)
+alan "Not at all. But if you actually pull it off, I'll... find something for you. A knight's honor, or whatever."
+alan "Still-be careful. I wanted to be out there with you today, but..."
+Highlight(leora -o true)
+leora "No, you need to recover. Then I can drill you relentlessly on what <i>not</i> to do in battle. Now, wait here-I'll be back when I've won our bet."
+Hide(alan)
+Hide(leora)
+endDialogue(false)

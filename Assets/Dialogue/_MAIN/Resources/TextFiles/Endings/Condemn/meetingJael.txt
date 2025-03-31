@@ -1,0 +1,37 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(jael -enabled false)
+leora.Move(0.15 0 -spd 1000)
+jael.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(jael)
+Highlight(jael -o true)
+jael "I've found you, <i>Dame</i> Leora. Your days are numbered."
+Show(leora)
+Highlight(leora -o true)
+leora "Who dares address me in such a manner?"
+Highlight(jael -o true)
+jael "My name matters not. I have seen truth-not the gilded lie your Order parades as justice."
+jael "You see only the crime, never the soul behind it. Lucan crossed your path and paid the price, and for that, I will never forgive you."
+Highlight(leora -o true)
+leora "(Lucan?)"
+leora "(...)"
+leora "You speak of the Oathbreaker?"
+Highlight(jael -o true)
+jael "Call him what you will, <i>knight</i>, he knew more of honor than you ever could."
+Highlight(leora -o true)
+leora "He abandoned his post. He allowed Grest to fall. No matter what he did for you, it does not erase the blood on his hands."
+Highlight(jael -o true)
+jael "And what of yours, Dame? How many lives have you taken-not because you believed in their guilt, but because the Order told you they were criminals?"
+Highlight(leora -o true)
+leora "I am bound by my oath. Verita's will is absolute."
+Highlight(jael -o true)
+jael "You think that excuses you?"
+jael "You do not judge-you execute. You do not question-you obey. And yet you call yourself just."
+Highlight(leora -o true)
+leora "Enough. I have no patience for your misguided grief. Stand down."
+Highlight(jael -o true)
+jael "No. The Order is beyond saving. And so are those that do it's bidding."
+jael "You are not justice, Leora. You are corruption. And I will see you cut down before I let you condemn another."
+Hide(jael)
+Hide(leora)
+endDialogue(false)

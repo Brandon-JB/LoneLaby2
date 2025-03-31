@@ -1,0 +1,34 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(viin -enabled false)
+leora.Move(0.15 0 -spd 1000)
+viin.Move(0.95 0 -spd 1000)
+Show(viin)
+Highlight(viin -o true)
+viin "I yield, I yield! No need to be so rough, my knight."
+Show(leora)
+Highlight(leora -o true)
+leora "Do not test me. I will drag you to Zaro on the brink of death if I must. "
+Highlight(viin -o true)
+viin "No, darling. You cannot kill me... because if you do, you kill Vaang."
+"Highlight(leora -o true)
+leora "What?! What in the hells do you mean?"
+Highlight(viin -o true)
+viin "Hahaha! Oh, is it still not clear? We are soulbound. I tried to fuse our souls—to become one. Viin and Vaang, no longer two, but Tao. "
+viin "But it went awry. Now, when I wound, he feels it beneath his skin. When he hungers, I cannot be satiated. And if I were to die?"
+Highlight(leora -o true)
+leora "No... he-... he is innocent. He is nothing like you."
+Highlight(viin -o true)
+viin "Spare me the sermon, Justiciar. I don't care what you think of me. All you need to know is this—if I fall, so does Vaang. That sweet, self-sacrificing fool you all adore? Gone."
+viin "Sure, the Order could absorb the orphanage. But I've seen Vaang. He gives everything to those children. They're his. He's their father in all but name. And if he dies, those kids will be left with nothing. Again."
+Highlight(leora -o true)
+leora "You act as if I am falsely hanging a saint. You speak of righteousness, yet you have slain countless knights. You are a murderer, and you would kill again if let free."
+Highlight(viin -o true)
+viin "And?"
+viin "It's just death, doll. Everyone's gotta go sometime, and their time was when they met <i>me.</i>"
+Highlight(leora -o true)
+leora "You are a plague upon this world. A threat to justice itself."
+Highlight(viin -o true)
+viin "But if I go, so does innocent little Vaang. I know you can't do it. The Order would strike me down the instant I walk through those doors, you know this well. So go ahead, <i>Dame</i>. Make your choice."
+Hide(viin)
+Hide(leora)
+endDialogue(false)

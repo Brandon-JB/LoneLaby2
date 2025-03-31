@@ -1,32 +1,34 @@
 CreateCharacter(leora -enabled false)
-CreateCharacter(ivar -enabled false)
+CreateCharacter(verita -enabled false)
 leora.Move(0.15 0 -spd 1000)
-ivar.Move(0.95 0 -spd 1000)
-Show(ivar)
-Highlight(ivar -o true)
-ivar "Fine! Fine! Y-yes, you have made your point with that sharpened stick of yours!"
+verita.Move(0.95 0 -spd 1000)
+wait(0.5)
 Show(leora)
 Highlight(leora -o true)
-leora "You will surrender the scepter. Now."
-Highlight(ivar -o true)
-ivar "I would if I could, Dame. But... I cannot give it to you. "
-ivar "My family is counting on me. I cannot—"
+leora "(Oh, God of Truth, what have I done? The Scepter of Truth-your scepter-was stolen; and when I found the thief... I spared him.)"
+leora "(I let compassion cloud my judgment. I faltered. A knight of Verita does not hesitate. A knight of Verita follows orders. And yet... I disobeyed.)"
+leora "(The Order would never demand me to commit an injustice. If I am their Justiciar, if I am their sword, then I must-must-...)"
+Show(verita)
+Highlight(verita -o true)
+verita "<b>Dame Leora... grieve not so.</b>"
 Highlight(leora -o true)
-leora "Surrender is not conditional, Ivar. Give it up, or else."
-Highlight(ivar -o true)
-ivar "No! You can harm me however you wish, but know this—if you take the scepter, you condemn them."
+leora "(Verita...?)"
+Highlight(verita -o true)
+verita "<b>A broken oath weighs heavily, yet thou art not broken. Even now, thou dost seek righteousness, not in absolution, but in understanding. This is a path far harder to walk.</b>"
 Highlight(leora -o true)
-leora "Did their captors name the scepter in their demands?"
-Highlight(ivar -o true)
-ivar "They requested money, but a relic of immeasurable value? That carries weight. That buys time. The scepter itself means nothing to me—it is simply a means to an end."
+leora "(What is the purpose of an oath, if I cannot uphold it? If I cannot condemn a simple thief-?)"
+Highlight(verita -o true)
+verita "<b>Dost thou truly believe thy heart strayed from justice? Or hath justice merely taken an unexpected form?</b>"
+verita "<b>Thou dost not disobey out of malice, but because the road ahead is treacherous. No longer dost thou see only black and white, only guilt and innocence. Thou seest the spaces between.</b>"
+verita "<b>To condemn a thief is easy. But know this, Child of Light-no one steals for the joy of it. They steal from desperation, from need.</b>"
+verita "<b>True justice is not so simple.</b>"
+verita "<b>What is justice to the thief who steals to feed his kin? What is justice to a rebellion?</b>"
+verita "<b>Thou art beginning to see the shape of true justice. It is not a sword, nor a scale-it is a river, shifting, reshaping, ever-changing. No two souls bear the same burden, nor the same guilt.</b>"
+verita "<b>For this, I grant thee My blessing. Yet know that 'tis not a gift freely given, but one thou hast earned. Thine understanding of justice hath deepened, and so too shall thy strength.</b>"
 Highlight(leora -o true)
-leora "Yet if I let you go, what message does that send? That anyone may steal from the Order so long as they claim just cause?"
-Highlight(ivar -o true)
-ivar "Would you condemn a starving man for stealing bread? Would you cut him down as you would a murderer?"
-Highlight(leora -o true)
-leora "This is no loaf of bread. The scepter is not mere gold nor it is merely a tool for the Order’s rituals, it can heal incurable wounds. However, it strains the mind, so only the chosen few can wield it. Without the scepter, the Order cannot properly revive the uncurable. They will die, Ivar."
-Highlight(ivar -o true)
-ivar "And?"
-ivar "I care nothing for Zaro, for its knights, its politics. I care for my people. My family."
-ivar "If you think me worthy of death for choosing them over others, then strike me down. Drag me to Zaro, where I will be hanged like the criminal you think me to be."
+leora "(I... T-thank you, God of Truth. This blessing means more than I can express.)"
+Highlight(verita -o true)
+verita "<b>Go now, Justiciar of Light. Though bound by the Order's oath, let not thy mind be bound with it.</b>"
+Hide(verita)
+Hide(leora)
 endDialogue(false)

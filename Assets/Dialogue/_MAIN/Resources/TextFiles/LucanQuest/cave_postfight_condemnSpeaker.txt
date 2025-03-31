@@ -1,6 +1,7 @@
 CreateCharacter(leora -enabled false)
 CreateCharacter(speaker -enabled false)
 leora.Move(0.15 0 -spd 1000)
+wait(0.5)
 Show(speaker)
 Highlight(speaker -o true)
 speaker "Well done, Dame Leora. The Order commends you."
@@ -8,13 +9,15 @@ speaker "As a token of our gratitude, you are granted new arms -- courtesy of Ve
 Show(leora)
 Highlight(leora -o true)
 leora "I am honored, Holy One. You have my deepest thanks."
-leora "And yet… regarding Lucan, and Grest…"
+leora "And yet... regarding Lucan, and Grest..."
 leora "Was there truly nothing to be done? He claimed he would have perished had he stayed."
 Highlight(speaker -o true)
-speaker "A knight’s greatest glory is to die in battle. His moment arrived, and he turned his back upon it. He dishonored himself, the Order, and Verita alike."
+speaker "A knight's greatest glory is to die in battle. His moment arrived, and he turned his back upon it. He dishonored himself, the Order, and Verita alike."
 speaker "Knights are the tools of Verita's unflappable justice, Dame Leora. Do not let that traitor's words lead you astray. There is but one path to truth, for it is unyielding. "
 speaker "Any step from it's sacred trail is a step into falseness. Lucan's desertion from the path is a stain upon our sacred, righteous Order. You, if you truly are a tool of Verita's just hand, should feel anger at his very existence."
 Highlight(leora -o true)
 leora "... Yes, Holy One."
-leora "(The Speaker is right. I should feel anger. And yet… why is my heart so heavy?)"
+leora "(The Speaker is right. I should feel anger. And yet... why is my heart so heavy?)"
+Hide(speaker)
+Hide(leora)
 endDialogue(false)

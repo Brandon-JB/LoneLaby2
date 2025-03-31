@@ -21,4 +21,6 @@ Highlight(leora -o true)
 leora "No... You're distorting the truth. Hundreds died because of you. You're only lying to protect yourself."
 Highlight(lucan -o true)
 lucan "Then do it. Condemn me. Sentence me to death over one order."
+Hide(lucan)
+Hide(leora)
 endDialogue(false)

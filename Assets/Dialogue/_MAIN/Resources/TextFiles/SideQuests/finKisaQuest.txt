@@ -1,0 +1,27 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(kisa -enabled false)
+leora.Move(0.15 0 -spd 1000)
+kisa.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(kisa)
+Highlight(kisa -o true)
+kisa "Ah, madam! You have returned! So, is the eastern peninsula... good?"
+Show(leora)
+Highlight(leora -o true)
+leora "Well, it was–"
+leora "...Before I give my assessment, what exactly have you fought before?"
+Highlight(kisa -o true)
+kisa "Yes! Well! I have defeated... hmm, let me see..."
+kisa "Ah! My most impressive foe? A werewolf! Although... it was in its human form, so I suppose it was merely a man. But besides that, a slime here and there, a pack of rats..."
+Highlight(leora -o true)
+leora "...Ah. "
+leora "Perhaps... start elsewhere. Speak with the townsfolk-see if anyone requires assistance. And consider traveling with a party before heading into unknown territory."
+Highlight(kisa -o true)
+kisa "A party? I hadn't considered that before... but that could be fun!"
+kisa "Thank you, madam! Here, take this as payment. I must pay you for your work, yes? Thank you again! Goodbye!"
+Highlight(leora -o true)
+leora "Wait, I don't-"
+leora "(...She just shoved this into my hands and ran off. ...Who <i>was</i> that?)"
+Hide(kisa)
+Hide(leora)
+endDialogue(false)

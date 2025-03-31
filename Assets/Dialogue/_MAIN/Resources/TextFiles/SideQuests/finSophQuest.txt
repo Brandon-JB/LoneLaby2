@@ -1,0 +1,26 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(sophie -enabled false)
+leora.Move(0.15 0 -spd 1000)
+sophie.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(sophie)
+Highlight(sophie -o true)
+sophie "I see you return in one piece. That bodes well. Did you find the spirits?"
+Show(leora)
+Highlight(leora -o true)
+leora "Yes. I encountered them, but... I found no indication they were behind the kidnappings."
+Highlight(sophie -o true)
+sophie "Ah. I apologize for sending you on a meaningless errand. Your time would have been better spent elsewhere."
+Highlight(leora -o true)
+leora "Do not apologize. I needed to be in the area regardless. It was a lead worth following."
+Highlight(sophie -o true)
+sophie "Dame, forgive the intrusion, but... did the spirits-Did they take human form?"
+sophie "Did any of them bear... distinct features? Something that could tie them to a person in the mortal realm?"
+Highlight(leora -o true)
+leora "Not that I recall. Unless all the spirits I faced were identical siblings, they appeared nearly indistinguishable from one another."
+Highlight(sophie -o true)
+sophie "...I see."
+sophie "Regardless, thank you for investigating, Dame. Here-a token of gratitude. May it serve you better than my theories did. And if I uncover anything of value, you'll be the first to know."
+Hide(sophie)
+Hide(leora)
+endDialogue(false)

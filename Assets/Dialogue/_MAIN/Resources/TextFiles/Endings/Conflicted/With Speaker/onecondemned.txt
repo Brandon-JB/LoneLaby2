@@ -1,0 +1,25 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(speaker -enabled false)
+leora.Move(0.15 0 -spd 1000)
+speaker.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(leora)
+Highlight(leora -o true)
+leora "I have encountered all targets, Holy One."
+Highlight(speaker -o true)
+speaker "Truly? Yet I have seen only one condemned walk these halls."
+Highlight(leora -o true)
+leora "Yes, Speaker. Two remain. Unfortunately... they escaped."
+Highlight(speaker -o true)
+speaker "...Unfortunate."
+speaker "Tell me, Dame Leora-do you believe justice was served?"
+Highlight(leora -o true)
+leora "I did what I could within the circumstances given to me. I pursued justice to the best of my ability."
+Highlight(speaker -o true)
+speaker "To the best of your ability... I see."
+speaker "It is disappointing, but what is done is done."
+speaker "One condemned is better than none, though it does little to restore order. And yet, what has passed cannot be changed."
+speaker "Rest now, Dame. Return at daybreak, and we shall discuss the Order's next course of action."
+Hide(speaker)
+Hide(leora)
+endDialogue(false)

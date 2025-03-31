@@ -1,0 +1,14 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(severin -enabled false)
+leora.Move(0.15 0 -spd 1000)
+severin.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(severin)
+Highlight(severin -o true)
+severin "Leora. Halt your prayers. The Speaker summons you."
+Highlight(leora -o true)
+leora "(I am certain this is about my... poor performance.)"
+leora "Give me but a moment. I will be up shortly."
+Hide(severin)
+Hide(leora)
+endDialogue(false)

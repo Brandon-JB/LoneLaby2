@@ -1,0 +1,22 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(speaker -enabled false)
+leora.Move(0.15 0 -spd 1000)
+speaker.Move(0.95 0 -spd 1000)
+Show(speaker)
+Highlight(speaker -o true)
+speaker "Well done, Dame Leora. The Order commends you."
+speaker "As a token of our gratitude, you are granted new arms -- courtesy of Verita's forge. May they serve you well in the trials ahead."
+Show(leora)
+Highlight(leora -o true)
+leora "I am honored, Holy One. You have my deepest thanks."
+leora "However... I spoke to Viin before bringing her here. She claimed she and Vaang, the orphanage keeper, are bound together. That his fate is tied to hers."
+Highlight(speaker -o true)
+speaker "Yes. The Order is aware of Viin and Vaang's unnatural connection. Do not trouble yourself, child—we shall consider our options when Viin is judged."
+speaker "But be wary, Dame. Viin is a murderer, a heretic, a liar. Do not place faith in the words of the damned."
+Highlight(leora -o true)
+leora "... Thank you, Holy one. I will."
+leora "(The Speaker is right to doubt Viin's words. I trust their judgement, yet...)"
+leora "(Will they truly consider Vaang's innocence? Is the weight of Viin's sins worth Vaang's life?)"
+Hide(speaker)
+Hide(leora)
+endDialogue(false)

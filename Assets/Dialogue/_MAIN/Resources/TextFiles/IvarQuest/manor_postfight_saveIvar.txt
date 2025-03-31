@@ -2,31 +2,37 @@ CreateCharacter(leora -enabled false)
 CreateCharacter(ivar -enabled false)
 leora.Move(0.15 0 -spd 1000)
 ivar.Move(0.95 0 -spd 1000)
-Show(ivar)
-Highlight(ivar -o true)
-ivar "Fine! Fine! Y-yes, you have made your point with that sharpened stick of yours!"
+wait(0.5)
 Show(leora)
 Highlight(leora -o true)
-leora "You will surrender the scepter. Now."
+leora "...You are free to go."
+Show(ivar)
 Highlight(ivar -o true)
-ivar "I would if I could, Dame. But... I cannot give it to you. "
-ivar "My family is counting on me. I cannot—"
+ivar "...Huh? Wait-<i>truly</i>? You break into my <i>home</i>, bludgeon me half to death, and now you're just-letting me go?"
 Highlight(leora -o true)
-leora "Surrender is not conditional, Ivar. Give it up, or else."
+leora "Would you rather I change my mind?"
 Highlight(ivar -o true)
-ivar "No! You can harm me however you wish, but know this—if you take the scepter, you condemn them."
+ivar "W-Wait, now, let's not be rash, dear knight! I jest! Certainly, I do."
 Highlight(leora -o true)
-leora "Did their captors name the scepter in their demands?"
+leora "And still, you refuse to relinquish the scepter?"
 Highlight(ivar -o true)
-ivar "They requested money, but a relic of immeasurable value? That carries weight. That buys time. The scepter itself means nothing to me—it is simply a means to an end."
+ivar "No. You would have to pry it from my cold, dead hands. I know what I am, my dear, but I swear to you-once I have saved them, I will change. I will be better. I will be so noble, even the saints will envy me."
 Highlight(leora -o true)
-leora "Yet if I let you go, what message does that send? That anyone may steal from the Order so long as they claim just cause?"
+leora "...If you insist. Once your family is secure, you <i>must</i> contact the Order. Zaro needs the Scepter, but perhaps there is a way to rescue your family, punish their captors and return the Scepter."
+leora "Even then, where are the knights that were sent to retrieve you? What became of them?"
 Highlight(ivar -o true)
-ivar "Would you condemn a starving man for stealing bread? Would you cut him down as you would a murderer?"
+ivar "...There were-.. There were other knights here?"
 Highlight(leora -o true)
-leora "This is no loaf of bread. The scepter is not mere gold nor it is merely a tool for the Order’s rituals, it can heal incurable wounds. However, it strains the mind, so only the chosen few can wield it. Without the scepter, the Order cannot properly revive the uncurable. They will die, Ivar."
+leora "Yes, what became of them?"
 Highlight(ivar -o true)
-ivar "And?"
-ivar "I care nothing for Zaro, for its knights, its politics. I care for my people. My family."
-ivar "If you think me worthy of death for choosing them over others, then strike me down. Drag me to Zaro, where I will be hanged like the criminal you think me to be."
+ivar "Ah, well... I am unsure. You are the only knight I have seen in a long while, Dame."
+Highlight(leora -o true)
+leora "(I am sure others were here... are Ivar's words truly to be trusted?)"
+leora "Ivar... if you must possess the Scepter of Truth, could you at least store it away? You clutch it as if it will sprout wings and fly away."
+Highlight(ivar -o true)
+ivar "Ah... y-yes. A fair argument. Perhaps then... perhaps then the whispers will stop."
+ivar "Regardless, I owe you my thanks, Dame. You have done a noble thing. Perhaps... this will suffice for showing my gratitude?"
+ivar "Now, if you'll excuse me, I must tidy myself before the trade. One must look presentable, even in desperate dealings."
+Hide(ivar)
+Hide(leora)
 endDialogue(false)

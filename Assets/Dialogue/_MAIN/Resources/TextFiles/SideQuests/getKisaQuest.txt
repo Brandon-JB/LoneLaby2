@@ -1,0 +1,32 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(kisa -enabled false)
+leora.Move(0.15 0 -spd 1000)
+kisa.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(kisa)
+Highlight(kisa -o true)
+kisa "Oh, where to go first? Zaro is such a bustling city! So much to do, so little time..."
+kisa "Excuse me, madam! You're a knight, are you not? Surely you've had your fair share of grand adventures! Strangled dragons with only your gauntlets? Heard every tale in these lands?"
+Show(leora)
+Highlight(leora -o true)
+leora "I assure you, life as a knight is not quite that adventurous. There are occasional quests, yes, but most of my duties are carried out in or around Zaro."
+leora "Why do you ask? Are you seeking a quest?"
+Highlight(kisa -o true)
+kisa "Why... yes! I would love to go on a quest! Any quest will do! I promise I will live up to your expectations!"
+Highlight(leora -o true)
+leora "I'm afraid I don't have a quest to give you. In fact, I have one of my own that I should be tending to."
+Highlight(kisa -o true)
+kisa "Ah. ... Curses! How is a bard supposed to start her life's story if her life is not noteworthy! Father had already defeated a beholder at my age... "
+Highlight(leora -o true)
+leora "Do not fret, friend. A quest will come to you in time. You could always travel for the sake of exploration-many knights venture to Isen's eastern peninsula purely for the experience."
+Highlight(kisa -o true)
+kisa "That sounds lovely! So... how does one do that? Just... go? Leave? Pace around the area and return?"
+Highlight(leora -o true)
+leora "... No, there is more to it than that."
+leora "How about this? I must travel there for my quest regardless. I can scout the landscape and let you know if it is worth your time."
+leora "I am certain I will encounter monsters along the way-I can gauge their strength to ensure you are... adequately prepared. Does that sound fair?"
+Highlight(kisa -o true)
+kisa "Do not worry, madam, for I can tackle any threat! ... But that would be appreciated."
+Hide(kisa)
+Hide(leora)
+endDialogue(false)

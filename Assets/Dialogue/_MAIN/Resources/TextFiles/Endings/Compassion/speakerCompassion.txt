@@ -1,0 +1,43 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(speaker -enabled false)
+leora.Move(0.15 0 -spd 1000)
+speaker.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(speaker)
+Highlight(speaker -o true)
+speaker "Leora. How goes your task? It has been some time since I last heard of your progress."
+Highlight(leora -o true)
+leora "I bring unfortunate news, Speaker... All the suspects have escaped."
+leora "(Is this considered a lie? Please... spare me, Verita.)"
+Highlight(speaker -o true)
+speaker "Escaped?"
+speaker "You encountered them, yet you failed to bring back a single one?"
+Highlight(leora -o true)
+leora "Yes. They still live."
+Highlight(speaker -o true)
+speaker "...Unfortunate."
+speaker "I expected more from a knight of your standing. But I suppose... it cannot be helped. And yet..."
+speaker "If you were unable to capture even <i>one</i>, then I must question your ability to carry out your duties."
+Highlight(leora -o true)
+leora "I am capable, Speaker. I promise you that."
+Highlight(speaker -o true)
+speaker "You may think that is the truth, yet words are hollow until proven otherwise. If you are to retain your position... a test is in order."
+Highlight(leora -o true)
+leora "A test?"
+Highlight(speaker -o true)
+speaker "Yes. Not a written one-you are not an apprentice. A knight must be judged by action, not ink and parchment. Severin oversees such trials."
+Highlight(severin -o true)
+speaker.Move(1.25 0 -spd 3)
+Hide(speaker)
+Show(severin)
+severin.Move(0.95 0 -spd 3)
+severin "..."
+severin.Move(1.25 0 -spd 3)
+Hide(severin)
+Show(speaker)
+speaker.Move(0.95 0 -spd 3)
+Highlight(speaker -o true)
+speaker "Rest tonight. At dawn, you shall face Severin in the training grounds. There, you will prove whether you are worthy of your title... or if the Order has misplaced its faith in you."
+Hide(speaker)
+Hide(leora)
+endDialogue(false)

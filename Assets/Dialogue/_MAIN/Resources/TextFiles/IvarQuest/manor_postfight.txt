@@ -2,6 +2,7 @@ CreateCharacter(leora -enabled false)
 CreateCharacter(ivar -enabled false)
 leora.Move(0.15 0 -spd 1000)
 ivar.Move(0.95 0 -spd 1000)
+wait(0.5)
 Show(ivar)
 Highlight(ivar -o true)
 ivar "Fine! Fine! Y-yes, you have made your point with that sharpened stick of yours!"
@@ -10,23 +11,25 @@ Highlight(leora -o true)
 leora "You will surrender the scepter. Now."
 Highlight(ivar -o true)
 ivar "I would if I could, Dame. But... I cannot give it to you. "
-ivar "My family is counting on me. I cannot—"
+ivar "My family is counting on me. I cannot-"
 Highlight(leora -o true)
 leora "Surrender is not conditional, Ivar. Give it up, or else."
 Highlight(ivar -o true)
-ivar "No! You can harm me however you wish, but know this—if you take the scepter, you condemn them."
+ivar "No! You can harm me however you wish, but know this-if you take the scepter, you condemn them."
 Highlight(leora -o true)
 leora "Did their captors name the scepter in their demands?"
 Highlight(ivar -o true)
-ivar "They requested money, but a relic of immeasurable value? That carries weight. That buys time. The scepter itself means nothing to me—it is simply a means to an end."
+ivar "They requested money, but a relic of immeasurable value? That carries weight. That buys time. The scepter itself means nothing to me-it is simply a means to an end."
 Highlight(leora -o true)
 leora "Yet if I let you go, what message does that send? That anyone may steal from the Order so long as they claim just cause?"
 Highlight(ivar -o true)
 ivar "Would you condemn a starving man for stealing bread? Would you cut him down as you would a murderer?"
 Highlight(leora -o true)
-leora "This is no loaf of bread. The scepter is not mere gold nor it is merely a tool for the Order’s rituals, it can heal incurable wounds. However, it strains the mind, so only the chosen few can wield it. Without the scepter, the Order cannot properly revive the uncurable. They will die, Ivar."
+leora "This is no loaf of bread. The scepter is not mere gold nor it is merely a tool for the Order's rituals, it can heal incurable wounds. However, it strains the mind, so only the chosen few can wield it. Without the scepter, the Order cannot properly revive the uncurable. They will die, Ivar."
 Highlight(ivar -o true)
 ivar "And?"
 ivar "I care nothing for Zaro, for its knights, its politics. I care for my people. My family."
 ivar "If you think me worthy of death for choosing them over others, then strike me down. Drag me to Zaro, where I will be hanged like the criminal you think me to be."
+Hide(ivar)
+Hide(leora)
 endDialogue(false)

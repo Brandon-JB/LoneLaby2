@@ -1,0 +1,16 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(speaker -enabled false)
+leora.Move(0.15 0 -spd 1000)
+speaker.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(speaker)
+Highlight(speaker -o true)
+speaker "Well done, Dame Leora. You have exceeded the Order's expectations. Your service will be remembered when the time for promotions arrives."
+Show(leora)
+Highlight(leora -o true)
+leora "Of course, Holy One. I am your sword and shield. I will follow Verita's will without question."
+Highlight(speaker -o true)
+speaker "Rest now, Dame. Retire to your quarters. Your next orders shall come within the week."
+Hide(speaker)
+Hide(leora)
+endDialogue(false)

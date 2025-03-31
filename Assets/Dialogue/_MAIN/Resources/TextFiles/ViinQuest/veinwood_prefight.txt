@@ -1,0 +1,26 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(viin -enabled false)
+leora.Move(0.15 0 -spd 1000)
+viin.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(leora)
+Highlight(leora -o true)
+leora "Viin. You stand before Leora, servant of Verita. You will return with me to Zaro. Your judgment is long overdue."
+Show(viin)
+Highlight(viin -o true)
+viin "Mmm... tempting. But no. I don't require fresh parts right now. Come back in a few days, and I might find a use for that body of yours."
+Highlight(leora -o true)
+leora "Do not test my patience. The Order has demanded your return—alive. They did not specify in what condition."
+Highlight(viin -o true)
+viin "Ooooh, so <i>fierce</i>. You must be a Justiciar. "
+viin "I've killed a few of your kind. But it's always a delight to watch you strut in, all righteous fury and gleaming armor, thinking you're the hero of this little tale."
+viin "But tell me, knight—where were you when people starved? When they froze in the streets while you feasted in your grand halls?"
+viin "Oh, you act fast enough when a hungry child dares steal from your reserves. But all that food, all those warm beds—you've earned them, haven't you? By condemning people like us."
+viin "But wait! You have a <i>god</i> backing your Order, which makes you <i>right</i>, doesn't it?"
+Highlight(leora -o true)
+leora "Shut your damned mouth or I'll shut it for you."
+Highlight(viin -o true)
+viin "Ha, struck a nerve, I see? I love the look of rage in a knight's eyes before I carve them out. And yours are so pretty, too... don't worry, I'll put them to good use."
+Hide(viin)
+Hide(leora)
+endDialogue(false)

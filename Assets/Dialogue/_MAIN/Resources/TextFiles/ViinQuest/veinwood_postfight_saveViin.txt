@@ -1,0 +1,45 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(viin -enabled false)
+leora.Move(0.15 0 -spd 1000)
+viin.Move(0.95 0 -spd 1000)
+Show(leora)
+Highlight(leora -o true)
+leora "...You are free to go."
+Show(viin)
+Highlight(viin -o true)
+viin "Took you long enough. I'm on a schedule, <i>Dame</i>, and you've wasted enough of my time."
+Highlight(leora -o true)
+leora "You sound awfully casual for someone who was inches from death mere moments ago."
+Highlight(viin -o true)
+viin "Oh, sweet thing, I knew you wouldn't kill me. Did you expect me to grovel? To clutch your cloak and wail, ‘Oh, Dame, please spare me! I swear I shall change my wicked ways'? You have the wrong woman."
+Highlight(leora -o true)
+leora "(I... cannot stop Viin's evil. But Vaang is good, and I have made my choice. If Viin is truly on a schedule, perhaps there is a way to limit the damage she will do.)"
+leora "You say you're on a schedule. What exactly are you working on? Do you have clients?"
+Highlight(viin -o true)
+viin "Wouldn't you like to know, Dame? I suppose I owe you a little entertainment for keeping me alive. Or—here. A parting gift. A keepsake of our little moment together."
+Highlight(leora -o true)
+leora "Blood magic... It allows you to manipulate the line between life and death, does it not? Using blood as an agent?"
+Highlight(viin -o true)
+viin "Mm. Someone's been paying attention. The stronger the blood, the stronger the hemomancer. The more you take, the more you can wield. Simple, isn't it?"
+Highlight(leora -o true)
+leora "Then why kill people? Why knights? If it's just about blood, a boar would suffice."
+Highlight(viin -o true)
+viin "A boar? Where's the challenge in that? It just squeals and dies. But knights—oh, knights struggle. They fight. They <i>beg</i>. And their blood is steeped in conviction, stronger than any beast's."
+Highlight(leora -o true)
+leora "...You take pleasure in it."
+Highlight(viin -o true)
+viin "I take power from it. The difference is semantics."
+Highlight(leora -o true)
+leora "You didn't answer my earlier question. What are you working on?"
+Highlight(viin -o true)
+viin "Oh, nothing special. Just a little research. You've already seen the fruits of my labor. When tampering with souls... well, things tend to go awry."
+Highlight(leora -o true)
+leora "These horrors... the Veinwood is your doing?"
+Highlight(viin -o true)
+viin "You give me too much credit, doll. The Veinwood is not exclusively my doing, but things happen. The line between life and death is so thin. Sometimes, things crawl back through."
+viin "Now, unless you'd care to be my assistant, I suggest you leave. The horrors grow more active after sundown, and personally? I'm growing bored of staring at you."
+Highlight(leora -o true)
+leora "(...It was worth a shot.)"
+Hide(viin)
+Hide(leora)
+endDialogue(false)

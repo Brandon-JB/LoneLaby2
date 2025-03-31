@@ -1,0 +1,42 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(vaang -enabled false)
+leora.Move(0.15 0 -spd 1000)
+vaang.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(leora)
+Highlight(leora -o true)
+leora "You must be Vaang. I am Dame Leora, sent by the Speaker of Truth."
+Show(vaang)
+Highlight(vaang -o true)
+vaang "A pleasure to meet you, Dame. Yes, I am Vaang. And I assume you, like the ones before you, seek knowledge of Viin."
+Highlight(leora -o true)
+leora "The ones before me?"
+Highlight(vaang -o true)
+vaang "Indeed. I have long since lost count of the times the Order has questioned me about my sister. I understand their caution-after all, to them, blood ties are as damning as the crime itself."
+vaang "Do not misunderstand me. I do not condone her actions. But nor do I wish her harm. She is my sister, and that alone is enough."
+vaang "But I suspect you did not come for sentiments. Ask what you will."
+Highlight(leora -o true)
+leora "If you do not mind the intrusion, I do have questions. You must be aware of Viin's title-the Butcher of Knights. The Order believes I alone can best her and bring her to justice. I trust Verita's will... yet I will not lie to you, Vaang. I do not know if my skill will be enough."
+leora "I seek no dishonorable advantage. I do not wish to die, but I also do not wish to cheat my way to victory. Tell me plainly-does Viin have any weaknesses?"
+Highlight(vaang -o true)
+vaang "...It is strange. The Order has sent many before you, yet none were given the honor of facing her alone. Either they see something in you... or they are desperate."
+vaang "Yes, Viin has a weakness. She is relentless, unpredictable-her ambition knows no restraint. And she wields her blood magic in ways I hesitate to describe. But if she is anything like me, then she is vulnerable to psychic attacks."
+vaang "Mind over matter, as the saying goes."
+Highlight(leora -o true)
+leora "That is valuable knowledge. However, I lack the means to deal psychic damage."
+Highlight(vaang -o true)
+vaang "Then alter your means. I have heard whispers of enchanted amulets, ones that reshape the wearer's magic. You wield the Light, do you not? Find an Amulet of the Mind... perhaps that could assist you."
+Highlight(leora -o true)
+leora "Interesting... I will seek one out. Thank you, Vaang."
+leora "The Speaker claimed Viin is in the Veinwood, south of Zaro. Is that where I will find her?"
+Highlight(vaang -o true)
+vaang "Yes. Across the bridge to the island. I have only been there once, and I have no desire to return."
+vaang "Is there anything else you require?"
+Highlight(leora -o true)
+leora "No. You have been more helpful than you know."
+Highlight(vaang -o true)
+vaang "Then allow me to return the kindness. Should you be wounded in battle, come to me. The Order has been in disarray since the scepter was stolen-no offense-but I will not let that stop me from healing those in need."
+vaang "Good luck, Dame Leora. Just remember-your choices shape more lives than your own."
+Hide(vaang)
+Hide(leora)
+endDialogue(false)

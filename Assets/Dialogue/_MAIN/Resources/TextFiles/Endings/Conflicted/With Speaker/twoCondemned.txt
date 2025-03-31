@@ -1,0 +1,23 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(speaker -enabled false)
+leora.Move(0.15 0 -spd 1000)
+speaker.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(leora)
+Highlight(leora -o true)
+leora "I have encountered all targets, Holy One."
+Highlight(speaker -o true)
+speaker "Truly? Yet I have seen only two condemned walk these halls."
+Highlight(leora -o true)
+leora "Yes, Speaker. One remains. Unfortunately... they escaped."
+Highlight(speaker -o true)
+speaker "A partial victory, then. Two condemned is better than none."
+speaker "Yet I wonder... had you been swifter, had you struck without hesitation, would this outcome have been different?"
+Highlight(leora -o true)
+leora "Perhaps, Speaker. But I did all that was within my power."
+Highlight(speaker -o true)
+speaker "Yes. This is certain. Regardless..."
+speaker "It cannot be helped. Rest now, Dame. Return at daybreak, and we shall discuss the Order's next course of action."
+Hide(speaker)
+Hide(leora)
+endDialogue(false)
