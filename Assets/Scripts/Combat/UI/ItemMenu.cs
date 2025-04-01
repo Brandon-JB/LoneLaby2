@@ -18,6 +18,7 @@ public class ItemMenu : MonoBehaviour
     [SerializeField] private Image itemImage;
     [SerializeField] private TMP_Text itemText;
     [SerializeField] private TMP_Text itemDescription;
+    [SerializeField] private EquipmentManager equipmentManager;
 
     //For Movement
     [SerializeField] private Transform infoHolder;
@@ -131,11 +132,19 @@ public class ItemMenu : MonoBehaviour
         Time.timeScale = 0;
 
         ChangeTextAndSprite(itemName);
+
+        equipmentManager.GainedEquipment(itemName);
+
         infoHolder.DOMove(locations[0].position, 0.5f).SetUpdate(true);
         //itemHolder.DOFade(1, 1f).SetUpdate(true);
         itemImage.gameObject.SetActive(true);
         leoraAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         leoraAnimator.enabled = false;
         leoraAnimator.GetComponent<SpriteRenderer>().sprite = items[15];
+    }
+
+    public void Awake()
+    {
+        equipmentManager = FindObjectOfType<EquipmentManager>();
     }
 }

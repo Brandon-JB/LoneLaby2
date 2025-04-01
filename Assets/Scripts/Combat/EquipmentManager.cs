@@ -8,21 +8,21 @@ public class EquipmentManager : MonoBehaviour
 
     static public Dictionary<string, bool> equipmentObtained = new Dictionary<string, bool>()
     {
-        {"BloodAmulet", true },
-        {"MindAmulet", true },
-        {"DarkAmulet", true },
-        {"AlanAmulet", true },
-        {"KisaAmulet", true },
-        {"SophieAmulet", true },
-        {"AdvATKRing", true },
-        {"AdvHPRing", true },
-        {"AdvMPRing", true },
+        {"BloodAmulet", false },
+        {"MindAmulet", false },
+        {"DarkAmulet", false },
+        {"AlanAmulet", false },
+        {"KisaAmulet", false },
+        {"SophieAmulet", false },
+        {"AdvATKRing", false },
+        {"AdvHPRing", false },
+        {"AdvMPRing", false },
         {"ATKRing", false },
         {"MPRing", false },
         {"HPRing", false },
-        {"ATKMPRing", true },
-        {"HPMPRing", true },
-        {"ATKHPRing", true }
+        {"ATKMPRing", false },
+        {"HPMPRing", false },
+        {"ATKHPRing", false }
     };
 
     static public Dictionary<string, bool> amuletSlot = new Dictionary<string, bool>()

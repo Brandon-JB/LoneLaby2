@@ -10,10 +10,12 @@ public class ChestInteraction : CombatInteraction
     [SerializeField] private EquipmentManager equipmentManager;
     [SerializeField] private string whichRing;
     public int itemNumber;
+    [SerializeField] private ItemMenu itemMenu;
 
     // Start is called before the first frame update
     void Start()
     {
+        itemMenu = FindObjectOfType<ItemMenu>();
         dropManager = FindObjectOfType<DropManager>();
         equipmentManager = FindObjectOfType<EquipmentManager>();
     }
@@ -50,7 +52,7 @@ public class ChestInteraction : CombatInteraction
                 //ATKRing
                 //MPRing
                 //HPRing
-                equipmentManager.GainedEquipment(whichRing);
+                itemMenu.openItemMenu(whichRing);
                 break;
             case 4:
                 //Enemies
