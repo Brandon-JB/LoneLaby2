@@ -50,5 +50,11 @@ public class CombatPortals : MonoBehaviour
         {
             SceneManager.LoadScene("Overworld");
         }
+        
+        if (name == "Town")
+        {
+            SpawnManager.SpawnNumber = 1;
+            SceneManager.LoadScene("NoCombatAreas");
+        }
     }
 }
