@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwordScript : EnemyScript
 {
-    private bool thrusting;
+    public bool thrusting;
 
     // Start is called before the first frame update
     void Start()
@@ -153,23 +153,31 @@ public class SwordScript : EnemyScript
 
         if (thrusting)
         {
-            Vector2 slidePosition = new Vector2(enemyRB.transform.position.x + (0.5f * enemyChar.animator.GetFloat("moveX")), enemyRB.transform.position.y);
+            Vector2 slidePosition = new Vector2(enemyRB.transform.position.x + (1 * enemyChar.animator.GetFloat("moveX")), enemyRB.transform.position.y);
 
             if (enemyChar.animator.GetFloat("moveX") < 0)
             {
-                enemyRB.velocity = -slidePosition;
+                enemyRB.velocity = 15 * -slidePosition.normalized;
             }
             else if (enemyChar.animator.GetFloat("moveX") > 0)
             {
-                enemyRB.velocity = slidePosition;
+                enemyRB.velocity = 15 * slidePosition.normalized;
             }
 
             //enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, slidePosition, moveSpeed / 2 * Time.deltaTime);
         }
+        /*else if (enemyChar.animator.GetBool("Attacking") && !thrusting)
+        {
+            enemyRB.velocity = Vector2.zero;
+        }*/
     }
 
     public void ToggleThrust()
     {
+        if (thrusting == true)
+        {
+            enemyRB.velocity = Vector2.zero;
+        }
         thrusting = !thrusting;
     }
 }

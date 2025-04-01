@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SwordChar : BaseChar
 {
+    SwordScript swordScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,4 +15,19 @@ public class SwordChar : BaseChar
 
         ChangeStats(13, 0, 1, 40, 0);
     }
+
+    public override void TriggerHurtAnim()
+    {
+        base.TriggerHurtAnim();
+
+        swordScript.thrusting = false;
+    }
+
+    public override void StopHurtAnim()
+    {
+        base.StopHurtAnim();
+
+        swordScript.thrusting = false;
+    }
+
 }
