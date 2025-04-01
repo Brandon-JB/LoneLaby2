@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SwordScript : EnemyScript
 {
+    private bool thrusting;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +58,7 @@ public class SwordScript : EnemyScript
                 //EnemyRB.transform.position = Vector2.MoveTowards(EnemyRB.transform.position, PlayerRB.transform.position, Speed * Time.deltaTime);
 
                 //Animations
-                enemyChar.animator.SetBool("isMoving", true);
+                //enemyChar.animator.SetBool("isMoving", true);
 
                 if (Player.transform.position.x > transform.position.x)
                 {
@@ -84,11 +86,11 @@ public class SwordScript : EnemyScript
                 if (movementInput != Vector2.zero)
                 {
                     enemyChar.animator.SetFloat("moveX", movementInput.x);
-                    enemyChar.animator.SetFloat("moveY", movementInput.y);
+                    //enemyChar.animator.SetFloat("moveY", movementInput.y);
                 }
 
                 enemyChar.animator.SetFloat("moveX", movementInput.x);
-                enemyChar.animator.SetFloat("moveY", movementInput.y);
+                //enemyChar.animator.SetFloat("moveY", movementInput.y);
             }
             //Attacking
             else if (DistanceFromPlayer <= attackRange)
@@ -149,11 +151,25 @@ public class SwordScript : EnemyScript
             }
         }
 
-        if (enemyChar.animator.GetBool("Attacking"))
+        if (thrusting)
         {
-            Vector2 slidePosition = new Vector2(enemyRB.transform.position.x + (5 * enemyChar.animator.GetFloat("moveX")), enemyRB.transform.position.y);
+            Vector2 slidePosition = new Vector2(enemyRB.transform.position.x + (0.5f * enemyChar.animator.GetFloat("moveX")), enemyRB.transform.position.y);
 
-            enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, slidePosition, moveSpeed / 2 * Time.deltaTime);
+            if (enemyChar.animator.GetFloat("moveX") < 0)
+            {
+                enemyRB.velocity = -slidePosition;
+            }
+            else if (enemyChar.animator.GetFloat("moveX") > 0)
+            {
+                enemyRB.velocity = slidePosition;
+            }
+
+            //enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, slidePosition, moveSpeed / 2 * Time.deltaTime);
         }
+    }
+
+    public void ToggleThrust()
+    {
+        thrusting = !thrusting;
     }
 }
