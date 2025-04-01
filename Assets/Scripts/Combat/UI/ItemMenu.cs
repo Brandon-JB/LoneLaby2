@@ -35,7 +35,7 @@ public class ItemMenu : MonoBehaviour
         //itemHolder.DOFade(0, 1f).SetUpdate(true).OnComplete(() =>
         {
             infoHolder.position = locations[2].position;
-            menu.SetActive(false);
+            //menu.SetActive(false);
             Time.timeScale = 1;
         });
     }
@@ -43,7 +43,7 @@ public class ItemMenu : MonoBehaviour
     public void ChangeTextAndSprite(string dropName)
     {
         //Commented out the lines about assigning the image, will add back later
-        Debug.Log(dropName);
+        //Debug.Log(dropName);
         switch (dropName)
         {
             case "BloodAmulet":

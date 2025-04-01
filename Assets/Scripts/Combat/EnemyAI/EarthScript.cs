@@ -14,6 +14,11 @@ public class EarthScript : EnemyScript
         warningField.SetActive(true);
     }
 
+    public void DisableWarningSign()
+    {
+        warningField.SetActive(false);
+    }
+
     public void TurnActive()
     {
         isActive = true;
