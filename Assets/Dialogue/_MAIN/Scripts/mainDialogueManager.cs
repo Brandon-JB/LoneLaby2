@@ -223,7 +223,8 @@ public class mainDialogueManager : MonoBehaviour
             bottom.DOMove(tweenOutPositions[1].transform.position, 2);
             //CHANGE THIS KATIE YOU ARE STUPID AND NEED TO DIE
 
-            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).OnComplete(() => { SceneManager.LoadScene("Overworld"); });
+            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2);
+                //.OnComplete(() => { SceneManager.LoadScene("Overworld"); });
             //if (isBoss)
             //{
             //    battleFade.SetBool("BattleStarting", true);
