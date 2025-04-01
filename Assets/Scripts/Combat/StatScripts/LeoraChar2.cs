@@ -30,6 +30,8 @@ public class LeoraChar2 : BaseChar
 
     [SerializeField] private BoxCollider2D hurtbox;
 
+    private bool hyperArmor;
+
     [Header("AmuletEffects")]
 
     public bool alanAmuletActive = false;
@@ -66,12 +68,20 @@ public class LeoraChar2 : BaseChar
 
     public override void TriggerHurtAnim()
     {
-        base.TriggerHurtAnim();
-        isParrying = false;
-        isPerfectParrying = false;
-        EnableHurtbox();
+        if (!hyperArmor)
+        {
+            base.TriggerHurtAnim();
+            isParrying = false;
+            isPerfectParrying = false;
+            EnableHurtbox();
 
-        DisableMagHitbox();
+            DisableMagHitbox();
+        }
+    }
+
+    public void ToggleHyperArmor()
+    {
+        hyperArmor = !hyperArmor;
     }
 
     public override void StopHurtAnim()
@@ -254,6 +264,16 @@ public class LeoraChar2 : BaseChar
         }
     }
 
+    public override IEnumerator Knockback(GameObject otherAttacker, float stMod)
+    {
+        if (hyperArmor)
+        {
+            stMod = 0;
+        }
+
+        return base.Knockback(otherAttacker, stMod);
+    }
+
 
     //A event to be called in the animator that starts both cooldownsa and preps the animator for whether the user continues the combo or not.
     public void StartComboTimer()
@@ -333,6 +353,8 @@ public class LeoraChar2 : BaseChar
     public void EndMagick()
     {
         animator.SetBool("Magicing", false);
+
+        ToggleHyperArmor();
 
         if (magicType == "darkMag")
         {
