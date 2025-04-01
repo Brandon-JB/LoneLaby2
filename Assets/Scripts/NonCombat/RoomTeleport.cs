@@ -19,21 +19,10 @@ public class RoomTeleport : MonoBehaviour
         {
             Player.transform.position = In.transform.position;
         }
-        else if (name == "LowerChurchL")
+        else if (name == "LowerChurch")
         {
-            //teleport upper L
+            //if cant go up, dont let them. if can, take to cutscene scene.
         }
-        else if (name == "LowerChurchR")
-        {
-            //teleport upper R
-        }
-        else if (name == "UpperChurchL")
-        {
-            //teleport Lower L
-        }
-        else if (name == "UpperChurchR")
-        {
-            //teleport Lower R
-        }
+        
     }
 }
