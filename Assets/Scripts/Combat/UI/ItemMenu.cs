@@ -18,6 +18,7 @@ public class ItemMenu : MonoBehaviour
     [SerializeField] private Image itemImage;
     [SerializeField] private TMP_Text itemText;
     [SerializeField] private TMP_Text itemDescription;
+    [SerializeField] private EquipmentManager equipmentManager;
 
     //For Movement
     [SerializeField] private Transform infoHolder;
@@ -34,7 +35,7 @@ public class ItemMenu : MonoBehaviour
         //itemHolder.DOFade(0, 1f).SetUpdate(true).OnComplete(() =>
         {
             infoHolder.position = locations[2].position;
-            menu.SetActive(false);
+            //menu.SetActive(false);
             Time.timeScale = 1;
         });
     }
@@ -42,7 +43,7 @@ public class ItemMenu : MonoBehaviour
     public void ChangeTextAndSprite(string dropName)
     {
         //Commented out the lines about assigning the image, will add back later
-        Debug.Log(dropName);
+        //Debug.Log(dropName);
         switch (dropName)
         {
             case "BloodAmulet":
@@ -131,11 +132,19 @@ public class ItemMenu : MonoBehaviour
         Time.timeScale = 0;
 
         ChangeTextAndSprite(itemName);
+
+        equipmentManager.GainedEquipment(itemName);
+
         infoHolder.DOMove(locations[0].position, 0.5f).SetUpdate(true);
         //itemHolder.DOFade(1, 1f).SetUpdate(true);
         itemImage.gameObject.SetActive(true);
         leoraAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         leoraAnimator.enabled = false;
         leoraAnimator.GetComponent<SpriteRenderer>().sprite = items[15];
+    }
+
+    public void Awake()
+    {
+        equipmentManager = FindObjectOfType<EquipmentManager>();
     }
 }

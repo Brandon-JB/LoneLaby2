@@ -6,6 +6,7 @@ public class CombatContact : MonoBehaviour
 {
 
     public CombatPortals combatPortals;
+    public MansionPortals mansionPortals;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,11 @@ public class CombatContact : MonoBehaviour
         if (collision.tag == "Chest" && InputManager.interactPressed == true)
         {
             //Open Chest
+        }
+
+        if (collision.tag == "Stairs")
+        {
+            mansionPortals.MansionStairs(collision.name);
         }
     }
 }

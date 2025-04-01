@@ -14,7 +14,7 @@ public class DropManager : MonoBehaviour
 
         if (randomNum >= 1 && randomNum <= 20)
         {
-            Debug.Log("Nothing");
+            //Debug.Log("Nothing");
         }
         else if (randomNum >= 21 &&  randomNum <= 23)
         {
