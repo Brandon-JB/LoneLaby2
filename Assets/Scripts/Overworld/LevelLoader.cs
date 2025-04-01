@@ -43,6 +43,10 @@ public class LevelLoader : MonoBehaviour
         {
             animator[0].SetBool("IsForest", true);
         }
+        //else if (areaNumber == 4)
+        //{
+        //    animator[0].SetBool("IsFight", true);
+        //}
 
 
         animator[0].SetTrigger("Start");

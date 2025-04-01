@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static System.TimeZoneInfo;
+using UnityEngine.SceneManagement;
 
 public class PlayerContact : MonoBehaviour
 {
@@ -9,9 +11,13 @@ public class PlayerContact : MonoBehaviour
     public RoomTeleport roomTP;
     public Spawner spawner;
     private string Location;
+    public LevelLoader levelLoader;
 
     private int randomNumber;
     public int spawnNumber = 1;
+
+    public Animator animator;
+    public string[] SceneNames;
 
     private void Start()
     {
@@ -42,5 +48,33 @@ public class PlayerContact : MonoBehaviour
             roomTP.Teleport(collision.name);
         }
 
+        if (collision.tag == "OverworldEnemy")
+        {
+            if (collision.name == "Slime")
+            {
+                PlayerMovement.CanWalk = false;
+                StartCoroutine(LoadRandomFight());
+            }
+            else if(collision.name == "Ghost")
+            {
+
+            }
+            else if (collision.name == "Sword")
+            {
+
+            }
+        }
+    }
+
+    IEnumerator LoadRandomFight()
+    {
+        animator.SetBool("IsFight", true);
+        animator.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1.2f);
+
+        SceneManager.LoadScene("RandomFight");
+        //Call Static Int for where to fight enemy and while enemies
+        PlayerMovement.CanWalk = true;
     }
 }
