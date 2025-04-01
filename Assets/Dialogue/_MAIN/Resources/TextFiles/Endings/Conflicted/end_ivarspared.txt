@@ -1,10 +1,10 @@
 wait(0.5)
-Show(???)
+Show(darkleora)
 Show(leora)
-Highlight(??? -o true)
-??? "You placed Ivar's desperation above the suffering of countless others. The sick cry out, the wounded wither, the faithful wait-but he has his second chance. When their prayers go unanswered, will you call that justice?"
-??? "And who kidnapped the people? Did it ever matter?"
-Hide(???)
+Highlight(darkleora -o true)
+darkleora as ??? "You placed Ivar's desperation above the suffering of countless others. The sick cry out, the wounded wither, the faithful wait—but he has his second chance. When their prayers go unanswered, will you call that justice?"
+darkleora as ??? "And who kidnapped the people? Did it ever matter?"
+Hide(darkleora)
 addCutscene(0)
 wait(0.75)
 addCutscene(1)

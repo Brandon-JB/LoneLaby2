@@ -1,9 +1,9 @@
-Show(???)
+Show(darkleora)
 Show(leora)
-Highlight(??? -o true)
-??? "You saw a knight kneeling beneath the weight of his guilt—and you made him kneel lower. Was it his failure you condemned, or the truth he tried to show you?"
-??? "And who kidnapped the people? Did it ever matter?"
-Hide(???)
+Highlight(darkleora -o true)
+darkleora as ??? "You saw a knight kneeling beneath the weight of his guilt—and you made him kneel lower. Was it his failure you condemned, or the truth he tried to show you?"
+darkleora as ??? "And who kidnapped the people? Did it ever matter?"
+Hide(darkleora)
 addCutscene(0)
 wait(0.75)
 addCutscene(1)

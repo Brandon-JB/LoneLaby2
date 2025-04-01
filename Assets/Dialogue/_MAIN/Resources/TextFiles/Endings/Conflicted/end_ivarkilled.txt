@@ -1,10 +1,10 @@
 wait(0.5)
-Show(???)
+Show(darkleora)
 Show(leora)
-Highlight(??? -o true)
-??? "Ivar stole to save the innocent–you took their last chance at salvation. Camille, his wife, and Eleanor, his six-year old child. When they are found dead in a cell, with no one to grieve them, who will call that justice?"
-??? "And who kidnapped the people? Did it ever matter?"
-Hide(???)
+Highlight(darkleora -o true)
+darkleora as ??? "Ivar stole to save the innocent—you took their last chance at salvation. Camille, his wife, and Eleanor, his six-year old child. When they are found dead in a cell, with no one to grieve them, who will call that justice?"
+darkleora as ??? "And who kidnapped the people? Did it ever matter?"
+Hide(darkleora)
 addCutscene(0)
 wait(0.75)
 addCutscene(1)

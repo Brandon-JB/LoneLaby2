@@ -1,11 +1,14 @@
 CreateCharacter(leora -enabled false)
 CreateCharacter(speaker -enabled false)
+CreateCharacter(severin -enabled false)
 leora.Move(0.15 0 -spd 1000)
 speaker.Move(0.95 0 -spd 1000)
+severin.Move(1.25 0 -spd 1000)
 wait(0.5)
 Show(speaker)
 Highlight(speaker -o true)
 speaker "Leora. How goes your task? It has been some time since I last heard of your progress."
+Show(leora)
 Highlight(leora -o true)
 leora "I bring unfortunate news, Speaker... All the suspects have escaped."
 leora "(Is this considered a lie? Please... spare me, Verita.)"
@@ -25,7 +28,7 @@ speaker "You may think that is the truth, yet words are hollow until proven othe
 Highlight(leora -o true)
 leora "A test?"
 Highlight(speaker -o true)
-speaker "Yes. Not a written one-you are not an apprentice. A knight must be judged by action, not ink and parchment. Severin oversees such trials."
+speaker "Yes. Not a written one—you are not an apprentice. A knight must be judged by action, not ink and parchment. Severin oversees such trials."
 Highlight(severin -o true)
 speaker.Move(1.25 0 -spd 3)
 Hide(speaker)

@@ -1,26 +1,27 @@
 CreateCharacter(leora -enabled false)
-CreateCharacter(??? -enabled false)
+CreateCharacter(darkleora -enabled false)
 leora.Move(0.15 0 -spd 1000)
-???.Move(0.95 0 -spd 1000)
+darkleora.Move(0.925 0 -spd 1000)
 wait(0.5)
-Show(???)
-Highlight(??? -o true)
-??? "Who..."
-??? "Who am I?"
+Show(darkleora)
+Highlight(darkleora -o true)
+darkleora as ??? "Who..."
+darkleora as ??? "Who am I?"
+Show(leora)
 Highlight(leora -o true)
 leora "What?"
-Highlight(??? -o true)
-??? "What do I believe in?"
+Highlight(darkleora -o true)
+darkleora as ??? "What do I believe in?"
 Highlight(leora -o true)
 leora "That... But you..."
-Highlight(??? -o true)
-??? "What is morality? What is justice?"
+Highlight(darkleora -o true)
+darkleora as ??? "What is morality? What is justice?"
 Highlight(leora -o true)
 leora "I..."
-Highlight(??? -o true)
-??? "You cannot answer, can you? You cannot answer because you do not know."
+Highlight(darkleora -o true)
+darkleora as ??? "You cannot answer, can you? You cannot answer because you do not know."
 Highlight(leora -o true)
 leora "Silence!"
-Hide(???)
+Hide(darkleora)
 Hide(leora)
 endDialogue(false)

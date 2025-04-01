@@ -1,6 +1,7 @@
 CreateCharacter(leora -enabled false)
 CreateCharacter(lucan -enabled false)
 leora.Move(0.15 0 -spd 1000)
+lucan.Move(0.95 0 -spd 1000)
 Show(leora)
 Highlight(leora -o true)
 leora "...You are free to go."
@@ -12,10 +13,10 @@ leora "Do not make me regret my decision, Oathbreaker."
 Highlight(lucan -o true)
 lucan "I shall not. You have my gratitude, Dame. Take this—consider it a token of my thanks."
 Highlight(lucan -o true)
-lucan "If the Order ever treats you as they did I--"
+lucan "If the Order ever treats you as they did I—"
 Highlight(leora -o true)
-leora "Silence. "
-leora "You broke your oath and turned your back on the Order. I have -- and will -- not. We are not the same."
+leora "Silence."
+leora "You broke your oath and turned your back on the Order. I have —and will— not. We are not the same."
 Highlight(lucan -o true)
 lucan "Then why spare me, Dame?"
 Highlight(leora -o true)
