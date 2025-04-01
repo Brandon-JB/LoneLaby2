@@ -55,6 +55,7 @@ public class PortalScript : MonoBehaviour
             LastPortal = 1;
             whereGo = 1;
             PlayerMovement.CanWalk = false;
+            SpawnManager.SpawnNumber = 0;
             LevelLoader.LoadNextLevel();
             
 
@@ -86,7 +87,7 @@ public class PortalScript : MonoBehaviour
         }
         else if (name == "Training")
         {
-            SceneManager.LoadScene("TrainingGrounds");
+            SceneManager.LoadScene("Tutorial");
         }
     }
 }
