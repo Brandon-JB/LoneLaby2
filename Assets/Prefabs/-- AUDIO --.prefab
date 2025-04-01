@@ -896,6 +896,134 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &4324167588644825906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6207239200388322714}
+  - component: {fileID: 9155877896651027844}
+  m_Layer: 0
+  m_Name: T12 - Verita's Theme
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6207239200388322714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4324167588644825906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7564308856000308299}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &9155877896651027844
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4324167588644825906}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7b7b8388a0f541e46ad98c55f7a79bc4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4568094397748331723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,7 +2955,7 @@ GameObject:
   - component: {fileID: 7564308855030848016}
   - component: {fileID: 7564308855030848017}
   m_Layer: 0
-  m_Name: T6 - Partycide
+  m_Name: T6 - Caves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2858,7 +2986,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4252f775b84c09f4fb36fab1a558a955, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 031c4e2b62946b64e9733bd162c920b4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -2955,7 +3083,7 @@ GameObject:
   - component: {fileID: 7564308855170482114}
   - component: {fileID: 7564308855170482115}
   m_Layer: 0
-  m_Name: T7 - The Lich
+  m_Name: T7 - Order of Truth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2986,7 +3114,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ede5994a10bd62e43bb9ec9912e83779, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6694983501a367c418d4cb187dcfd9ce, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -3083,7 +3211,7 @@ GameObject:
   - component: {fileID: 7564308855197966560}
   - component: {fileID: 7564308855197966563}
   m_Layer: 0
-  m_Name: T10 - Credits
+  m_Name: T11 - Leora Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3114,7 +3242,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 22070247ab7ec85408fe5d0477dd589e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 51ee5cdb1fbd73e43956412a1bbee530, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -3339,7 +3467,7 @@ GameObject:
   - component: {fileID: 7564308855280628341}
   - component: {fileID: 7564308855280628338}
   m_Layer: 0
-  m_Name: T5 - Conversing(Happy)
+  m_Name: T5 - Veinwood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3370,7 +3498,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 36ea64fc67cbda243b9854df9a3b82aa, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1a7ec6cadaeb69d4b93049f0b23060ed, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -3755,7 +3883,7 @@ GameObject:
   - component: {fileID: 7564308855544216593}
   - component: {fileID: 7564308855544216606}
   m_Layer: 0
-  m_Name: T3 - Battle
+  m_Name: T3 - Zaro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3786,7 +3914,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 49fea6cd7f78fe8468469e75cad63c41, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b41559b5fbdbe08469b1b5c11a84620a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -4011,7 +4139,7 @@ GameObject:
   - component: {fileID: 7564308855615452417}
   - component: {fileID: 7564308855615452430}
   m_Layer: 0
-  m_Name: T9 - Victory
+  m_Name: T9 - Siding with the Extreme
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4042,7 +4170,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f4a2d800b7e2927448ae1ba7f8aff341, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f4205e7854e6b244796d6790f7c48614, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -4298,7 +4426,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 01962f2501fc06542b68219471674d4b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 59eebd4004dbf444ba44c38c8c96668d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -4699,6 +4827,7 @@ MonoBehaviour:
   - {fileID: 7564308855615452430}
   - {fileID: 7564308855197966563}
   - {fileID: 7564308855812477312}
+  - {fileID: 7564308855812477312}
   SFXAvailable:
   - {fileID: 7564308856353508888}
   - {fileID: 7564308856260082485}
@@ -4893,7 +5022,7 @@ GameObject:
   - component: {fileID: 7564308855812477315}
   - component: {fileID: 7564308855812477312}
   m_Layer: 0
-  m_Name: T9.5 - Victory (Intro)
+  m_Name: T10- Overworld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4924,7 +5053,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cc425a0baa36aca4d879c14f0c709c5e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e2b39d06077d7174b853a9a85a0aca7b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -5039,16 +5168,17 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7564308855650763460}
-  - {fileID: 7564308856399472573}
+  - {fileID: 7564308857059525010}
   - {fileID: 7564308855544216593}
   - {fileID: 7564308856046662463}
   - {fileID: 7564308855280628341}
   - {fileID: 7564308855030848016}
   - {fileID: 7564308855170482114}
-  - {fileID: 7564308857059525010}
+  - {fileID: 7564308856399472573}
   - {fileID: 7564308855615452417}
   - {fileID: 7564308855812477315}
   - {fileID: 7564308855197966560}
+  - {fileID: 6207239200388322714}
   m_Father: {fileID: 7564308855764619524}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5063,7 +5193,7 @@ GameObject:
   - component: {fileID: 7564308856046662463}
   - component: {fileID: 7564308856046662460}
   m_Layer: 0
-  m_Name: T4 - Conversing(Tense)
+  m_Name: T4 - Mansion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5094,7 +5224,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fc10de2c98133fc48a525db3ef814819, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c95d43a7a91b6cd42ab91e8c3ee59f31, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -6343,7 +6473,7 @@ GameObject:
   - component: {fileID: 7564308856399472573}
   - component: {fileID: 7564308856399472570}
   m_Layer: 0
-  m_Name: T2 - Overworld
+  m_Name: T8 - Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6362,7 +6492,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7564308856000308299}
-  m_RootOrder: 1
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &7564308856399472570
 AudioSource:
@@ -6374,7 +6504,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bdda598a46ce31f47a18d270a9d3fe01, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0070ed52d6d78d646a9cc4fea1414ba0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -7835,7 +7965,7 @@ GameObject:
   - component: {fileID: 7564308857059525010}
   - component: {fileID: 7564308857059525011}
   m_Layer: 0
-  m_Name: T8 - Defeat
+  m_Name: T2 - Defeat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7854,7 +7984,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7564308856000308299}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &7564308857059525011
 AudioSource:
@@ -7866,7 +7996,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f8688b21bf40bff4dbb807a7ecc00f0f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 26fd60586a3ba334e9e70825b7603e44, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
