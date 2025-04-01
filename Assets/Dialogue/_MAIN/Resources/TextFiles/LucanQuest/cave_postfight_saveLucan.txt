@@ -12,6 +12,8 @@ Highlight(leora -o true)
 leora "Do not make me regret my decision, Oathbreaker."
 Highlight(lucan -o true)
 lucan "I shall not. You have my gratitude, Dame. Take this—consider it a token of my thanks."
+gainItem(DarkAmulet)
+wait(0.5)
 Highlight(lucan -o true)
 lucan "If the Order ever treats you as they did I—"
 Highlight(leora -o true)

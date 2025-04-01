@@ -21,6 +21,8 @@ kisa "A party? I hadn't considered that before... but that could be fun!"
 kisa "Thank you, madam! Here, take this as payment. I must pay you for your work, yes? Thank you again! Goodbye!"
 Highlight(leora -o true)
 leora "Wait, I don't-"
+gainItem(KisaAmulet)
+wait(0.5)
 leora "(...She just shoved this into my hands and ran off. ...Who <i>was</i> that?)"
 Hide(kisa)
 Hide(leora)

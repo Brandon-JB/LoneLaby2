@@ -17,6 +17,8 @@ leora "(I... cannot stop Viin's evil. But Vaang is good, and I have made my choi
 leora "You say you're on a schedule. What exactly are you working on? Do you have clients?"
 Highlight(viin -o true)
 viin "Wouldn't you like to know, Dame? I suppose I owe you a little entertainment for keeping me alive. Or—here. A parting gift. A keepsake of our little moment together."
+gainItem(BloodAmulet)
+wait(0.5)
 Highlight(leora -o true)
 leora "Blood magic... It allows you to manipulate the line between life and death, does it not? Using blood as an agent?"
 Highlight(viin -o true)

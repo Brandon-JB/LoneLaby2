@@ -13,6 +13,8 @@ Highlight(leora -o true)
 leora "Yes, Alan. They react to your body heat. Move away when they begin to tremble and they are but a trifle."
 Highlight(alan -o true)
 alan "Fine, fine, I concede. You win. Here, I found this... amulet of sorts. Not sure if it's something you'd like, but I believe it upholds my end of the bet."
+gainItem(AlanAmulet)
+wait(0.5)
 Highlight(leora -o true)
 leora "Strange choice for a reward."
 Highlight(alan -o true)

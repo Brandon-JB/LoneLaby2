@@ -42,10 +42,8 @@ public class ItemMenu : MonoBehaviour
     public void ChangeTextAndSprite(string dropName)
     {
         //Commented out the lines about assigning the image, will add back later
-
+        Debug.Log(dropName);
         switch (dropName)
-
-
         {
             case "BloodAmulet":
                 itemText.text = "Amulet of the Body";

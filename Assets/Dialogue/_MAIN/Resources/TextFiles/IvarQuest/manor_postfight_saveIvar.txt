@@ -32,6 +32,8 @@ leora "Ivar, if you must possess the Scepter of Truth, could you at least store 
 Highlight(ivar -o true)
 ivar "Ah... y-yes. A fair argument. Perhaps then... perhaps then the whispers will stop."
 ivar "Regardless, I owe you my thanks, Dame. You have done a noble thing. Perhaps... this will suffice for showing my gratitude?"
+gainItem(MindAmulet)
+wait(0.5)
 ivar "Now, if you'll excuse me, I must tidy myself before the trade. One must look presentable, even in desperate dealings."
 Hide(ivar)
 Hide(leora)

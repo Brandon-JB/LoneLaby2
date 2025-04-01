@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace COMMANDS
@@ -14,6 +15,7 @@ namespace COMMANDS
         {
             database.AddCommand("wait", new Func<string, IEnumerator>(Wait));
             database.AddCommand("endDialogue", new Action<string> (endDialogue));
+            database.AddCommand("gainItem", new Action<string>(gainItem));
             //database.AddCommand("endMenuDialogue", new Action<string>(endMenuDialogue));
             database.AddCommand("addCutscene", new Action<string>(addCutscene));
             database.AddCommand("playSFX", new Action<string>(playSFX));
@@ -45,6 +47,11 @@ namespace COMMANDS
             {
                 Debug.Log(isBoss + " needs to be a true or a false.");
             }
+        }
+
+        private static void gainItem(string itemID)
+        {
+            GameObject.FindGameObjectWithTag("ItemMenu").GetComponent<ItemMenu>().openItemMenu(itemID);
         }
 
         //private static void endMenuDialogue(string isSupport)
