@@ -13,4 +13,4 @@ Highlight(speaker -o true)
 speaker "Rest now, Dame. Retire to your quarters. Your next orders shall come within the week."
 Hide(speaker)
 Hide(leora)
-endDialogue(false)
+goTo(NonCombatAreas)

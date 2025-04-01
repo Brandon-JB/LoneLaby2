@@ -43,4 +43,4 @@ Highlight(speaker -o true)
 speaker "Rest tonight. At dawn, you shall face Severin in the training grounds. There, you will prove whether you are worthy of your title... or if the Order has misplaced its faith in you."
 Hide(speaker)
 Hide(leora)
-endDialogue(false)
+goTo(NonCombatAreas)

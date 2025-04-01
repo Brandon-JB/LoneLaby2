@@ -31,9 +31,9 @@ public class saveUI : MonoBehaviour
         isSaveOpen = false;
         leoraforFade.alpha = 0f;
         background.alpha = 0f;
-        leoraToMove.DOMove(locations[1].position, 0.5f).SetUpdate(true).OnComplete(() => {
-            OPENSAVEMENU();
-        });
+        //leoraToMove.DOMove(locations[1].position, 0.5f).SetUpdate(true).OnComplete(() => {
+        //    OPENSAVEMENU();
+        //});
     }
 
 

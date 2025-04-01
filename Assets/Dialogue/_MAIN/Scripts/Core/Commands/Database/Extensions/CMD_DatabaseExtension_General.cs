@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace COMMANDS
 {
@@ -16,6 +17,7 @@ namespace COMMANDS
             database.AddCommand("wait", new Func<string, IEnumerator>(Wait));
             database.AddCommand("endDialogue", new Action<string> (endDialogue));
             database.AddCommand("gainItem", new Action<string>(gainItem));
+            database.AddCommand("goTo", new Action<string>(goTo));
             //database.AddCommand("endMenuDialogue", new Action<string>(endMenuDialogue));
             database.AddCommand("addCutscene", new Action<string>(addCutscene));
             database.AddCommand("playSFX", new Action<string>(playSFX));
@@ -52,6 +54,11 @@ namespace COMMANDS
         private static void gainItem(string itemID)
         {
             GameObject.FindGameObjectWithTag("ItemMenu").GetComponent<ItemMenu>().openItemMenu(itemID);
+        }
+
+        private static void goTo(string itemID)
+        {
+            SceneManager.LoadScene(itemID);
         }
 
         //private static void endMenuDialogue(string isSupport)

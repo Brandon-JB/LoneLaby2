@@ -6,7 +6,7 @@ wait(0.5)
 Show(speaker)
 Highlight(speaker -o true)
 speaker "Well done, Dame Leora. The Order commends you."
-speaker "As a token of our gratitude, you are granted new arms— courtesy of Verita's forge. May they serve you well in the trials ahead."
+speaker "As a token of our gratitude, you are granted new armsâ€” courtesy of Verita's forge. May they serve you well in the trials ahead."
 Show(leora)
 Highlight(leora -o true)
 leora "I am honored, Holy One. You have my deepest thanks."
@@ -22,4 +22,4 @@ leora "... Yes, Holy One."
 leora "(The Speaker is right. I should feel anger. And yet... why is my heart so heavy?)"
 Hide(speaker)
 Hide(leora)
-endDialogue(false)
+goTo(NonCombatAreas)

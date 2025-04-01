@@ -2,4 +2,4 @@ CreateCharacter(leora -enabled false)
 wait(0.5)
 leora "(And so, my journey ends. Criminals are criminals, and as much as I can sympathize with the person, I cannot excuse the crime.)"
 leora "(In truth, those I condemned that day faded to the back of my mind. They were sentenced to death, as most criminals are. I thought nothing of it until I crossed paths with Jael.)"
-endDialogue(false)
+goTo(finalBoss)
