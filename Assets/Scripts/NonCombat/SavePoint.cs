@@ -8,7 +8,7 @@ public class SavePoint : MonoBehaviour
     public saveUI saveui;
     private float maxDistance = 1.5f;
     private float DistanceBetweenObjects;
-    private float InteractionLength = 3f;
+    //private float InteractionLength = 3f;
 
     // Start is called before the first frame update
     void Start()

@@ -5,8 +5,11 @@ using DG.Tweening;
 
 public class audioManager : MonoBehaviour
 {
+    public static audioManager Instance { get; private set; } // Singleton instance
+
     [SerializeField] private AudioSource[] BGMAvailable;
-    [SerializeField] private AudioSource[] SFXAvailable;
+    [SerializeField] private GameObject[] SFXAvailable;
+    private AudioSource[] loadedAudio;
     [SerializeField] private AudioSource voiceVol;
     public static AudioSource currentlyPlaying;
     private int songID = 20; // for playbgm
@@ -16,6 +19,21 @@ public class audioManager : MonoBehaviour
     // speed defaults to 1, but SPEED MUST ALWAYS BE GREATER THAN 0.1!!!
     // A script calls playBGM, playBGM checks to see if there is a song currently playing.
     // it then finds the audio using the string passed in. it reassigns currentlyPlaying to the new audio.
+
+    private void Awake()
+    {
+        // Ensure only one instance exists
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Keep it alive across scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy duplicate instances
+        }
+    }
+
     private void Start()
     {
         voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
@@ -28,32 +46,38 @@ public class audioManager : MonoBehaviour
             case "T1": case "OPENING":
                 songID = 0;
                 break;
-            case "T2": case "OVERWORLD":
+            case "T2": case "DEFEAT":
                 songID = 1;
                 break;
-            case "T3": case "BATTLE":
+            case "T3": case "ZARO":
                 songID = 2;
                 break;
-            case "T4": case "TENSE": case "CONVERSING(TENSE)":
+            case "T4": case "MANSION":
                 songID = 3;
                 break;
-            case "T5": case "HAPPY": case "CONVERSING(HAPPY)":
+            case "T5": case "VEINWOOD":
                 songID = 4;
                 break;
-            case "T6": case "PARTYCIDE":
+            case "T6": case "CAVES":
                 songID = 5;
                 break;
-            case "T7": case "LICH": case "THE LICH": case "THELICH":
+            case "T7": case "ORDER OF TRUTH":
                 songID = 6;
                 break;
-            case "T8": case "GAME OVER": case "GAMEOVER": case "DEFEAT":
+            case "T8": case "BOSS":
                 songID = 7;
                 break;
-            case "T9": case "VICTORY":
+            case "T9": case "SIDING WITH THE EXTREME":
                 songID = 8;
                 break;
-            case "T10": case "CREDITS":
+            case "T10": case "OVERWORLD":
                 songID = 9;
+                break;
+            case "T11": case "LEORA BOSS":
+                songID = 10;
+                break;
+            case "T12": case "VERITA'S THEME":
+                songID = 11;
                 break;
             default:
                 Debug.LogWarning("The BGM [" + songToPlay + "] could not be found.");
@@ -98,8 +122,8 @@ public class audioManager : MonoBehaviour
     }
     public void stopHeartbeatSFX() // only used for heartbeat
     {
-        SFXAvailable[13].volume = 0f;
-        SFXAvailable[13].Stop();
+        //SFXAvailable[13].volume = 0f;
+        //SFXAvailable[13].Stop();
     }
 
     //I didn't update this function with the 2.0 options but we seem to like the int playSFX better
@@ -111,29 +135,49 @@ public class audioManager : MonoBehaviour
 
     private void playSFXUsingID(int ID)
     {
-        if(ID == 13)
+        //if(ID == 13)
+        //{
+        //    SFXAvailable[ID].DOFade((audioStatics.SFXVolume * audioStatics.MasterVolume)/3, (60f));
+        //    SFXAvailable[ID].Play();
+        //    return;
+        //}
+
+        //Use ID to check what range we should be checking
+
+        if (SFXAvailable[ID].transform.childCount > 0)
         {
-            SFXAvailable[ID].DOFade((audioStatics.SFXVolume * audioStatics.MasterVolume)/3, (60f));
-            SFXAvailable[ID].Play();
+            // If the object has children, gather AudioSources from them
+            loadedAudio = GetComponentsInChildren<AudioSource>();
+        }
+        else
+        {
+            // If no children, use the AudioSource attached to this object
+            AudioSource thisAudio = SFXAvailable[ID].GetComponent<AudioSource>();
+
+            thisAudio.volume = (audioStatics.SFXVolume * audioStatics.MasterVolume);
+            thisAudio.Play();
             return;
         }
-        SFXAvailable[ID].volume = (audioStatics.SFXVolume * audioStatics.MasterVolume);
-        SFXAvailable[ID].Play();
+
+        //If there's multiple sounds, pull a random one
+        int randomIndex = Random.Range(0, loadedAudio.Length);
+        loadedAudio[ID].volume = (audioStatics.SFXVolume * audioStatics.MasterVolume);
+        loadedAudio[randomIndex].Play();
     }
 
     private void PlaySongUsingID(int ID, float speed)
     {
-        if (ID == 9)
-        {
-            BGMAvailable[10].volume = (audioStatics.SFXVolume * audioStatics.MasterVolume);
-            BGMAvailable[10].Play();
-            while (!BGMAvailable[10].isPlaying)
-            {
-                //play other music
-            }
-        }
-        else
-        {
+        //if (ID == 9)
+        //{
+        //    BGMAvailable[10].volume = (audioStatics.SFXVolume * audioStatics.MasterVolume);
+        //    BGMAvailable[10].Play();
+        //    while (!BGMAvailable[10].isPlaying)
+        //    {
+        //        //play other music
+        //    }
+        //}
+        //else
+        //{
             BGMAvailable[ID].Play();
             BGMAvailable[ID].DOFade(audioStatics.BGMVolume * audioStatics.MasterVolume, speed).OnComplete(() =>
             {
@@ -143,12 +187,14 @@ public class audioManager : MonoBehaviour
                 }
                 currentlyPlaying = BGMAvailable[ID];
             });
-        }
+        //}
     }
 
     private void playSongUsingID(int ID, float speed)
     {
-        if (ID == 8) // if this is the you win screen
+
+        //TODO: MAKE THIS WORK FOR DEFEAT MENU
+        if (ID == 2) // if this is the you win screen
         {
             // Play the first audio clip
             AudioSource firstAudioSource = BGMAvailable[10];
