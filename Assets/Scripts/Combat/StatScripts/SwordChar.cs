@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SwordChar : BaseChar
 {
-    SwordScript swordScript;
+    public SwordScript swordScript;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,7 @@ public class SwordChar : BaseChar
         base.TriggerHurtAnim();
 
         swordScript.thrusting = false;
+        swordScript.enemyRB.velocity = Vector2.zero;
     }
 
     public override void StopHurtAnim()
@@ -28,6 +29,7 @@ public class SwordChar : BaseChar
         base.StopHurtAnim();
 
         swordScript.thrusting = false;
+        swordScript.enemyRB.velocity = Vector2.zero;
     }
 
 }

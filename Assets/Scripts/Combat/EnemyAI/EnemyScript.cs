@@ -21,7 +21,7 @@ public class EnemyScript : MonoBehaviour
     protected Vector2 movementInput;
     [SerializeField] protected float moveSpeed = 4f;
 
-    protected Rigidbody2D enemyRB;
+    public Rigidbody2D enemyRB;
 
     [SerializeField] public Cooldown cooldown = new Cooldown();
 

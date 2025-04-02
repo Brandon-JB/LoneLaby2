@@ -13,7 +13,7 @@ public class IvarChar : BaseChar
         allied = false;
         charName = "Ivar";
 
-        ChangeStats(10, 0, 4, 150, 0);
+        ChangeStats(12, 0, 4, 300, 0);
     }
 
     public override void Update()
@@ -74,7 +74,7 @@ public class IvarChar : BaseChar
                         }
 
                         GotDamaged(incomingDamage, otherCharTrigger.gameObject, 0);
-                        TriggerHurtAnim();
+                        //TriggerHurtAnim();
 
 
                         /* Parrying moved to Leora

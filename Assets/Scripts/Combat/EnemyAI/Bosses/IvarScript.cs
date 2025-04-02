@@ -30,7 +30,7 @@ public class IvarScript : MonoBehaviour
     [Header("Vectors")]
     [SerializeField] private Vector2 bottomLeftArenaBounds;
     [SerializeField] private Vector2 topRightArenaBounds;
-    [SerializeField] private GameObject enemySpawnPosition;
+    [SerializeField] private GameObject[] enemySpawnPosition;
     private Vector2 moveTargetPosition;
 
     [Header("Casting")]
@@ -259,7 +259,12 @@ public class IvarScript : MonoBehaviour
                 break;
             //Summoning
             case 1:
-                    enemyList.Add(Instantiate(summonList[Random.Range(0, summonList.Length)], enemySpawnPosition.transform.position, Quaternion.identity));
+                int spawnChoice = Random.Range(0, enemySpawnPosition.Length);
+                GameObject spawnedEnemy = Instantiate(summonList[Random.Range(0, summonList.Length)], enemySpawnPosition[spawnChoice].transform.position, Quaternion.identity);
+                EnemyScript spawnedScript = spawnedEnemy.GetComponent<EnemyScript>();
+                spawnedScript.followRange = 100;
+                enemyList.Add(spawnedEnemy);
+
                 break;
         }
     }

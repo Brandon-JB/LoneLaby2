@@ -88,6 +88,11 @@ public class LeoraChar2 : BaseChar
     {
         base.StopHurtAnim();
 
+        if (hyperArmor)
+        {
+            ToggleHyperArmor();
+        }
+
         DisableMagHitbox();
     }
 

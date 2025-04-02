@@ -334,6 +334,7 @@ MonoBehaviour:
   cooldown:
     cooldownTime: 2
   canMove: 1
+  thrusting: 0
 --- !u!114 &2032490484906467798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +370,7 @@ MonoBehaviour:
   particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
   slowTimer:
     cooldownTime: 100
+  swordScript: {fileID: 91874882027523726}
 --- !u!60 &7502155697713748400
 PolygonCollider2D:
   m_ObjectHideFlags: 0
