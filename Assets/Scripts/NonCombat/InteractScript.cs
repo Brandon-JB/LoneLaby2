@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractScript : MonoBehaviour
 {
     public int InteractionNumber;
+    private string interactionName;
     private float maxDistance = 1.5f;
     private float DistanceBetweenObjects;
     private float InteractionLength = 3f;
@@ -15,7 +16,7 @@ public class InteractScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        interactionName = gameObject.name;
     }
 
     // Update is called once per frame
@@ -29,14 +30,14 @@ public class InteractScript : MonoBehaviour
             if (InputManager.interactPressed == true)
             {
                 //Start Interaction
-                StartCoroutine(Interaction(InteractionLength));
+                StartCoroutine(Interaction(InteractionLength, interactionName, InteractionNumber));
                 Debug.Log("Pressed");
                 
             }
         }
     }
 
-    IEnumerator Interaction(float Seconds)
+    IEnumerator Interaction(float Seconds, string name, int Number)
     {
         InteractionUI.SetActive(true);
         CanInteractUI.SetActive(false);
