@@ -73,6 +73,10 @@ namespace DIALOGUE
             //////////////////////////////////////CHANGE GUI STUFF HERE!!!!!!!!!!!! USE CONFIG!!!!!!!!!!!!!!!!!!
 
             textbox.sprite = config.charNameHolder;
+            if (charVoice == null)
+            {
+                charVoice = GameObject.FindGameObjectWithTag("CharVoice").GetComponent<AudioSource>();
+            }
             charVoice.clip = config.charVoice;
 
 

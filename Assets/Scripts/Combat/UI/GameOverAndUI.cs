@@ -53,12 +53,14 @@ public class GameOverAndUI : MonoBehaviour
     public void Continue()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("CombatMaps");
+        audioManager.Instance.stopBGM(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void GoToMainMenu()
     {
         Time.timeScale = 1;
+        audioManager.Instance.stopBGM(1);
         SceneManager.LoadScene("MainMenu");
     }
 

@@ -101,7 +101,7 @@ public class mainDialogueManager : MonoBehaviour
             //}
             //If we need to do something special with the new dialogue, do it here. check the name of the dialogue file
 
-            switch (dialogueFile)
+            /*switch (dialogueFile)
             {
                 case "kisaPostFight_k":
                 case "nicolEncounter_k":
@@ -141,7 +141,7 @@ public class mainDialogueManager : MonoBehaviour
                 default:
                     am.playBGM("T4");
                     break;
-            }
+            }*/
         }
     }
 
@@ -173,14 +173,14 @@ public class mainDialogueManager : MonoBehaviour
             //    firstSign.enabled = true;
             //}
             //for determining endings
-            switch (currentlyRunningText)
-            {
-                case "openingCutscene":
-                    Debug.Log("I am sending you to the dialogue scene");
-                    SceneManager.LoadScene("Dialogue");
-                    //fadeOut.DOFade(1, 3).OnComplete(() => { SceneManager.LoadScene("Dialogue"); });
-                    break;
-            }
+            //switch (currentlyRunningText)
+            //{
+            //    case "openingCutscene":
+            //        Debug.Log("I am sending you to the dialogue scene");
+            //        SceneManager.LoadScene("Dialogue");
+            //        //fadeOut.DOFade(1, 3).OnComplete(() => { SceneManager.LoadScene("Dialogue"); });
+            //        break;
+            //}
 
             //switch (currentlyRunningText) // if this is the end of a route
             //{

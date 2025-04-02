@@ -58,6 +58,7 @@ namespace COMMANDS
 
         private static void goTo(string itemID)
         {
+            audioManager.Instance.stopBGM(1);
             SceneManager.LoadScene(itemID);
         }
 

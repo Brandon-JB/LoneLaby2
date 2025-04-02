@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class audioManager : MonoBehaviour
 {
@@ -22,16 +23,83 @@ public class audioManager : MonoBehaviour
 
     private void Awake()
     {
-        // Ensure only one instance exists
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Keep it alive across scenes
+            DontDestroyOnLoad(gameObject);
+
+            // Subscribe to sceneLoaded event
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
-            Destroy(gameObject); // Destroy duplicate instances
+            Destroy(gameObject);
         }
+    }
+
+    // This runs every time a new scene loads
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("New Scene Loaded: " + scene.name);
+        int speedForLoad = 1;
+        stopBGM(1);
+
+        switch (scene.name)
+        {
+            case "BossRush":
+                playSongUsingID(7, speedForLoad);
+                break;
+            case "BrandonPortfolioScene":
+                playSongUsingID(7, speedForLoad);
+                break;
+            case "CombatForest":
+                playSongUsingID(4, speedForLoad);
+                break;
+            case "CombatMansion":
+                playSongUsingID(3, speedForLoad);
+                break;
+            case "CombatMaps":
+                playSongUsingID(5, speedForLoad);
+                break;
+            case "Cutscenes":
+                playSongUsingID(6, speedForLoad);
+                break;
+            case "Dialogue":
+                playSongUsingID(6, speedForLoad);
+                break;
+            case "MainMenu":
+                playSongUsingID(0, speedForLoad);
+                break;
+            case "NoCombatAreas":
+                Debug.Log("playing sound2");
+                playSongUsingID(2, speedForLoad);
+                break;
+            case "Overworld":
+                playSongUsingID(9, speedForLoad);
+                break;
+            case "RandomFight":
+                //Keep same music as overworld
+                break;
+            case "Tutorial":
+                // Keep same music as other scene
+                break;
+            case "Credits":
+                playSongUsingID(0, speedForLoad);
+                break;
+            case "darkLeoraFight":
+                playSongUsingID(12, speedForLoad);
+                break;
+            case "finalBoss":
+                // Keep same music as other scene
+                playSongUsingID(2, speedForLoad);
+                break;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe to prevent memory leaks
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void Start()
@@ -178,6 +246,8 @@ public class audioManager : MonoBehaviour
         //}
         //else
         //{
+        Debug.Log(ID);
+        Debug.Log(BGMAvailable[ID].name);
             BGMAvailable[ID].Play();
             BGMAvailable[ID].DOFade(audioStatics.BGMVolume * audioStatics.MasterVolume, speed).OnComplete(() =>
             {
@@ -194,7 +264,7 @@ public class audioManager : MonoBehaviour
     {
 
         //TODO: MAKE THIS WORK FOR DEFEAT MENU
-        if (ID == 2) // if this is the you win screen
+        if (ID == 1) // if this is the you win screen
         {
             // Play the first audio clip
             AudioSource firstAudioSource = BGMAvailable[10];

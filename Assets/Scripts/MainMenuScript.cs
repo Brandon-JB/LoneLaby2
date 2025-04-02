@@ -14,6 +14,7 @@ public class MainMenuScript : MonoBehaviour
         Time.timeScale = 1.0f;
         bg.alpha = 1.0f;
         bg.DOFade(0, 1f).SetUpdate(true);
+        //audioManager.Instance.playBGM("T1");
     }
 
     public void GoToGame()
