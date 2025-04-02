@@ -33,6 +33,7 @@ public class GameOverAndUI : MonoBehaviour
         //Time.timeScale = 0;
         gameplayHUD.SetActive(false);
         gameOverHUD.SetActive(true);
+        
 
         Time.timeScale = 0;
 

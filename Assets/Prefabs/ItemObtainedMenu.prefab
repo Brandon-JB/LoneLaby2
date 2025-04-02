@@ -808,6 +808,7 @@ MonoBehaviour:
   itemImage: {fileID: 6666432008456415374}
   itemText: {fileID: 888024283656666660}
   itemDescription: {fileID: 2739618964498098713}
+  equipmentManager: {fileID: 0}
   infoHolder: {fileID: 3410069990029636734}
   locations:
   - {fileID: 1973304089051764606}
@@ -1058,7 +1059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1134,7 +1135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

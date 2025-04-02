@@ -105,7 +105,7 @@ public class audioManager : MonoBehaviour
     private void Start()
     {
         voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
-        BGMAvailable[0].DOFade(audioStatics.BGMVolume * audioStatics.MasterVolume, 0.5f);
+        BGMAvailable[0].DOFade(audioStatics.BGMVolume * audioStatics.MasterVolume, 0.5f).SetUpdate(true);
     }
     public void playBGM(string songToPlay, float speed = 1)
     {
@@ -184,7 +184,7 @@ public class audioManager : MonoBehaviour
                 });
             } else
             {
-                currentlyPlaying.DOFade(0, (speed - 0.05f)).OnComplete(() => { currentlyPlaying.Stop(); currentlyPlaying.pitch = 1f; });
+                currentlyPlaying.DOFade(0, (speed - 0.05f)).SetUpdate(true).OnComplete(() => { currentlyPlaying.Stop(); currentlyPlaying.pitch = 1f; });
             }
         }
     }
@@ -249,7 +249,7 @@ public class audioManager : MonoBehaviour
         Debug.Log(ID);
         Debug.Log(BGMAvailable[ID].name);
             BGMAvailable[ID].Play();
-            BGMAvailable[ID].DOFade(audioStatics.BGMVolume * audioStatics.MasterVolume, speed).OnComplete(() =>
+            BGMAvailable[ID].DOFade(audioStatics.BGMVolume * audioStatics.MasterVolume, speed).SetUpdate(true).OnComplete(() =>
             {
                 if (currentlyPlaying)
                 {
@@ -262,12 +262,10 @@ public class audioManager : MonoBehaviour
 
     private void playSongUsingID(int ID, float speed)
     {
-
-        //TODO: MAKE THIS WORK FOR DEFEAT MENU
-        if (ID == 1) // if this is the you win screen
+        if (ID == 1)
         {
             // Play the first audio clip
-            AudioSource firstAudioSource = BGMAvailable[10];
+            AudioSource firstAudioSource = SFXAvailable[5].GetComponent<AudioSource>();
             firstAudioSource.volume = audioStatics.BGMVolume * audioStatics.MasterVolume;
             firstAudioSource.pitch = 1;
             firstAudioSource.Play();
@@ -304,8 +302,9 @@ public class audioManager : MonoBehaviour
         //{
         //    BGMAvailable[ID].pitch = 0.8f;
         //}
+        Debug.Log("playing other clip at " + ID);
         BGMAvailable[ID].Play();
-        BGMAvailable[ID].DOFade(audioStatics.BGMVolume * audioStatics.MasterVolume, speed).OnComplete(() =>
+        BGMAvailable[ID].DOFade(audioStatics.BGMVolume * audioStatics.MasterVolume, speed).SetUpdate(true).OnComplete(() =>
         {
             //if (youWinMenu.killedPartyMember)
             //{
@@ -322,7 +321,7 @@ public class audioManager : MonoBehaviour
 
     public void changePitch(int id, float toValue = 0.8f, float speed = 5f)
     {
-        BGMAvailable[id].DOPitch(toValue, speed);
+        BGMAvailable[id].DOPitch(toValue, speed).SetUpdate(true);
         //Debug.Log("Pitch change done");
     }
 }

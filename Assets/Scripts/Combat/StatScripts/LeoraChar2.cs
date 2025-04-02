@@ -300,6 +300,7 @@ public class LeoraChar2 : BaseChar
         isParrying = false;
         isPerfectParrying = false;
         gameOverManager.StartGameOverHueShift();
+        audioManager.Instance.playBGM("T2");
     }
 
     //used for invincibility
