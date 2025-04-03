@@ -51,7 +51,8 @@ public class CombatPortals : MonoBehaviour
 
         if (name == "Exit")
         {
-            leaveAnim.LeaveAnimation(animator);
+            //leaveAnim.LeaveAnimation(animator);
+            SceneManager.LoadScene("Overworld");
         }
         
         if (name == "Town")
