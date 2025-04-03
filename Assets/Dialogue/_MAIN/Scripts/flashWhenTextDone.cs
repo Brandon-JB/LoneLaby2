@@ -16,7 +16,7 @@ public class flashWhenTextDone : MonoBehaviour
         fadeContinue.DOComplete();
         fadeContinue.alpha = 0;
         buttonToPress.text = audioStatics.interractButton.ToUpper();
-        fadeContinue.DOFade(1, 2).OnComplete(() =>
+        fadeContinue.DOFade(1, 2).SetUpdate(true).OnComplete(() =>
         {
             continueFlashing();
         });
@@ -24,9 +24,9 @@ public class flashWhenTextDone : MonoBehaviour
 
     private void continueFlashing()
     {
-        fadeContinue.DOFade(0.25f, 2).OnComplete(() =>
+        fadeContinue.DOFade(0.25f, 2).SetUpdate(true).OnComplete(() =>
         {
-            fadeContinue.DOFade(1, 2).OnComplete(() =>
+            fadeContinue.DOFade(1, 2).SetUpdate(true).OnComplete(() =>
             {
                 if (gameObject.activeSelf)
                 {

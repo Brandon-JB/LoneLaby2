@@ -24,50 +24,54 @@ public class Options : MonoBehaviour
         ds = FindObjectOfType<DialogueSystem>(); //Should only have one in scene
         am = FindObjectOfType<audioManager>();
 
+        if (voiceVol == null)
+        {
+            voiceVol = GameObject.FindGameObjectWithTag("CharVoice").GetComponent<AudioSource>();
+        }
+        voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
+
         optionsSliders[0].value = audioStatics.MasterVolume;
         optionsSliders[1].value = audioStatics.BGMVolume;
         optionsSliders[2].value = audioStatics.SFXVolume;
         optionsSliders[3].value = audioStatics.VoiceVolume;
         optionsSliders[4].value = audioStatics.TextSpeedMultiplier;
-        //Add back when its relevant
-        //voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
         //buttonTXT.text = audioStatics.interractButton.ToUpper();
     }
-    public void onMasterSliderChanged(float value)
+    public void onMasterSliderChanged()
     {
-        audioStatics.MasterVolume = value;
+        audioStatics.MasterVolume = optionsSliders[0].value;
         if (audioManager.currentlyPlaying)
         {
             audioManager.currentlyPlaying.volume = audioStatics.MasterVolume * audioStatics.BGMVolume;
         }
     }
-    public void onBGMSliderChanged(float value)
+    public void onBGMSliderChanged()
     {
-        audioStatics.BGMVolume = value;
+        audioStatics.BGMVolume = optionsSliders[1].value;
         if (audioManager.currentlyPlaying)
         {
             audioManager.currentlyPlaying.volume = audioStatics.MasterVolume * audioStatics.BGMVolume;
         }
     }
-    public void onSFXSliderChanged(float value)
+    public void onSFXSliderChanged()
     {
-        audioStatics.SFXVolume = value;
+        audioStatics.SFXVolume = optionsSliders[2].value;
     }
-    public void onVoiceSliderChanged(float value)
+    public void onVoiceSliderChanged()
     {
-        audioStatics.VoiceVolume = value;
+        audioStatics.VoiceVolume = optionsSliders[3].value;
         voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
     }
-    public void onTextSpeedSliderChanged(float value)
+    public void onTextSpeedSliderChanged()
     {
         try
         {
-            ds.setTextSpeed(value);
+            ds.setTextSpeed(optionsSliders[4].value);
         } catch
         {
             Debug.Log("For some reason, I cannot set the speed");
         }
-        audioStatics.TextSpeedMultiplier = value;
+        audioStatics.TextSpeedMultiplier = optionsSliders[4].value;
     }
     public void deleteSaveData()
     {

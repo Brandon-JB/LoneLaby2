@@ -145,6 +145,10 @@ public class TextArchitect
 
     private IEnumerator Build_Typewriter()
     {
+        if(audioPlayer == null)
+        {
+            audioPlayer = GameObject.FindGameObjectWithTag("CharVoice").GetComponent<AudioSource>();
+        }
         playAudio = tmpro.StartCoroutine(playTalking());
         while (tmpro.maxVisibleCharacters < tmpro.textInfo.characterCount) // while we still have text to display
         {

@@ -38,13 +38,21 @@ public class Tutorial : MonoBehaviour
     private void Start()
     {
         //Freeze the game
-        Time.timeScale = 0f;
+        StartCoroutine(freeze());
     }
 
     public void progressTutorial()
     {
-        
-        
+        Time.timeScale = 0f;
+        switch (tutorialCounter)
+        {
+            case 2:
+            case 4:
+            case 6:
+                tutorialUI[0].position = locations[2].position;
+                tutorialUI[1].position = locations[3].position;
+                break;
+        }
         tutorialtext[tutorialCounter % 2].text = textToDisplay[tutorialCounter];
 
         tutorialUI[tutorialCounter % 2].DOMove(locations[tutorialCounter % 2].position, 0.5f).SetUpdate(true).OnComplete(() => {
@@ -82,6 +90,11 @@ public class Tutorial : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f); // Wait for 3 seconds
         progressTutorial();
         StopCoroutine(progressTutorialAfterDelay());
+    }
+    private IEnumerator freeze()
+    {
+        yield return new WaitForSecondsRealtime(0.5f); // Wait for 3 seconds
+        Time.timeScale = 0f;
     }
 
     public void EndTutorial()
