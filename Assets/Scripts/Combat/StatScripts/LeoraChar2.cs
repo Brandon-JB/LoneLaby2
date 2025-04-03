@@ -103,6 +103,15 @@ public class LeoraChar2 : BaseChar
         {
             animator.SetBool("isInCombo", false);
         }
+
+        if (Time.timeScale == 0)
+        {
+            animator.enabled = false;
+        }
+        else
+        {
+            animator.enabled = true;
+        }
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)

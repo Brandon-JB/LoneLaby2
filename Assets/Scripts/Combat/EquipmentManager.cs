@@ -8,7 +8,7 @@ public class EquipmentManager : MonoBehaviour
 
     static public Dictionary<string, bool> equipmentObtained = new Dictionary<string, bool>()
     {
-        {"BloodAmulet", true },
+        {"BloodAmulet", false },
         {"MindAmulet", false },
         {"DarkAmulet", false },
         {"AlanAmulet", false },
