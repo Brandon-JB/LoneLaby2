@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LucanChar : BaseChar
 {
+    [SerializeField] private GameObject killSpareMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +67,10 @@ public class LucanChar : BaseChar
     public override void Death()
     {
         //put whatever code to trigger the end of boss fight things
+        //SceneManager.LoadScene("Overworld");
+        killSpareMenu.SetActive(true);
+        killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
+        killSpare.bossName = "Lucan";
         Destroy(this.gameObject);
     }
 }

@@ -22893,6 +22893,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28c92794da7ceea4bab71f14b39c4fd7, type: 3}
+--- !u!1 &608874120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1067838947540501796, guid: 5d737c099baa956409c0fdcd3fe23b10, type: 3}
+  m_PrefabInstance: {fileID: 8392059984520769113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &773542185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110583,6 +110588,10 @@ PrefabInstance:
       propertyPath: bottomLeftArenaBounds.y
       value: 68
       objectReference: {fileID: 0}
+    - target: {fileID: 6845481318518674274, guid: 4502314615886a44e842e3a1edddceda, type: 3}
+      propertyPath: killSpareMenu
+      value: 
+      objectReference: {fileID: 608874120}
     - target: {fileID: 7487041304306391987, guid: 4502314615886a44e842e3a1edddceda, type: 3}
       propertyPath: m_RootOrder
       value: 1

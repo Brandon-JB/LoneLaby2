@@ -70,6 +70,8 @@ public class ViinChar : BaseChar
         //put whatever code to trigger the end of boss fight things
         //SceneManager.LoadScene("Overworld");
         killSpareMenu.SetActive(true);
+        killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
+        killSpare.bossName = "Viin";
         Destroy(this.gameObject);
     }
 }

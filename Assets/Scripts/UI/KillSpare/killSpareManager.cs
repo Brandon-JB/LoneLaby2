@@ -26,6 +26,7 @@ public class killSpareManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI killSpareText;
 
     public string bossName;
+
     private void OnEnable()
     {
         //check who is on the chopping block. set that to be their image\
@@ -78,9 +79,30 @@ public class killSpareManager : MonoBehaviour
 
     public void killBoss()
     {
+        switch (bossName)
+        {
+            case "Ivar":
+                BossSaveData.bossStates[bossName] = 1;
+                break;
+
+            case "Lucan":
+                BossSaveData.bossStates[bossName] = 1;
+                break;
+
+            case "Viin":
+                BossSaveData.bossStates[bossName] = 1;
+                break;
+        }
+
+        foreach (var boss in BossSaveData.bossStates)
+        {
+            Debug.Log(boss);
+        }
+
         leoraAnimator.SetTrigger("kill");
         //wait 0.5 seconds
         StartCoroutine(endAfterTimePeriod(0.5f));
+        
     }
 
     private IEnumerator endAfterTimePeriod(float time)
@@ -99,6 +121,21 @@ public class killSpareManager : MonoBehaviour
 
     public void spareBoss()
     {
+        switch (bossName)
+        {
+            case "Ivar":
+                BossSaveData.bossStates[bossName] = 2;
+                break;
+
+            case "Lucan":
+                BossSaveData.bossStates[bossName] = 2;
+                break;
+
+            case "Viin":
+                BossSaveData.bossStates[bossName] = 2;
+                break;
+        }
+
         leoraAnimator.SetTrigger("spare");
         StartCoroutine(endAfterTimePeriod(0));
     }

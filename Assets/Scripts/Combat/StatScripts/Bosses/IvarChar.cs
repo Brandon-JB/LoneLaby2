@@ -7,6 +7,8 @@ public class IvarChar : BaseChar
 {
     public IvarScript ivarScript;
 
+    [SerializeField] private GameObject killSpareMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -119,6 +121,10 @@ public class IvarChar : BaseChar
     public override void Death()
     {
         //put whatever code to trigger the end of boss fight things
+        //SceneManager.LoadScene("Overworld");
+        killSpareMenu.SetActive(true);
+        killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
+        killSpare.bossName = "Ivar";
         Destroy(this.gameObject);
     }
 }
