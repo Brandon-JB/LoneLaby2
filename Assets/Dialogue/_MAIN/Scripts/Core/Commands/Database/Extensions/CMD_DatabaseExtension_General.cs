@@ -18,6 +18,7 @@ namespace COMMANDS
             database.AddCommand("endDialogue", new Action<string> (endDialogue));
             database.AddCommand("gainItem", new Action<string>(gainItem));
             database.AddCommand("goTo", new Action<string>(goTo));
+            database.AddCommand("progressTutorial", new Action<string>(progressTutorial));
             //database.AddCommand("endMenuDialogue", new Action<string>(endMenuDialogue));
             database.AddCommand("addCutscene", new Action<string>(addCutscene));
             database.AddCommand("playSFX", new Action<string>(playSFX));
@@ -60,6 +61,11 @@ namespace COMMANDS
         {
             audioManager.Instance.stopBGM(1);
             SceneManager.LoadScene(itemID);
+        }
+
+        private static void progressTutorial(string itemID)
+        {
+            Tutorial.Instance.progressTutorial();
         }
 
         //private static void endMenuDialogue(string isSupport)
