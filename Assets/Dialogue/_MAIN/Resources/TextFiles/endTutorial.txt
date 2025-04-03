@@ -3,10 +3,12 @@ CreateCharacter(severin -enabled false)
 leora.Move(0.125 0 -spd 1000)
 severin.Move(0.95 0 -spd 1000)
 wait(0.5)
+Show(severin)
 Highlight(severin -o true)
 severin "Good."
 severin "Be wary, Dame. There are certain attacks that cannot be parried. Keep your wits about you."
 Highlight(leora -o true)
+Show(leora)
 leora "Thank you, Severin. I should be prepared to set out."
 Hide(severin)
 Hide(leora)
