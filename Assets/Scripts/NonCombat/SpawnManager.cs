@@ -7,18 +7,23 @@ public class SpawnManager : MonoBehaviour
     public GameObject Player;
     public GameObject SpawnMain;
     public GameObject SpawnTraining;
+    public GameObject SpawnChurch;
     public static int SpawnNumber = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (SpawnNumber == 0)
+        if (SpawnNumber == 1) // should be 2 for full game
         {
             Player.transform.position = SpawnMain.transform.position;
         }
-        else if (SpawnNumber == 1) 
+        else if (SpawnNumber == 0) //Should be 1 for full game
         {
             Player.transform.position = SpawnTraining.transform.position;
+        }
+        else if (SpawnNumber == 2) //should be 0 for full game
+        {
+            Player.transform.position = SpawnChurch.transform.position;
         }
     }
 
