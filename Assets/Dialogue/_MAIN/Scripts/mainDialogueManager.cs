@@ -29,6 +29,7 @@ public class mainDialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] cutsceneScenes;
     [SerializeField] private GameObject[] cutsceneVariations;
     [SerializeField] private GameObject continueTextPrompt;
+    [SerializeField] private HUD_Equipment equipmentMenu;
 
     //[SerializeField] private pauseMenuManager pauseMenuManager;
 
@@ -55,7 +56,7 @@ public class mainDialogueManager : MonoBehaviour
         //{
         //    dialogueSTART(fileName);
         //}
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
     }
 
     //Used for testing. Comment out for the actual game.
@@ -86,6 +87,14 @@ public class mainDialogueManager : MonoBehaviour
             top.DOMove(tweenInPositions[0].transform.position, 1.5f).SetUpdate(true);
             bottom.DOMove(tweenInPositions[1].transform.position, 1.5f).SetUpdate(true);
             dialogueBox.DOMove(tweenInPositions[2].transform.position, 1.5f).SetUpdate(true);
+
+            equipmentMenu = FindObjectOfType<HUD_Equipment>();
+            if (equipmentMenu)
+            {
+                equipmentMenu.gameObject.SetActive(false);
+            }
+
+
             //if (dialogueFile.StartsWith("end"))
             //{
             //    cutsceneBG.DOFade(1, 1f);
@@ -227,7 +236,11 @@ public class mainDialogueManager : MonoBehaviour
             //CHANGE THIS KATIE YOU ARE STUPID AND NEED TO DIE
 
             dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true);
-                //.OnComplete(() => { SceneManager.LoadScene("Overworld"); });
+            if (equipmentMenu)
+            {
+                equipmentMenu.gameObject.SetActive(true);
+            }
+            //.OnComplete(() => { SceneManager.LoadScene("Overworld"); });
             //if (isBoss)
             //{
             //    battleFade.SetBool("BattleStarting", true);

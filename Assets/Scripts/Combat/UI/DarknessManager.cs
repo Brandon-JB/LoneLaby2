@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEditor.Experimental.GraphView;
 
 public class DarknessManager : MonoBehaviour
 {
@@ -65,21 +66,42 @@ public class DarknessManager : MonoBehaviour
         });
     }
 
+    public void LucanProgressDarkness()
+    {
+        if (DarknessImage.alpha < 1)
+        {
+            //Darkness level 1
+            DarknessImage.DOKill();
+            DarknessImage.DOFade(1, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                fadeDarkness2();
+            });
+        } else if (DarknessImage2.alpha < 1)
+        {
+            DarknessImage2.DOKill();
+            DarknessImage2.DOFade(1, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                fadeDarkness3();
+            });
+        } else if (DarknessImage3.alpha < 1)
+        {
+            DarknessImage3.DOKill();
+            DarknessImage3.DOFade(1, 0.5f);
+        }
+    }
+
     private void fadeDarkness1()
     {
         DarknessImage.DOFade(1, ChangeTime).SetEase(Ease.Linear).OnComplete(() =>
         {
-            Debug.Log("Done!");
             fadeDarkness2();
         });
     }
 
     private void fadeDarkness2()
     {
-        Debug.Log("Starting to fade other");
         DarknessImage2.DOFade(1, ChangeTime).SetEase(Ease.Linear).OnComplete(() =>
         {
-            Debug.Log("Done again!");
             fadeDarkness3();
         });
     }
