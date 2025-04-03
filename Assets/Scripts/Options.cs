@@ -28,6 +28,11 @@ public class Options : MonoBehaviour
         {
             voiceVol = GameObject.FindGameObjectWithTag("CharVoice").GetComponent<AudioSource>();
         }
+        //buttonTXT.text = audioStatics.interractButton.ToUpper();
+    }
+
+    private void OnEnable()
+    {
         voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
 
         optionsSliders[0].value = audioStatics.MasterVolume;
@@ -35,8 +40,8 @@ public class Options : MonoBehaviour
         optionsSliders[2].value = audioStatics.SFXVolume;
         optionsSliders[3].value = audioStatics.VoiceVolume;
         optionsSliders[4].value = audioStatics.TextSpeedMultiplier;
-        //buttonTXT.text = audioStatics.interractButton.ToUpper();
     }
+
     public void onMasterSliderChanged()
     {
         audioStatics.MasterVolume = optionsSliders[0].value;
