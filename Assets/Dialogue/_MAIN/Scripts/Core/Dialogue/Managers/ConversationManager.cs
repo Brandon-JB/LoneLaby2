@@ -168,7 +168,7 @@ namespace DIALOGUE
                     break;
                 case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.WC:
                 case DL_DIALOGUE_DATA.DIALOGUE_SEGMENT.StartSignal.WA:
-                    yield return new WaitForSeconds(segment.signalDelay);
+                    yield return new WaitForSecondsRealtime(segment.signalDelay);
                     break;
                 default:
                     break;

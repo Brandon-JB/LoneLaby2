@@ -135,8 +135,8 @@ namespace CHARACTERS
             while (root.anchorMin != minAnchorTarget || root.anchorMax != maxAnchorTarget)
             {
                 root.anchorMin = smooth ?
-                    Vector2.Lerp(root.anchorMin, minAnchorTarget, speed * Time.deltaTime)
-                  : Vector2.MoveTowards(root.anchorMin, minAnchorTarget, speed * Time.deltaTime * 0.35f);
+                    Vector2.Lerp(root.anchorMin, minAnchorTarget, speed * Time.unscaledDeltaTime)
+                  : Vector2.MoveTowards(root.anchorMin, minAnchorTarget, speed * Time.unscaledDeltaTime * 0.35f);
 
                 root.anchorMax = root.anchorMin + padding;
 

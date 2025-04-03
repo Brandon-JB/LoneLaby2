@@ -6607,7 +6607,7 @@ GameObject:
   - component: {fileID: 1846317964}
   - component: {fileID: 1846317963}
   m_Layer: 5
-  m_Name: Quit (1)
+  m_Name: options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6680,7 +6680,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1742744021}
         m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: Exit
+        m_MethodName: tempTeleportToGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7874,7 +7874,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: OPTIONS
+  m_text: skip to game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22ea09a1914e7f7438588e5b0bd15c23, type: 2}
   m_sharedMaterial: {fileID: -914684645224612307, guid: 22ea09a1914e7f7438588e5b0bd15c23, type: 2}

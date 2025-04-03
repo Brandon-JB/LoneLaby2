@@ -30,7 +30,7 @@ namespace COMMANDS
         {
             if (float.TryParse(data, out float time))
             {
-                yield return new WaitForSeconds(time);
+                yield return new WaitForSecondsRealtime(time);
             }
         }
 

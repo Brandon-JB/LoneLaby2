@@ -97,7 +97,7 @@ namespace CHARACTERS
 
             while (self.alpha != targetAlpha)
             {
-                self.alpha = Mathf.MoveTowards(self.alpha, targetAlpha, 3f * Time.deltaTime * speedMultiplier);
+                self.alpha = Mathf.MoveTowards(self.alpha, targetAlpha, 3f * Time.unscaledDeltaTime * speedMultiplier);
                 yield return null;
             }
 

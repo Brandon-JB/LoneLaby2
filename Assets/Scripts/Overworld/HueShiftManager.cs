@@ -39,7 +39,7 @@ public class HueShiftManager : MonoBehaviour
 
         while (elapsed < transitionDuration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             float hueShift = Mathf.Lerp(1.0f, 0.0f, elapsed / transitionDuration);
 
             foreach (Material mat in targetMaterials)

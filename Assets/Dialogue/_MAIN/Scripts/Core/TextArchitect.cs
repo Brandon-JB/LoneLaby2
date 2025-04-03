@@ -149,7 +149,7 @@ public class TextArchitect
         while (tmpro.maxVisibleCharacters < tmpro.textInfo.characterCount) // while we still have text to display
         {
             tmpro.maxVisibleCharacters += hurryUp ? charactersPerCycle * 5 : charactersPerCycle;
-            yield return new WaitForSeconds(0.015f / speed);
+            yield return new WaitForSecondsRealtime(0.015f / speed);
         }
         tmpro.StopCoroutine(buildProcess);   
         buildProcess = null;
@@ -161,7 +161,7 @@ public class TextArchitect
         while (tmpro.maxVisibleCharacters < tmpro.textInfo.characterCount) // while we still have text to display
         {
             audioPlayer.Play();
-            yield return new WaitForSeconds(0.05f / speed);
+            yield return new WaitForSecondsRealtime(0.05f / speed);
         }
         tmpro.StopCoroutine(playAudio);
     }

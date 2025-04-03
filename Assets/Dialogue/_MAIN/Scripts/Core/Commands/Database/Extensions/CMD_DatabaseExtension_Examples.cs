@@ -53,7 +53,7 @@ namespace TESTING
             for (int i = 1; i <= 5; i++)
             {
                 Debug.Log($"Process Running... [{i}]");
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSecondsRealtime(1);
             }
         }
 
@@ -64,7 +64,7 @@ namespace TESTING
                 for (int i = 1; i <= num; i++)
                 {
                     Debug.Log($"Process Running... [{i}]");
-                    yield return new WaitForSeconds(1);
+                    yield return new WaitForSecondsRealtime(1);
                 }
             }
         }
@@ -74,7 +74,7 @@ namespace TESTING
             foreach (string line in data)
             {
                 Debug.Log($"Process Message: '{line}'");
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSecondsRealtime(0.5f);
             }
         }
 
@@ -96,7 +96,7 @@ namespace TESTING
             // Move the image gradually towards the target position
             while (Mathf.Abs(targetX - currentX) > 0.1f)
             {
-                currentX = Mathf.MoveTowards(currentX, targetX, moveSpeed * Time.deltaTime);
+                currentX = Mathf.MoveTowards(currentX, targetX, moveSpeed * Time.unscaledDeltaTime);
                 character.position = new Vector3(currentX, character.position.y, character.position.z);
                 yield return null;
             }

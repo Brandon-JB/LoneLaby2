@@ -14,11 +14,11 @@ public class dialogueHelper : MonoBehaviour
 
     private IEnumerator fadeinOutHelperText()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSecondsRealtime(3);
         pressSpaceTOConinute.DOFade(1, 1);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSecondsRealtime(2);
         pressSpaceTOConinute.DOFade(0, 1);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSecondsRealtime(3);
         pressSpaceTOConinute.gameObject.SetActive(false);
     }
 }

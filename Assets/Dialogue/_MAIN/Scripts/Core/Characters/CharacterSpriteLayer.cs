@@ -92,7 +92,7 @@ namespace CHARACTERS
         {
             while(rendererCG.alpha <1 || oldRenderers.Any(oldCG => oldCG.alpha > 0))
             {
-                float speed = DEFAULT_TRANSITION_SPEED * transitionSpeedMultiplier * Time.deltaTime;
+                float speed = DEFAULT_TRANSITION_SPEED * transitionSpeedMultiplier * Time.unscaledDeltaTime;
                 rendererCG.alpha = Mathf.MoveTowards(rendererCG.alpha, 1, speed);
 
                 for(int i = oldRenderers.Count -1; i>=0; i--)
@@ -152,7 +152,7 @@ namespace CHARACTERS
             float colorPercent = 0;
             while (colorPercent < 1)
             {
-                colorPercent += DEFAULT_TRANSITION_SPEED * speedMultiplier * Time.deltaTime;
+                colorPercent += DEFAULT_TRANSITION_SPEED * speedMultiplier * Time.unscaledDeltaTime;
                 renderer.color = Color.Lerp(oldColor, color, colorPercent);
 
                 foreach(Image oldImage in oldImages)

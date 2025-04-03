@@ -55,6 +55,7 @@ public class mainDialogueManager : MonoBehaviour
         //{
         //    dialogueSTART(fileName);
         //}
+        Time.timeScale = 1f;
     }
 
     //Used for testing. Comment out for the actual game.
@@ -75,6 +76,7 @@ public class mainDialogueManager : MonoBehaviour
         // Only start the coroutine if it's not already running
         if (!dialogueRunning)
         {
+            Time.timeScale = 0f;
             StartCoroutine(completeDialogue("TextFiles/" + dialogueFile));
             dialogueRunning = true; // Set the flag to true when starting the coroutine
 
@@ -163,6 +165,7 @@ public class mainDialogueManager : MonoBehaviour
         // Stop the dialogue coroutine if it's running
         if (dialogueRunning)
         {
+            Time.timeScale = 1f;
             StopCoroutine(completeDialogue(currentlyRunningText));
             dialogueRunning = false; // Set the flag to false when stopping the coroutine
             //if (currentlyRunningText == "prologue")
@@ -378,18 +381,18 @@ public class mainDialogueManager : MonoBehaviour
             switch(whichImage)
             {
                 case 17:
-                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[3].transform.position, 1f);
+                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[3].transform.position, 1f).SetUpdate(true);
                     break;
                 case 18:
-                    cutsceneScenes[whichImage-1].transform.DOMove(cutsceneScenes[4].transform.position, 1f);
-                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[3].transform.position, 1f);
+                    cutsceneScenes[whichImage-1].transform.DOMove(cutsceneScenes[4].transform.position, 1f).SetUpdate(true);
+                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[3].transform.position, 1f).SetUpdate(true);
                     break;
                 case 19:
-                    cutsceneScenes[whichImage - 1].transform.DOMove(cutsceneScenes[4].transform.position, 1f);
-                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[3].transform.position, 1f);
+                    cutsceneScenes[whichImage - 1].transform.DOMove(cutsceneScenes[4].transform.position, 1f).SetUpdate(true);
+                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[3].transform.position, 1f).SetUpdate(true);
                     break;
                 case 20:
-                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[4].transform.position, 1f);
+                    cutsceneScenes[whichImage].transform.DOMove(cutsceneScenes[4].transform.position, 1f).SetUpdate(true);
                     break;
             }
         }

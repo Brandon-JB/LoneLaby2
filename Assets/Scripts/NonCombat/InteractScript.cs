@@ -5,18 +5,22 @@ using UnityEngine;
 public class InteractScript : MonoBehaviour
 {
     public int InteractionNumber;
-    private string interactionName;
+    public string interactionName;
     private float maxDistance = 1.5f;
     private float DistanceBetweenObjects;
     private float InteractionLength = 3f;
     public GameObject Player;
     public GameObject InteractionUI;
     public GameObject CanInteractUI;
+    public mainDialogueManager mainDialogueManager;
+
+    private bool gainedQuest = false; // SAVE THIS!!!!!!
 
     // Start is called before the first frame update
     void Start()
     {
-        interactionName = gameObject.name;
+        //interactionName = gameObject.name;
+        mainDialogueManager = GameObject.FindGameObjectWithTag("MainDialogueManager").GetComponent<mainDialogueManager>();
     }
 
     // Update is called once per frame
@@ -27,10 +31,14 @@ public class InteractScript : MonoBehaviour
         {
             CanInteractUI.SetActive(true);
 
-            if (InputManager.interactPressed == true)
+            if (InputManager.interactPressed == true && gainedQuest == false)
             {
                 //Start Interaction
-                StartCoroutine(Interaction(InteractionLength, interactionName, InteractionNumber));
+                gainedQuest = true;
+                Debug.Log("THISIS THE NAME OF THE FILE:" + interactionName);
+                mainDialogueManager.dialogueSTART(interactionName); 
+                CanInteractUI.SetActive(false);
+                //StartCoroutine(Interaction(InteractionLength, interactionName, InteractionNumber));
                 Debug.Log("Pressed");
                 
             }
@@ -39,6 +47,11 @@ public class InteractScript : MonoBehaviour
 
     IEnumerator Interaction(float Seconds, string name, int Number)
     {
+        if (InteractionUI == null)
+        {
+            CanInteractUI.SetActive(false);
+            StopCoroutine(Interaction(Seconds, name, Number));
+        }
         InteractionUI.SetActive(true);
         CanInteractUI.SetActive(false);
         //Do interaction

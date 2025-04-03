@@ -17,6 +17,8 @@ public class MainMenuScript : MonoBehaviour
         //audioManager.Instance.playBGM("T1");
     }
 
+    public void tempTeleportToGame() { Time.timeScale = 1f; SceneManager.LoadScene("NoCombatAreas"); }
+
     public void GoToGame()
     {
         //AT SOME POINT CHECK IF WE HAVE SAVE DATA!

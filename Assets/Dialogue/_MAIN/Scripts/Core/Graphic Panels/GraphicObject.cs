@@ -111,7 +111,7 @@ public class GraphicObject
 
         while (renderer.material.GetFloat(opacityParam) != target)
         {
-            float opacity = Mathf.MoveTowards(renderer.material.GetFloat(opacityParam), target, speed * GraphicPanelManager.DEFAULT_TRANSITION_SPEED * Time.deltaTime);
+            float opacity = Mathf.MoveTowards(renderer.material.GetFloat(opacityParam), target, speed * GraphicPanelManager.DEFAULT_TRANSITION_SPEED * Time.unscaledDeltaTime);
             renderer.material.SetFloat(opacityParam, opacity);
 
             yield return null;
