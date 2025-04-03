@@ -8,43 +8,43 @@ public class DropManager : MonoBehaviour
 
     public void RandomizedDrops(Vector3 deathLocation, string enemyName)
     {
-        int randomNum = Random.Range(1, 32);
+        int randomNum = Random.Range(1, 31);
 
-        //randomNum = 31;
+        //randomNum = 30;
 
-        if (randomNum >= 1 && randomNum <= 20)
+        if (randomNum >= 1 && randomNum <= 23)
         {
             //Debug.Log("Nothing");
         }
-        else if (randomNum >= 21 &&  randomNum <= 23)
+        else if (randomNum >= 24 &&  randomNum <= 25)
         {
             GameObject drops = Instantiate(dropPrefab, deathLocation, Quaternion.identity);
             Drops dropScript = drops.GetComponent<Drops>();
             dropScript.SetUpItem("Small HP", enemyName);
             //Debug.Log("small hp");
         }
-        else if (randomNum >= 24 && randomNum <= 26)
+        else if (randomNum >= 26 && randomNum <= 27)
         {
             GameObject drops = Instantiate(dropPrefab, deathLocation, Quaternion.identity);
             Drops dropScript = drops.GetComponent<Drops>();
             dropScript.SetUpItem("Small MP", enemyName);
             //Debug.Log("small mp");
         }
-        else if (randomNum >= 27 && randomNum <= 28)
+        else if (randomNum == 28)//&& randomNum <= 28)
         {
             GameObject drops = Instantiate(dropPrefab, deathLocation, Quaternion.identity);
             Drops dropScript = drops.GetComponent<Drops>();
             dropScript.SetUpItem("Large HP", enemyName);
             //Debug.Log("large hp");
         }
-        else if (randomNum >= 29 && randomNum <= 30)
+        else if (randomNum == 29)// && randomNum <= 30)
         {
             GameObject drops = Instantiate(dropPrefab, deathLocation, Quaternion.identity);
             Drops dropScript = drops.GetComponent<Drops>();
             dropScript.SetUpItem("Large MP", enemyName);
             //Debug.Log("large mp");
         }
-        else if (randomNum == 31)
+        else if (randomNum == 30)
         {
             GameObject drops = Instantiate(dropPrefab, deathLocation, Quaternion.identity);
             Drops dropScript = drops.GetComponent<Drops>();
