@@ -60,5 +60,10 @@ public class CombatPortals : MonoBehaviour
             SpawnManager.SpawnNumber = 1;
             SceneManager.LoadScene("NoCombatAreas");
         }
+
+        if (name == "Boss")
+        {
+            Player.transform.position = Destination[5].transform.position;
+        }
     }
 }
