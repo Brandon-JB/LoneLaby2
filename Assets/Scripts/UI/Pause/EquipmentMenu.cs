@@ -31,7 +31,7 @@ public class EquipmentMenu : MonoBehaviour
 
 
     [SerializeField] private Image[] ringIcons;
-    [SerializeField] private GameObject[] ringIcons_borders;
+    [SerializeField] public GameObject[] ringIcons_borders;
 
     //This is all of them. ik its not conventional shut up
     [SerializeField] private Image[] itemIcons;
@@ -51,7 +51,7 @@ public class EquipmentMenu : MonoBehaviour
     // 9 = Amulet of Thunderstorm
 
     [SerializeField] private Image[] amuletIcons;
-    [SerializeField] private GameObject[] amuletIcons_borders;
+    [SerializeField] public GameObject[] amuletIcons_borders;
 
     [SerializeField] private Sprite[] amuletsForLeoraShadow;
 
@@ -64,13 +64,8 @@ public class EquipmentMenu : MonoBehaviour
         checkIfObtained(EquipmentManager.equipmentObtained, itemIcons);
         //checkIfObtained(amuletsObtained, amuletIcons);
 
-        // Then, do they have anything equipped? If so, change the border of the box
-        checkIfWearing(EquipmentManager.amuletSlot, amuletIcons_borders, 1);
-        checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders, 0);
-        checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders, 2);
 
         // Finally, if they do have something equipped, show it on Leora's sprite
-
         hudEquipment = FindObjectOfType<HUD_Equipment>();
     }
 
@@ -88,7 +83,7 @@ public class EquipmentMenu : MonoBehaviour
     }
 
     //Slot number is for changing the HUD
-    private void checkIfWearing(Dictionary<string, bool> wornEquipment, GameObject[] uiImages, int slotNumber)
+    public void checkIfWearing(Dictionary<string, bool> wornEquipment, GameObject[] uiImages, int slotNumber)
     {
         int i = 0;
         foreach (var equip in wornEquipment)
