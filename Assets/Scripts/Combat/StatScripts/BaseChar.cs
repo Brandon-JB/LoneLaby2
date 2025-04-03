@@ -533,6 +533,11 @@ public class BaseChar : MonoBehaviour
                 
             }
 
+            if (incomingDamage < 0)
+            {
+                incomingDamage = 0;
+            }
+
 
             SetHealth(GetHealth() - incomingDamage);
             Transform damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);

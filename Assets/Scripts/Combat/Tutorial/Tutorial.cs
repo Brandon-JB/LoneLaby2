@@ -13,8 +13,12 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] tutorialtext;
     [SerializeField] private Transform[] locations;
     [SerializeField] private Transform[] tutorialUI;
-    private int tutorialCounter;
+    public int tutorialCounter;
     [SerializeField] private mainDialogueManager mainDialogueManager;
+
+    public LeoraChar2 leoraChar;
+
+    public SeverinTutorial severinTutorial;
 
     public static Tutorial Instance { get; private set; } // Singleton instance
 
@@ -41,9 +45,9 @@ public class Tutorial : MonoBehaviour
     {
         
         
-        tutorialtext[tutorialCounter].text = textToDisplay[tutorialCounter];
+        tutorialtext[tutorialCounter % 2].text = textToDisplay[tutorialCounter];
 
-        tutorialUI[tutorialCounter].DOMove(locations[tutorialCounter % 2].position, 0.5f).SetUpdate(true).OnComplete(() => {
+        tutorialUI[tutorialCounter % 2].DOMove(locations[tutorialCounter % 2].position, 0.5f).SetUpdate(true).OnComplete(() => {
 
             tutorialCounter++;
             if (tutorialCounter % 2 == 1)
@@ -61,13 +65,13 @@ public class Tutorial : MonoBehaviour
                         break;
                     case 4:
                         //Player must use magic
+                        leoraChar.RestoreMana(10);
                         break;
                     case 6:
                         //Player must successfully parry
+                        severinTutorial.animator.SetBool("Attacking", true);
 
-                        //This ends the tutorial
-                        Time.timeScale = 0f;
-                        mainDialogueManager.dialogueSTART("endTutorial");
+                        
                         break;
                 }
             }
@@ -78,6 +82,13 @@ public class Tutorial : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f); // Wait for 3 seconds
         progressTutorial();
         StopCoroutine(progressTutorialAfterDelay());
+    }
+
+    public void EndTutorial()
+    {
+        //This ends the tutorial
+        Time.timeScale = 0f;
+        mainDialogueManager.dialogueSTART("endTutorial");
     }
 
 
