@@ -81,9 +81,9 @@ public class mainDialogueManager : MonoBehaviour
             currentlyRunningText = dialogueFile;
             //playerController.isfrozen = true;
 
-            top.DOMove(tweenInPositions[0].transform.position, 1.5f);
-            bottom.DOMove(tweenInPositions[1].transform.position, 1.5f);
-            dialogueBox.DOMove(tweenInPositions[2].transform.position, 1.5f);
+            top.DOMove(tweenInPositions[0].transform.position, 1.5f).SetUpdate(true);
+            bottom.DOMove(tweenInPositions[1].transform.position, 1.5f).SetUpdate(true);
+            dialogueBox.DOMove(tweenInPositions[2].transform.position, 1.5f).SetUpdate(true);
             //if (dialogueFile.StartsWith("end"))
             //{
             //    cutsceneBG.DOFade(1, 1f);
@@ -219,11 +219,11 @@ public class mainDialogueManager : MonoBehaviour
             //}
             currentlyRunningText = "";
             continueTextPrompt.SetActive(false);
-            top.DOMove(tweenOutPositions[0].transform.position, 2);
-            bottom.DOMove(tweenOutPositions[1].transform.position, 2);
+            top.DOMove(tweenOutPositions[0].transform.position, 2).SetUpdate(true);
+            bottom.DOMove(tweenOutPositions[1].transform.position, 2).SetUpdate(true);
             //CHANGE THIS KATIE YOU ARE STUPID AND NEED TO DIE
 
-            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2);
+            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true);
                 //.OnComplete(() => { SceneManager.LoadScene("Overworld"); });
             //if (isBoss)
             //{
@@ -234,7 +234,7 @@ public class mainDialogueManager : MonoBehaviour
             //    }
             //    return;
             //}
-            am.playBGM("T2");
+            //am.playBGM("T2");
             //playerController.isfrozen = false;
         }
     }

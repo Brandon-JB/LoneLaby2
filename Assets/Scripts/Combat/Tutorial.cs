@@ -1,9 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class Tutorial : MonoBehaviour
 {
+    //i have the text to display, maybe we could freeze the game, display it, wait 3 seconds,
+    //then have the "try it now!!" text pop up, unfreeze the player, and only advance after they do that input or something
+
+    [SerializeField] private string[] textToDisplay;
+    [SerializeField] private TextMeshProUGUI[] tutorialtext;
+    [SerializeField] private Transform[] locations;
+    [SerializeField] private Transform[] tutorialUI;
+    private int tutorialCounter;
+    [SerializeField] private mainDialogueManager mainDialogueManager;
+
+    public static Tutorial Instance { get; private set; } // Singleton instance
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        //Freeze the game
+        Time.timeScale = 0f;
+    }
+
+    public void progressTutorial()
+    {
+        
+        
+        tutorialtext[tutorialCounter].text = textToDisplay[tutorialCounter];
+
+        tutorialUI[tutorialCounter].DOMove(locations[tutorialCounter % 2].position, 0.5f).SetUpdate(true).OnComplete(() => {
+
+            tutorialCounter++;
+            if (tutorialCounter % 2 == 1)
+            {
+                StartCoroutine(progressTutorialAfterDelay());
+
+            } else
+            {
+                Time.timeScale = 1f;
+                //Wait for player input
+                switch (tutorialCounter)
+                {
+                    case 2:
+                        //Player must move and attack
+                        break;
+                    case 4:
+                        //Player must use magic
+                        break;
+                    case 6:
+                        //Player must successfully parry
+
+                        //This ends the tutorial
+                        Time.timeScale = 0f;
+                        mainDialogueManager.dialogueSTART("endTutorial");
+                        break;
+                }
+            }
+        });
+    }
+    private IEnumerator progressTutorialAfterDelay()
+    {
+        yield return new WaitForSecondsRealtime(3f); // Wait for 3 seconds
+        progressTutorial();
+        StopCoroutine(progressTutorialAfterDelay());
+    }
+
+
+
     //The text to display:
     /*
         When in dangerous situations, sometimes combat is necessary. Leora can move using W, A, S, and D, but she can also attack using (key).
