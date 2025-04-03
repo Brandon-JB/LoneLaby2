@@ -9,6 +9,9 @@ public class CombatPortals : MonoBehaviour
     public GameObject[] Portal;
     public GameObject[] Destination;
     public GameObject Player;
+    public Animator animator;
+
+    public LeaveingAnimManager leaveAnim;
 
 
     // Start is called before the first frame update
@@ -48,7 +51,7 @@ public class CombatPortals : MonoBehaviour
 
         if (name == "Exit")
         {
-            SceneManager.LoadScene("Overworld");
+            leaveAnim.LeaveAnimation(animator);
         }
         
         if (name == "Town")

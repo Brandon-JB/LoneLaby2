@@ -53,6 +53,7 @@ public class PlayerContact : MonoBehaviour
             if (collision.name == "Slime")
             {
                 PlayerMovement.CanWalk = false;
+                PortalScript.LastPortal = 5;
                 StartCoroutine(LoadRandomFight());
             }
             else if(collision.name == "Ghost")
