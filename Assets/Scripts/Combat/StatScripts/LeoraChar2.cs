@@ -159,7 +159,7 @@ public class LeoraChar2 : BaseChar
                         if (hitboxChild.isParryable)
                         {
                             //If the player parried anything other than a boss
-                            if (otherCharTrigger.charName != "Lucan")
+                            if (otherCharTrigger.gameObject.tag != "Boss" && otherCharTrigger.charName != "SevTutorial")
                             {
                                 if (isPerfectParrying)
                                 {
@@ -239,6 +239,20 @@ public class LeoraChar2 : BaseChar
                                     TriggerHurtAnim();
                                 }
                                
+                            }
+                            else if (otherCharTrigger.charName == "SevTutorial")
+                            {
+                                SeverinTutorial sevTutScript = otherCharTrigger.GetComponent<SeverinTutorial>();
+
+                                if (isPerfectParrying || isParrying)
+                                {
+                                    sevTutScript.Parried();
+                                }
+                                else
+                                {
+                                    GotDamaged(0, otherCharTrigger.gameObject, 0);
+                                    TriggerHurtAnim();
+                                }
                             }
                         }
                         else
