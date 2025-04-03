@@ -24,6 +24,7 @@ public class SavePoint : MonoBehaviour
         {
             if (InputManager.interactPressed == true)
             {
+                Debug.Log("");
                 saveui.OPENSAVEMENU();
             }
         }
