@@ -28,7 +28,15 @@ public class OpenPauseMenu : MonoBehaviour
 
     private void Start()
     {
+        //Freeze the game
+        StartCoroutine(wait());
+    }
+    private IEnumerator wait()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
         hudEquipment = FindObjectOfType<HUD_Equipment>();
+
+        //Wait for game to load
         checkIfWearing(EquipmentManager.amuletSlot, amuletIcons_borders, 1);
 
         checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders, 0);
