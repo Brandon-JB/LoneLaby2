@@ -77,6 +77,11 @@ public class EquipmentManager : MonoBehaviour
 
     private void Start()
     {
+        //leoraChar = GameObject.Find("CombatPlayer").GetComponent<LeoraChar2>();
+    }
+
+    private void Awake()
+    {
         leoraChar = GameObject.Find("CombatPlayer").GetComponent<LeoraChar2>();
     }
 
