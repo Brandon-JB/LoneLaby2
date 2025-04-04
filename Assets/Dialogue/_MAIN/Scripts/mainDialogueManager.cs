@@ -91,7 +91,7 @@ public class mainDialogueManager : MonoBehaviour
             equipmentMenu = FindObjectOfType<HUD_Equipment>();
             if (equipmentMenu)
             {
-                equipmentMenu.gameObject.SetActive(false);
+                //equipmentMenu.gameObject.SetActive(false);
             }
 
 

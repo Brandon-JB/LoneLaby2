@@ -1531,7 +1531,6 @@ GameObject:
   - component: {fileID: 4057515454090503894}
   - component: {fileID: 4057515454090503883}
   - component: {fileID: 4057515454090503881}
-  - component: {fileID: 1265236100971287589}
   - component: {fileID: 4912573273441396017}
   - component: {fileID: 1938636013268199581}
   - component: {fileID: 5667032424476996901}
@@ -1590,7 +1589,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1611,7 +1610,7 @@ MonoBehaviour:
     m_SelectedTrigger: Normal
     m_DisabledTrigger: Normal
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 5667032424476996901}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1627,26 +1626,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!95 &1265236100971287589
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4057515454090503895}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e1c1d7af82800f345a016813e1145527, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 2
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!225 &4912573273441396017
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2955,7 +2934,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2976,7 +2955,7 @@ MonoBehaviour:
     m_SelectedTrigger: Normal
     m_DisabledTrigger: Normal
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 8829215344236069013}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

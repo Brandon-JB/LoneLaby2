@@ -14,6 +14,8 @@ public class HUD_Equipment : MonoBehaviour
 
     void Start()
     {
+        //Set values to change in equipment menu
+
         checkIfEquipped(EquipmentManager.ringSlot1, 0);
         checkIfEquipped(EquipmentManager.amuletSlot, 1);
         checkIfEquipped(EquipmentManager.ringSlot2, 2);

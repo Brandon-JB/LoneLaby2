@@ -31,7 +31,7 @@ public class pauseMenuManager : MonoBehaviour
     {
         //Commented out to spare us for now
         ////Reset EVERYTHING
-        ///
+        ///EXCEPT ITEM MENU
         DOTween.KillAll();
         equipMenu.position = startLocations[0].position;
         questMenu.position = startLocations[1].position;
@@ -79,6 +79,7 @@ public class pauseMenuManager : MonoBehaviour
     }
     public void goToEquip()
     {
+        FindObjectOfType<EquipmentMenu>().setGlow();
         equipMenu.DOMove(equipLocations[0].position, 1f).SetUpdate(true);
         leoraAnimator.transform.DOMove(equipLocations[1].position, 1f).SetUpdate(true);
         questMenu.DOMove(equipLocations[2].position, 1f).SetUpdate(true);

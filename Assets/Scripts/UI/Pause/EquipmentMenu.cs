@@ -62,11 +62,27 @@ public class EquipmentMenu : MonoBehaviour
     {
         // Check what items the player has and display them accordingly
         checkIfObtained(EquipmentManager.equipmentObtained, itemIcons);
-        //checkIfObtained(amuletsObtained, amuletIcons);
-
+        //checkIfWearing(EquipmentManager.amuletSlot, amuletIcons_borders, 1);
+        //Debug.Log("got to amulets");
+        //checkIfWearing(EquipmentManager.amuletSlot, amuletIcons_borders, 1);
+        //Debug.Log("got through amulets");
+        //checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders, 0);
+        //Debug.Log("got through rings 1");
+        //checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders, 2);
+        //Debug.Log("got through rings 2");
 
         // Finally, if they do have something equipped, show it on Leora's sprite
         hudEquipment = FindObjectOfType<HUD_Equipment>();
+    }
+
+    public void setGlow()
+    {
+        checkIfWearing(EquipmentManager.amuletSlot, amuletIcons_borders, 1);
+        Debug.Log("got through amulets");
+        checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders, 0);
+        Debug.Log("got through rings 1");
+        checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders, 2);
+        Debug.Log("got through rings 2");
     }
 
 
@@ -89,25 +105,16 @@ public class EquipmentMenu : MonoBehaviour
         foreach (var equip in wornEquipment)
         {
             if (i >= uiImages.Length) break; // Prevents out-of-bounds errors
-
-            uiImages[i].SetActive(equip.Value);
             if (equip.Value)
             {
+                Debug.Log(equip.Key);
                 if (hudEquipment == null)
                 {
                     hudEquipment = FindObjectOfType<HUD_Equipment>();
                 }
-
-                switch (slotNumber)
-                {
-                    case 1:
-                        equipmentManager.ApplyAmuletBonus(equip.Key); break;
-                    default:
-                        Debug.Log("Ring effect applied");
-                        equipmentManager.ApplyRingBonus(equip.Key); break;
-                }
-                hudEquipment.changeHUDOnEquip(equip.Key, slotNumber);
                 LeoraShadowEquipment[slotNumber].sprite = hudEquipment.uglyAssSwitchStatement(equip.Key, slotNumber == 1? amuletsForLeoraShadow : ringsForLeoraShadow);
+                uiImages[i].SetActive(true);
+                Debug.Log("This thing should like. 100% be showing rn. TO PROVE IT TO YOU, HERE IS THE NAME OF THE UI" + uiImages[i].name);
                 break; // Just stop the function if equip is true
             }
             //uiImages[i].color = equip.Value ? Color.white : tintColor;
