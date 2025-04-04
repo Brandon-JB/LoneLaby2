@@ -17,9 +17,9 @@ public class KeybindManager : MonoBehaviour
     private void Start()
     {
         // Store default key bindings for each action (modify as needed)
-        defaultBindings["Attack"] = "<Keyboard>/enter";
-        defaultBindings["Magic"] = "<Keyboard>/m";
-        defaultBindings["Parry"] = "<Keyboard>/p";
+        defaultBindings["Attack"] = "<Keyboard>/j";
+        defaultBindings["Magic"] = "<Keyboard>/l";
+        defaultBindings["Parry"] = "<Keyboard>/i";
         defaultBindings["Interact"] = "<Keyboard>/e";
 
         LoadKeybinds(); // Load saved keybinds

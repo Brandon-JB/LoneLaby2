@@ -33,8 +33,15 @@ public class Options : MonoBehaviour
 
     private void OnEnable()
     {
-        voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
-
+        if (voiceVol == null)
+        {
+            voiceVol = GameObject.FindGameObjectWithTag("CharVoice").GetComponent<AudioSource>();
+            voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
+        }
+        else
+        {
+            voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
+        }
         optionsSliders[0].value = audioStatics.MasterVolume;
         optionsSliders[1].value = audioStatics.BGMVolume;
         optionsSliders[2].value = audioStatics.SFXVolume;
