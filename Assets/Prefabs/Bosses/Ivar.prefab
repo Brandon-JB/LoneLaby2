@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 6457879087906451900}
   m_Layer: 7
   m_Name: Ivar
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,6 +365,7 @@ Transform:
   - {fileID: 906857317157580716}
   - {fileID: 220814287161519678}
   - {fileID: 5800343501513764859}
+  - {fileID: 4592281242588270174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -466,11 +467,12 @@ MonoBehaviour:
   parryCooldown:
     cooldownTime: 100
   stunTimer:
-    cooldownTime: 5
+    cooldownTime: 3
   particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
   slowTimer:
     cooldownTime: 100
   ivarScript: {fileID: 6457879087906451900}
+  killSpareMenu: {fileID: 0}
 --- !u!114 &6457879087906451900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,14 +490,18 @@ MonoBehaviour:
   isActive: 0
   bottomLeftArenaBounds: {x: 0, y: 0}
   topRightArenaBounds: {x: 0, y: 0}
-  enemySpawnPosition: {fileID: 0}
+  enemySpawnPosition:
+  - {fileID: 0}
   summonList:
   - {fileID: 7487041304306391988, guid: cebb2edf026006e4d97a892264a625a9, type: 3}
   - {fileID: 7487041304306391988, guid: b6d482f47d8988b42bee14473806e587, type: 3}
+  enemyList: []
   projectilePrefab: {fileID: 2865469907293863706, guid: 74a10ffa69ca86c45abfa7dcc0cc36a3, type: 3}
   castingCooldown:
     cooldownTime: 6
   castParticleAnimator: {fileID: 6650909456639093376}
+  projectileSpawnPoint: {fileID: 7993461483623113645}
+  projectileSpawnOffset: 1
   ivarRB: {fileID: 6549770698280233058}
   moveSpeed: 3
   darknessEffect: {fileID: 0}
@@ -508,3 +514,34 @@ MonoBehaviour:
   damageThreshold: 30
   damageTaken: 0
   bigCasting: 0
+--- !u!1 &7993461483623113645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4592281242588270174}
+  m_Layer: 7
+  m_Name: ProjectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4592281242588270174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993461483623113645}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7487041304306391987}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

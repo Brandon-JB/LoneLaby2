@@ -35,10 +35,12 @@ public class IvarScript : MonoBehaviour
 
     [Header("Casting")]
     [SerializeField] private GameObject[] summonList;
-    private List<GameObject> enemyList =  new List<GameObject>();
+    public List<GameObject> enemyList =  new List<GameObject>();
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Cooldown castingCooldown;
     public Animator castParticleAnimator;
+    [SerializeField] private GameObject projectileSpawnPoint;
+    [SerializeField] private float projectileSpawnOffset;
 
     private int whichMoveToCast;
 
@@ -114,7 +116,7 @@ public class IvarScript : MonoBehaviour
                 }
 
                 //Limits the amount of enemies
-                if (enemyList == null || enemyList.Count() <= 4)
+                if (enemyList == null || enemyList.Count() <= 3)
                 {
                     whichMoveToCast = Random.Range(0, 2);
                 }
@@ -179,6 +181,7 @@ public class IvarScript : MonoBehaviour
         ivarChar.animator.SetBool("tpCast", false);
     }
 
+    //Teleports the player and himself to the mazes 
     public void Teleport()
     {
         damageTaken = 0;
@@ -207,6 +210,7 @@ public class IvarScript : MonoBehaviour
         bigCasting = true; 
     }
 
+   
     private void TriggerCastAnim()
     {
         ivarChar.animator.SetBool("Casting", true);
@@ -242,6 +246,7 @@ public class IvarScript : MonoBehaviour
         ivarChar.animator.SetBool("stunned", false);
     }
 
+    //Called at the end of the cast animation
     public void CastSpell()
     {
         castingCooldown.StartCooldown();
@@ -253,9 +258,16 @@ public class IvarScript : MonoBehaviour
         {
             //Projectile
             case 0:
-                GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
+                Vector2 firstProjSpawn = new Vector2(projectileSpawnPoint.transform.position.x + projectileSpawnOffset, projectileSpawnPoint.transform.position.y);
+                Vector2 secondProjSpawn = new Vector2(projectileSpawnPoint.transform.position.x - projectileSpawnOffset, projectileSpawnPoint.transform.position.y);
+
+                GameObject projectile = Instantiate(projectilePrefab, firstProjSpawn, Quaternion.identity);
                 IvarProjectile projScript = projectile.GetComponent<IvarProjectile>();
                 projScript.parentChar = this.ivarChar;
+
+                GameObject secondProjectile = Instantiate(projectilePrefab, secondProjSpawn, Quaternion.identity);
+                IvarProjectile secondProjScript = secondProjectile.GetComponent<IvarProjectile>();
+                secondProjScript.parentChar = this.ivarChar;
                 break;
             //Summoning
             case 1:
@@ -263,6 +275,19 @@ public class IvarScript : MonoBehaviour
                 GameObject spawnedEnemy = Instantiate(summonList[Random.Range(0, summonList.Length)], enemySpawnPosition[spawnChoice].transform.position, Quaternion.identity);
                 EnemyScript spawnedScript = spawnedEnemy.GetComponent<EnemyScript>();
                 spawnedScript.followRange = 100;
+
+                /*if (spawnChoice == enemySpawnPosition.Length - 1)
+                {
+                    spawnChoice--;
+                }
+                else
+                {
+                    spawnChoice++;
+                }
+                GameObject secondSpawnedEnemy = Instantiate(summonList[Random.Range(0, summonList.Length)], enemySpawnPosition[spawnChoice].transform.position, Quaternion.identity);
+                EnemyScript secondSpawnedScript = secondSpawnedEnemy.GetComponent<EnemyScript>();
+                secondSpawnedScript.followRange = 100;
+                enemyList.Add(secondSpawnedEnemy);*/
                 enemyList.Add(spawnedEnemy);
 
                 break;

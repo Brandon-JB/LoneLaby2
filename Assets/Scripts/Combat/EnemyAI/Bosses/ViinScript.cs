@@ -91,7 +91,6 @@ public class ViinScript : MonoBehaviour
         WarningObject.SetActive(false);
         viinChar.DisableHitbox();
 
-        attackCooldown.cooldownTime = 4;
         attackLimit = 3;
         AttackCount = 0;
 
@@ -258,7 +257,7 @@ public class ViinScript : MonoBehaviour
 
         WarningObject.SetActive(true);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.85f);
 
         WarningObject.SetActive(false);
 

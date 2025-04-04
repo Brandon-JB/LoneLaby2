@@ -93,6 +93,9 @@ public class LeoraChar2 : BaseChar
             ToggleHyperArmor();
         }
 
+        isParrying = false;
+        isPerfectParrying = false;
+
         DisableMagHitbox();
     }
 
@@ -249,6 +252,7 @@ public class LeoraChar2 : BaseChar
                                 }
                                
                             }
+                            //Tutorial
                             else if (otherCharTrigger.charName == "SevTutorial")
                             {
                                 SeverinTutorial sevTutScript = otherCharTrigger.GetComponent<SeverinTutorial>();
@@ -284,7 +288,7 @@ public class LeoraChar2 : BaseChar
                 Destroy(collision.gameObject);
             }
             //On walking into environmental damage AKA Ivar fire wall
-            else if (collision.tag == "Environmental")
+            else if (collision.tag == "Environmental" && animator.GetBool("Hurt") != true)
             {
                 GotDamaged(20, collision.gameObject, 1);
                 TriggerHurtAnim();

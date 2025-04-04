@@ -41,6 +41,7 @@ public class IvarProjectile : HitboxChar
             rb.transform.position = Vector2.MoveTowards(this.transform.position, Player.transform.position, trackSpeed * Time.deltaTime);
             Vector3 playerPos = Player.transform.position - transform.position;
             spriteObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, playerPos.normalized);
+            trackSpeed += 0.003f;
         }
         //Launches in a line
         else if (!timeTracking.isCoolingDown)
@@ -51,7 +52,7 @@ public class IvarProjectile : HitboxChar
                 launched = true;
             }
 
-            rb.AddForce(lastPlayerPosition * launchSpeed, ForceMode2D.Impulse);
+            rb.AddForce(lastPlayerPosition * launchSpeed * 100, ForceMode2D.Force);
         }
 
         if (!lifespan.isCoolingDown)

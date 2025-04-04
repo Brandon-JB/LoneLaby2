@@ -122,6 +122,11 @@ public class IvarChar : BaseChar
     {
         //put whatever code to trigger the end of boss fight things
         //SceneManager.LoadScene("Overworld");
+        foreach (var enemy in ivarScript.enemyList)
+        {
+            Destroy(enemy.gameObject);
+        }
+
         killSpareMenu.SetActive(true);
         killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
         killSpare.bossName = "Ivar";
