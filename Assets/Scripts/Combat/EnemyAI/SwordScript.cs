@@ -40,7 +40,7 @@ public class SwordScript : EnemyScript
 
             float VerticalDistance = Mathf.Abs(this.transform.position.y - Player.transform.position.y);
 
-            DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
+            DistanceFromPlayer = Vector2.Distance(this.transform.position, Player.transform.position);
 
             if ((DistanceFromPlayer <= followRange && (DistanceFromPlayer > attackRange || VerticalDistance > 1)) /*&& (PlayerController.isfrozen == false)*/)
             {

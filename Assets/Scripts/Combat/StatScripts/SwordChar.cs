@@ -21,7 +21,7 @@ public class SwordChar : BaseChar
         base.TriggerHurtAnim();
 
         swordScript.thrusting = false;
-        swordScript.enemyRB.velocity = Vector2.zero;
+        //swordScript.enemyRB.velocity = Vector2.zero;
     }
 
     public override void StopHurtAnim()

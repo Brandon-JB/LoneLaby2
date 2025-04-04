@@ -37,7 +37,7 @@ public class TreeScript : EnemyScript
 
         if (enemyChar.animator.GetBool("isActive") == false)
         {
-            DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
+            DistanceFromPlayer = Vector2.Distance(this.transform.position, Player.transform.position);
 
             if (DistanceFromPlayer <= followRange) //&& DistanceFromPlayer > attackRange))
             {

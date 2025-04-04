@@ -64,7 +64,7 @@ public class EnemyScript : MonoBehaviour
         {
             enemyRB.velocity = Vector2.zero;
 
-            DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
+            DistanceFromPlayer = Vector2.Distance(this.transform.position, Player.transform.position);
             if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange) /*&& (PlayerController.isfrozen == false)*/)
             {
                 enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);

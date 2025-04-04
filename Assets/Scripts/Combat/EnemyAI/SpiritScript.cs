@@ -78,7 +78,7 @@ public class SpiritScript : EnemyScript
 
         if (enemyChar.animator.GetBool("StartWalk") == false)
         {
-            DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
+            DistanceFromPlayer = Vector2.Distance(this.transform.position, Player.transform.position);
 
             if (DistanceFromPlayer <= followRange && !cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false && !enemyChar.stunTimer.isCoolingDown) //&& DistanceFromPlayer > attackRange))
             {
@@ -95,7 +95,7 @@ public class SpiritScript : EnemyScript
         {
             enemyRB.velocity = Vector2.zero;
 
-            DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
+            DistanceFromPlayer = Vector2.Distance(this.transform.position, Player.transform.position);
             if ((DistanceFromPlayer <= followRange && (DistanceFromPlayer > attackRange)) /*&& (PlayerController.isfrozen == false)*/)
             {
 
