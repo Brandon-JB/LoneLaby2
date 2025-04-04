@@ -28,7 +28,9 @@ public class OpenPauseMenu : MonoBehaviour
 
     private void Start()
     {
+        hudEquipment = FindObjectOfType<HUD_Equipment>();
         checkIfWearing(EquipmentManager.amuletSlot, amuletIcons_borders, 1);
+
         checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders, 0);
         checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders, 2);
     }
@@ -39,10 +41,6 @@ public class OpenPauseMenu : MonoBehaviour
         int i = 0;
         foreach (var equip in wornEquipment)
         {
-            //Debug.Log(equip);
-            if (i >= uiImages.Length) break; // Prevents out-of-bounds errors
-
-            uiImages[i].SetActive(equip.Value);
             if (equip.Value)
             {
                 if (hudEquipment == null)
@@ -54,12 +52,17 @@ public class OpenPauseMenu : MonoBehaviour
                 {
                     case 1:
                         equipmentManager.ApplyAmuletBonus(equip.Key); break;
-                    default:
-                        Debug.Log("Ring effect applied");
+                    case 0:
+                        Debug.Log("Ring effect applied for slot 1");
+                        equipmentManager.ApplyRingBonus(equip.Key); break;
+                    case 2:
+                        Debug.Log("Ring effect applied for slot 2");
                         equipmentManager.ApplyRingBonus(equip.Key); break;
                 }
                 hudEquipment.changeHUDOnEquip(equip.Key, slotNumber);
                 LeoraShadowEquipment[slotNumber].sprite = hudEquipment.uglyAssSwitchStatement(equip.Key, slotNumber == 1 ? amuletsForLeoraShadow : ringsForLeoraShadow);
+                //uiImages[i].SetActive(true);
+                //Debug.Log("This thing should like. 100% be showing rn. TO PROVE IT TO YOU, HERE IS THE NAME OF THE UI" + uiImages[i].name);
                 break; // Just stop the function if equip is true
             }
             //uiImages[i].color = equip.Value ? Color.white : tintColor;
