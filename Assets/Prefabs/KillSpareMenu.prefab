@@ -334,7 +334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6960055848796936537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -453,7 +453,8 @@ MonoBehaviour:
   - {fileID: 1610787980751712136}
   whoIsGettingCooked: {fileID: 1186314677394863144}
   bossSprites: []
-  killSpareText: {fileID: 0}
+  killSpareText: {fileID: 5144300905086328125}
+  mainDialogueManager: {fileID: 0}
   bossName: 
 --- !u!1 &1429769468818207584
 GameObject:

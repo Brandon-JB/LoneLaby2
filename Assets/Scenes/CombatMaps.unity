@@ -23521,7 +23521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &888781228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121100,6 +121100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[VN Controller]'
       objectReference: {fileID: 0}
+    - target: {fileID: 6332053273385265338, guid: 9546f50686d4c214f9a6e97ff098ba40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9546f50686d4c214f9a6e97ff098ba40, type: 3}
 --- !u!114 &1607524627 stripped
@@ -132674,7 +132678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1067838947540501796, guid: 5d737c099baa956409c0fdcd3fe23b10, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6960055848796936537, guid: 5d737c099baa956409c0fdcd3fe23b10, type: 3}
       propertyPath: m_Pivot.x

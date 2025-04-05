@@ -147,6 +147,9 @@ public class audioManager : MonoBehaviour
             case "T12": case "VERITA'S THEME":
                 songID = 11;
                 break;
+            case "T13": case "PARTYCIDE":
+                songID = 12;
+                break;
             default:
                 Debug.LogWarning("The BGM [" + songToPlay + "] could not be found.");
                 break;

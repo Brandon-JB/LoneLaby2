@@ -25,6 +25,8 @@ public class killSpareManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI killSpareText;
 
+    [SerializeField] private mainDialogueManager mainDialogueManager;
+
     public string bossName;
 
     private void OnEnable()
@@ -34,18 +36,25 @@ public class killSpareManager : MonoBehaviour
         //whoIsGettingCooked.sprite = bossSprites[0];
 
 
+
+
         //move everything to original locations
 
+        //audioManager.Instance.playBGM("T13");
+
         sideL.transform.position = locations[4].position;
-        sideR.transform.position = locations[5].position;
-        leoraAnimator.transform.DOMove(locations[6].position, 0f);
-        whoIsGettingCooked.transform.DOMove(locations[7].position, 0f);
+        sideL.transform.DOMove(locations[4].position, 1f);
+        sideR.transform.DOMove(locations[5].position, 1f);
+        leoraAnimator.transform.DOMove(locations[6].position, 0f).SetUpdate(true).SetEase(Ease.InOutQuad);
+        whoIsGettingCooked.transform.DOMove(locations[7].position, 0f).SetUpdate(true).SetEase(Ease.InOutQuad);
         //leoraAnimator.transform.position = locations[6].position;
         //whoIsGettingCooked.transform.position = locations[7].position;
 
         leoraAnimator.SetTrigger("return");
         leoraAnimator.transform.DOMove(locations[2].position, 2f);
         whoIsGettingCooked.transform.DOMove(locations[3].position, 2f);
+
+        changeBasedOnBoss();
 
         //Change text based on who is killed and spared:
         //killSpareText.text = "Should " + bossName + " be executed for their crimes?";
@@ -62,7 +71,7 @@ public class killSpareManager : MonoBehaviour
 
         //VIIN NONE DEAD: Should Viin be executed for her crimes?
         //VIIN SOME DEAD: Is it justice if an innocent must die with Viin?
-        //VIIN MANY DEAD: Does justice care for mercy?
+        //VIIN MANY DEAD: Does justice care for mercy? 
 
         //For post igs/if we have time during the Leora boss fight
         //DARK LEORA 75%: Did their crimes warrant death?
@@ -75,6 +84,85 @@ public class killSpareManager : MonoBehaviour
 
 
         ResetLeoraAnimator();
+    }
+
+    public void changeBasedOnBoss()
+    {
+        switch (bossName)
+        {
+            case "Ivar":
+                //Show Ivar's sprite
+                whoIsGettingCooked.sprite = bossSprites[2];
+                int viinStatus = BossSaveData.bossStates["Viin"];
+                int lucanStatus = BossSaveData.bossStates["Lucan"];
+
+                //How many bosses have been killed?
+                if (viinStatus == 1 && lucanStatus == 1)
+                {
+                    killSpareText.text = "Is it a crime to protect those you love?";
+                } else if (viinStatus == 2 && lucanStatus == 2)
+                {
+                    killSpareText.text = "Am I failing my purpose?";
+                } else if (viinStatus == 1 || lucanStatus == 1)
+                {
+                    killSpareText.text = "Does desperation excuse Ivar's crimes?";
+                } else
+                {
+                    killSpareText.text = "Should " + bossName + " be executed for his crimes?";
+                }
+
+                break;
+            case "Viin":
+                //Show Viin's sprite
+                whoIsGettingCooked.sprite = bossSprites[0];
+                int ivarStatus = BossSaveData.bossStates["Ivar"];
+                int lucanStatus2 = BossSaveData.bossStates["Lucan"];
+
+                //How many bosses have been killed?
+                if (ivarStatus == 1 && lucanStatus2 == 1)
+                {
+                    killSpareText.text = "Would mercy be unjust?"; //TODO COME BACK AND CHANGE THIS LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+                }
+                else if (ivarStatus == 2 && lucanStatus2 == 2)
+                {
+                    killSpareText.text = "Am I failing my purpose?";
+                }
+                else if (ivarStatus == 1 || lucanStatus2 == 1)
+                {
+                    killSpareText.text = "Is it justice if an innocent must die with Viin?";
+                }
+                else
+                {
+                    killSpareText.text = "Should " + bossName + " be executed for her crimes?";
+                }
+
+                break;
+            case "Lucan":
+                //Show Viin's sprite
+                whoIsGettingCooked.sprite = bossSprites[0];
+                int ivarStatus2 = BossSaveData.bossStates["Ivar"];
+                int viinStatus2 = BossSaveData.bossStates["Viin"];
+
+                //How many bosses have been killed?
+                if (ivarStatus2 == 1 && viinStatus2 == 1)
+                {
+                    killSpareText.text = "Is loyalty to the Order the same as justice?";
+                }
+                else if (ivarStatus2 == 2 && viinStatus2 == 2)
+                {
+                    killSpareText.text = "Am I failing my purpose?";
+                }
+                else if (ivarStatus2 == 1 || viinStatus2 == 1)
+                {
+                    killSpareText.text = "Does betraying the Order make Lucan unredeemable?";
+                }
+                else
+                {
+                    killSpareText.text = "Should " + bossName + " be executed for his crimes?";
+                }
+
+                break;
+        }
     }
 
     public void killBoss()
@@ -101,11 +189,11 @@ public class killSpareManager : MonoBehaviour
 
         leoraAnimator.SetTrigger("kill");
         //wait 0.5 seconds
-        StartCoroutine(endAfterTimePeriod(0.5f));
+        StartCoroutine(endAfterTimePeriod(0.5f, true));
         
     }
 
-    private IEnumerator endAfterTimePeriod(float time)
+    private IEnumerator endAfterTimePeriod(float time, bool isKilling = false)
     {
         yield return new WaitForSecondsRealtime(time);
 
@@ -114,7 +202,39 @@ public class killSpareManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1.5f);
 
-        SceneManager.LoadScene("Overworld");
+        if(isKilling)
+        {
+            switch (bossName)
+            {
+                case "Ivar":
+                    mainDialogueManager.dialogueSTART("IvarQuest/manor_postfight_condemnIvar");
+                    break;
+
+                case "Lucan":
+                    mainDialogueManager.dialogueSTART("IvarQuest/cave_postfight_condemnLucan");
+                    break;
+
+                case "Viin":
+                    mainDialogueManager.dialogueSTART("IvarQuest/veinwood_postfight_condemnViin");
+                    break;
+            }
+        } else
+        {
+            switch (bossName)
+            {
+                case "Ivar":
+                    mainDialogueManager.dialogueSTART("IvarQuest/manor_postfight_saveIvar");
+                    break;
+
+                case "Lucan":
+                    mainDialogueManager.dialogueSTART("IvarQuest/cave_postfight_saveLucan");
+                    break;
+
+                case "Viin":
+                    mainDialogueManager.dialogueSTART("IvarQuest/veinwood_postfight_saveViin");
+                    break;
+            }
+        }
         StopAllCoroutines();
     }
 
