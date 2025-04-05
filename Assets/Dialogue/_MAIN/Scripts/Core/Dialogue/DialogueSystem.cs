@@ -30,7 +30,6 @@ namespace DIALOGUE
         public GameObject continueButton; // for the bottom of the screen
 
         public bool isRunningConversation => conversationManager.isRunning;
-
         public void setTextSpeed(float value)
         {
             architect.speedMultiplier = value;

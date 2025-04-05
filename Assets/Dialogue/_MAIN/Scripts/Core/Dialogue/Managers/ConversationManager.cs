@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CHARACTERS;
+using TMPro;
 
 namespace DIALOGUE
 {
@@ -22,6 +23,7 @@ namespace DIALOGUE
             architect.audioPlayer = audioPlayer;
             dialogueSystem.onUserPrompt_Next += OnUserPrompt_Next;
         }
+
 
         private void OnUserPrompt_Next()
         {

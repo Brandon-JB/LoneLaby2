@@ -4,6 +4,7 @@ using UnityEngine;
 using DIALOGUE;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class mainDialogueManager : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class mainDialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] cutsceneVariations;
     [SerializeField] private GameObject continueTextPrompt;
     [SerializeField] private HUD_Equipment equipmentMenu;
+
+
+    [SerializeField] private TextMeshProUGUI condemntxtbox, normaltxtbox;
 
     //[SerializeField] private pauseMenuManager pauseMenuManager;
 
@@ -84,14 +88,26 @@ public class mainDialogueManager : MonoBehaviour
             currentlyRunningText = dialogueFile;
             //playerController.isfrozen = true;
 
-            top.DOMove(tweenInPositions[0].transform.position, 1.5f).SetUpdate(true);
-            bottom.DOMove(tweenInPositions[1].transform.position, 1.5f).SetUpdate(true);
-            dialogueBox.DOMove(tweenInPositions[2].transform.position, 1.5f).SetUpdate(true);
+            switch (currentlyRunningText)
+            {
+                case "IvarQuest/manor_postfight_condemnIvar":
+                case "ViinQuest/veinwood_postfight_condemnViin":
+                case "LucanQuest/cave_postfight_condemnLucan":
+                    //move dialogue box to middle, resize
+                    normaltxtbox.fontSize = 18;
+                    normaltxtbox.transform.position = condemntxtbox.transform.position;
+                    return;
+            }
+
+
+            top.DOMove(tweenInPositions[0].transform.position, 1.5f).SetUpdate(true).SetEase(Ease.OutCubic);
+            bottom.DOMove(tweenInPositions[1].transform.position, 1.5f).SetUpdate(true).SetEase(Ease.OutCubic);
+            dialogueBox.DOMove(tweenInPositions[2].transform.position, 1.5f).SetUpdate(true).SetEase(Ease.OutBack);
 
             equipmentMenu = FindObjectOfType<HUD_Equipment>();
             if (equipmentMenu)
             {
-                //equipmentMenu.gameObject.SetActive(false);
+                equipmentMenu.GetComponent<CanvasGroup>().DOFade(0, 0.25f).SetUpdate(true);
             }
 
 
@@ -194,6 +210,19 @@ public class mainDialogueManager : MonoBehaviour
             //        break;
             //}
 
+            switch (currentlyRunningText)
+            {
+                case "IvarQuest/manor_postfight":
+                    FindObjectOfType<killSpareManager>().EnableKillSpare("Ivar");
+                    break;
+                case "ViinQuest/veinwood_postfight":
+                    FindObjectOfType<killSpareManager>().EnableKillSpare("Viin");
+                    break;
+                case "LucanQuest/cave_postfight":
+                    FindObjectOfType<killSpareManager>().EnableKillSpare("Lucan");
+                    break;
+            }
+
             //switch (currentlyRunningText) // if this is the end of a route
             //{
             //    case "end_genocide":// 0 = everyone dead
@@ -231,14 +260,14 @@ public class mainDialogueManager : MonoBehaviour
             //}
             currentlyRunningText = "";
             continueTextPrompt.SetActive(false);
-            top.DOMove(tweenOutPositions[0].transform.position, 2).SetUpdate(true);
-            bottom.DOMove(tweenOutPositions[1].transform.position, 2).SetUpdate(true);
+            top.DOMove(tweenOutPositions[0].transform.position, 2).SetUpdate(true).SetEase(Ease.OutCubic);
+            bottom.DOMove(tweenOutPositions[1].transform.position, 2).SetUpdate(true).SetEase(Ease.OutCubic);
             //CHANGE THIS KATIE YOU ARE STUPID AND NEED TO DIE
 
-            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true);
+            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack);
             if (equipmentMenu)
             {
-                equipmentMenu.gameObject.SetActive(true);
+                equipmentMenu.GetComponent<CanvasGroup>().DOFade(1, 1f).SetUpdate(true);
             }
             //.OnComplete(() => { SceneManager.LoadScene("Overworld"); });
             //if (isBoss)
