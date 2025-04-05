@@ -10,7 +10,7 @@ public class OpenPauseMenu : MonoBehaviour
 
     public static bool canOpenPause = true;
 
-    public static bool GLOBALcanOpenPause = true;
+    public static bool GLOBALcanOpenPause = false;
 
     [SerializeField] private GameObject quickPauseMenu;
     [SerializeField] private GameObject pauseMenuObject;

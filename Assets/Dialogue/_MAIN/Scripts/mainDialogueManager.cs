@@ -76,12 +76,12 @@ public class mainDialogueManager : MonoBehaviour
     //MUST PASS IN THE 
     public void dialogueSTART(string dialogueFile)
     {
-        //change bgm depending on what got passed in
-
         // Only start the coroutine if it's not already running
         if (!dialogueRunning)
         {
             Time.timeScale = 0f;
+            OpenPauseMenu.GLOBALcanOpenPause = true;
+            OpenPauseMenu.canOpenPause = false;
             StartCoroutine(completeDialogue("TextFiles/" + dialogueFile));
             dialogueRunning = true; // Set the flag to true when starting the coroutine
 
@@ -269,6 +269,7 @@ public class mainDialogueManager : MonoBehaviour
             {
                 equipmentMenu.GetComponent<CanvasGroup>().DOFade(1, 1f).SetUpdate(true);
             }
+            OpenPauseMenu.canOpenPause = true;
             //.OnComplete(() => { SceneManager.LoadScene("Overworld"); });
             //if (isBoss)
             //{

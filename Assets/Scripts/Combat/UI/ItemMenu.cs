@@ -28,7 +28,7 @@ public class ItemMenu : MonoBehaviour
 
     public void CloseMenu()
     {
-        Time.timeScale = 1f;
+        
         itemImage.gameObject.SetActive(false);
         leoraAnimator.enabled = true;
         infoHolder.DOMove(locations[1].position, 0.5f).SetUpdate(true).OnComplete(() =>
@@ -36,7 +36,11 @@ public class ItemMenu : MonoBehaviour
         {
             infoHolder.position = locations[2].position;
             //menu.SetActive(false);
-            Time.timeScale = 1;
+            OpenPauseMenu.GLOBALcanOpenPause = true;
+            if (OpenPauseMenu.canOpenPause)
+            {
+                Time.timeScale = 1;
+            }
         });
     }
 
@@ -130,6 +134,7 @@ public class ItemMenu : MonoBehaviour
     public void openItemMenu(string itemName)
     {
         Time.timeScale = 0;
+        OpenPauseMenu.GLOBALcanOpenPause = false;
 
         ChangeTextAndSprite(itemName);
 

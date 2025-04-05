@@ -31,6 +31,7 @@ public class killSpareManager : MonoBehaviour
 
     public void EnableKillSpare(string bossName)
     {
+        OpenPauseMenu.GLOBALcanOpenPause = false;
         menu.SetActive(true);
         audioManager.Instance.playBGM("T13");
         killSpareTextCanvas.alpha = 0;
