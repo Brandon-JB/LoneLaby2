@@ -49,7 +49,7 @@ public class OpenPauseMenu : MonoBehaviour
         int i = 0;
         foreach (var equip in wornEquipment)
         {
-            Debug.Log(equip);
+            //Debug.Log(equip);
             if (equip.Value)
             {
                 if (hudEquipment == null)

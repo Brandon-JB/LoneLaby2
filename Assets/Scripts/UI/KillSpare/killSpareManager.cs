@@ -13,15 +13,14 @@ public class killSpareManager : MonoBehaviour
     [SerializeField] private Transform sideL;
     [SerializeField] private Transform sideR;
 
-    [SerializeField] private CanvasGroup leoraFade;
-    [SerializeField] private CanvasGroup bossSpriteFade;
+    [SerializeField] private CanvasGroup killSpareTextCanvas, yescanvas, nocanvas;
 
 
     [SerializeField] private Transform[] locations;
 
 
-    [SerializeField] private Image whoIsGettingCooked;
-    [SerializeField] private Sprite[] bossSprites;
+    [SerializeField] private GameObject whoIsGettingCooked;
+    [SerializeField] private GameObject[] bossSprites;
 
     [SerializeField] private TextMeshProUGUI killSpareText;
 
@@ -41,18 +40,31 @@ public class killSpareManager : MonoBehaviour
         //move everything to original locations
 
         //audioManager.Instance.playBGM("T13");
+        killSpareTextCanvas.alpha = 0;
+        yescanvas.alpha = 0;
+        nocanvas.alpha = 0;
+
 
         sideL.transform.position = locations[4].position;
         sideL.transform.DOMove(locations[4].position, 1f);
         sideR.transform.DOMove(locations[5].position, 1f);
-        leoraAnimator.transform.DOMove(locations[6].position, 0f).SetUpdate(true).SetEase(Ease.InOutQuad);
-        whoIsGettingCooked.transform.DOMove(locations[7].position, 0f).SetUpdate(true).SetEase(Ease.InOutQuad);
+        leoraAnimator.transform.DOMove(locations[6].position, 0f).SetUpdate(true);
+        whoIsGettingCooked.transform.DOMove(locations[7].position, 0f).SetUpdate(true);
         //leoraAnimator.transform.position = locations[6].position;
         //whoIsGettingCooked.transform.position = locations[7].position;
 
         leoraAnimator.SetTrigger("return");
-        leoraAnimator.transform.DOMove(locations[2].position, 2f);
-        whoIsGettingCooked.transform.DOMove(locations[3].position, 2f);
+        leoraAnimator.transform.DOMove(locations[2].position, 1f).SetUpdate(true).SetEase(Ease.InOutQuad);
+        whoIsGettingCooked.transform.DOMove(locations[3].position, 1f).SetUpdate(true).SetEase(Ease.InOutQuad).OnComplete(() =>
+        {
+            killSpareTextCanvas.DOFade(1,1f).SetUpdate(true).OnComplete(() =>
+            {
+                yescanvas.gameObject.SetActive(true);
+                yescanvas.DOFade(1,0.5f).SetUpdate(true).OnComplete(() => { 
+                    nocanvas.gameObject.SetActive(true);
+                    nocanvas.DOFade(1,0.5f).SetUpdate(true); });
+            });
+        });
 
         changeBasedOnBoss();
 
@@ -92,7 +104,10 @@ public class killSpareManager : MonoBehaviour
         {
             case "Ivar":
                 //Show Ivar's sprite
-                whoIsGettingCooked.sprite = bossSprites[2];
+                //whoIsGettingCooked.sprite = bossSprites[2];
+                bossSprites[0].SetActive(false);
+                bossSprites[1].SetActive(false);
+                bossSprites[2].SetActive(true);
                 int viinStatus = BossSaveData.bossStates["Viin"];
                 int lucanStatus = BossSaveData.bossStates["Lucan"];
 
@@ -114,7 +129,9 @@ public class killSpareManager : MonoBehaviour
                 break;
             case "Viin":
                 //Show Viin's sprite
-                whoIsGettingCooked.sprite = bossSprites[0];
+                bossSprites[0].SetActive(true);
+                bossSprites[1].SetActive(false);
+                bossSprites[2].SetActive(false);
                 int ivarStatus = BossSaveData.bossStates["Ivar"];
                 int lucanStatus2 = BossSaveData.bossStates["Lucan"];
 
@@ -139,7 +156,9 @@ public class killSpareManager : MonoBehaviour
                 break;
             case "Lucan":
                 //Show Viin's sprite
-                whoIsGettingCooked.sprite = bossSprites[0];
+                bossSprites[0].SetActive(false);
+                bossSprites[1].SetActive(true);
+                bossSprites[2].SetActive(false);
                 int ivarStatus2 = BossSaveData.bossStates["Ivar"];
                 int viinStatus2 = BossSaveData.bossStates["Viin"];
 
