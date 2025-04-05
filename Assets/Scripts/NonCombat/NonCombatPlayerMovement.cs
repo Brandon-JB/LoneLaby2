@@ -23,8 +23,9 @@ public class NonCombatPlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-
         animator = GetComponent<Animator>();
+        OpenPauseMenu.canOpenPause = true;
+        OpenPauseMenu.GLOBALcanOpenPause = true;
     }
 
     private void Update()
