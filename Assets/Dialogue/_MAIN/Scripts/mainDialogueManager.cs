@@ -190,7 +190,6 @@ public class mainDialogueManager : MonoBehaviour
         // Stop the dialogue coroutine if it's running
         if (dialogueRunning)
         {
-            Time.timeScale = 1f;
             StopCoroutine(completeDialogue(currentlyRunningText));
             dialogueRunning = false; // Set the flag to false when stopping the coroutine
             //if (currentlyRunningText == "prologue")
@@ -220,6 +219,9 @@ public class mainDialogueManager : MonoBehaviour
                     break;
                 case "LucanQuest/cave_postfight":
                     FindObjectOfType<killSpareManager>().EnableKillSpare("Lucan");
+                    break;
+                default:
+                    Time.timeScale = 1f;
                     break;
             }
 

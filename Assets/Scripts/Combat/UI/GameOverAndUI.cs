@@ -25,7 +25,7 @@ public class GameOverAndUI : MonoBehaviour
         gameplayHUD.SetActive(true);
         gameOverHUD.SetActive(false);
         //itemMenuHUD.SetActive(false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 
     public void OnDeath()
