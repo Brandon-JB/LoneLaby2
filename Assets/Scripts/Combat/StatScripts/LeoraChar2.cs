@@ -248,6 +248,7 @@ public class LeoraChar2 : BaseChar
                                 else
                                 {
                                     GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                                    darknessManager.LucanProgressDarkness();
                                     TriggerHurtAnim();
                                 }
                                

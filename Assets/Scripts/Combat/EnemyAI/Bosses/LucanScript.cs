@@ -25,10 +25,14 @@ public class LucanScript : EnemyScript
     [SerializeField] private int dashLimit = 4;
 
     [SerializeField] private int dashSpeed = 10;
+    [SerializeField] private GameObject leftDashArrow;
+    [SerializeField] private GameObject rightDashArrow;
 
     // Start is called before the first frame update
     void Start()
     {
+        leftDashArrow.SetActive(false);
+        rightDashArrow.SetActive(false);
         isActive = false;
         isDashing = false;
         dashCount = 0;
@@ -104,6 +108,7 @@ public class LucanScript : EnemyScript
             else// if (enemyChar.animator.GetBool("Hurt") == true)
             {
                 canMove = false;
+                enemyChar.animator.SetBool("isMoving", false);
             }
 
             //Debug.Log("Enemy is existing");
@@ -115,6 +120,8 @@ public class LucanScript : EnemyScript
                     //If Lucan hasn't reached is target yet
                     if (Vector2.Distance(enemyRB.transform.position, dashTarget) > 1)
                     {
+                        leftDashArrow.SetActive(false);
+                        rightDashArrow.SetActive(false);
                         enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, dashTarget, moveSpeed * dashSpeed * Time.deltaTime);
                     }
                     else
@@ -124,7 +131,6 @@ public class LucanScript : EnemyScript
                             //If lucan has dashed less than 4 times
                             if (dashCount < dashLimit)
                             {
-                                //What?
 
                                 dashCount++;
                                 timeBetweenDashes.StartCooldown();
@@ -134,7 +140,7 @@ public class LucanScript : EnemyScript
                                 this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
 
                                 //IIf the enemy is closer to the left side of arena than the right side.
-                                if (Vector2.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector3.Distance(enemyRB.transform.position, topRightArenaBounds))
+                                if (Vector2.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector2.Distance(enemyRB.transform.position, topRightArenaBounds))
                                 {
                                     dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
                                     Debug.Log("Change side");
@@ -199,6 +205,14 @@ public class LucanScript : EnemyScript
                 }
                 else
                 {
+                    if (Vector2.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector2.Distance(enemyRB.transform.position, topRightArenaBounds))
+                    {
+                        leftDashArrow.SetActive(true);
+                    }
+                    else
+                    {
+                        rightDashArrow.SetActive(true);
+                    }
                     this.transform.position = new Vector2(this.transform.position.x, Player.transform.position.y);
                     dashTarget.y = Player.transform.position.y;
                 }
