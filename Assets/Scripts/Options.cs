@@ -72,7 +72,7 @@ public class Options : MonoBehaviour
     public void onVoiceSliderChanged()
     {
         audioStatics.VoiceVolume = optionsSliders[3].value;
-        voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
+        //voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
     }
     public void onTextSpeedSliderChanged()
     {

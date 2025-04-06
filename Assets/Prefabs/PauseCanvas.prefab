@@ -4149,6 +4149,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wholeQuestMenu: {fileID: 0}
   locations: []
+  ivarColors: []
+  viinColors: []
+  lucanColors: []
+  ivarImages: []
+  viinImages: []
+  lucanImages: []
+  description: []
 --- !u!1 &1228104411278454657
 GameObject:
   m_ObjectHideFlags: 0
@@ -5361,12 +5368,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4035166664734392125}
+  - {fileID: 3516535312226462727}
+  - {fileID: 7546538794224379796}
   - {fileID: 4404120791887166308}
   - {fileID: 6861882651865078707}
   - {fileID: 8118135199277597730}
   - {fileID: 4957688046757321280}
-  - {fileID: 3516535312226462727}
-  - {fileID: 7546538794224379796}
   m_Father: {fileID: 7633216497961472981}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5396,14 +5403,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6117647, g: 0.16470589, b: 0.43921572, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e99625dab915aa547badb25a63e305f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd32bcfad2c7223448e1e442682e5163, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6129,6 +6136,34 @@ MonoBehaviour:
   locations:
   - {fileID: 4233304013802880190}
   - {fileID: 6662970283230495007}
+  ivarColors:
+  - {r: 0.6117647, g: 0.16470589, b: 0.43921572, a: 0}
+  - {r: 0.28235295, g: 0.28235295, b: 0.28235295, a: 0}
+  viinColors:
+  - {r: 0.2392157, g: 0.16078432, b: 0.21176472, a: 0}
+  - {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 0}
+  lucanColors:
+  - {r: 0.57254905, g: 0.14901961, b: 0.2901961, a: 0}
+  - {r: 0.18823531, g: 0.18823531, b: 0.18823531, a: 0}
+  ivarImages:
+  - {fileID: 6226364382821649020}
+  - {fileID: 199032216962928372}
+  - {fileID: 6095263406059600519}
+  - {fileID: 7875199469033695810}
+  viinImages:
+  - {fileID: 8543325387447454676}
+  - {fileID: 4867769494747899276}
+  - {fileID: 5116214291583816076}
+  - {fileID: 5328764770697952109}
+  lucanImages:
+  - {fileID: 4402242274859895462}
+  - {fileID: 3918458796647240280}
+  - {fileID: 4369071347420738324}
+  - {fileID: 9039410167543732050}
+  description:
+  - {fileID: 2759227715795710276}
+  - {fileID: 6879955723075517150}
+  - {fileID: 3762860172682590820}
 --- !u!1 &1755431148714669286
 GameObject:
   m_ObjectHideFlags: 0
@@ -9171,6 +9206,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wholeQuestMenu: {fileID: 0}
   locations: []
+  ivarColors: []
+  viinColors: []
+  lucanColors: []
+  ivarImages: []
+  viinImages: []
+  lucanImages: []
+  description: []
 --- !u!1 &2503868429575573632
 GameObject:
   m_ObjectHideFlags: 0
@@ -11624,7 +11666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3516535312226462727
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11638,7 +11680,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 693892715718978037}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13314,7 +13356,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 693892715718978037}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13869,7 +13911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4330209918322063732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14215,7 +14257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7546538794224379796
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14229,7 +14271,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 693892715718978037}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16379,7 +16421,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 693892715718978037}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17312,14 +17354,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.2392157, g: 0.16078432, b: 0.21176472, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0b16d5799b8770347a2654aea5a560b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd32bcfad2c7223448e1e442682e5163, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22846,7 +22888,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 693892715718978037}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -24379,6 +24421,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wholeQuestMenu: {fileID: 0}
   locations: []
+  ivarColors: []
+  viinColors: []
+  lucanColors: []
+  ivarImages: []
+  viinImages: []
+  lucanImages: []
+  description: []
 --- !u!1 &6999135474192989250
 GameObject:
   m_ObjectHideFlags: 0
@@ -26885,7 +26934,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 693892715718978037}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -32344,14 +32393,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.57254905, g: 0.14901961, b: 0.2901961, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9a7faa7135d23b3459fcce47f17d3b6e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd32bcfad2c7223448e1e442682e5163, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
+using System;
+using TMPro;
 
 public class QuestMenu : MonoBehaviour
 {
@@ -10,26 +13,37 @@ public class QuestMenu : MonoBehaviour
     [SerializeField] private Transform wholeQuestMenu;
     [SerializeField] private Transform[] locations;
 
-    private string[] Descriptions = { 
+    private string[] ivarDescriptions = { 
     //Ivar unobtained
-
+    "Ivar hasn't been obtained",
     //Ivar killed
-
+    "Ivar got cooked",
     //Ivar spared
-
-    //Lucan unobtained
-
-    //Lucan killed
-
-    //Lucan spared
-
+    "Ivar is off the hook"
+    };
+    private string[] viinDescriptions = {
     //Viin unobtained
-
+    "Viin hasn't been obtained",
     //Viin killed
-
+    "Viin got cooked",
     //Viin spared
+    "Viin is off the hook"
+    };
+    private string[] lucanDescriptions = {
+    //Lucan unobtained
+    "Lucan hasn't been obtained",
+    //Lucan killed
+    "Lucan got cooked",
+    //Lucan spared
+    "Lucan is off the hook"
     };
 
+
+    [SerializeField] private Color[] ivarColors, viinColors, lucanColors;
+
+    [SerializeField] private Image[] ivarImages, viinImages, lucanImages;
+
+    [SerializeField] private TextMeshProUGUI[] description;
 
 
     //This will move the back button. Yuck. Maybe turn it off for a minute to turn it back on after the side quests come up?
@@ -50,7 +64,38 @@ public class QuestMenu : MonoBehaviour
         //Find who has been killed, who has not, and what quests were taken
 
         //then, assign descriptions
+        //Debug.Log(description[0]);
+        //FindStatus("Ivar", ivarDescriptions, ivarColors, ivarImages, description[0]);
+        //FindStatus("Viin", viinDescriptions, viinColors, viinImages, description[1]);
+        //FindStatus("Lucan", lucanDescriptions, lucanColors, lucanImages, description[2]);
 
         //change ui color 
     }
+
+
+    private void FindStatus(string bossName, string[] descriptionOptions, Color[] colorOptions, Image[] imageoptions, TextMeshProUGUI description)
+    {
+        switch (BossSaveData.bossStates[bossName])
+        {
+            case 0: // Not encountered
+                imageoptions[0].color = colorOptions[0];
+                imageoptions[1].color = colorOptions[0];
+                description.text = descriptionOptions[0];
+                break;
+            case 1: // Encountered, killed
+                imageoptions[0].color = colorOptions[1];
+                imageoptions[1].color = colorOptions[1];
+                description.text = descriptionOptions[1];
+                imageoptions[3].gameObject.SetActive(true);
+                break;
+            case 2: // Encountered, spared
+                imageoptions[0].color = colorOptions[0];
+                imageoptions[1].color = colorOptions[0];
+                description.text = descriptionOptions[2];
+                imageoptions[2].gameObject.SetActive(true);
+                break;
+        }
+
+    }
+
 }
