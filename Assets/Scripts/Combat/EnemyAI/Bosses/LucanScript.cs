@@ -113,7 +113,7 @@ public class LucanScript : EnemyScript
                 if (!timeBetweenDashes.isCoolingDown)
                 {
                     //If Lucan hasn't reached is target yet
-                    if (Vector3.Distance(enemyRB.transform.position, dashTarget) > 1)
+                    if (Vector2.Distance(enemyRB.transform.position, dashTarget) > 1)
                     {
                         enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, dashTarget, moveSpeed * dashSpeed * Time.deltaTime);
                     }
@@ -124,6 +124,8 @@ public class LucanScript : EnemyScript
                             //If lucan has dashed less than 4 times
                             if (dashCount < dashLimit)
                             {
+                                //What?
+
                                 dashCount++;
                                 timeBetweenDashes.StartCooldown();
 
@@ -132,13 +134,17 @@ public class LucanScript : EnemyScript
                                 this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
 
                                 //IIf the enemy is closer to the left side of arena than the right side.
-                                if (Vector3.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector3.Distance(enemyRB.transform.position, topRightArenaBounds))
+                                if (Vector2.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector3.Distance(enemyRB.transform.position, topRightArenaBounds))
                                 {
                                     dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
+                                    Debug.Log("Change side");
+                                    enemyChar.animator.SetFloat("moveX", 1);
                                 }
                                 else
                                 {
                                     dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
+                                    Debug.Log("Change side");
+                                    enemyChar.animator.SetFloat("moveX", -1);
                                 }
                             }
                             //Final Dash
@@ -162,12 +168,16 @@ public class LucanScript : EnemyScript
                                 EnableHurtbox();
                                 enemyChar.StopAttackAnim();
                             }
-                        }
+                        }/* This part is literally useless why did i have it here
                         else
                         {
+                            Debug.Log("Reached end");
+
                             timeBetweenDashes.StartCooldown();
 
                             enemyChar.ResetHitbox();
+
+                            
 
                             this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
 
@@ -175,13 +185,22 @@ public class LucanScript : EnemyScript
                             if (Mathf.Abs(enemyRB.transform.position.x - bottomLeftArenaBounds.x) < Mathf.Abs(enemyRB.transform.position.x - topRightArenaBounds.x))
                             {
                                 dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
+                                Debug.Log("Change side");
+                                enemyChar.animator.SetFloat("moveX", 1);
                             }
                             else
                             {
                                 dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
+                                Debug.Log("Change side");
+                                enemyChar.animator.SetFloat("moveX", -1);
                             }
-                        }
+                        }*/
                     }
+                }
+                else
+                {
+                    this.transform.position = new Vector2(this.transform.position.x, Player.transform.position.y);
+                    dashTarget.y = Player.transform.position.y;
                 }
             }
 
@@ -191,6 +210,7 @@ public class LucanScript : EnemyScript
 
                 if (!specialStunTimer.isCoolingDown)
                 {
+                    cooldown.StartCooldown();
                     enemyChar.animator.SetBool("stunned", false);
                 }
             }
