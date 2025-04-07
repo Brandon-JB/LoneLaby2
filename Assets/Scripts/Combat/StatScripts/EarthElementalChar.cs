@@ -22,4 +22,10 @@ public class EarthElementalChar : BaseChar
             damPopScript.SetupInt(0, "Damage");
         }
     }
+
+    public override void Death()
+    {
+        dropManager.RandomizedDrops(this.transform.position, this.charName);
+        Destroy(this.gameObject);
+    }
 }

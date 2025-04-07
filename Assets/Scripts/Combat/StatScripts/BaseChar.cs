@@ -130,12 +130,14 @@ public class BaseChar : MonoBehaviour
     }
 
     public string charName = "";
+    public SpriteRenderer charSprite;
+    private Collider2D hurtbox;
 
     public bool allied = true;
 
     public Animator animator = null;
 
-    private DropManager dropManager;
+    public DropManager dropManager;
 
     private LeoraChar2 leoraChar2;
 
@@ -615,6 +617,36 @@ public class BaseChar : MonoBehaviour
     public virtual void Death()
     {
         //SceneManager.LoadScene("NoCombatAreas");
+        //dropManager.RandomizedDrops(this.transform.position, this.charName);
+        //Destroy(this.gameObject);
+        animator.enabled = false;
+        hurtbox.enabled = false;
+        charRB.constraints = RigidbodyConstraints2D.FreezeAll;
+        hitboxChild.gameObject.SetActive(false);
+        StartCoroutine(deathAnim());
+    }
+
+    IEnumerator deathAnim()
+    {
+        for (float f = 1; f >= 0; f -= 0.05f)
+        {
+            if (charSprite == null)
+            {
+                continue;
+            }
+
+            Color c = charSprite.material.color;
+            c.a = f;
+            c.r = Random.Range(0, 1f);
+            c.g = Random.Range(0, 1f);
+            c.b = Random.Range(0, 1f);
+
+
+            charSprite.color = c;
+
+            yield return new WaitForSeconds(0.05f);
+        }
+
         dropManager.RandomizedDrops(this.transform.position, this.charName);
         Destroy(this.gameObject);
     }
@@ -623,6 +655,8 @@ public class BaseChar : MonoBehaviour
 
     private void Awake()
     {
+        hurtbox = this.GetComponent<Collider2D>();
+
         animator = GetComponent<Animator>();
         charRB = GetComponent<Rigidbody2D>();
         isParrying = false;
