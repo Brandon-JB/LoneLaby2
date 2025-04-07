@@ -27,6 +27,8 @@ namespace DIALOGUE
         public AudioSource charVoice;
         public Image textbox;
 
+        public Image[] nameOfCharMoving;
+
         public GameObject continueButton; // for the bottom of the screen
 
         public bool isRunningConversation => conversationManager.isRunning;
@@ -70,7 +72,15 @@ namespace DIALOGUE
             CharacterConfigData config = character != null ? character.config : CharacterManager.instance.GetCharacterConfig(speakerName);
 
             //////////////////////////////////////CHANGE GUI STUFF HERE!!!!!!!!!!!! USE CONFIG!!!!!!!!!!!!!!!!!!
-
+            ///
+            if(config.alias != "leora")
+            {
+                foreach (Image sideText in nameOfCharMoving)
+                {
+                    sideText.sprite = config.nameOnSide;
+                    sideText.SetNativeSize();
+                }
+            }
             textbox.sprite = config.charNameHolder;
             if (charVoice == null)
             {

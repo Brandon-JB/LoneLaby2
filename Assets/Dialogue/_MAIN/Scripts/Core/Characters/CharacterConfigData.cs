@@ -11,10 +11,8 @@ namespace CHARACTERS
         public string alias;
         public Character.CharacterType characterType;
         public Sprite charNameHolder;
-        //may not be an audio clip, double check when implementing
         public AudioClip charVoice;
-
-        //go to episode 5 part 1 for name color, dilogue color, fonts, etc.
+        public Sprite nameOnSide;
 
         public CharacterConfigData Copy()
         {
@@ -25,6 +23,7 @@ namespace CHARACTERS
             result.characterType = characterType;
             result.charNameHolder = charNameHolder;
             result.charVoice = charVoice;
+            result.nameOnSide = nameOnSide;
 
             return result;
         }

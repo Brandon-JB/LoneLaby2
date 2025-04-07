@@ -5,6 +5,7 @@ using System.Linq;
 using CHARACTERS;
 using UnityEditor;
 using UnityEngine;
+using DG.Tweening;
 
 namespace COMMANDS
 {
@@ -121,6 +122,7 @@ namespace COMMANDS
             bool immediate = false;
             float speed = 1;
 
+
             foreach (string s in data) 
             {
                 Character character = CharacterManager.instance.GetCharacter(s, createIfDoesNotExist: false);
@@ -143,7 +145,17 @@ namespace COMMANDS
                 if (immediate)
                     character.isVisible = true;
                 else
-                    character.Show(speed);
+            //Turn on sides, based on who it is
+            if (character.name == "leora")
+                {
+                    GameObject.FindGameObjectWithTag("leftName").GetComponent<CanvasGroup>().DOFade(1, 1f).SetUpdate(true);
+                }
+                else
+                {
+                    Debug.Log("I'm talking to " +character.name);
+                    GameObject.FindGameObjectWithTag("rightName").GetComponent<CanvasGroup>().DOFade(1, 1f).SetUpdate(true);
+                }
+                character.Show(speed);
             }
 
             if (!immediate)
@@ -187,7 +199,16 @@ namespace COMMANDS
                 if (immediate)
                     character.isVisible = false;
                 else
-                    character.Hide(speed);
+            //Turn on sides, based on who it is
+                if (character.name == "leora")
+                {
+                    GameObject.FindGameObjectWithTag("leftName").GetComponent<CanvasGroup>().DOFade(0, 1f).SetUpdate(true);
+                }
+                else
+                {
+                    GameObject.FindGameObjectWithTag("rightName").GetComponent<CanvasGroup>().DOFade(0, 1f).SetUpdate(true);
+                }
+                character.Hide(speed);
             }
 
             if (!immediate)
@@ -332,6 +353,17 @@ namespace COMMANDS
             if (character == null)
                 yield break;
 
+            Debug.Log(character.name);
+            //Turn on sides, based on who it is
+            if (character.name == "leora")
+            {
+                GameObject.FindGameObjectWithTag("leftName").GetComponent<CanvasGroup>().DOFade(1, 1f).SetUpdate(true);
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("rightName").GetComponent<CanvasGroup>().DOFade(1, 1f).SetUpdate(true);
+            }
+
             bool immediate = false;
             var parameters = ConvertDataToParameters(data);
 
@@ -366,6 +398,16 @@ namespace COMMANDS
             {
                 //A long running process should have a stop action to cancel out the coroutine and run logic that should complete this command if interrupted
                 CommandManager.instance.AddTerminationActionToCurrentProcess(() => { if (character != null) character.isVisible = false; });
+
+                //Turn off sides, based on who it is
+                if (data[0] == "leora")
+                {
+                    GameObject.FindGameObjectWithTag("leftName").GetComponent<CanvasGroup>().DOFade(0, 1f).SetUpdate(true);
+                }
+                else
+                {
+                    GameObject.FindGameObjectWithTag("rightName").GetComponent<CanvasGroup>().DOFade(0, 1f).SetUpdate(true);
+                }
 
                 yield return character.Hide();
             }
