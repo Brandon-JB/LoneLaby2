@@ -27,6 +27,8 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadLevel(string SceneName, int areaNumber)
     {
+        OpenPauseMenu.GLOBALcanOpenPause = false;
+
         if (areaNumber == 0)
         {
             animator[0].SetBool("IsTown", true);
@@ -53,6 +55,7 @@ public class LevelLoader : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
 
+        OpenPauseMenu.GLOBALcanOpenPause = true;
         SceneManager.LoadScene(SceneName);
         PlayerMovement.CanWalk = true;
     }

@@ -8,6 +8,7 @@ public class PlayerContact : MonoBehaviour
 {
     private Rigidbody2D rb;
     public PortalScript portalScript;
+    public CityPortalManager cityPortalManager;
     public RoomTeleport roomTP;
     public Spawner spawner;
     private string Location;
@@ -29,6 +30,11 @@ public class PlayerContact : MonoBehaviour
         if (collision.tag == "Portal")
         {
             portalScript.TeleportPlayer(collision.name);
+        }
+
+        if (collision.tag == "CityPortals")
+        {
+            cityPortalManager.LoadCityArea(collision.name);
         }
 
         if (collision.tag == "Cave")

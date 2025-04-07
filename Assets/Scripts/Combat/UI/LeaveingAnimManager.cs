@@ -25,10 +25,13 @@ public class LeaveingAnimManager : MonoBehaviour
 
     IEnumerator Leave(Animator animator)
     {
+        OpenPauseMenu.GLOBALcanOpenPause = false;
+
         animator.SetTrigger("Leaving");
         
         yield return new WaitForSeconds(1f);
 
+        OpenPauseMenu.GLOBALcanOpenPause = true;
         SceneManager.LoadScene("Overworld");
     }
 }
