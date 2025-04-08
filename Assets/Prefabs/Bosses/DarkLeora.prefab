@@ -557,7 +557,7 @@ MonoBehaviour:
   comboTimer:
     cooldownTime: 0.7
   attackCooldown:
-    cooldownTime: 0.5
+    cooldownTime: 2
   magicCooldown:
     cooldownTime: 2
   gameOverManager: {fileID: 0}
@@ -585,7 +585,7 @@ MonoBehaviour:
   moveSpeed: 4
   enemyRB: {fileID: 0}
   cooldown:
-    cooldownTime: 2
+    cooldownTime: 3.5
   canMove: 1
   leoraChar: {fileID: 0}
   magicParticle: {fileID: 7029962831616942848, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}

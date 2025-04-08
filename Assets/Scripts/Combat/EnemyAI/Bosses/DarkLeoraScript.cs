@@ -180,6 +180,31 @@ public class DarkLeoraScript : EnemyScript
                     Debug.Log("X and y distances are the same");
                 }
 
+                //if the player is horizontal to dark leora
+                if (enemyChar.animator.GetFloat("Horizontal") != 0)
+                {
+                    if (yDistance > 1)
+                    {
+                        Vector2 movePostion = new Vector2 (this.transform.position.x, PlayerRB.transform.position.y);
+
+                        enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePostion, moveSpeed * Time.deltaTime);
+
+                        return;
+                    }
+                }
+                //if the player is vertical to dark leora
+                else if (enemyChar.animator.GetFloat("Vertical") != 0)
+                {
+                    if (xDistance > 1)
+                    {
+                        Vector2 movePostion = new Vector2(PlayerRB.transform.position.x, this.transform.position.y);
+
+                        enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePostion, moveSpeed * Time.deltaTime);
+
+                        return;
+                    }
+                }
+
                 #endregion
 
                 int actionChoice = 0;
@@ -188,19 +213,24 @@ public class DarkLeoraScript : EnemyScript
                 {
                     actionChoice = 1;
                 }
-
-                actionChoice = 2;
+                else if (leoraChar.animator.GetBool("Magicing"))
+                {
+                    actionChoice = 2;
+                }
 
                 switch (actionChoice)
                 {
                     case 0:
                         enemyChar.animator.SetBool("Attacking", true);
+                        cooldown.cooldownTime = 2;
                         break;
                     case 1:
                         enemyChar.animator.SetBool("Parrying", true);
+                        cooldown.cooldownTime = 0.5f;
                         break;
                     case 2:
                         enemyChar.animator.SetBool("Magicing", true);
+                        cooldown.cooldownTime = 3;
                         break;
                 }
                 cooldown.StartCooldown();
