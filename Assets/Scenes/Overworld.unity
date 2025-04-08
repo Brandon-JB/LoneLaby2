@@ -829,9 +829,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelLoader: {fileID: 115786415}
-  Player: {fileID: 0}
-  ChurchGO: {fileID: 0}
-  ChurchLEAVE: {fileID: 0}
 --- !u!1 &95564589
 GameObject:
   m_ObjectHideFlags: 0
@@ -54309,7 +54306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &513907916
 Transform:
   m_ObjectHideFlags: 0
@@ -61317,9 +61314,21 @@ CompositeCollider2D:
       - X: 240000000
         Y: 120000000
       - X: 240000000
-        Y: 90000000
+        Y: 90000100
+      - X: 236874988
+        Y: 90000100
+      - X: 236874951
+        Y: 90000085
+      - X: 229999915
+        Y: 83125057
+      - X: 229999900
+        Y: 83125020
+      - X: 229999900
+        Y: 79999959
+      - X: 229999959
+        Y: 79999900
       - X: 230000000
-        Y: 90000000
+        Y: 79999900
       - X: 230000000
         Y: 30000100
       - X: 229999959
@@ -61830,14 +61839,6 @@ CompositeCollider2D:
         Y: 70000000
       - X: 630000000
         Y: 70000000
-    - - X: 460000000
-        Y: 70000000
-      - X: 450000000
-        Y: 70000000
-      - X: 450000000
-        Y: 60000000
-      - X: 460000000
-        Y: 60000000
     - - X: 380000000
         Y: 70000000
       - X: 370000000
@@ -61846,14 +61847,14 @@ CompositeCollider2D:
         Y: 60000000
       - X: 380000000
         Y: 60000000
-    - - X: 400000000
-        Y: 50000000
-      - X: 390000000
-        Y: 50000000
-      - X: 390000000
-        Y: 40000000
-      - X: 400000000
-        Y: 40000000
+    - - X: 460000000
+        Y: 70000000
+      - X: 450000000
+        Y: 70000000
+      - X: 450000000
+        Y: 60000000
+      - X: 460000000
+        Y: 60000000
     - - X: 550000000
         Y: 50000000
       - X: 540000000
@@ -61861,6 +61862,14 @@ CompositeCollider2D:
       - X: 540000000
         Y: 40000000
       - X: 550000000
+        Y: 40000000
+    - - X: 400000000
+        Y: 50000000
+      - X: 390000000
+        Y: 50000000
+      - X: 390000000
+        Y: 40000000
+      - X: 400000000
         Y: 40000000
     - - X: 440000000
         Y: 30000000
@@ -61886,6 +61895,14 @@ CompositeCollider2D:
         Y: 10000000
       - X: 350000000
         Y: 10000000
+    - - X: 530000000
+        Y: 10000000
+      - X: 520000000
+        Y: 10000000
+      - X: 520000000
+        Y: 0
+      - X: 530000000
+        Y: 0
     - - X: 410000000
         Y: 10000000
       - X: 400000000
@@ -61901,14 +61918,6 @@ CompositeCollider2D:
       - X: 480000000
         Y: 0
       - X: 490000000
-        Y: 0
-    - - X: 530000000
-        Y: 10000000
-      - X: 520000000
-        Y: 10000000
-      - X: 520000000
-        Y: 0
-      - X: 530000000
         Y: 0
     - - X: 360000000
         Y: 0
@@ -62388,8 +62397,9 @@ CompositeCollider2D:
       - {x: 22, y: 10.00003}
       - {x: 22.000029, y: 12}
       - {x: 24, y: 11.99997}
-      - {x: 23.999971, y: 9}
-      - {x: 23, y: 8.99997}
+      - {x: 23.999971, y: 9.00001}
+      - {x: 23.687489, y: 9.000001}
+      - {x: 22.99999, y: 8.312491}
       - {x: 23.000027, y: 1.99999}
       - {x: 23.99999, y: 1.9999607}
       - {x: 24.000027, y: 0.99999}
@@ -67304,8 +67314,8 @@ Tilemap:
   - first: {x: 23, y: 8, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 21
-      m_TileSpriteIndex: 5
+      m_TileIndex: 13
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 6
       m_TileObjectToInstantiateIndex: 65535
@@ -69059,8 +69069,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: e8c13c48f550f904f95cb3df1f8888ca, type: 2}
   - m_RefCount: 299
     m_Data: {fileID: 11400000, guid: fc0016df5f0440f418a1cc52b216cb39, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 2e1c466de61d3b24fabf5020446d7f42, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 61110386d8bf98a4bb9e32a9e8d8978e, type: 2}
   - m_RefCount: 1
@@ -69075,7 +69085,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 97f5def29989c88488b2c16a781d186c, type: 2}
   - m_RefCount: 14
     m_Data: {fileID: 11400000, guid: ee3164cd671841843a0faaf7aef3866a, type: 2}
-  - m_RefCount: 205
+  - m_RefCount: 204
     m_Data: {fileID: 11400000, guid: 9d90efcf8314737489e78e548de797a5, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -69088,10 +69098,10 @@ Tilemap:
     m_Data: {fileID: -216237938, guid: 09a23b9e4c3239a49995b32c940fa2cf, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -1301071687, guid: 09a23b9e4c3239a49995b32c940fa2cf, type: 3}
-  - m_RefCount: 205
+  - m_RefCount: 204
     m_Data: {fileID: 1414940984, guid: 09a23b9e4c3239a49995b32c940fa2cf, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 945781138, guid: f941ccd259f7c904aa883e0a785be34c, type: 3}
   - m_RefCount: 299
     m_Data: {fileID: 2115449397, guid: 09a23b9e4c3239a49995b32c940fa2cf, type: 3}
   - m_RefCount: 5
