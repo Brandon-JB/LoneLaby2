@@ -255,6 +255,19 @@ public class LeoraChar2 : BaseChar
                                 }
                                
                             }
+                            //dark leora fight lucan
+                            else if (otherCharTrigger.charName == "Lucora")
+                            {
+                                if (isPerfectParrying || isParrying)
+                                {
+                                    otherCharTrigger.animator.SetBool("stunned", true);
+                                }
+                                else
+                                {
+                                    GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                                    TriggerHurtAnim();
+                                }
+                            }
                             //Tutorial
                             else if (otherCharTrigger.charName == "SevTutorial")
                             {

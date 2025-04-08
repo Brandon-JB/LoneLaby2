@@ -627,7 +627,7 @@ public class BaseChar : MonoBehaviour
         StartCoroutine(deathAnim());
     }
 
-    IEnumerator deathAnim()
+    public virtual IEnumerator deathAnim()
     {
         for (float f = 1; f >= 0; f -= 0.05f)
         {

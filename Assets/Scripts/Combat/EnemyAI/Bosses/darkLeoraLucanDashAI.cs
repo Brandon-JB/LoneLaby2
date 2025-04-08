@@ -1,0 +1,150 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class darkLeoraLucanDashAI : BaseChar
+{
+    [SerializeField] private Vector2 bottomLeftArenaBounds;
+    [SerializeField] private Vector2 topRightArenaBounds;
+
+    [SerializeField] private Cooldown timeBetweenDashes;
+
+    [SerializeField] private GameObject leftDashArrow;
+    [SerializeField] private GameObject rightDashArrow;
+
+    [SerializeField] private Rigidbody2D enemyRB;
+
+    private Vector2 dashTarget;
+    [SerializeField] private int dashSpeed;
+
+    private GameObject Player;
+
+
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        leftDashArrow = GameObject.Find("LeftArrow");
+        rightDashArrow = GameObject.Find("RightArrow");
+
+        leftDashArrow.SetActive(false);
+        rightDashArrow.SetActive(false);
+
+        animator.SetBool("lucanDash", true);
+
+        Player = GameObject.Find("CombatPlayer");
+
+        charName = "Lucora";
+
+        allied = false;
+
+        ChangeStats(15, 0, 6, 1, 0);
+
+        dashTarget = bottomLeftArenaBounds;
+    }
+
+    // Update is called once per frame
+    public override void Update()
+    {
+        if (!timeBetweenDashes.isCoolingDown)
+        {
+            //If Lucan hasn't reached is target yet
+            if (Vector2.Distance(enemyRB.transform.position, dashTarget) > 1 && animator.GetBool("stunned") == false) 
+            {
+                leftDashArrow.SetActive(false);
+                rightDashArrow.SetActive(false);
+                enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, dashTarget, dashSpeed * Time.deltaTime);
+            }
+            else
+            {
+
+                timeBetweenDashes.StartCooldown();
+
+                ResetHitbox();
+
+                this.transform.position = new Vector2(this.transform.position.x, Player.transform.position.y);
+
+                //IIf the enemy is closer to the left side of arena than the right side.
+                if (Vector2.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector2.Distance(enemyRB.transform.position, topRightArenaBounds))
+                {
+                    dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
+                    Debug.Log("Change side");
+                    animator.SetFloat("moveX", 1);
+                }
+                else
+                {
+                    dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
+                    Debug.Log("Change side");
+                    animator.SetFloat("moveX", -1);
+
+                }/* This part is literally useless why did i have it here
+                    else
+                    {
+                        Debug.Log("Reached end");
+
+                        timeBetweenDashes.StartCooldown();
+
+                        ResetHitbox();
+
+                            
+
+                        this.transform.position = new Vector3(this.transform.position.x, Player.transform.position.y, this.transform.position.z);
+
+                        //IIf the enemy is closer to the left side of arena than the right side.
+                        if (Mathf.Abs(enemyRB.transform.position.x - bottomLeftArenaBounds.x) < Mathf.Abs(enemyRB.transform.position.x - topRightArenaBounds.x))
+                        {
+                            dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
+                            Debug.Log("Change side");
+                            animator.SetFloat("moveX", 1);
+                        }
+                        else
+                        {
+                            dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
+                            Debug.Log("Change side");
+                            animator.SetFloat("moveX", -1);
+                        }
+                    }*/
+            }
+        }
+        else
+        {
+            if (Vector2.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector2.Distance(enemyRB.transform.position, topRightArenaBounds))
+            {
+                leftDashArrow.SetActive(true);
+                
+            }
+            else
+            {
+                rightDashArrow.SetActive(true);
+            }
+            this.transform.position = new Vector2(this.transform.position.x, Player.transform.position.y);
+            dashTarget.y = Player.transform.position.y;
+        }
+    }
+
+    public override IEnumerator deathAnim()
+    {
+        for (float f = 1; f >= 0; f -= 0.05f)
+        {
+            if (charSprite == null)
+            {
+                continue;
+            }
+
+            Color c = charSprite.material.color;
+            c.a = f;
+            c.r = Random.Range(0, 1f);
+            c.g = Random.Range(0, 1f);
+            c.b = Random.Range(0, 1f);
+
+
+            charSprite.color = c;
+
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        dropManager.SpecificDrop(this.transform.position, "Small HP");
+        Destroy(this.gameObject);
+    }
+}
