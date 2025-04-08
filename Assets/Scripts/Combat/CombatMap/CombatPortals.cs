@@ -57,7 +57,7 @@ public class CombatPortals : MonoBehaviour
         
         if (name == "Town")
         {
-            SpawnManager.SpawnNumber = 1;
+            SpawnManager.SpawnNumber = 2;
             SceneManager.LoadScene("NoCombatAreas");
         }
 
