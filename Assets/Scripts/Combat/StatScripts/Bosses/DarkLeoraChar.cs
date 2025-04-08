@@ -165,7 +165,7 @@ public class DarkLeoraChar : BaseChar
                             leoraChar.stunned = true;
                             if (otherCharTrigger.tag != "Boss")
                             {
-                                otherCharTrigger.StartCoroutine(otherCharTrigger.Knockback(this.gameObject, 1));
+                                otherCharTrigger.StartCoroutine(otherCharTrigger.Knockback(this.gameObject, 0));
                             }
                         }
                         else if (isParrying)
@@ -180,7 +180,7 @@ public class DarkLeoraChar : BaseChar
                             if (otherCharTrigger.tag != "Boss")
                             {
                                 //Debug.Log("Parry");
-                                otherCharTrigger.StartCoroutine(otherCharTrigger.Knockback(this.gameObject, 1));
+                                otherCharTrigger.StartCoroutine(otherCharTrigger.Knockback(this.gameObject, 0));
                             }
                         }
                         else
@@ -199,6 +199,8 @@ public class DarkLeoraChar : BaseChar
             }
         }
     }
+
+    
 
     public override IEnumerator Knockback(GameObject otherAttacker, float stMod)
     {
@@ -295,9 +297,9 @@ public class DarkLeoraChar : BaseChar
 
         if (magicType == "darkMag")
         {
-            GameObject tempMagPart = Instantiate(darkMagFollowup, this.transform.position, Quaternion.identity, this.transform);
+            GameObject tempMagPart = Instantiate(darkMagFollowup, this.transform.position, Quaternion.identity);
 
-            DarkMagicAoE tempMagManager = tempMagPart.GetComponent<DarkMagicAoE>();
+            EvilDarkMagAoE tempMagManager = tempMagPart.GetComponent<EvilDarkMagAoE>();
 
             //Animator for particles would go here
             tempMagManager.animator.SetBool("darkFollowup", true);

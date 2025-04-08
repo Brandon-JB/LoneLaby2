@@ -550,7 +550,7 @@ public class BaseChar : MonoBehaviour
             if (this.tag != "Boss")
             {
                 StartCoroutine(Knockback(otherAttacker, stMod));
-                Debug.Log("Knockback");
+                //Debug.Log("Knockback");
             }
 
             if (GetHealth() <= 0)

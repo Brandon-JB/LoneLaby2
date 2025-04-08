@@ -306,6 +306,23 @@ public class LeoraChar2 : BaseChar
                     }
                 }
             }
+            //Getting hit by darkLeoraMag
+            else if (collision.tag == "darkLeoraMag")
+            {
+                otherCharTrigger = collision.GetComponentInParent<BaseChar>();
+
+                if (otherCharTrigger == null)
+                {
+                    EvilDarkMagAoE evilMagic = collision.GetComponent<EvilDarkMagAoE>();
+
+                    otherCharTrigger = evilMagic.darkLeora;
+                }
+
+                int magDamage = otherCharTrigger.statsSheet["MagAttack"];
+
+                GotDamaged(magDamage, otherCharTrigger.gameObject, 1);
+                TriggerHurtAnim();
+            }
             //on walking into a drop
             else if (collision.tag == "Drop")
             {

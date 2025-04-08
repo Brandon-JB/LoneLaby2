@@ -8,10 +8,24 @@ public class DarkLeoraScript : EnemyScript
 {
     [SerializeField] LeoraChar2 leoraChar;
 
+    [SerializeField] private GameObject magicParticle;
+
+    private GameObject tempMagPart;
+
     // Start is called before the first frame update
     void Start()
     {
         leoraChar = FindObjectOfType<LeoraChar2>();
+    }
+
+    public void SpawnDarkParticle()
+    {
+        tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
+
+        MagicParticles tempMagManager = tempMagPart.GetComponent<MagicParticles>();
+
+        //Animator for particles would go here
+        tempMagManager.animator.SetBool("darkMag", true);
     }
 
     // Update is called once per frame
@@ -175,7 +189,7 @@ public class DarkLeoraScript : EnemyScript
                     actionChoice = 1;
                 }
 
-
+                actionChoice = 2;
 
                 switch (actionChoice)
                 {

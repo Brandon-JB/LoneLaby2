@@ -245,11 +245,10 @@ GameObject:
   - component: {fileID: 5293778939441618249}
   - component: {fileID: 8869209418615085635}
   - component: {fileID: 7538191117456477938}
-  - component: {fileID: 5842062951379390051}
   - component: {fileID: 720615281640796443}
   m_Layer: 3
   m_Name: Magick
-  m_TagString: Magick
+  m_TagString: darkLeoraMag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,20 +336,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
---- !u!114 &5842062951379390051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6664873387653602075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d1ef6e2b1f30564ea96bead24ab3893, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leoraChar: {fileID: 0}
-  magicType: 
 --- !u!50 &720615281640796443
 Rigidbody2D:
   serializedVersion: 4
@@ -578,7 +563,7 @@ MonoBehaviour:
   gameOverManager: {fileID: 0}
   playerMovement: {fileID: 0}
   magHitbox: {fileID: 6664873387653602075}
-  darkMagFollowup: {fileID: 7029962831616942848, guid: 1aedae40441caf147888f5e63b939c3d, type: 3}
+  darkMagFollowup: {fileID: 7029962831616942848, guid: 0ff63371c4aa8a843b5f8f40b4ee58b5, type: 3}
   magicType: darkMag
 --- !u!114 &5730453822182870368
 MonoBehaviour:
@@ -602,3 +587,5 @@ MonoBehaviour:
   cooldown:
     cooldownTime: 2
   canMove: 1
+  leoraChar: {fileID: 0}
+  magicParticle: {fileID: 7029962831616942848, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
