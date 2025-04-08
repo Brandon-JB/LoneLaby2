@@ -75,9 +75,11 @@ namespace DIALOGUE
             ///
             if(config.alias != "leora")
             {
+                Debug.Log(config.alias);
                 foreach (Image sideText in nameOfCharMoving)
                 {
                     sideText.sprite = config.nameOnSide;
+                    Debug.Log(config.nameOnSide.name);
                     sideText.SetNativeSize();
                 }
             }
