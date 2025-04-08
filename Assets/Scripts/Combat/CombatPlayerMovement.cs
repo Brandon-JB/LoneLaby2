@@ -20,6 +20,8 @@ public class CombatPlayerMovement : MonoBehaviour
     private const string LastV = "LastV";
 
     public bool canMove;
+    public LeoraChar2 leoraChar;
+    public Sprite hurtSprite;
 
 
     // Start is called before the first frame update
@@ -36,6 +38,23 @@ public class CombatPlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (leoraChar.stunned && leoraChar.stunTimer.isCoolingDown)
+        {
+            canMove = false;
+            //animator.enabled = false;
+            
+        }
+        else
+        {
+            if (leoraChar.stunned)
+            {
+                canMove = true;
+                //animator.enabled = true;
+            }
+
+            leoraChar.stunned = false;
+        }
+
 
         if (canMove == true)
         {

@@ -563,6 +563,8 @@ MonoBehaviour:
   MoveSpeed: 5
   attackingMoveSpeed: 1.5
   canMove: 0
+  leoraChar: {fileID: 8705140056556160221}
+  hurtSprite: {fileID: 0}
 --- !u!114 &8705140056556160221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,8 +578,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charName: 
+  charSprite: {fileID: 8940570630105431961}
+  hurtbox: {fileID: 8940570630105431973}
   allied: 1
   animator: {fileID: 0}
+  dropManager: {fileID: 0}
   healthBar: {fileID: 0}
   manaBar: {fileID: 0}
   hpSlider: {fileID: 0}
@@ -608,8 +613,8 @@ MonoBehaviour:
   playerMovement: {fileID: 5654782468327757369}
   magHitbox: {fileID: 6664873387653602075}
   darkMagFollowup: {fileID: 7029962831616942848, guid: 1aedae40441caf147888f5e63b939c3d, type: 3}
+  stunned: 0
   magicType: lightMag
-  hurtbox: {fileID: 8940570630105431973}
   alanAmuletActive: 0
   kisaAmuletActive: 0
   sophieAmuletActive: 0

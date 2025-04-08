@@ -68,45 +68,48 @@ public class PlayerActions : MonoBehaviour
 
 
         //Attacking
-        if (InputManager.attackPressed )
+        if (!leoraChar.stunTimer.isCoolingDown)
         {
-            //Debug.Log("Reading G Input");
-
-            //Sets the Attacking bool in the animator to true
-            if (!leoraChar.attackCooldown.isCoolingDown)
+            if (InputManager.attackPressed)
             {
-                leoraChar.DoNextCombo();
+                //Debug.Log("Reading G Input");
+
+                //Sets the Attacking bool in the animator to true
+                if (!leoraChar.attackCooldown.isCoolingDown)
+                {
+                    leoraChar.DoNextCombo();
+                }
+                else if (leoraChar.comboTimer.isCoolingDown)
+                {
+                    leoraChar.DoNextCombo();
+                }
             }
-            else if (leoraChar.comboTimer.isCoolingDown)
+
+            if (tempMagPart != null && leoraChar.animator.GetBool("Hurt"))
             {
-                leoraChar.DoNextCombo();
+                Destroy(tempMagPart);
             }
-        }
 
-        if (tempMagPart != null && leoraChar.animator.GetBool("Hurt"))
-        {
-            Destroy(tempMagPart);
-        }
+            //Magicking
+            if (InputManager.magicPressed && leoraChar.magicCooldown.isCoolingDown == false && leoraChar.GetMana() > 0)
+            {
+                //Debug.Log("M Pressed");
 
-        //Magicking
-        if (InputManager.magicPressed && leoraChar.magicCooldown.isCoolingDown == false && leoraChar.GetMana() > 0)
-        {
-            //Debug.Log("M Pressed");
+                leoraChar.magicCooldown.StartCooldown();
 
-            leoraChar.magicCooldown.StartCooldown();
+                leoraChar.MagAttack();
 
-            leoraChar.MagAttack();
+                //GameObject tempMagPart;
 
-            //GameObject tempMagPart;
+                //Spawn the magic particles in the animator using the functions below
 
-            //Spawn the magic particles in the animator using the functions below
+            }
 
-        }
-
-        //Parrying
-        if (InputManager.parryPressed && leoraChar.parryCooldown.isCoolingDown == false && leoraChar.animator.GetBool("Hurt") == false)
-        {
-            leoraChar.TriggerParryAnim();
+            //Parrying
+            if (InputManager.parryPressed && leoraChar.parryCooldown.isCoolingDown == false && leoraChar.animator.GetBool("Hurt") == false)
+            {
+                leoraChar.TriggerParryAnim();
+            }
         }
     }
 
