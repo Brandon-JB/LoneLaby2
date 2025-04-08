@@ -9,8 +9,11 @@ public class SaveData
     public string currentScene;
     public Vector3 playerPosition;
 
-    public List<string> equippedItems; 
-    public List<string> unlockedEquipment;    
+    public List<EquipmentEntry> equipmentObtained;
+    public List<EquipmentEntry> equippedAmuletSlot;
+    public List<EquipmentEntry> equippedRingSlot1;
+    public List<EquipmentEntry> equippedRingSlot2;
+    public List<EquipmentEntry> equippedRings;
 
     public int bossesBeaten;
     public int bossesKilled;
