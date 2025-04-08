@@ -9,6 +9,7 @@ public class SaveManager : MonoBehaviour
 
     public GameObject Player;
     public EquipmentManager equipmentManager;
+    public LeoraChar2 leoraChar;
     //public QuestManager questManager;
 
 
@@ -25,9 +26,15 @@ public class SaveManager : MonoBehaviour
 
         //Quests
 
+        //Bosses Dead
+        data.bossStates = ConvertBossDictToList(BossSaveData.bossStates);
+
         //Other Stats
         data.currentScene = SceneManager.GetActiveScene().name;
         data.playerPosition = Player.transform.position;
+        data.currentHP = leoraChar.GetHealth();
+        data.currentMana = leoraChar.GetMana();
+        data.mansionDoorOpened = MansionDoorManager.DoorOpened;
 
 
         SaveSystem.SaveGame(data);
@@ -58,9 +65,13 @@ public class SaveManager : MonoBehaviour
 
         //Quests
 
+        //Bosses Dead
+        RebuildBossDictFromList(data.bossStates, BossSaveData.bossStates);
+
         //Other Stats
-        Player = GameObject.FindGameObjectWithTag("Player"); // or however you get the player
+        Player = GameObject.FindGameObjectWithTag("Player");
         Player.transform.position = data.playerPosition;
+        MansionDoorManager.DoorOpened = data.mansionDoorOpened;
     }
 
     private List<EquipmentEntry> ConvertDictToList(Dictionary<string, bool> dict)
@@ -79,6 +90,23 @@ public class SaveManager : MonoBehaviour
         {
             if (dict.ContainsKey(entry.itemName))
                 dict[entry.itemName] = entry.isUnlocked;
+        }
+    }
+
+    private List<BossStateEntry> ConvertBossDictToList(Dictionary<string, int> dict)
+    {
+        List<BossStateEntry> list = new List<BossStateEntry>();
+        foreach (var kvp in dict)
+            list.Add(new BossStateEntry(kvp.Key, kvp.Value));
+        return list;
+    }
+
+    private void RebuildBossDictFromList(List<BossStateEntry> list, Dictionary<string, int> dict)
+    {
+        foreach (var entry in list)
+        {
+            if (dict.ContainsKey(entry.bossName))
+                dict[entry.bossName] = entry.state;
         }
     }
 
