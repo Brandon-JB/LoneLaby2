@@ -131,7 +131,7 @@ public class BaseChar : MonoBehaviour
 
     public string charName = "";
     public SpriteRenderer charSprite;
-    private Collider2D hurtbox;
+    public Collider2D hurtbox;
 
     public bool allied = true;
 
@@ -550,6 +550,7 @@ public class BaseChar : MonoBehaviour
             if (this.tag != "Boss")
             {
                 StartCoroutine(Knockback(otherAttacker, stMod));
+                Debug.Log("Knockback");
             }
 
             if (GetHealth() <= 0)

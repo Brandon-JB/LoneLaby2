@@ -112,8 +112,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307302628505304583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6446, y: -0.03, z: 0}
-  m_LocalScale: {x: 1.8040724, y: 1.922437, z: 1.2}
+  m_LocalPosition: {x: 1.4579, y: -0.03, z: 0}
+  m_LocalScale: {x: 1.4306421, y: 1.922437, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8940570630105431960}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9def736d89328164598b45ea26b0689e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentChar: {fileID: 8705140056556160221}
+  parentChar: {fileID: 5081894823461499700}
   type: Physical
   isParryable: 1
   alreadyHit: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1ef6e2b1f30564ea96bead24ab3893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leoraChar: {fileID: 8705140056556160221}
+  leoraChar: {fileID: 0}
   magicType: 
 --- !u!50 &720615281640796443
 Rigidbody2D:
@@ -385,13 +385,11 @@ GameObject:
   - component: {fileID: 8940570630105431974}
   - component: {fileID: 8940570630105431973}
   - component: {fileID: 2003407431376437942}
-  - component: {fileID: -6668982063835999907}
-  - component: {fileID: 5654782468327757369}
-  - component: {fileID: 8705140056556160221}
-  - component: {fileID: 6483451813152639840}
+  - component: {fileID: 5081894823461499700}
+  - component: {fileID: 5730453822182870368}
   m_Layer: 3
-  m_Name: CombatPlayer
-  m_TagString: Player
+  m_Name: DarkLeora
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -455,7 +453,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 9
-  m_Sprite: {fileID: -1608755177, guid: 1281ed6884b523342b242173644b051d, type: 3}
+  m_Sprite: {fileID: -130354376, guid: 528d856f2f7384948865844637542588, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -478,7 +476,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 6
+  m_Mass: 60000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -523,7 +521,7 @@ Animator:
   m_GameObject: {fileID: 8940570630105431962}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2bd6ca52fc51a0f43acb0355025c760d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8e2404348f8b1a64d87e95bb5e6cd69c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -533,7 +531,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-6668982063835999907
+--- !u!114 &5081894823461499700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -542,43 +540,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8940570630105431962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b66e76f751a9d0948869e13b914f7181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leoraChar: {fileID: 0}
-  magicParticle: {fileID: 7029962831616942848, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
-  tempMagPart: {fileID: 0}
---- !u!114 &5654782468327757369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8940570630105431962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 864cf50d06bc0eb4cafcb51cfcc08412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  attackingMoveSpeed: 1.5
-  canMove: 0
-  leoraChar: {fileID: 8705140056556160221}
-  hurtSprite: {fileID: 0}
---- !u!114 &8705140056556160221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8940570630105431962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8687d1ba8d75a60488b0db678ed4e497, type: 3}
+  m_Script: {fileID: 11500000, guid: d7055cb344ce5224da1512715de29b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   charName: 
-  charSprite: {fileID: 8940570630105431961}
+  charSprite: {fileID: 0}
   hurtbox: {fileID: 8940570630105431973}
   allied: 1
   animator: {fileID: 0}
@@ -610,15 +576,11 @@ MonoBehaviour:
   magicCooldown:
     cooldownTime: 2
   gameOverManager: {fileID: 0}
-  playerMovement: {fileID: 5654782468327757369}
+  playerMovement: {fileID: 0}
   magHitbox: {fileID: 6664873387653602075}
   darkMagFollowup: {fileID: 7029962831616942848, guid: 1aedae40441caf147888f5e63b939c3d, type: 3}
-  stunned: 0
-  magicType: lightMag
-  alanAmuletActive: 0
-  kisaAmuletActive: 0
-  sophieAmuletActive: 0
---- !u!114 &6483451813152639840
+  magicType: darkMag
+--- !u!114 &5730453822182870368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -627,8 +589,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8940570630105431962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf82168ef4031d542a04120c6a5622f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 0eba3b32f06caf94c845ac303b5b3b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatPortals: {fileID: 0}
-  mansionPortals: {fileID: 0}
+  enemyChar: {fileID: 0}
+  PlayerRB: {fileID: 0}
+  Player: {fileID: 0}
+  attackRange: 3
+  followRange: 50
+  moveSpeed: 4
+  enemyRB: {fileID: 0}
+  cooldown:
+    cooldownTime: 2
+  canMove: 1

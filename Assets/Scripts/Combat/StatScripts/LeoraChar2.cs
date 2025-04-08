@@ -26,9 +26,11 @@ public class LeoraChar2 : BaseChar
 
     [SerializeField] private GameObject darkMagFollowup;
 
+    public bool stunned;
+
     public string magicType = "";
 
-    [SerializeField] private BoxCollider2D hurtbox;
+    //[SerializeField] private BoxCollider2D hurtbox;
 
     private bool hyperArmor;
 
@@ -265,6 +267,33 @@ public class LeoraChar2 : BaseChar
                                 else
                                 {
                                     GotDamaged(0, otherCharTrigger.gameObject, 0);
+                                    TriggerHurtAnim();
+                                }
+                            }
+                            else
+                            {
+                                if (isPerfectParrying)
+                                {
+                                    //Debug.Log("Perfect Parry");
+                                    GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
+                                    otherCharTrigger.TriggerHurtAnim();
+                                    //Debug.Log(otherCharTrigger.gameObject.name);
+                                    otherCharTrigger.stunTimer.cooldownTime = 1f;
+                                    otherCharTrigger.stunTimer.StartCooldown();
+                                    otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                                }
+                                else if (isParrying)
+                                {
+                                    //Debug.Log("Parry");
+                                    GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
+                                    otherCharTrigger.TriggerHurtAnim();
+                                    otherCharTrigger.stunTimer.cooldownTime = 0.5f;
+                                    otherCharTrigger.stunTimer.StartCooldown();
+                                    otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                                }
+                                else
+                                {
+                                    GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
                                     TriggerHurtAnim();
                                 }
                             }
