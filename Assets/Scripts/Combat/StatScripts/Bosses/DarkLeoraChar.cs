@@ -22,6 +22,10 @@ public class DarkLeoraChar : BaseChar
 
     [SerializeField] private GameObject darkMagFollowup;
 
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject projectileSpawnPoint;
+    [SerializeField] private float projectileSpawnOffset;
+
     public string magicType = "";
 
     //[SerializeField] private BoxCollider2D hurtbox;
@@ -303,6 +307,17 @@ public class DarkLeoraChar : BaseChar
 
             //Animator for particles would go here
             tempMagManager.animator.SetBool("darkFollowup", true);
+
+            Vector2 firstProjSpawn = new Vector2(projectileSpawnPoint.transform.position.x + projectileSpawnOffset, projectileSpawnPoint.transform.position.y);
+            Vector2 secondProjSpawn = new Vector2(projectileSpawnPoint.transform.position.x - projectileSpawnOffset, projectileSpawnPoint.transform.position.y);
+
+            GameObject projectile = Instantiate(projectilePrefab, firstProjSpawn, Quaternion.identity);
+            IvarProjectile projScript = projectile.GetComponent<IvarProjectile>();
+            projScript.parentChar = this;
+
+            GameObject secondProjectile = Instantiate(projectilePrefab, secondProjSpawn, Quaternion.identity);
+            IvarProjectile secondProjScript = secondProjectile.GetComponent<IvarProjectile>();
+            secondProjScript.parentChar = this;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class darkLeoraViinDiveAI : BaseChar
 {
-    [SerializeField] private Cooldown diveCooldown;
+    [SerializeField] public Cooldown diveCooldown;
     private bool diving;
     private GameObject Player;
 
@@ -48,7 +48,7 @@ public class darkLeoraViinDiveAI : BaseChar
 
         WarningObject.SetActive(true);
 
-        yield return new WaitForSeconds(0.85f);
+        yield return new WaitForSeconds(1.5f);
 
         WarningObject.SetActive(false);
 
