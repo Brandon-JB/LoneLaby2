@@ -289,7 +289,7 @@ public class LeoraChar2 : BaseChar
                                 {
                                     //Debug.Log("Perfect Parry");
                                     GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
-                                    otherCharTrigger.TriggerHurtAnim();
+                                    //otherCharTrigger.TriggerHurtAnim();
                                     //Debug.Log(otherCharTrigger.gameObject.name);
                                     otherCharTrigger.stunTimer.cooldownTime = 1f;
                                     otherCharTrigger.stunTimer.StartCooldown();
@@ -299,7 +299,7 @@ public class LeoraChar2 : BaseChar
                                 {
                                     //Debug.Log("Parry");
                                     GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
-                                    otherCharTrigger.TriggerHurtAnim();
+                                    //otherCharTrigger.TriggerHurtAnim();
                                     otherCharTrigger.stunTimer.cooldownTime = 0.5f;
                                     otherCharTrigger.stunTimer.StartCooldown();
                                     otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
