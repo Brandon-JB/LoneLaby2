@@ -103,7 +103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6299121855978842110
 Transform:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 1307302628505304583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.4579, y: -0.03, z: 0}
-  m_LocalScale: {x: 1.4306421, y: 1.922437, z: 1.2}
+  m_LocalScale: {x: 1.4306421, y: 1.65, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8940570630105431960}
@@ -234,6 +234,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &4150097563556272589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2563201690785542327}
+  m_Layer: 3
+  m_Name: ProjectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2563201690785542327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4150097563556272589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8940570630105431960}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6664873387653602075
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +425,7 @@ Transform:
   - {fileID: 6299121855978842110}
   - {fileID: 5293778939441618249}
   - {fileID: 8876787556816172860}
+  - {fileID: 2563201690785542327}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -564,6 +596,9 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   magHitbox: {fileID: 6664873387653602075}
   darkMagFollowup: {fileID: 7029962831616942848, guid: 0ff63371c4aa8a843b5f8f40b4ee58b5, type: 3}
+  projectilePrefab: {fileID: 2865469907293863706, guid: 74a10ffa69ca86c45abfa7dcc0cc36a3, type: 3}
+  projectileSpawnPoint: {fileID: 4150097563556272589}
+  projectileSpawnOffset: 1
   magicType: darkMag
 --- !u!114 &5730453822182870368
 MonoBehaviour:
@@ -589,3 +624,8 @@ MonoBehaviour:
   canMove: 1
   leoraChar: {fileID: 0}
   magicParticle: {fileID: 7029962831616942848, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
+  secondPhaseActive: 0
+  lucanLeoraCopy: {fileID: 7487041304306391988, guid: 164d29243c4c0d04b8c0aa671dbefa0b, type: 3}
+  lucanSpawnPoint: {fileID: 0}
+  viinLeoraCopy: {fileID: 7487041304306391988, guid: 1e4620088a30dd94c9a3cbb6b55a7099, type: 3}
+  viinSpawnPoint: {fileID: 0}

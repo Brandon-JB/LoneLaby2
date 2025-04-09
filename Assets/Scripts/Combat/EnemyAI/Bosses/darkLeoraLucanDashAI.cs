@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class darkLeoraLucanDashAI : BaseChar
 {
@@ -11,6 +12,9 @@ public class darkLeoraLucanDashAI : BaseChar
 
     [SerializeField] private GameObject leftDashArrow;
     [SerializeField] private GameObject rightDashArrow;
+
+    [SerializeField] private Image leftArrowSprite;
+    [SerializeField] private Image rightArrowSprite;
 
     [SerializeField] private Rigidbody2D enemyRB;
 
@@ -28,8 +32,11 @@ public class darkLeoraLucanDashAI : BaseChar
         leftDashArrow = GameObject.Find("LeftArrow");
         rightDashArrow = GameObject.Find("RightArrow");
 
-        leftDashArrow.SetActive(false);
-        rightDashArrow.SetActive(false);
+        leftArrowSprite = leftDashArrow.GetComponent<Image>();
+        rightArrowSprite = rightDashArrow.GetComponent<Image>();
+
+        leftArrowSprite.enabled = false;
+        rightArrowSprite.enabled = false;
 
         animator.SetBool("lucanDash", true);
 
@@ -52,14 +59,15 @@ public class darkLeoraLucanDashAI : BaseChar
             //If Lucan hasn't reached is target yet
             if (Vector2.Distance(enemyRB.transform.position, dashTarget) > 1 && animator.GetBool("stunned") == false) 
             {
-                leftDashArrow.SetActive(false);
-                rightDashArrow.SetActive(false);
+                leftArrowSprite.enabled = false;
+                rightArrowSprite.enabled = false;
                 enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, dashTarget, dashSpeed * Time.deltaTime);
             }
             else
             {
 
                 timeBetweenDashes.StartCooldown();
+                //Debug.Log("Reached end");
 
                 ResetHitbox();
 
@@ -69,13 +77,15 @@ public class darkLeoraLucanDashAI : BaseChar
                 if (Vector2.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector2.Distance(enemyRB.transform.position, topRightArenaBounds))
                 {
                     dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
-                    Debug.Log("Change side");
+                    //leftArrowSprite.enabled = true;
+                    //Debug.Log("Change side");
                     animator.SetFloat("moveX", 1);
                 }
                 else
                 {
                     dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
-                    Debug.Log("Change side");
+                    //rightArrowSprite.enabled = true;
+                    //Debug.Log("Change side");
                     animator.SetFloat("moveX", -1);
 
                 }/* This part is literally useless why did i have it here
@@ -109,22 +119,33 @@ public class darkLeoraLucanDashAI : BaseChar
         }
         else
         {
-            if (Vector2.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector2.Distance(enemyRB.transform.position, topRightArenaBounds))
+            //if (Vector2.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector2.Distance(enemyRB.transform.position, topRightArenaBounds))
+            if (!animator.GetBool("stunned"))
             {
-                leftDashArrow.SetActive(true);
-                
+                if (Mathf.Abs(Mathf.Abs(enemyRB.transform.position.x) - Mathf.Abs(bottomLeftArenaBounds.x)) < Mathf.Abs(Mathf.Abs(enemyRB.transform.position.x) - Mathf.Abs(topRightArenaBounds.x)))
+                {
+                    //leftDashArrow.SetActive(true);
+                    leftArrowSprite.enabled = true;
+                    rightArrowSprite.enabled = false;
+                }
+                else
+                {
+                    //rightDashArrow.SetActive(true);
+                    rightArrowSprite.enabled = true;
+                    leftArrowSprite.enabled = false;
+                }
+
+                this.transform.position = new Vector2(this.transform.position.x, Player.transform.position.y);
+                dashTarget.y = Player.transform.position.y;
             }
-            else
-            {
-                rightDashArrow.SetActive(true);
-            }
-            this.transform.position = new Vector2(this.transform.position.x, Player.transform.position.y);
-            dashTarget.y = Player.transform.position.y;
         }
     }
 
     public override IEnumerator deathAnim()
     {
+
+        Color c = charSprite.material.color;
+
         for (float f = 1; f >= 0; f -= 0.05f)
         {
             if (charSprite == null)
@@ -132,7 +153,6 @@ public class darkLeoraLucanDashAI : BaseChar
                 continue;
             }
 
-            Color c = charSprite.material.color;
             c.a = f;
             c.r = Random.Range(0, 1f);
             c.g = Random.Range(0, 1f);
@@ -145,6 +165,20 @@ public class darkLeoraLucanDashAI : BaseChar
         }
 
         dropManager.SpecificDrop(this.transform.position, "Small HP");
-        Destroy(this.gameObject);
+        ReachDestination();
+        animator.enabled = true;
+        charRB.constraints = RigidbodyConstraints2D.None;
+        EnableHitbox();
+        c.a = 1;
+        c.r = 1;
+        c.g = 1;
+        c.b = 1;
+        charSprite.color = c;
+        animator.SetBool("stunned", false);
+    }
+
+    private void ReachDestination()
+    {
+        this.transform.position = dashTarget;
     }
 }

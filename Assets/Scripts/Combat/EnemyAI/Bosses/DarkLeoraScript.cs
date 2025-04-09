@@ -12,10 +12,18 @@ public class DarkLeoraScript : EnemyScript
 
     private GameObject tempMagPart;
 
+    public bool secondPhaseActive;
+
+    [SerializeField] private GameObject lucanLeoraCopy;
+    [SerializeField] private GameObject lucanSpawnPoint;
+    [SerializeField] private GameObject viinLeoraCopy;
+    [SerializeField] private GameObject viinSpawnPoint;
+
     // Start is called before the first frame update
     void Start()
     {
         leoraChar = FindObjectOfType<LeoraChar2>();
+        secondPhaseActive = false;
     }
 
     public void SpawnDarkParticle()
@@ -34,6 +42,17 @@ public class DarkLeoraScript : EnemyScript
         if (DistanceFromPlayer > followRange || canMove == false)
         {
             enemyChar.animator.SetBool("isMoving", false);
+        }
+
+        if (!secondPhaseActive && enemyChar.GetHealth() <= enemyChar.GetMaxHealth() / 2)
+        {
+            secondPhaseActive = true;
+            Instantiate(lucanLeoraCopy, lucanSpawnPoint.transform.position, Quaternion.identity);
+            GameObject tempViinObject = Instantiate(viinLeoraCopy, viinSpawnPoint.transform.position, Quaternion.identity);
+
+            darkLeoraViinDiveAI viinAI = tempViinObject.GetComponent<darkLeoraViinDiveAI>();
+
+            viinAI.diveCooldown.StartCooldown();
         }
 
         if (!cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false && enemyChar.stunTimer.isCoolingDown == false)
