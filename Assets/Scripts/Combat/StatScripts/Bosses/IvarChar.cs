@@ -127,9 +127,14 @@ public class IvarChar : BaseChar
             Destroy(enemy.gameObject);
         }
 
-        killSpareMenu.SetActive(true);
-        killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
-        killSpare.bossName = "Ivar";
+        mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
+        mdm.dialogueSTART("IvarQuest/manor_postfight");
+        //I don't think I have to do anything else for this, but I can modify this.
+
+        //This opens kill/spare
+        //killSpareMenu.SetActive(true);
+        //killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
+        //killSpare.bossName = "Ivar";
         Destroy(this.gameObject);
     }
 }

@@ -68,9 +68,15 @@ public class LucanChar : BaseChar
     {
         //put whatever code to trigger the end of boss fight things
         //SceneManager.LoadScene("Overworld");
-        killSpareMenu.SetActive(true);
-        killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
-        killSpare.bossName = "Lucan";
+
+
+        mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
+        mdm.dialogueSTART("LucanQuest/cave_postfight");
+        //I don't think I have to do anything else for this, but I can modify this.
+
+        //killSpareMenu.SetActive(true);
+        //killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
+        //killSpare.bossName = "Lucan";
         Destroy(this.gameObject);
     }
 }
