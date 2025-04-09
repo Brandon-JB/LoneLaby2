@@ -321,6 +321,8 @@ GameObject:
   - component: {fileID: 7487041304306391989}
   - component: {fileID: 7487041304306391985}
   - component: {fileID: 6549770698280233058}
+  - component: {fileID: 3399246347791944302}
+  - component: {fileID: 6555884606941425744}
   m_Layer: 7
   m_Name: Severin
   m_TagString: Boss
@@ -412,3 +414,63 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &3399246347791944302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487041304306391988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43d358b2df4bed4387cb979ae56ac44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: 
+  charSprite: {fileID: 0}
+  hurtbox: {fileID: 0}
+  allied: 1
+  animator: {fileID: 0}
+  dropManager: {fileID: 0}
+  healthBar: {fileID: 0}
+  manaBar: {fileID: 0}
+  hpSlider: {fileID: 0}
+  mpSlider: {fileID: 0}
+  charRB: {fileID: 0}
+  knockbackDirection: {x: 0, y: 0}
+  hitboxChild: {fileID: 5767441807547043229}
+  hbChildScript: {fileID: 6128468894897992982}
+  damagePopup: {fileID: 3844901903003089880, guid: dbf6cc6177486f8448488a9f7d1e143f, type: 3}
+  isParrying: 0
+  isPerfectParrying: 0
+  ParryIndicator: {fileID: 0}
+  testParrySprite: {fileID: 0}
+  parryCooldown:
+    cooldownTime: 100
+  stunTimer:
+    cooldownTime: 100
+  particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
+  slowTimer:
+    cooldownTime: 100
+--- !u!114 &6555884606941425744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487041304306391988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce721db67516c547a528008d7a118ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyChar: {fileID: 0}
+  PlayerRB: {fileID: 0}
+  Player: {fileID: 0}
+  attackRange: 3
+  followRange: 30
+  moveSpeed: 4
+  enemyRB: {fileID: 0}
+  cooldown:
+    cooldownTime: 2
+  canMove: 1

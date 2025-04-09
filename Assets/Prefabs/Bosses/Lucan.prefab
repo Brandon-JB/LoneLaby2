@@ -352,8 +352,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charName: 
+  charSprite: {fileID: 0}
+  hurtbox: {fileID: 0}
   allied: 1
   animator: {fileID: 0}
+  dropManager: {fileID: 0}
   healthBar: {fileID: 0}
   manaBar: {fileID: 0}
   hpSlider: {fileID: 0}
@@ -391,7 +394,7 @@ MonoBehaviour:
   PlayerRB: {fileID: 0}
   Player: {fileID: 0}
   attackRange: 2
-  followRange: 20
+  followRange: 30
   moveSpeed: 4
   enemyRB: {fileID: 0}
   cooldown:
@@ -410,3 +413,5 @@ MonoBehaviour:
   dashCount: 0
   dashLimit: 4
   dashSpeed: 10
+  leftDashArrow: {fileID: 0}
+  rightDashArrow: {fileID: 0}

@@ -89,6 +89,8 @@ public class DarkLeoraChar : BaseChar
 
     public override void Update()
     {
+        base.Update();
+
         //Once the combo timer ends, then set the combo bool in the animator to false;
         if (!comboTimer.isCoolingDown)
         {
