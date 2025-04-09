@@ -64,10 +64,13 @@ public class QuestMenu : MonoBehaviour
         //Find who has been killed, who has not, and what quests were taken
 
         //then, assign descriptions
+        //Debug.Log(ivarDescriptions[0]);
+        //Debug.Log(ivarColors[0]);
+        //Debug.Log(ivarImages[0]);
         //Debug.Log(description[0]);
-        //FindStatus("Ivar", ivarDescriptions, ivarColors, ivarImages, description[0]);
-        //FindStatus("Viin", viinDescriptions, viinColors, viinImages, description[1]);
-        //FindStatus("Lucan", lucanDescriptions, lucanColors, lucanImages, description[2]);
+        FindStatus("Ivar", ivarDescriptions, ivarColors, ivarImages, description[0]);
+        FindStatus("Viin", viinDescriptions, viinColors, viinImages, description[1]);
+        FindStatus("Lucan", lucanDescriptions, lucanColors, lucanImages, description[2]);
 
         //change ui color 
     }
