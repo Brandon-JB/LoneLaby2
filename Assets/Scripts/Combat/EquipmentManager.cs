@@ -82,7 +82,7 @@ public class EquipmentManager : MonoBehaviour
 
     private void Awake()
     {
-        leoraChar = GameObject.Find("CombatPlayer").GetComponent<LeoraChar2>();
+        leoraChar = GameObject.FindObjectOfType<LeoraChar2>();
     }
 
     public void GainedEquipment(string itemName)
