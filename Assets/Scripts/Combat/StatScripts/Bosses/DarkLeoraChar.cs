@@ -26,6 +26,8 @@ public class DarkLeoraChar : BaseChar
     [SerializeField] private GameObject projectileSpawnPoint;
     [SerializeField] private float projectileSpawnOffset;
 
+    public bool secondPhaseActive;
+
     public string magicType = "";
 
     //[SerializeField] private BoxCollider2D hurtbox;
@@ -45,7 +47,7 @@ public class DarkLeoraChar : BaseChar
         allied = false;
         magicType = "darkMag";
 
-        ChangeStats(14, 10, 4, 300, 10);
+        ChangeStats(14, 10, 4, 12, 10);
 
         animator.SetFloat("LastH", 0);
         animator.SetFloat("LastV", -1);
@@ -310,16 +312,19 @@ public class DarkLeoraChar : BaseChar
             //Animator for particles would go here
             tempMagManager.animator.SetBool("darkFollowup", true);
 
-            Vector2 firstProjSpawn = new Vector2(projectileSpawnPoint.transform.position.x + projectileSpawnOffset, projectileSpawnPoint.transform.position.y);
-            Vector2 secondProjSpawn = new Vector2(projectileSpawnPoint.transform.position.x - projectileSpawnOffset, projectileSpawnPoint.transform.position.y);
+            if (secondPhaseActive)
+            {
+                Vector2 firstProjSpawn = new Vector2(projectileSpawnPoint.transform.position.x + projectileSpawnOffset, projectileSpawnPoint.transform.position.y);
+                Vector2 secondProjSpawn = new Vector2(projectileSpawnPoint.transform.position.x - projectileSpawnOffset, projectileSpawnPoint.transform.position.y);
 
-            GameObject projectile = Instantiate(projectilePrefab, firstProjSpawn, Quaternion.identity);
-            IvarProjectile projScript = projectile.GetComponent<IvarProjectile>();
-            projScript.parentChar = this;
+                GameObject projectile = Instantiate(projectilePrefab, firstProjSpawn, Quaternion.identity);
+                IvarProjectile projScript = projectile.GetComponent<IvarProjectile>();
+                projScript.parentChar = this;
 
-            GameObject secondProjectile = Instantiate(projectilePrefab, secondProjSpawn, Quaternion.identity);
-            IvarProjectile secondProjScript = secondProjectile.GetComponent<IvarProjectile>();
-            secondProjScript.parentChar = this;
+                GameObject secondProjectile = Instantiate(projectilePrefab, secondProjSpawn, Quaternion.identity);
+                IvarProjectile secondProjScript = secondProjectile.GetComponent<IvarProjectile>();
+                secondProjScript.parentChar = this;
+            }
         }
     }
 }
