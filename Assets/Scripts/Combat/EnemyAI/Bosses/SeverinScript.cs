@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class SeverinScript : EnemyScript
 {
+    private bool firstBigHitDone;
+    private bool secondBigHitDone;
+
+    [SerializeField] public GameObject screenFlash;
+    [SerializeField] private GameObject massiveHitbox;
+
+    [SerializeField] private float defaultCooldown = 2;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        firstBigHitDone = false;
+        secondBigHitDone = false;
+        screenFlash.SetActive(false);
     }
 
     /*Severin Combat loop:
@@ -26,16 +36,31 @@ public class SeverinScript : EnemyScript
             enemyChar.animator.SetBool("isMoving", false);
         }
 
-        if (!cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false && enemyChar.stunTimer.isCoolingDown == false)
+        if (!cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false && enemyChar.stunTimer.isCoolingDown == false && !enemyChar.animator.GetBool("charging"))
         {
             canMove = true;
         }
         else// if (enemyChar.animator.GetBool("Hurt") == true)
         {
             canMove = false;
+            enemyChar.animator.SetBool("isMoving", false);
         }
 
-        //Debug.Log("Enemy is existing");
+        //Beginning charged attack
+        if (!firstBigHitDone && enemyChar.GetHealth() <= enemyChar.GetMaxHealth() / 2)
+        {
+            firstBigHitDone = true;
+            enemyChar.animator.SetBool("charging", true);
+            enemyChar.animator.SetBool("Attacking", false);
+        }
+
+        //Beginning charged attack again
+        if (!secondBigHitDone && enemyChar.GetHealth() <= enemyChar.GetMaxHealth() / 4)
+        {
+            secondBigHitDone = true;
+            enemyChar.animator.SetBool("charging", true);
+            enemyChar.animator.SetBool("Attacking", false);
+        }
 
         //Movement
         if (canMove == true && enemyChar.animator.GetBool("Attacking") == false)
@@ -199,9 +224,36 @@ public class SeverinScript : EnemyScript
 
                 enemyChar.animator.SetBool("Attacking", true);
 
+                cooldown.cooldownTime = defaultCooldown;
                 cooldown.StartCooldown();
 
             }
         }
+    }
+
+    public void enableScreenFlash()
+    {
+        screenFlash.SetActive(true);
+    }
+
+    public void DisabledChargeAnim()
+    {
+        enemyChar.animator.SetBool("charging", false);
+        enemyChar.animator.SetBool("endCharge", false);
+    }
+
+    public void DisableScreenFlash()
+    {
+        screenFlash.SetActive(false);
+    }
+
+    public void TriggerMassiveAttack()
+    {
+        massiveHitbox.SetActive(true);
+    }
+
+    public void DisableMassiveHitbox()
+    {
+        massiveHitbox.SetActive(false);
     }
 }

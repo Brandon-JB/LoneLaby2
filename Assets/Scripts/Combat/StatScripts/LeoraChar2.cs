@@ -253,7 +253,7 @@ public class LeoraChar2 : BaseChar
                                     darknessManager.LucanProgressDarkness();
                                     TriggerHurtAnim();
                                 }
-                               
+
                             }
                             //dark leora fight lucan
                             else if (otherCharTrigger.charName == "Lucora")
@@ -291,7 +291,9 @@ public class LeoraChar2 : BaseChar
                                     GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
                                     //otherCharTrigger.TriggerHurtAnim();
                                     //Debug.Log(otherCharTrigger.gameObject.name);
-                                    otherCharTrigger.stunTimer.cooldownTime = 1f;
+                                    otherCharTrigger.stunTimer.cooldownTime = 2f;
+                                    otherCharTrigger.animator.SetBool("stunned", true);
+                                    otherCharTrigger.animator.SetBool("Attacking", false);
                                     otherCharTrigger.stunTimer.StartCooldown();
                                     otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                                 }
@@ -300,7 +302,9 @@ public class LeoraChar2 : BaseChar
                                     //Debug.Log("Parry");
                                     GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
                                     //otherCharTrigger.TriggerHurtAnim();
-                                    otherCharTrigger.stunTimer.cooldownTime = 0.5f;
+                                    otherCharTrigger.stunTimer.cooldownTime = 1f;
+                                    otherCharTrigger.animator.SetBool("stunned", true);
+                                    otherCharTrigger.animator.SetBool("Attacking", false);
                                     otherCharTrigger.stunTimer.StartCooldown();
                                     otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                                 }
@@ -335,6 +339,71 @@ public class LeoraChar2 : BaseChar
 
                 GotDamaged(magDamage, otherCharTrigger.gameObject, 1);
                 TriggerHurtAnim();
+            }
+            //During Severin's fight when touching big hit
+            else if (collision.tag == "MassiveHitbox")
+            {
+                otherCharTrigger = collision.GetComponent<BaseChar>();
+
+                //Debug.Log("Hitbox triggered");
+
+                if (otherCharTrigger == null)
+                {
+                    hitboxChild = collision.GetComponent<HitboxChar>();
+
+                    if (hitboxChild == null)
+                    {
+                        hitboxChild = collision.GetComponentInParent<HitboxChar>();
+                        Debug.Log("Child not found");
+                    }
+
+                    otherCharTrigger = hitboxChild.parentChar;
+
+                    if (otherCharTrigger == null)
+                    {
+                        Debug.Log("Unable to find parent character of hitbox");
+                    }
+                }
+
+                if (otherCharTrigger != null)
+                {
+                    hitboxChild = collision.GetComponent<HitboxChar>();
+
+                    if (otherCharTrigger.allied != this.allied)
+                    {
+                        if (hitboxChild == null)
+                        {
+                            hitboxChild = collision.GetComponentInParent<HitboxChar>();
+                            //Debug.Log("Child not found");
+                        }
+
+                        hitboxChild.alreadyHit = true;
+                        collision.gameObject.SetActive(false);
+
+                        if (isPerfectParrying)
+                        {
+                            //Debug.Log("Perfect Parry");
+                            GotDamaged(0, otherCharTrigger.gameObject, 0);
+                            otherCharTrigger.animator.SetBool("stunned", true);
+                            otherCharTrigger.stunTimer.cooldownTime = 5f;
+                            otherCharTrigger.stunTimer.StartCooldown();
+                            otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                        }
+                        else if (isParrying)
+                        {
+                            GotDamaged(15, otherCharTrigger.gameObject, 0);
+                            otherCharTrigger.animator.SetBool("stunned", true);
+                            otherCharTrigger.stunTimer.cooldownTime = 2.5f;
+                            otherCharTrigger.stunTimer.StartCooldown();
+                            otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                        }
+                        else
+                        {
+                            GotDamaged(50, collision.gameObject, 1);
+                            TriggerHurtAnim();
+                        }
+                    }
+                }
             }
             //on walking into a drop
             else if (collision.tag == "Drop")

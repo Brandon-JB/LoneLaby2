@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class SeverinChar : BaseChar
 {
+    [SerializeField] private SeverinScript sevScript;
+
     // Start is called before the first frame update
     void Start()
     {
         charName = "Severin";
         allied = false;
 
-        ChangeStats(16, 0, 8, 300, 0);
+        ChangeStats(16, 0, 8, 24, 0);
     }
 
     // Update is called once per frame
     public override void Update()
     {
         base.Update();
+
+        if (animator.GetBool("stunned") && !stunTimer.isCoolingDown)
+        {
+            animator.SetBool("Attacking", false);
+            animator.SetBool("stunned", false);
+            sevScript.cooldown.cooldownTime = 1;
+            sevScript.cooldown.StartCooldown();
+        }
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)
@@ -53,15 +63,23 @@ public class SeverinChar : BaseChar
                 {
                     if (otherCharTrigger.allied != this.allied || otherCharTrigger.charName == "EarthElement")
                     {
-                        hitboxChild.alreadyHit = true;
-                        collision.gameObject.SetActive(false);
+                        //if Severin is not charging the massive attack
+                        if (!animator.GetBool("charging") && !sevScript.screenFlash.activeInHierarchy)
+                        {
+                            hitboxChild.alreadyHit = true;
+                            collision.gameObject.SetActive(false);
 
-                        int incomingDamage = otherCharTrigger.statsSheet["Strength"] - statsSheet["Defense"];
+                            int incomingDamage = otherCharTrigger.statsSheet["Strength"] - statsSheet["Defense"];
 
-                        LeoraChar2 leoraChar = otherCharTrigger.GetComponent<LeoraChar2>();
+                            LeoraChar2 leoraChar = otherCharTrigger.GetComponent<LeoraChar2>();
 
-                        GotDamaged(incomingDamage, otherCharTrigger.gameObject, 0);
-                        //TriggerHurtAnim();
+                            GotDamaged(incomingDamage, otherCharTrigger.gameObject, 0);
+                            //TriggerHurtAnim();
+                        }
+                        else
+                        {
+                            animator.SetBool("endCharge", true);
+                        }
                     }
                 }
             }

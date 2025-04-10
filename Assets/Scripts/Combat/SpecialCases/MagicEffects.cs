@@ -53,6 +53,7 @@ public class MagicEffects : MonoBehaviour
             {
                 if (collision.tag != "Boss")
                 {
+                    enemyChar.slowTimer.cooldownTime = 6;
                     enemyChar.slowTimer.StartCooldown();
                     enemyChar.animator.speed = 0.5f;
                 }
