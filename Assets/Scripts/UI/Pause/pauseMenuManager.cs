@@ -171,6 +171,7 @@ public class pauseMenuManager : MonoBehaviour
     public void exitOptions()
     {
         //move the entiiiirrreeee UI
+        audioStatics.SaveSettings();
         this.transform.DOMove(startLocations[3].position, 1).SetUpdate(true);
         optionsTXT.DOFade(0, 1).SetUpdate(true);
         mainButtons.alpha = 0;

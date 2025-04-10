@@ -90,5 +90,17 @@ public class Options : MonoBehaviour
         //playerController.DeleteSave();
         DeleteSaveMenu.SetActive(true);
     }
+
+    public void SaveSettings()
+    {
+        PlayerPrefs.SetFloat("MasterVolume", audioStatics.MasterVolume);
+        PlayerPrefs.SetFloat("BGMVolume", audioStatics.BGMVolume);
+        PlayerPrefs.SetFloat("SFXVolume", audioStatics.SFXVolume);
+        PlayerPrefs.SetFloat("VoiceVolume", audioStatics.VoiceVolume);
+        PlayerPrefs.SetFloat("TextSpeedMultiplier", audioStatics.TextSpeedMultiplier);
+
+        PlayerPrefs.Save(); // Actually writes to disk
+    }
+
 }
 
