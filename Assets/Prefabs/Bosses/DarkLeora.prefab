@@ -596,9 +596,10 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   magHitbox: {fileID: 6664873387653602075}
   darkMagFollowup: {fileID: 7029962831616942848, guid: 0ff63371c4aa8a843b5f8f40b4ee58b5, type: 3}
-  projectilePrefab: {fileID: 2865469907293863706, guid: 74a10ffa69ca86c45abfa7dcc0cc36a3, type: 3}
+  projectilePrefab: {fileID: 2865469907293863706, guid: 256bc6a742beea441a41d67cf1abe57b, type: 3}
   projectileSpawnPoint: {fileID: 4150097563556272589}
   projectileSpawnOffset: 1
+  secondPhaseActive: 0
   magicType: darkMag
 --- !u!114 &5730453822182870368
 MonoBehaviour:
@@ -624,7 +625,7 @@ MonoBehaviour:
   canMove: 1
   leoraChar: {fileID: 0}
   magicParticle: {fileID: 7029962831616942848, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
-  secondPhaseActive: 0
+  darkLeoraChar: {fileID: 5081894823461499700}
   lucanLeoraCopy: {fileID: 7487041304306391988, guid: 164d29243c4c0d04b8c0aa671dbefa0b, type: 3}
   lucanSpawnPoint: {fileID: 0}
   viinLeoraCopy: {fileID: 7487041304306391988, guid: 1e4620088a30dd94c9a3cbb6b55a7099, type: 3}

@@ -15,5 +15,11 @@ public class JaelChar : BaseChar
     public override void Update()
     {
         base.Update();
+
+        if (animator.GetBool("stunned") && !stunTimer.isCoolingDown)
+        {
+            animator.SetBool("stunend", false);
+
+        }
     }
 }

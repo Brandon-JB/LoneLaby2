@@ -12,7 +12,7 @@ public class DarkLeoraScript : EnemyScript
 
     private GameObject tempMagPart;
 
-    public bool secondPhaseActive;
+    [SerializeField] private DarkLeoraChar darkLeoraChar;
 
     [SerializeField] private GameObject lucanLeoraCopy;
     [SerializeField] private GameObject lucanSpawnPoint;
@@ -23,7 +23,7 @@ public class DarkLeoraScript : EnemyScript
     void Start()
     {
         leoraChar = FindObjectOfType<LeoraChar2>();
-        secondPhaseActive = false;
+        darkLeoraChar.secondPhaseActive = false;
     }
 
     public void SpawnDarkParticle()
@@ -44,9 +44,9 @@ public class DarkLeoraScript : EnemyScript
             enemyChar.animator.SetBool("isMoving", false);
         }
 
-        if (!secondPhaseActive && enemyChar.GetHealth() <= enemyChar.GetMaxHealth() / 2)
+        if (!darkLeoraChar.secondPhaseActive && enemyChar.GetHealth() <= enemyChar.GetMaxHealth() / 2)
         {
-            secondPhaseActive = true;
+            darkLeoraChar.secondPhaseActive = true;
             Instantiate(lucanLeoraCopy, lucanSpawnPoint.transform.position, Quaternion.identity);
             GameObject tempViinObject = Instantiate(viinLeoraCopy, viinSpawnPoint.transform.position, Quaternion.identity);
 
