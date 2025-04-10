@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using System.Linq;
+using UnityEngine.InputSystem;
 
 public class Tutorial : MonoBehaviour
 {
     //i have the text to display, maybe we could freeze the game, display it, wait 3 seconds,
     //then have the "try it now!!" text pop up, unfreeze the player, and only advance after they do that input or something
 
+    public InputActionAsset controls;
     [SerializeField] private string[] textToDisplay;
     [SerializeField] private TextMeshProUGUI[] tutorialtext;
     [SerializeField] private Transform[] locations;
@@ -19,6 +22,7 @@ public class Tutorial : MonoBehaviour
     public LeoraChar2 leoraChar;
 
     public SeverinTutorial severinTutorial;
+    string[] parsedSteps;
 
     public static Tutorial Instance { get; private set; } // Singleton instance
 
@@ -39,6 +43,21 @@ public class Tutorial : MonoBehaviour
     {
         //Freeze the game
         StartCoroutine(freeze());
+
+        string attackKey = controls.FindAction("Attack").bindings[0].ToDisplayString();
+        string magicKey = controls.FindAction("Magic").bindings[0].ToDisplayString();
+        string parryKey = controls.FindAction("Parry").bindings[0].ToDisplayString();
+
+        parsedSteps = textToDisplay
+            .Select(step => step
+                .Replace("(ATTACK_KEY)", attackKey)
+                .Replace("(MAGIC_KEY)", magicKey)
+                .Replace("(PARRY_KEY)", parryKey))
+            .ToArray();
+
+        //Debug.Log(parsedSteps.Length);
+        //Debug.Log(parsedSteps[0]);
+
     }
 
     public void progressTutorial()
@@ -53,7 +72,7 @@ public class Tutorial : MonoBehaviour
                 tutorialUI[1].position = locations[3].position;
                 break;
         }
-        tutorialtext[tutorialCounter % 2].text = textToDisplay[tutorialCounter];
+        tutorialtext[tutorialCounter % 2].text = parsedSteps[tutorialCounter];
 
         tutorialUI[tutorialCounter % 2].DOMove(locations[tutorialCounter % 2].position, 0.5f).SetUpdate(true).OnComplete(() => {
 

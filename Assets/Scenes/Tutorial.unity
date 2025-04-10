@@ -17801,17 +17801,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2df2119f5c79d4fad0eb213d5a463b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controls: {fileID: -944628639613478452, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
   textToDisplay:
   - When in dangerous situations, sometimes combat is necessary. Leora can move using
-    W, A, S, and D, but she can also attack using Enter.
-  - Try attacking the training dummy now using Enter.
-  - Additionally, Leora can use magic to deal damage to multiple enemies at once.
-    Each type of magic also has an additional effect, with Light magic stunning enemies.
-  - Try casting Light magic using M. Leora can gain different types of magic at a
-    later date.
-  - Finally, Leora can also parry attacks, stunning the attacker and diminishing
-    the damage dealt to her. This can be done using P.
-  - Try parrying Severin now using P. Time if perfectly to get a perfect parry!
+    W, A, S, and D, but she can also <color=#e64539>attack</color> by pressing <color=#e64539>(ATTACK_KEY)</color>.
+  - Try <color=#e64539>attacking</color> the training dummy now by moving and pressing
+    <color=#e64539>(ATTACK_KEY)</color>.
+  - Additionally, Leora can use <color=#70c6bc>magic</color> to deal damage to multiple
+    enemies at once. Each type of <color=#70c6bc>magic</color> also has an additional
+    effect, with <color=#70c6bc>Light magic</color> stunning enemies.
+  - Try casting <color=#70c6bc>Light magic</color> by pressing <color=#70c6bc>(MAGIC_KEY)</color>.
+    Leora can gain different types of <color=#70c6bc>magic</color> at a later date.
+  - Finally, Leora can also <color=#f0b541>parry</color> attacks, stunning the attacker
+    and diminishing the damage dealt to her. This can be done using the <color=#f0b541>(PARRY_KEY)</color>
+    key.
+  - Try <color=#f0b541>parrying</color> Severin now using the <color=#f0b541>(PARRY_KEY)</color>
+    key. Time it perfectly to get a perfect <color=#f0b541>parry</color>!
   tutorialtext:
   - {fileID: 1363925927}
   - {fileID: 1841539938}
