@@ -24,24 +24,26 @@ public class Tutorial : MonoBehaviour
     public SeverinTutorial severinTutorial;
     string[] parsedSteps;
 
-    public static Tutorial Instance { get; private set; } // Singleton instance
+    //public static Tutorial Instance { get; private set; } // Singleton instance
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //if (Instance == null)
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     private void Start()
     {
         //Freeze the game
+
+        tutorialCounter = 0;
         StartCoroutine(freeze());
 
         string attackKey = controls.FindAction("Attack").bindings[0].ToDisplayString();
