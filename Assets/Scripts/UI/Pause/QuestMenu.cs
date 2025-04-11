@@ -15,27 +15,55 @@ public class QuestMenu : MonoBehaviour
 
     private string[] ivarDescriptions = { 
     //Ivar unobtained
-    "Ivar hasn't been obtained",
+    "Ivar stole the Scepter of Truth, a rod of immense power. Without it, the Order cannot heal the people of Zaro.",
     //Ivar killed
-    "Ivar got cooked",
+    "I encountered and condemned Ivar. He was mad, and people were being harmed by his ignorance. Justified or not, he broke the law. Verita demands he answer for it.",
     //Ivar spared
-    "Ivar is off the hook"
+    "I encountered Ivar, but I chose to let him go. I did not want to harm his family, I couldn’t live with myself if I knew I was the reason they were slain."
     };
     private string[] viinDescriptions = {
     //Viin unobtained
-    "Viin hasn't been obtained",
+    "Viin has been a threat to the Order for years, murdering knights for the thrill of it.",
     //Viin killed
-    "Viin got cooked",
+    "I encountered and condemned Viin. She had slain too many; she could not be let free. If Vaang suffers because of her, unfortunately, so be it.",
     //Viin spared
-    "Viin is off the hook"
+    "I encountered Viin, but I chose to let her go. Until a solution is found where Viin is punished and Vaang is safe, Viin runs free."
     };
     private string[] lucanDescriptions = {
     //Lucan unobtained
-    "Lucan hasn't been obtained",
+    "Lucan abandoned his post, causing hundreds of innocents to meet their demise in the Fall of Grest. He must answer for his crimes.",
     //Lucan killed
-    "Lucan got cooked",
+    "I encountered and condemned Lucan. His actions caused hundreds to fall. Innocent men, women, and children. That cannot be excused.",
     //Lucan spared
-    "Lucan is off the hook"
+    "I encountered Lucan, but I chose to let him go. Lucan followed his heart, and although he disobeyed a direct order, he saved lives. That cannot be disputed."
+    };
+
+
+    private string[] alanDescriptions = {
+    //alan unobtained
+    "Speak to someone in Zaro to unlock this quest.",
+    //working on alan
+    "Slay 5 Earth Elementals (0/5)\r\nI made a bet with Alan after his recent... incident. He was wounded protecting me from elementals, and although I appreciate the gesture, earth elementals are simple once you understand them.\r\n",
+    //alanfinished
+    "I won the bet I had made with Alan, as I knew I would. He gave me an amulet and kind words... the latter a surprise from him. Maybe now he sees the value of life, something I’ve tried to teach him since he first became my apprentice."
+    };
+
+    private string[] kisaDescriptions = {
+    //kisa unobtained
+    "Speak to someone in Zaro to unlock this quest.",
+    //working on kisa
+    "Slay 5 Swords (0/5)\r\nAn elf in Zaro was looking for adventure but wanted me to scope out Northeast Isen before she made the journey herself. After slaying a few enemies, I should return to her with my findings.\r\n",
+    //kisa finished
+    "The elf was more of a novice than I thought. I suggested she wait before venturing out or form a party with more experienced adventurers. She was brindling with excitement, haphazardly handing me an amulet before rushing off."
+    };
+
+    private string[] sophDescriptions = {
+    //sophie unobtained
+    "Speak to someone in Zaro to unlock this quest.",
+    //working on sophie
+    "Slay 5 Spirits (0/5)\r\nA monk heard rumors that the spirits of the Veinwood could be behind the kidnappings; I should investigate it further and report my findings back to her.\r\n",
+    //sophie finished
+    "The spirits turned out to be a dead end, but it gave us both clarity. She gave me an amulet as thanks."
     };
 
 
@@ -79,6 +107,33 @@ public class QuestMenu : MonoBehaviour
     private void FindStatus(string bossName, string[] descriptionOptions, Color[] colorOptions, Image[] imageoptions, TextMeshProUGUI description)
     {
         switch (BossSaveData.bossStates[bossName])
+        {
+            case 0: // Not encountered
+                imageoptions[0].color = colorOptions[0];
+                imageoptions[1].color = colorOptions[0];
+                description.text = descriptionOptions[0];
+                break;
+            case 1: // Encountered, killed
+                imageoptions[0].color = colorOptions[1];
+                imageoptions[1].color = colorOptions[1];
+                description.text = descriptionOptions[1];
+                imageoptions[3].gameObject.SetActive(true);
+                break;
+            case 2: // Encountered, spared
+                imageoptions[0].color = colorOptions[0];
+                imageoptions[1].color = colorOptions[0];
+                description.text = descriptionOptions[2];
+                imageoptions[2].gameObject.SetActive(true);
+                break;
+        }
+
+    }
+
+    private void FindStatusSQ(string bossName, string[] descriptionOptions, Color[] colorOptions, Image[] imageoptions, TextMeshProUGUI description)
+    {
+
+        //Put an if statement here to see if they started the quest. we might need alex for this
+        switch (BossSaveData.bossStates[bossName]) // check f
         {
             case 0: // Not encountered
                 imageoptions[0].color = colorOptions[0];
