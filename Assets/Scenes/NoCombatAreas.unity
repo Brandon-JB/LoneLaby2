@@ -11408,6 +11408,23 @@ MonoBehaviour:
     m_Event:
       m_PersistentCalls:
         m_Calls: []
+--- !u!1 &576803406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4057515452848069481, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
+  m_PrefabInstance: {fileID: 340644911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &576803410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576803406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df6b7fe9cec776488e98f728b3ca289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &579502629
 GameObject:
   m_ObjectHideFlags: 0
@@ -27678,7 +27695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1244526583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27692,7 +27709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MDM: {fileID: 1338707133}
-  fileName: IvarQuest/manor_entry
+  fileName: playtestDialogue
 --- !u!4 &1244526584
 Transform:
   m_ObjectHideFlags: 0
