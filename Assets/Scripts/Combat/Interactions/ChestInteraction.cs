@@ -12,6 +12,8 @@ public class ChestInteraction : CombatInteraction
     public int itemNumber;
     [SerializeField] private ItemMenu itemMenu;
 
+    [SerializeField] private GameObject Door;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,9 @@ public class ChestInteraction : CombatInteraction
                 break;
             case 4:
                 //Enemies
+                break;
+            case 5:
+                Door.SetActive(false);
                 break;
         }
     }
