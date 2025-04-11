@@ -27,6 +27,7 @@ public class InteractScript : MonoBehaviour
     void Update()
     {
         DistanceBetweenObjects = Vector3.Distance(transform.position, Player.transform.position);
+        //The problem is it's somehow 10 units off when you first load into the scene. is it something that has to do with the church?
         if (DistanceBetweenObjects <= maxDistance)
         {
             CanInteractUI.SetActive(true);
