@@ -47,7 +47,7 @@ public class DarkLeoraChar : BaseChar
         allied = false;
         magicType = "darkMag";
 
-        ChangeStats(14, 10, 4, 12, 10);
+        ChangeStats(10, 10, 4, 12, 10);
 
         animator.SetFloat("LastH", 0);
         animator.SetFloat("LastV", -1);

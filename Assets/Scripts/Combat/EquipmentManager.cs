@@ -85,6 +85,26 @@ public class EquipmentManager : MonoBehaviour
         leoraChar = GameObject.FindObjectOfType<LeoraChar2>();
     }
 
+    private void Update()
+    {
+        //Testing alan amulet
+        /*if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            string bossToKill = "";
+
+            foreach (var boss in BossSaveData.bossStates)
+            {
+                if (boss.Value != 1)
+                {
+                    bossToKill = boss.Key;
+                    break;
+                }
+            }
+
+            BossSaveData.bossStates[bossToKill] = 1;
+        }*/
+    }
+
     public void GainedEquipment(string itemName)
     {
         equipmentObtained[itemName] = true;
@@ -332,6 +352,15 @@ public class EquipmentManager : MonoBehaviour
                 break;
             case "AlanAmulet":
                 leoraChar.alanAmuletActive = false;
+                leoraChar.AddToSpecificStat("Strength", -5);
+
+                foreach (var boss in BossSaveData.bossStates)
+                {
+                    if (boss.Value == 1)
+                    {
+                        leoraChar.AddToSpecificStat("Strength", -5);
+                    }
+                }
                 break;
             case "KisaAmulet":
                 leoraChar.kisaAmuletActive = false;
@@ -357,6 +386,15 @@ public class EquipmentManager : MonoBehaviour
                     break;
                 case "AlanAmulet":
                 leoraChar.alanAmuletActive = true;
+                leoraChar.AddToSpecificStat("Strength", 5);
+
+                foreach (var boss in BossSaveData.bossStates)
+                {
+                    if (boss.Value == 1)
+                    {
+                        leoraChar.AddToSpecificStat("Strength", 5);
+                    }
+                }
                     break;
                 case "KisaAmulet":
                 leoraChar.kisaAmuletActive = true;

@@ -393,8 +393,11 @@ public class BaseChar : MonoBehaviour
 
     public void DisableHitbox()
     {
-        hitboxChild.SetActive(false);
-        hbChildScript.alreadyHit = false;
+        if (hitboxChild != null)
+        {
+            hitboxChild.SetActive(false);
+            hbChildScript.alreadyHit = false;
+        }
     }
 
     public void ResetHitbox()

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -1646342453
   m_SortingLayer: 1
   m_SortingOrder: 8
-  m_Sprite: {fileID: 1397609607, guid: 029371b1ce482584f91f463901597599, type: 3}
+  m_Sprite: {fileID: -1325212040, guid: bc9e9042f57145b4eb43faa3965dbc72, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,10 +96,9 @@ GameObject:
   - component: {fileID: 7487041304306391989}
   - component: {fileID: 7487041304306391985}
   - component: {fileID: 6549770698280233058}
-  - component: {fileID: 5861460246233662973}
-  - component: {fileID: 119438101791099172}
+  - component: {fileID: 1529043195895763640}
   m_Layer: 7
-  m_Name: Jael
+  m_Name: FakeJael
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +157,7 @@ Animator:
   m_GameObject: {fileID: 7487041304306391988}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5cebe58312894764d8a84ed3c8108f7f, type: 2}
+  m_Controller: {fileID: 9100000, guid: f8bf85f1babaf5645b35ebb1ef15d671, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -189,7 +188,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &5861460246233662973
+--- !u!114 &1529043195895763640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,58 +197,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7487041304306391988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 130417a335b216b4282810ad89a21324, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fe8fe3301e7a2f45b30560fe2423d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: 
-  charSprite: {fileID: 0}
-  hurtbox: {fileID: 0}
-  allied: 1
-  animator: {fileID: 0}
-  dropManager: {fileID: 0}
-  healthBar: {fileID: 0}
-  manaBar: {fileID: 0}
-  hpSlider: {fileID: 0}
-  mpSlider: {fileID: 0}
-  charRB: {fileID: 0}
-  knockbackDirection: {x: 0, y: 0}
-  hitboxChild: {fileID: 0}
-  hbChildScript: {fileID: 0}
-  damagePopup: {fileID: 3844901903003089880, guid: dbf6cc6177486f8448488a9f7d1e143f, type: 3}
-  isParrying: 0
-  isPerfectParrying: 0
-  ParryIndicator: {fileID: 0}
-  testParrySprite: {fileID: 0}
-  parryCooldown:
-    cooldownTime: 100
-  stunTimer:
-    cooldownTime: 100
-  particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
-  slowTimer:
-    cooldownTime: 100
---- !u!114 &119438101791099172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7487041304306391988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 603bcfdeeaf4c36469fcc34e90dd7452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottomLeftBounds: {x: 0, y: 0}
-  topRightBounds: {x: 0, y: 0}
-  jaelChar: {fileID: 5861460246233662973}
-  maxAxeThrowCount: 3
-  throwingCooldown:
-    cooldownTime: 100
-  axePrefab: {fileID: 1507682889751826430, guid: f696f59698d22ac44808c21faea8b665, type: 3}
+  animator: {fileID: 7487041304306391985}
+  fakeAxePrefab: {fileID: 1507682889751826430, guid: b7b62b4c128ef8346bef9fba1ba838a7, type: 3}
   axeSpawnPoint: {fileID: 7993461483623113645}
-  fakeJaelList: []
-  offsetFromPlayer: 8
-  Player: {fileID: 0}
 --- !u!1 &7993461483623113645
 GameObject:
   m_ObjectHideFlags: 0
