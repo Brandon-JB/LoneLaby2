@@ -31,6 +31,7 @@ public class killSpareManager : MonoBehaviour
 
     public void EnableKillSpare(string bossName)
     {
+        this.bossName = bossName;
         OpenPauseMenu.GLOBALcanOpenPause = false;
         menu.SetActive(true);
         audioManager.Instance.playBGM("T13");
@@ -38,6 +39,7 @@ public class killSpareManager : MonoBehaviour
         yescanvas.alpha = 0;
         nocanvas.alpha = 0;
 
+        
 
         sideL.transform.position = locations[4].position;
         sideL.transform.DOMove(locations[4].position, 1f);
@@ -60,9 +62,7 @@ public class killSpareManager : MonoBehaviour
                 });
             });
         });
-
         changeBasedOnBoss();
-
         ResetLeoraAnimator();
     }
 
