@@ -9,6 +9,8 @@ public class fakeJaelScript : MonoBehaviour
     [SerializeField] private GameObject fakeAxePrefab;
     [SerializeField] private GameObject axeSpawnPoint;
 
+    public Animator fogAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
