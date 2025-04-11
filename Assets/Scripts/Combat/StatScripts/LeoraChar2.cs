@@ -500,7 +500,7 @@ public class LeoraChar2 : BaseChar
     public void EnableMagHitbox()
     {
         magHitbox.SetActive(true);
-        if (darknessManager != null && magicType == "lightMag")
+        if (darknessManager != null && magicType == "lightMag" && SceneManager.GetActiveScene().name == "CombatMaps")
         {
             darknessManager.turnoffDarkness();
         }
