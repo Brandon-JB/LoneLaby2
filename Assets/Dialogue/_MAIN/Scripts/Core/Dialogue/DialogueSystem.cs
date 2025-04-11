@@ -79,7 +79,7 @@ namespace DIALOGUE
                 foreach (Image sideText in nameOfCharMoving)
                 {
                     sideText.sprite = config.nameOnSide;
-                    Debug.Log(config.nameOnSide.name);
+                    //Debug.Log(config.nameOnSide.name);
                     sideText.SetNativeSize();
                 }
             }

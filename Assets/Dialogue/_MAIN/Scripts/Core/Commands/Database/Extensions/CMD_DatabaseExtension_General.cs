@@ -65,7 +65,7 @@ namespace COMMANDS
 
         private static void progressTutorial(string itemID)
         {
-            Tutorial.Instance.progressTutorial();
+            GameObject.FindObjectOfType<Tutorial>().progressTutorial();
         }
 
         //private static void endMenuDialogue(string isSupport)
