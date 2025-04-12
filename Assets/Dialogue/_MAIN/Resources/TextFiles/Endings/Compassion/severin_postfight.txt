@@ -5,6 +5,7 @@ severin.Move(0.95 0 -spd 1000)
 wait(0.5)
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora confused)
 leora "Do I pass?"
 Show(severin)
 Highlight(severin -o true)
@@ -12,5 +13,6 @@ severin "...Yes. You have done adequately."
 severin "This does not absolve you. It merely allows you to remain."
 severin "Verita sees all, Dame. And only Verita knows the truth of your failure. You are dismissed."
 Highlight(leora -o true)
+SetSprite(leora eyesClosed)
 leora "(You are more right than you know. Verita watches over me, and if Verita believes my actions just, that is all I need.)"
 goTo(Credits)

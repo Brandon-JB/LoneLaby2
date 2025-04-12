@@ -5,19 +5,26 @@ sophie.Move(0.95 0 -spd 1000)
 wait(0.5)
 Show(sophie)
 Highlight(sophie -o true)
+SetSprite(sophie thoughtful)
 sophie "Dame, may I have a moment of your time?"
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora leora)
 leora "Certainly. What do you require?"
 Highlight(sophie -o true)
-sophie "I have a theory regarding the kidnappings, but I am bound to my duties here. A student of mine recently spoke of figures lurking in the Veinwood-ones that could vanish and reappear in an instant, pulling travelers into their frostbitten grasp."
+sophie "I have a theory regarding the kidnappings, but I am bound to my duties here. A student of mine recently spoke of figures lurking in the Veinwood—ones that could vanish and reappear in an instant, pulling travelers into their frostbitten grasp."
+SetSprite(sophie thoughtful)
 sophie "It sounded to me like the work of spirits. I am no expert on the undead, but if a particularly powerful one exists, it could explain how people are disappearing without a trace."
 sophie "Yet... why would spirits take people at all?"
-sophie "Perhaps I am overthinking. If this leads nowhere, then forget my ramblings, Dame-it is only a thought."
+SetSprite(sophie sophie_young)
+sophie "Perhaps I am overthinking. If this leads nowhere, then forget my ramblings, Dame. It is only a thought."
 Highlight(leora -o true)
-leora "I find ramblings quite useful, actually. And this is more than that-it is a lead."
+SetSprite(leora smile)
+leora "I find ramblings quite useful, actually. And this is more than that: it is a lead."
+SetSprite(leora leora)
 leora "I will search the Veinwood and see what I uncover."
 Highlight(sophie -o true)
+SetSprite(sophie earnest)
 sophie "Splendid. Let me know what you find, should it be of interest."
 Hide(sophie)
 Hide(leora)

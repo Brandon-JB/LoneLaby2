@@ -5,25 +5,35 @@ vaang.Move(0.9 0 -spd 1000)
 wait(0.5)
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora confused)
 leora "Vaang. Why did you not tell me that you and Viin were soulbound? That in harming her, I would also be harming you?"
 Show(vaang)
 Highlight(vaang -o true)
+SetSprite(vaang sad)
 vaang "Dame Leora, it is a... delicate matter. One I do not like to discuss."
+SetSprite(vaang vaang)
 vaang "Additionally, I feared that if you knew, you might not confront Viin at all. And I could not allow my presence to cloud your judgment."
 Highlight(leora -o true)
+SetSprite(leora leora)
 leora "Viin was more than eager to reveal it herself, though only once she was at her limit."
 Highlight(vaang -o true)
+SetSprite(vaang glance)
 vaang "Yes... that sounds like her."
+SetSprite(vaang sad)
 vaang "As much as I love her, my sister wields our bond as a tool. Leverage. Another card to play when all else fails. It is one of the many things I... disapprove of."
+SetSprite(vaang vaang)
 vaang "Still, she is not in Zaro. That alone tells me her ploy worked. Even now, she refuses to take accountability for the harm she has caused."
 Highlight(leora -o true)
+SetSprite(leora confused)
 leora "I do not believe it was a ploy. If what she said was true—if capturing her meant harming you—then I would rather she walk free. I will not see an innocent man suffer for a crime he did not commit."
 Highlight(vaang -o true)
+SetSprite(vaang smile)
 vaang "That is... honorable, Leora. I wish I had even a fraction of your sense of justice."
 vaang "I appreciate you. And I am sorry to have been an obstacle in your path. I imagine this would have been a far simpler decision if I were not in the picture."
 Highlight(leora -o true)
 leora "Do not speak that way, Vaang."
 leora "It is not your fault that you are bound to Viin. Nor is it your fault that she chooses to... spend her days indulging in far less honorable pursuits."
+SetSprite(leora smile)
 leora "Regardless of what has transpired, I am glad you are alive and well. "
 Highlight(vaang -o true)
 vaang "Thank you... I will strive to make good use of the time you have given me. If you ever need assistance, say the word and I will rush to your aide. I owe you that much."

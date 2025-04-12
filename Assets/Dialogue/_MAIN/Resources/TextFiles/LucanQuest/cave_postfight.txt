@@ -7,9 +7,12 @@ Highlight(lucan -o true)
 lucan "Tch... I have grown out of practice. It is your luck, Dame, that I am not in my prime."
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "I have bested you, Lucan. I do not wish to spill your blood, but you must return to the capital. It is Verita's will."
 Highlight(lucan -o true)
+SetSprite(lucan thinking)
 lucan "...I was like you once. A loyal hound, eager to serve. I knew the Order's game and played my part."
+SetSprite(lucan lucan)
 lucan "But one mistake—one moment of defiance—and I was cast aside. They would rather see me dead than acknowledge their own folly. My oath? I care nothing for it. I did what was right."
 lucan "That is the difference between us, Justiciar. I follow what is right—you follow what you are told."
 lucan "What happens when the Order commands you to take an innocent life? Will you obey without question?"
@@ -20,7 +23,9 @@ lucan "Would they not? You speak of Zaro's missing citizens—have you ever cons
 Highlight(leora -o true)
 leora "You dare accuse the Order of kidnapping?"
 Highlight(lucan -o true)
+SetSprite(lucan thinking)
 lucan "Similar cases broke out in my days under the oath."
+SetSprite(lucan lucan)
 lucan "It is an obedience test— a ploy they pull when they wish for their enemy's quick demise. Capture a few people from the slums, accuse someone they need gone, and wait for their justiciars to carry out their orders. This is a ruse, Dame."
 Highlight(leora -o true)
 leora "No... You're distorting the truth. Hundreds died because of you. You're only lying to protect yourself."

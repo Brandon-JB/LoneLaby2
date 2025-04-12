@@ -5,15 +5,18 @@ speaker.Move(0.95 0 -spd 1000)
 wait(0.5)
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora leora)
 leora "I have encountered all targets, Holy One."
 Highlight(speaker -o true)
 speaker "Truly? Yet I have seen only one condemned walk these halls."
 Highlight(leora -o true)
+SetSprite(leora sideeye)
 leora "Yes, Speaker of Truth. Two remain. Unfortunately... they escaped."
 Highlight(speaker -o true)
 speaker "...Unfortunate."
 speaker "Tell me, Dame Leora—do you believe justice was served?"
 Highlight(leora -o true)
+SetSprite(leora leora)
 leora "I did what I could within the circumstances given to me. I pursued justice to the best of my ability."
 Highlight(speaker -o true)
 speaker "To the best of your ability... I see."

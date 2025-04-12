@@ -5,26 +5,35 @@ ivar.Move(0.95 0 -spd 1000)
 wait(0.5)
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora sideeye)
 leora "...You are free to go."
 Show(ivar)
 Highlight(ivar -o true)
+SetSprite(ivar angry)
 ivar "...Huh? Wait—<i>truly</i>? You break into my <i>home</i>, bludgeon me half to death, and now you're just—letting me go?"
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "Would you rather I change my mind?"
 Highlight(ivar -o true)
+SetSprite(ivar ivar)
 ivar "W-Wait, now, let's not be rash, dear knight! I jest! Certainly, I do."
 Highlight(leora -o true)
+SetSprite(leora confused)
 leora "And still, you refuse to relinquish the scepter?"
 Highlight(ivar -o true)
+SetSprite(ivar lookLeft)
 ivar "No. You would have to pry it from my cold, dead hands. I know what I am, my dear, but I swear to you—once I have saved them, I will change. I will be better. I will be so noble, even the saints will envy me."
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "...If you insist. Once your family is secure, you <i>must</i> contact the Order. Zaro needs the Scepter, but perhaps there is a way to rescue your family, punish their captors and return the Scepter."
+SetSprite(leora confused)
 leora "Even then, where are the knights that were sent to retrieve you? What became of them?"
 Highlight(ivar -o true)
 ivar "...There were—.. There were other knights here?"
 Highlight(leora -o true)
 leora "Yes, what became of them?"
 Highlight(ivar -o true)
+SetSprite(ivar lookRight)
 ivar "Ah, well... I am unsure. You are the only knight I have seen in a long while, Dame."
 Highlight(leora -o true)
 leora "(I am sure others were here... are Ivar's words truly to be trusted?)"
@@ -34,6 +43,7 @@ ivar "Ah... y-yes. A fair argument. Perhaps then... perhaps then the whispers wi
 ivar "Regardless, I owe you my thanks, Dame. You have done a noble thing. Perhaps... this will suffice for showing my gratitude?"
 gainItem(MindAmulet)
 wait(0.5)
+SetSprite(ivar ivar)
 ivar "Now, if you'll excuse me, I must tidy myself before the trade. One must look presentable, even in desperate dealings."
 Hide(ivar)
 Hide(leora)

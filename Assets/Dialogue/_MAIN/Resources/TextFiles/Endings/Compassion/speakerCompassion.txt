@@ -10,6 +10,7 @@ Highlight(speaker -o true)
 speaker "Leora. How goes your task? It has been some time since I last heard of your progress."
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora sideeye)
 leora "I bring unfortunate news, Speaker... All the suspects have escaped."
 leora "(Is this considered a lie? Please... spare me, Verita.)"
 Highlight(speaker -o true)
@@ -22,6 +23,7 @@ speaker "...Unfortunate."
 speaker "I expected more from a knight of your standing. But I suppose... it cannot be helped. And yet..."
 speaker "If you were unable to capture even <i>one</i>, then I must question your ability to carry out your duties."
 Highlight(leora -o true)
+SetSprite(leora leora)
 leora "I am capable, Speaker. I promise you that."
 Highlight(speaker -o true)
 speaker "You may think that is the truth, yet words are hollow until proven otherwise. If you are to retain your position... a test is in order."

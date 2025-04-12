@@ -5,8 +5,11 @@ verita.Move(0.85 0 -spd 1000)
 wait(0.5)
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora eyesClosed)
 leora "(Oh, God of Truth, what have I done? The Scepter of Truth—your scepter—was stolen; and when I found the thief... I spared him.)"
+SetSprite(leora sideeye)
 leora "(I let compassion cloud my judgment. I faltered. A knight of Verita does not hesitate. A knight of Verita follows orders. And yet... I disobeyed.)"
+SetSprite(leora confused)
 leora "(The Order would never demand me to commit an injustice. If I am their Justiciar, if I am their sword, then I must—... must—...)"
 Show(verita)
 Highlight(verita -o true)
@@ -24,6 +27,7 @@ verita "<b>What is justice to the thief who steals to feed his kin? What is just
 verita "<b>Thou art beginning to see the shape of true justice. It is not a sword, nor a scale—it is a river, shifting, reshaping, ever-changing. No two souls bear the same burden, nor the same guilt.</b>"
 verita "<b>For this, I grant thee My blessing. Yet know that 'tis not a gift freely given, but one thou hast earned. Thine understanding of justice hath deepened, and so too shall thy strength.</b>"
 Highlight(leora -o true)
+SetSprite(leora eyesClosed)
 leora "(I... T-thank you, God of Truth. This blessing means more than I can express.)"
 Highlight(verita -o true)
 verita "<b>Go now, Justiciar of Light. Though bound by the Order's oath, let not thy mind be bound with it.</b>"

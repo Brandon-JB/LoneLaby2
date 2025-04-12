@@ -8,17 +8,22 @@ Highlight(jael -o true)
 jael "I've found you, <i>Dame</i> Leora. Your days are numbered."
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "Who dares address me in such a manner?"
 Highlight(jael -o true)
 jael "My name matters not. I have seen truth—not the gilded lie your Order parades as justice."
 jael "You see only the crime, never the soul behind it. Lucan crossed your path and paid the price, and for that, I will never forgive you."
 Highlight(leora -o true)
+SetSprite(leora confused)
 leora "(Lucan?)"
+SetSprite(leora sideeye)
 leora "(...)"
+SetSprite(leora confused)
 leora "You speak of the Oathbreaker?"
 Highlight(jael -o true)
 jael "Call him what you will, <i>knight</i>, he knew more of honor than you ever could."
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "He abandoned his post. He allowed Grest to fall. No matter what he did for you, it does not erase the blood on his hands."
 Highlight(jael -o true)
 jael "And what of yours, Dame? How many lives have you taken—not because you believed in their guilt, but because the Order told you they were criminals?"

@@ -3,6 +3,7 @@ CreateCharacter(severin -enabled false)
 leora.Move(0.125 0 -spd 1000)
 severin.Move(0.95 0 -spd 1000)
 wait(0.5)
+SetSprite(leora leora)
 Show(leora)
 Highlight(leora -o true)
 leora "(Perhaps I should brush up on my skills before heading out.)"
@@ -12,6 +13,7 @@ Show(severin)
 Highlight(severin -o true)
 severin "''A quick refresher''? Dame Leora, are you not an instructor? You should know the basics better than anyone."
 Highlight(leora -o true)
+SetSprite(leora smile)
 leora "I know, but practice makes perfect. Want to make sure I'm teaching the right information, yes?"
 Highlight(severin -o true)
 severin "...Very well."

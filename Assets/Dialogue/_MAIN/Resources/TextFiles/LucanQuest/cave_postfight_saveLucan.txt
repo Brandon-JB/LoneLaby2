@@ -4,25 +4,31 @@ leora.Move(0.15 0 -spd 1000)
 lucan.Move(0.95 0 -spd 1000)
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora sideeye)
 leora "...You are free to go."
 Show(lucan)
 Highlight(lucan -o true)
+SetSprite(lucan thinking)
 lucan "Truly? After all this, you would simply let me stroll away?"
 Highlight(leora -o true)
 leora "Do not make me regret my decision, Oathbreaker."
 Highlight(lucan -o true)
+SetSprite(lucan hopeful)
 lucan "I shall not. You have my gratitude, Dame. Take this—consider it a token of my thanks."
 gainItem(DarkAmulet)
 wait(0.5)
 Highlight(lucan -o true)
 lucan "If the Order ever treats you as they did I—"
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "Silence."
 leora "You broke your oath and turned your back on the Order. I have —and will— not. We are not the same."
 Highlight(lucan -o true)
 lucan "Then why spare me, Dame?"
+SetSprite(leora angryEyesClosed)
 Highlight(leora -o true)
 leora "..."
+SetSprite(leora angry)
 leora "Speak nothing of what transpired here. Do not utter my name. Be grateful I did not run you through for so much as suggesting I forsake my oath."
 Hide(lucan)
 Hide(leora)

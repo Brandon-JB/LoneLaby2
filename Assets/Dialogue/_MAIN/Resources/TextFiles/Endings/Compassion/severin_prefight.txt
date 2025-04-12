@@ -4,11 +4,9 @@ leora.Move(0.15 0 -spd 1000)
 severin.Move(0.95 0 -spd 1000)
 wait(0.5)
 Show(severin)
-Show(leora)
 Highlight(severin -o true)
 severin "Dame Leora. Draw your weapon."
 severin "This is not an execution nor a punishment. I fight to test you, to see if you remain worthy of your station. If you are still a knight of Verita, you must prove yourself."
 severin "Let us begin."
 Hide(severin)
-Hide(leora)
 endDialogue(false)

@@ -5,25 +5,38 @@ kisa.Move(0.95 0 -spd 1000)
 wait(0.5)
 Show(kisa)
 Highlight(kisa -o true)
+SetSprite(kisa happy)
 kisa "Ah, madam! You have returned! So, is the eastern peninsula... good?"
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora eyesClosed)
 leora "Well, it was–"
+SetSprite(leora leora)
 leora "...Before I give my assessment, what exactly have you fought before?"
 Highlight(kisa -o true)
-kisa "Yes! Well! I have defeated... hmm, let me see..."
-kisa "Ah! My most impressive foe? A werewolf! Although... it was in its human form, so I suppose it was merely a man. But besides that, a slime here and there, a pack of rats..."
+SetSprite(kisa happy)
+kisa "Yes! Well!"
+SetSprite(kisa thinking)
+kisa "I have defeated... hmm, let me see..."
+SetSprite(kisa happy)
+kisa "Ah! My most impressive foe? A werewolf!"
+SetSprite(kisa thinking)
+kisa "Although... it was in its human form, so I suppose it was merely a man. But besides that, a slime here and there, a pack of rats..."
 Highlight(leora -o true)
+SetSprite(leora confused)
 leora "...Ah. "
 leora "Perhaps... start elsewhere. Speak with the townsfolk-see if anyone requires assistance. And consider traveling with a party before heading into unknown territory."
 Highlight(kisa -o true)
+SetSprite(kisa kisa_youngish_ig)
 kisa "A party? I hadn't considered that before... but that could be fun!"
+SetSprite(kisa happy)
 kisa "Thank you, madam! Here, take this as payment. I must pay you for your work, yes? Thank you again! Goodbye!"
-Highlight(leora -o true)
-leora "Wait, I don't-"
 gainItem(KisaAmulet)
+Hide(kisa)
+Highlight(leora -o true)
+SetSprite(leora surprised)
+leora "Wait, I don't-"
 wait(0.5)
 leora "(...She just shoved this into my hands and ran off. ...Who <i>was</i> that?)"
-Hide(kisa)
 Hide(leora)
 endDialogue(false)

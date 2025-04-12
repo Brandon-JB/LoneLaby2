@@ -10,6 +10,7 @@ speaker "As a token of our gratitude, you are granted new arms— courtesy of Ve
 Show(leora)
 Highlight(leora -o true)
 leora "I am honored, Holy One. You have my deepest thanks."
+SetSprite(leora confused)
 leora "And yet... regarding Lucan, and Grest..."
 leora "Was there truly nothing to be done? He claimed he would have perished had he stayed."
 Highlight(speaker -o true)
@@ -18,7 +19,9 @@ speaker "Knights are the tools of Verita's unflappable justice, Dame Leora. Do n
 speaker "Any step from it's sacred trail is a step into falseness. Lucan's desertion from the path is a stain upon our sacred, righteous Order."
 speaker "You, if you truly are a tool of Verita's just hand, should feel anger at his very existence."
 Highlight(leora -o true)
+SetSprite(leora sideeye)
 leora "... Yes, Holy One."
+SetSprite(leora confused)
 leora "(The Speaker is right. I should feel anger. And yet... why is my heart so heavy?)"
 Hide(speaker)
 Hide(leora)

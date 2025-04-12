@@ -3,7 +3,10 @@ leora.Move(0.15 0 -spd 1000)
 wait(0.5)
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora confused)
 leora "(I have only stepped within these cursed woods, yet already I understand the Speaker's warning. The air hums with something unnatural.)"
-leora "(I must find Viin and bring her to Zaro. I do not expect her to surrender peacefully- she has butchered too many knights for that. And for those fallen, I will see justice done.)"
+SetSprite(leora angry)
+leora "(I must find Viin and bring her to Zaro. I do not expect her to surrender peacefully— she has butchered too many knights for that. And for those fallen, I will see justice done.)"
 Hide(leora)
+SetSprite(leora leora)
 endDialogue(false)

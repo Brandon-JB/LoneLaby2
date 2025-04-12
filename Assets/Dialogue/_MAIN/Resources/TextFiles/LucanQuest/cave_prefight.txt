@@ -15,21 +15,28 @@ leora "You know it well. You abandoned your post at Grest, condemned hundreds to
 Highlight(lucan -o true)
 lucan "Do I deny it? Would that make a difference to the Order if I did?"
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "So you do not."
 Highlight(lucan -o true)
 lucan "Spoken like a true disciple of the Order. Tell me, when was it decreed just to parse guilt out of abstinence?"
 Highlight(leora -o true)
+SetSprite(leora leora)
 leora "..."
 Highlight(lucan -o true)
 lucan "I did not abandon my post. I saw the enemy upon the horizon, knew the city could not be held. I chose to evacuate, but I was too late. When the slaughter began, only my men and I escaped with our lives. I saved what I could."
+SetSprite(lucan thinking)
 lucan "The truth of that day is a bitter thing, but I do not shrink from it. I did not flee out of fear, knight—I fled because I saw the Order for what it is. They would see soldiers die for the illusion of honor, even when no battle could be won."
+SetSprite(lucan lucan)
 lucan "You must see it—see the <i>truth</i>. The Order bends Verita's word to suit their desires, to justify their hands drenched in innocent blood."
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "I have heard <b>enough</b>. You seek only to stall, and I have my orders."
 Highlight(lucan -o true)
 lucan "No. To return to the Order is to walk to my own execution. You know this well. Those sent for judgment do not return. I will not return to Zaro."
 Highlight(leora -o true)
+SetSprite(leora angryEyesClosed)
 leora "So be it. I had hoped to settle this without bloodshed, but you leave me no choice."
 Hide(lucan)
 Hide(leora)
+SetSprite(leora leora)
 endDialogue(false)

@@ -9,6 +9,7 @@ darkleora as ??? "Who..."
 darkleora as ??? "Who am I?"
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora surprised)
 leora "What?"
 Highlight(darkleora -o true)
 darkleora as ??? "What do I believe in?"
@@ -21,6 +22,7 @@ leora "I..."
 Highlight(darkleora -o true)
 darkleora as ??? "You cannot answer, can you? You cannot answer because you do not know."
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "Silence!"
 Hide(darkleora)
 Hide(leora)

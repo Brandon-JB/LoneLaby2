@@ -4,8 +4,11 @@ leora.Move(0.15 0 -spd 1000)
 verita.Move(0.85 0 -spd 1000)
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora eyesClosed)
 leora "(Oh, God of Truth... I have truly forsaken you.)"
+SetSprite(leora angryEyesClosed)
 leora "(Viin is a murderer. My brothers and sisters in arms have fallen to her hands. She should have suffered for the lives she's stolen, yet I... I let her walk free.)"
+SetSprite(leora confused)
 leora "(What happens when she kills again? Is that blood on my hands?)"
 Show(verita)
 Highlight(verita -o true)
@@ -24,7 +27,9 @@ verita "<b>No longer dost thou follow orders blindly. Thou hast reasoned, weighe
 verita "<b>The Order, for all its worship, fears this. They fear a mind that questions, that seeks truth beyond what is given.</b>"
 verita "<b>For thy growth, I grant thee My blessing. Not freely, but as a reward for thy wisdom. Thy understanding of justice hath deepened, and so too shall thy strength.</b>"
 Highlight(leora -o true)
+SetSprite(leora eyesClosed)
 leora "(I... T-thank you, Verita. This blessing means more than I can express.)"
+SetSprite(leora confused)
 leora "(And yet... I still fear. Viin will kill again. Will I be to blame? Will their souls haunt me?)"
 Highlight(verita -o true)
 verita "<b>Child of the Light... that, I cannot answer. But know this—in sparing Viin, thou hast also saved Vaang.</b>"

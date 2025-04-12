@@ -7,7 +7,9 @@ Show(severin)
 Highlight(severin -o true)
 severin "Leora. Halt your prayers. The Speaker summons you."
 Highlight(leora -o true)
+SetSprite(leora sideeye)
 leora "(I am certain this is about my... poor performance.)"
+SetSprite(leora leora)
 leora "Give me but a moment. I will be up shortly."
 Hide(severin)
 Hide(leora)

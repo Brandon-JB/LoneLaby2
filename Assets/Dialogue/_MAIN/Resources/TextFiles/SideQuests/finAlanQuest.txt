@@ -5,9 +5,11 @@ alan.Move(0.95 0 -spd 1000)
 wait(0.5)
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora smile)
 leora "Done."
 Show(alan)
 Highlight(alan -o true)
+SetSprite(alan alan_young)
 alan "...You really did it?"
 Highlight(leora -o true)
 leora "Yes, Alan. They react to your body heat. Move away when they begin to tremble and they are but a trifle."
@@ -16,22 +18,32 @@ alan "Fine, fine, I concede. You win. Here, I found this... amulet of sorts. Not
 gainItem(AlanAmulet)
 wait(0.5)
 Highlight(leora -o true)
+SetSprite(leora confused)
 leora "Strange choice for a reward."
 Highlight(alan -o true)
+SetSprite(alan smile)
 alan "Hey, I didn't expect to lose. Consider it an investment in my future as a terrible gambler."
+SetSprite(alan alan_young)
 alan "You still have more to do, right? You could always stop for a break. The Order's work will still be there tomorrow."
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "Says the soon-to-be knight who 'accidentally' slacks off during drills?"
 Highlight(alan -o true)
+SetSprite(alan smile)
 alan "Hey, I'm <i>healing</i>. Pulling a muscle right now would be miserable."
 Highlight(leora -o true)
+SetSprite(leora smile)
 leora "...I spoil you, Alan. If you were anyone else's apprentice, you'd be punished for remarks like that."
 Highlight(alan -o true)
+SetSprite(alan smile)
 alan "I know. You care too much. And..."
+SetSprite(alan embarrassed)
 alan "... <size=75%>that's what I admire about you, truthfully.</size>"
 alan "<size=80%>Wish I cared about something half as much as you do. Could be dead tomorrow, and I don't think it'd bother me much.</size>"
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "You <i>would</i> mind being dead tomorrow."
+SetSprite(leora smile)
 leora "Still... I appreciate your support, Alan. I hope I can be a good mentor to you, even after you earn your title."
 Hide(alan)
 Hide(leora)

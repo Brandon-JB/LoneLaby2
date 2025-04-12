@@ -10,16 +10,21 @@ speaker "As a token of our gratitude, you are granted new arms— courtesy of Ve
 Highlight(leora -o true)
 Show(leora)
 leora "I am honored, Holy One. You have my deepest thanks."
+SetSprite(leora confused)
 leora "Yet... Ivar claimed he sought to ransom his family's captors. Did you know of this? Is there nothing that can be done?"
 Highlight(speaker -o true)
 speaker "Dame, Ivar knew of your compassion. Nobles are no different than common criminals—they will say anything to earn mercy. The Order does not tolerate those who lie. "
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "With all due respect, I do not believe he was lying. His mind may have been tampered with, but if there is any chance that innocent lives are at stake, we must investigate. This could be connected to the ongoing disappearances in Zaro."
 Highlight(speaker -o true)
 speaker "If it will ease your mind, we shall investigate. If a hostage situation exists, it will be handled with a forceful hand."
 Highlight(leora -o true)
+SetSprite(leora leora)
 leora "... Thank you, Holy One."
+SetSprite(leora eyesClosed)
 leora "(The Speaker is right, Ivar could have been lying. Still, it relieves me that they will investigate the situation further.)"
+SetSprite(leora confused)
 leora "(...What if no one had insisted upon this? Would the Order have simply turned a blind eye?)"
 Hide(speaker)
 Hide(leora)

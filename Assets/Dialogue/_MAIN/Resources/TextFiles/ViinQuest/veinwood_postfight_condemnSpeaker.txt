@@ -9,13 +9,17 @@ speaker "As a token of our gratitude, you are granted new arms— courtesy of Ve
 Show(leora)
 Highlight(leora -o true)
 leora "I am honored, Holy One. You have my deepest thanks."
+SetSprite(leora confused)
 leora "However... I spoke to Viin before bringing her here. She claimed she and Vaang, the orphanage keeper, are bound together. That his fate is tied to hers."
 Highlight(speaker -o true)
 speaker "Yes. The Order is aware of Viin and Vaang's unnatural connection. Do not trouble yourself, child—we shall consider our options when Viin is judged."
 speaker "But be wary, Dame. Viin is a murderer, a heretic, a liar. Do not place faith in the words of the damned."
 Highlight(leora -o true)
+SetSprite(leora sideeye)
 leora "... Thank you, Holy one. I will."
+SetSprite(leora leora)
 leora "(The Speaker is right to doubt Viin's words. I trust their judgement, yet...)"
+SetSprite(leora confused)
 leora "(Will they truly consider Vaang's innocence? Is the weight of Viin's sins worth Vaang's life?)"
 Hide(speaker)
 Hide(leora)

@@ -5,30 +5,43 @@ vaang.Move(0.9 0 -spd 1000)
 wait(0.5)
 Show(vaang)
 Highlight(vaang -o true)
+SetSprite(vaang glance)
 vaang "...So it is done."
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora sideeye)
 leora "Yes. Vaang... I am sorry. I wish there was more I could have done."
 Highlight(vaang -o true)
+SetSprite(vaang sad)
 vaang "Viin... she had taken too many lives. It would have been unjust to leave her free to kill again."
+SetSprite(vaang smile)
 vaang "Do not burden yourself, Dame. I am not angry. In truth, I am... happy."
 Highlight(leora -o true)
+SetSprite(leora confused)
 leora "Vaang-"
 Highlight(vaang -o true)
+SetSprite(vaang vaang)
 vaang "Let me speak, Leora."
+SetSprite(vaang smile)
 vaang "Perhaps this will be a lesson for her. Perhaps, in her final moments, she will reflect. Perhaps she will change."
+SetSprite(vaang glance)
 vaang "I am a fool to hope for such things. But a fool I shall remain."
 Highlight(leora -o true)
 leora "You do not have to pretend with me, Vaang."
 Highlight(vaang -o true)
+SetSprite(vaang vaang)
 vaang "I have long since accepted my fate. I only regret that I will leave the children behind."
 vaang "Perhaps I will take them on one last outing. A final adventure. I will not tell them why. ...I mourn for them more than myself."
 Highlight(leora -o true)
+SetSprite(leora sideeye)
 leora "If there is anything I can do... say the word. I owe you that much."
 Highlight(vaang -o true)
+SetSprite(vaang smile)
 vaang "Thank you, Leora. It would be nice... to have company in my final moments."
+SetSprite(vaang sad)
 vaang "I do not wish for the children to see. But I do not wish to die alone."
 Highlight(leora -o true)
+SetSprite(leora confused)
 leora "You won't. I swear it."
 Hide(leora)
 Hide(vaang)
