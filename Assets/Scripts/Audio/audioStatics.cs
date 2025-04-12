@@ -20,10 +20,10 @@ public static class audioStatics
 
     public static void LoadSettings()
     {
-        MasterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
-        BGMVolume = PlayerPrefs.GetFloat("BGMVolume", 1f);
-        SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
-        VoiceVolume = PlayerPrefs.GetFloat("VoiceVolume", 1f);
+        MasterVolume = PlayerPrefs.GetFloat("MasterVolume", 0.5f);
+        BGMVolume = PlayerPrefs.GetFloat("BGMVolume", 0.4f);
+        SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.8f);
+        VoiceVolume = PlayerPrefs.GetFloat("VoiceVolume", 0.6f);
         TextSpeedMultiplier = PlayerPrefs.GetFloat("TextSpeedMultiplier", 1f);
     }
 
