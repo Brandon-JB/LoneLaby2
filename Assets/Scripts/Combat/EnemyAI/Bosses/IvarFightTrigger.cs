@@ -5,13 +5,13 @@ using UnityEngine;
 public class IvarFightTrigger : MonoBehaviour
 {
     public IvarScript ivarScript;
+    public mainDialogueManager mdm;
 
     public GameObject bossFog;
 
     // Start is called before the first frame update
     void Start()
     {
-
         bossFog.SetActive(false);
     }
 
@@ -25,8 +25,11 @@ public class IvarFightTrigger : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            mdm = GameObject.FindObjectOfType<mainDialogueManager>();
+            mdm.dialogueSTART("IvarQuest/manor_prefight");
             ivarScript.isActive = true;
             bossFog.SetActive(true);
+            this.gameObject.SetActive(false);
         }
     }
 }

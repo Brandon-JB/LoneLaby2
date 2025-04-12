@@ -26,6 +26,8 @@ public class pauseMenuManager : MonoBehaviour
     [SerializeField] private Transform[] questsLocations;
     [SerializeField] private GameObject[] objectsToTurnOff;
 
+    [SerializeField] private GameObject deleteSaveMenu;
+
 
     private void OnEnable()
     {
@@ -177,5 +179,23 @@ public class pauseMenuManager : MonoBehaviour
         mainButtons.alpha = 0;
         mainButtons.gameObject.SetActive(true);
         mainButtons.DOFade(1, 1).SetUpdate(true);
+    }
+
+    public void startDeleteSave()
+    {
+        this.transform.DOMove(startLocations[5].position, 1).SetUpdate(true);
+        deleteSaveMenu.SetActive(true);
+    }
+
+    public void exitDeleteSave()
+    {
+        this.transform.DOMove(startLocations[4].position, 1).SetUpdate(true);
+        deleteSaveMenu.SetActive(false);
+    }
+
+    public void DELETESAVE()
+    {
+        //Delete the save game
+        SceneManager.LoadScene("MainMenu");
     }
 }

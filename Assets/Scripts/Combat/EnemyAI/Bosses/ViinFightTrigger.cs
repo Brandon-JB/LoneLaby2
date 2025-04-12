@@ -5,7 +5,7 @@ using UnityEngine;
 public class ViinFightTrigger : MonoBehaviour
 {
     public ViinScript viinScript;
-
+    [SerializeField] private mainDialogueManager mdm;
     public GameObject bossFog;
 
     // Start is called before the first frame update
@@ -25,8 +25,11 @@ public class ViinFightTrigger : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            mdm = GameObject.FindObjectOfType<mainDialogueManager>();
+            mdm.dialogueSTART("ViinQuest/veinwood_prefight");
             viinScript.isActive = true;
             bossFog.SetActive(true);
+            this.gameObject.SetActive(false);
         }
     }
 }
