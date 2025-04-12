@@ -107,6 +107,7 @@ public class LeoraChar2 : BaseChar
         if (!comboTimer.isCoolingDown)
         {
             animator.SetBool("isInCombo", false);
+            animator.SetBool("Attacking", false);
         }
 
         if (Time.timeScale == 0)
@@ -440,9 +441,9 @@ public class LeoraChar2 : BaseChar
     public void StartComboTimer()
     {
         animator.SetBool("isInCombo", true);
-        animator.SetBool("Attacking", false);
         comboTimer.StartCooldown();
         attackCooldown.StartCooldown();
+        animator.SetBool("Attacking", false);
     }
 
     public override void Death()

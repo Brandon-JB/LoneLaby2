@@ -62,6 +62,9 @@ public class ChestInteraction : CombatInteraction
             case 5:
                 Door.SetActive(false);
                 break;
+            default:
+                Debug.Log("Haha pranked idiot");
+                break;
         }
     }
 }

@@ -327,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: 
   charSprite: {fileID: 7378922477063169458}
+  hurtbox: {fileID: 0}
   allied: 1
   animator: {fileID: 0}
   dropManager: {fileID: 0}
@@ -367,7 +368,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   attackRange: 2.5
   followRange: 4.5
-  moveSpeed: 4
+  moveSpeed: 7
   enemyRB: {fileID: 0}
   cooldown:
     cooldownTime: 2
