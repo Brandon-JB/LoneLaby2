@@ -45,6 +45,7 @@ public class mainDialogueManager : MonoBehaviour
     //private string fileName = "prologue";
 
     private string currentlyRunningText = "";
+    public static string GLOBALcurrentlyRunningText = "";
 
     //Used for testing.
     //private bool testingDialogueRan = false;
@@ -86,6 +87,7 @@ public class mainDialogueManager : MonoBehaviour
             dialogueRunning = true; // Set the flag to true when starting the coroutine
 
             currentlyRunningText = dialogueFile;
+            GLOBALcurrentlyRunningText = dialogueFile;
             //playerController.isfrozen = true;
 
             switch (currentlyRunningText)
@@ -261,6 +263,7 @@ public class mainDialogueManager : MonoBehaviour
             //        return;
             //}
             currentlyRunningText = "";
+            GLOBALcurrentlyRunningText = "";
             continueTextPrompt.SetActive(false);
             top.DOMove(tweenOutPositions[0].transform.position, 2).SetUpdate(true).SetEase(Ease.OutCubic);
             bottom.DOMove(tweenOutPositions[1].transform.position, 2).SetUpdate(true).SetEase(Ease.OutCubic);
