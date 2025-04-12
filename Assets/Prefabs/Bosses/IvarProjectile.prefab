@@ -57,7 +57,8 @@ MonoBehaviour:
   lifespan:
     cooldownTime: 10
   launchSpeed: 0.05
-  trackSpeed: 3
+  trackSpeed: 4
+  maxSpeed: 35
 --- !u!50 &7262492060793530452
 Rigidbody2D:
   serializedVersion: 4
