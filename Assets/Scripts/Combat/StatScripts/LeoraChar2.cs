@@ -485,7 +485,12 @@ public class LeoraChar2 : BaseChar
     }
     public void DoNextCombo()
     {
+        if (!animator.GetBool("Attacking"))
+        {
+            comboTimer.StartCooldown();
+        }
         animator.SetBool("Attacking", true);
+       
     }
 
     public void MagAttack()
