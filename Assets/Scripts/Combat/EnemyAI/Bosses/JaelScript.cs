@@ -11,6 +11,8 @@ public class JaelScript : MonoBehaviour
     [SerializeField] public JaelChar jaelChar;
 
     [SerializeField] private int maxAxeThrowCount;
+    private int originalMaxAxeCount;
+
     private int axesThrown;
     [SerializeField] private Cooldown throwingCooldown;
     [SerializeField] private GameObject axePrefab;
@@ -27,12 +29,22 @@ public class JaelScript : MonoBehaviour
 
     [SerializeField] private bool specialAttacking;
 
+    private bool firstPhase;
+    private bool secondPhase;
+    private bool thirdPhase;
+
+
     // Start is called before the first frame update
     void Start()
     {
         Player = FindObjectOfType<LeoraChar2>().gameObject;
         specialAttacking = false;
         teleporting = false;
+
+        firstPhase = false;
+        secondPhase = false;
+
+        originalMaxAxeCount = maxAxeThrowCount;
     }
 
 
@@ -42,11 +54,29 @@ public class JaelScript : MonoBehaviour
         //If Jael is available to throw an axe
         if (!jaelChar.animator.GetBool("stunned") && !throwingCooldown.isCoolingDown && !jaelChar.animator.GetBool("Attacking") && teleporting == false)
         {
+            if (!firstPhase &&  jaelChar.GetHealth() <= jaelChar.GetMaxHealth() - jaelChar.GetMaxHealth() / 4)
+            {
+                firstPhase = true;
+                maxAxeThrowCount = originalMaxAxeCount + 2;
+            }
+
+            if (!secondPhase && jaelChar.GetMaxHealth() <= jaelChar.GetMaxHealth() / 2)
+            {
+                secondPhase = true;
+                maxAxeThrowCount = originalMaxAxeCount + 4;
+            }
+
+            if (!specialAttacking && jaelChar.GetMaxHealth() <= jaelChar.GetMaxHealth() / 4)
+            {
+                specialAttacking = true;
+                throwingCooldown.cooldownTime = 0.5f;
+            }
+
             if (axesThrown <= maxAxeThrowCount)
             {
                 teleporting = true;
                 fogAnimator.SetBool("tpOut", true);
-                Debug.Log("Teleport out");
+                //Debug.Log("Teleport out");
 
                 if (specialAttacking == true)
                 {
@@ -222,11 +252,22 @@ public class JaelScript : MonoBehaviour
 
                 this.gameObject.transform.position = tpPosition;*/
 
-                jaelChar.animator.SetBool("stunned", true);
-                jaelChar.stunTimer.cooldownTime = 4;
-                jaelChar.stunTimer.StartCooldown();
-                //jaelChar.SpawnParticle("stunFX", jaelChar.transform.position, jaelChar.transform, jaelChar.stunTimer.cooldownTime);
-                axesThrown = 0;
+                if (!specialAttacking)
+                {
+                    jaelChar.animator.SetBool("stunned", true);
+                    jaelChar.stunTimer.cooldownTime = 3;
+                    jaelChar.stunTimer.StartCooldown();
+                    //jaelChar.SpawnParticle("stunFX", jaelChar.transform.position, jaelChar.transform, jaelChar.stunTimer.cooldownTime);
+                    axesThrown = 0;
+                }
+                else
+                {
+                    jaelChar.animator.SetBool("stunned", true);
+                    jaelChar.stunTimer.cooldownTime = 6;
+                    jaelChar.stunTimer.StartCooldown();
+                    jaelChar.SpawnParticle("stunFX", jaelChar.transform.position, jaelChar.transform, jaelChar.stunTimer.cooldownTime);
+                    axesThrown = 0;
+                }
             }
         }
     }
@@ -303,6 +344,51 @@ public class JaelScript : MonoBehaviour
         takenPositions.Add(jaelPosition);
 
         //tpList.RemoveAt(jaelPosition);
+
+        /*if (!specialAttacking && firstPhase)
+        {
+            foreach (var fakeJ in fakeJaelList)
+            {
+                for (int i = 0; i < tpList.Count; i++)
+                {
+                    if (!takenPositions.Contains(i))
+                    {
+                        fakeJaelScript tempFakeJael = fakeJ.GetComponent<fakeJaelScript>();
+                        //Debug.Log("Does not contain the tp in index: " + i);
+
+                        tempFakeJael.animator.SetFloat("xDir", 0);
+                        tempFakeJael.animator.SetFloat("yDir", 0);
+
+                        switch (i)
+                        {
+                            case 0:
+                                tempFakeJael.animator.SetFloat("xDir", -1);
+                                //tpPosition = new Vector2(tpPosition.x + offsetFromPlayer, tpPosition.y);
+                                break;
+                            case 1:
+                                tempFakeJael.animator.SetFloat("yDir", -1);
+                                //tpPosition = new Vector2(tpPosition.x, tpPosition.y + offsetFromPlayer);
+                                break;
+                            case 2:
+                                tempFakeJael.animator.SetFloat("xDir", 1);
+                                //tpPosition = new Vector2(tpPosition.x - offsetFromPlayer, tpPosition.y);
+                                break;
+                            case 3:
+                                tempFakeJael.animator.SetFloat("yDir", 1);
+                                //tpPosition = new Vector2(tpPosition.x, tpPosition.y - offsetFromPlayer);
+                                break;
+                        }
+
+                        fakeJ.transform.position = tpList[i];
+                        //tempFakeJael.TriggerAttackAnim();
+                        tempFakeJael.fogAnimator.SetBool("tpIn", true);
+                        takenPositions.Add(i);
+                        break;
+                    }
+
+                }
+            }
+        }*/
 
         if (specialAttacking)
         {

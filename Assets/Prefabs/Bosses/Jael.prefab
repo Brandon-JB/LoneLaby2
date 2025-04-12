@@ -367,13 +367,14 @@ MonoBehaviour:
   jaelChar: {fileID: 5861460246233662973}
   maxAxeThrowCount: 3
   throwingCooldown:
-    cooldownTime: 100
+    cooldownTime: 2
   axePrefab: {fileID: 1507682889751826430, guid: f696f59698d22ac44808c21faea8b665, type: 3}
   axeSpawnPoint: {fileID: 7993461483623113645}
   fakeJaelList: []
   offsetFromPlayer: 8
   Player: {fileID: 0}
   fogAnimator: {fileID: 2512424376777006761}
+  specialAttacking: 0
 --- !u!1 &7993461483623113645
 GameObject:
   m_ObjectHideFlags: 0

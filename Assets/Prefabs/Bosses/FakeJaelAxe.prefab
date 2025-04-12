@@ -105,12 +105,11 @@ MonoBehaviour:
   alreadyHit: 0
   rb: {fileID: 9133700964352093966}
   spriteObject: {fileID: 1507682889751826430}
-  timeTracking:
-    cooldownTime: 100
+  sr: {fileID: 4363110075221242223}
   lifespan:
-    cooldownTime: 100
-  launchSpeed: 0
-  trackSpeed: 0
+    cooldownTime: 5
+  animator: {fileID: 8627748120766005607}
+  moveSpeed: 10
 --- !u!50 &9133700964352093966
 Rigidbody2D:
   serializedVersion: 4
@@ -142,7 +141,7 @@ Animator:
   m_GameObject: {fileID: 1507682889751826430}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d642144b25570e74c9f6fa730565ebe8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 551c9762a3423914d8490435442ac235, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

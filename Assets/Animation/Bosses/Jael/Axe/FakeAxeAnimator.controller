@@ -34,7 +34,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AxeAnimator
+  m_Name: FakeAxeAnimator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: horizontal
@@ -42,13 +42,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: vertical
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -82,7 +82,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7791d063197fdec4f9ae64159bcdd431, type: 2}
+  m_Motion: {fileID: 7400000, guid: 531273526350ff94f96ea7c1906d761f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -108,7 +108,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 847902064b8afa84296c16d5009d7b3c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 558906a9939fdb84c8d9e0ab8d10a175, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
