@@ -64,7 +64,7 @@ public class SeverinChar : BaseChar
                     if (otherCharTrigger.allied != this.allied || otherCharTrigger.charName == "EarthElement")
                     {
                         //if Severin is not charging the massive attack
-                        if (!animator.GetBool("charging") && !sevScript.screenFlash.activeInHierarchy)
+                        if (/*!animator.GetBool("charging")*/ !sevScript.parrying && !sevScript.screenFlash.activeInHierarchy)
                         {
                             hitboxChild.alreadyHit = true;
                             collision.gameObject.SetActive(false);

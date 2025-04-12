@@ -449,8 +449,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charName: 
+  charSprite: {fileID: 0}
+  hurtbox: {fileID: 0}
   allied: 1
   animator: {fileID: 0}
+  dropManager: {fileID: 0}
   healthBar: {fileID: 0}
   manaBar: {fileID: 0}
   hpSlider: {fileID: 0}
@@ -467,7 +470,7 @@ MonoBehaviour:
   parryCooldown:
     cooldownTime: 100
   stunTimer:
-    cooldownTime: 3
+    cooldownTime: 2
   particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
   slowTimer:
     cooldownTime: 100

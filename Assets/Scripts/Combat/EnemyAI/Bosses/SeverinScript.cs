@@ -12,12 +12,22 @@ public class SeverinScript : EnemyScript
 
     [SerializeField] private float defaultCooldown = 2;
 
+    public bool parrying;
+    [SerializeField] private GameObject parryIndicator;
+
     // Start is called before the first frame update
     void Start()
     {
         firstBigHitDone = false;
         secondBigHitDone = false;
         screenFlash.SetActive(false);
+        parryIndicator.SetActive(false);
+    }
+
+    public void TriggerParry()
+    {
+        parrying = true;
+        parryIndicator.SetActive(true);
     }
 
     /*Severin Combat loop:
@@ -240,10 +250,13 @@ public class SeverinScript : EnemyScript
     {
         enemyChar.animator.SetBool("charging", false);
         enemyChar.animator.SetBool("endCharge", false);
+        
     }
 
     public void DisableScreenFlash()
     {
+        parrying = false;
+        parryIndicator.SetActive(false);
         screenFlash.SetActive(false);
     }
 

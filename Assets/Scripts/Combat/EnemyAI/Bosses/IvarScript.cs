@@ -126,12 +126,12 @@ public class IvarScript : MonoBehaviour
             }
 
             //Teleporting to the fire mazes
-            if (firstTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 2)
+            if (firstTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() - (ivarChar.GetMaxHealth() / 4))
             {
                 teleportNum = 1;
                 TriggerTPCast();
             }
-            else if (secondTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 4)
+            else if (secondTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 3)
             {
                 teleportNum = 2;
                 TriggerTPCast();
