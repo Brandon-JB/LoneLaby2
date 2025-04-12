@@ -5,6 +5,7 @@ using UnityEngine;
 public class LucanFightTrigger : MonoBehaviour
 {
     public LucanScript lucanScript;
+    [SerializeField] private mainDialogueManager mdm;
 
     //public GameObject bossFog;
 
@@ -24,8 +25,11 @@ public class LucanFightTrigger : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            mdm = GameObject.FindObjectOfType<mainDialogueManager>();
+            mdm.dialogueSTART("ViinQuest/veinwood_prefight");
             lucanScript.isActive = true;
             //bossFog.SetActive(true);
+            this.gameObject.SetActive(false);
         }
     }
 }
