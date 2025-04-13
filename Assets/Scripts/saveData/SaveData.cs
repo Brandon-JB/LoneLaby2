@@ -20,6 +20,7 @@ public class SaveData
     //public int bossesSpared;
 
     public List<BossStateEntry> bossStates;
+    public List<QuestSaveEntry> quests;
 
     public float currentHP;
     public float currentMana;
@@ -47,4 +48,13 @@ public class BossStateEntry
         this.bossName = name;
         this.state = state;
     }
+}
+
+public class QuestSaveEntry
+{
+    public string questID;
+    public bool isActive;
+    public bool isComplete;
+    public int currentProgress;
+    public int requiredProgress;
 }
