@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,4 +15,18 @@ public class BossSaveData : MonoBehaviour
         {"Lucan", 0 },
         {"Viin", 0 }
     };
+
+    public static int GetNumberOfBossesObtained()
+    {
+        return Convert.ToInt32((bossStates["Ivar"] != 0)) + Convert.ToInt32((bossStates["Lucan"] != 0)) + Convert.ToInt32((bossStates["Viin"] != 0));
+    }
+
+    public static int GetNumberOfCondemned()
+    {
+        return Convert.ToInt32((bossStates["Ivar"] == 1)) + Convert.ToInt32((bossStates["Lucan"] == 1)) + Convert.ToInt32((bossStates["Viin"] == 1));
+    }
+    public static int GetNumberOfKilled()
+    {
+        return Convert.ToInt32((bossStates["Ivar"] == 2)) + Convert.ToInt32((bossStates["Lucan"] == 2)) + Convert.ToInt32((bossStates["Viin"] == 2));
+    }
 }

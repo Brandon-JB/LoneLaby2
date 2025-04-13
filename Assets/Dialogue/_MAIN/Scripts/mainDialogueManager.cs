@@ -5,6 +5,7 @@ using DIALOGUE;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEditor;
 
 public class mainDialogueManager : MonoBehaviour
 {
@@ -221,6 +222,60 @@ public class mainDialogueManager : MonoBehaviour
                     break;
                 case "LucanQuest/cave_postfight":
                     FindObjectOfType<killSpareManager>().EnableKillSpare("Lucan");
+                    break;
+                case "LucanQuest/cave_postfight_saveVerita":
+                case "IvarQuest/manor_postfight_saveVerita":
+                case "ViinQuest/veinwood_postfight_saveVerita":
+                    if (BossSaveData.GetNumberOfBossesObtained() == 3)
+                    {
+                        //ok cool we are triggering the final boss. what dialogue are we playing
+                        switch(BossSaveData.GetNumberOfCondemned())
+                        {
+                            case 0:
+                                dialogueSTART("Endings/Compassion/beginCompassion");
+                                return;
+                            default:
+                                dialogueSTART("Endings/Conflicted/withVerita/grabLeora");
+                                return;
+                        }
+                    }
+                    break;
+                case "LucanQuest/cave_postfight_condemnSpeaker":
+                case "IvarQuest/manor_postfight_condemnSpeaker":
+                case "ViinQuest/veinwood_postfight_condemnSpeaker":
+                    if (BossSaveData.GetNumberOfBossesObtained() == 3)
+                    {
+                        //ok cool we are triggering the final boss. what dialogue are we playing
+                        switch (BossSaveData.GetNumberOfCondemned())
+                        {
+                            //If they are talking to the speaker, they have condemned *someone*.
+                            case 1:
+                                dialogueSTART("Endings/Conflicted/withSpeaker/onecondemned");
+                                return;
+                            case 2:
+                                dialogueSTART("Endings/Conflicted/withSpeaker/twocondemned");
+                                return;
+                            case 3:
+                                dialogueSTART("Endings/Condemn/beginCondemn");
+                                return;
+                        }
+                    }
+                    break;
+                case "Endings/Compassion/beginCompassion":
+                    dialogueSTART("Endings/Compassion/speakerCompassion");
+                    break;
+                case "Endings/Conflicted/withVerita/grabLeora":
+                    //ok cool we are triggering the final boss. what dialogue are we playing
+                    switch (BossSaveData.GetNumberOfCondemned())
+                    {
+                        //If they are talking to the speaker, they have condemned *someone*.
+                        case 1:
+                            dialogueSTART("Endings/Conflicted/withVerita/onecondemned");
+                            return;
+                        case 2:
+                            dialogueSTART("Endings/Conflicted/withVerita/twocondemned");
+                            return;
+                    }
                     break;
                 default:
                     Time.timeScale = 1f;
