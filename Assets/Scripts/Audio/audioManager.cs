@@ -224,6 +224,15 @@ public class audioManager : MonoBehaviour
         {
             // If no children, use the AudioSource attached to this object
             AudioSource thisAudio = SFXAvailable[ID].GetComponent<AudioSource>();
+
+            //GameObject obj = thisAudio.gameObject;
+            //    string path = "/" + obj.name;
+            //    while (obj.transform.parent != null)
+            //    {
+            //    obj = obj.transform.parent.gameObject;
+            //        path = "/" + obj.name + path;
+            //    }
+            //print(path);
             Debug.Log(thisAudio.gameObject.name + " | Enabled: " + thisAudio.enabled + " | GameObject active: " + thisAudio.gameObject.activeInHierarchy);
 
 

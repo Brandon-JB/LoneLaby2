@@ -123,7 +123,7 @@ public class ItemMenu : MonoBehaviour
             case "ATKHPRing":
                 itemText.text = "Ring of Might and Vigor";
                 itemImage.sprite = items[14];
-                itemDescription.text = "Crimson and forest green fuse into one in this ring’s gemstone, symbolizing the unity of might and magic. <color=#92dae8>Increase Leora’s HP by 25 points and slightly increase Leora’s attack.</color>";
+                itemDescription.text = "Crimson and forest green fuse into one in this ring’s gemstone, symbolizing the unity of might and vigor. <color=#92dae8>Increase Leora’s HP by 25 points and slightly increase Leora’s attack.</color>";
                 break;
             default:
                 Debug.Log("I couldn't find the item equipped. Sorry pookie");

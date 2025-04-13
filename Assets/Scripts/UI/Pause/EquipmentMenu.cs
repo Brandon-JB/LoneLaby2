@@ -114,7 +114,6 @@ public class EquipmentMenu : MonoBehaviour
                 }
                 LeoraShadowEquipment[slotNumber].sprite = hudEquipment.uglyAssSwitchStatement(equip.Key, slotNumber == 1? amuletsForLeoraShadow : ringsForLeoraShadow);
                 uiImages[i].SetActive(true);
-                Debug.Log("This thing should like. 100% be showing rn. TO PROVE IT TO YOU, HERE IS THE NAME OF THE UI" + uiImages[i].name);
                 break; // Just stop the function if equip is true
             }
             //uiImages[i].color = equip.Value ? Color.white : tintColor;
@@ -155,7 +154,7 @@ public class EquipmentMenu : MonoBehaviour
         if (EquipmentManager.equipmentObtained[item] == false)
         {
             //Hey loser! You don't have the item! HAHA
-
+            audioManager.Instance.playSFX(37);
             //Play an angry sfx
             return;
         }
@@ -173,12 +172,14 @@ public class EquipmentMenu : MonoBehaviour
             texts[0].text = "Equipped amulet!";
             if (glowToCheckIfEquipped.activeInHierarchy)
             {
+                audioManager.Instance.playSFX(41);
                 texts[0].text = "Change HUD (ring is equipped, unequip it)";
                 hudEquipment.changeHUDOnEquip("", 1);
                 texts[0].text = "Change Leora Sprite (ring is equipped, unequip it)";
                 LeoraShadowEquipment[1].sprite = hudEquipment.uglyAssSwitchStatement("", amuletsForLeoraShadow);
             } else
             {
+                audioManager.Instance.playSFX(40);
                 texts[0].text = "Change HUD (ring is NOT equipped)";
                 hudEquipment.changeHUDOnEquip(item, 1);
                 texts[0].text = "Change Leora Sprite (ring is NOT equipped)";
@@ -207,6 +208,7 @@ public class EquipmentMenu : MonoBehaviour
             //if the clicked ring is equipped
             if (glowToCheckIfEquipped.activeInHierarchy)
             {
+                audioManager.Instance.playSFX(40);
                 //glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
 
                 //Debug.Log("Glowing Ring is " + item);
@@ -255,6 +257,7 @@ public class EquipmentMenu : MonoBehaviour
             //if the clicked ring is not equipped
             else
             {
+                audioManager.Instance.playSFX(41);
                 //if either ring slot 1 or 2 are available
                 if (!checkIfWearingRing(EquipmentManager.ringSlot1) || !checkIfWearingRing(EquipmentManager.ringSlot2))
                 {

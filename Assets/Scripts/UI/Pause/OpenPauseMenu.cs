@@ -95,12 +95,26 @@ public class OpenPauseMenu : MonoBehaviour
                 //Hypothetically, will make time scale 0 if pause menu is closing and 1 if pause menu is opening
                 Time.timeScale = Convert.ToInt32(pauseMenuObject.activeInHierarchy);
                 pauseMenuObject.SetActive(!pauseMenuObject.activeInHierarchy);
+                if (pauseMenuObject.activeInHierarchy)
+                {
+                    audioManager.Instance.playSFX(38);
+                } else
+                {
+                    audioManager.Instance.playSFX(39);
+                }
             } else
             {
                 //Open quick pause
                 //Hypothetically, will make time scale 0 if pause menu is closing and 1 if pause menu is opening
                 Time.timeScale = Convert.ToInt32(quickPauseMenu.activeInHierarchy && SceneManager.GetActiveScene().name == "Overworld");
                 quickPauseMenu.SetActive(!quickPauseMenu.activeInHierarchy);
+                if(quickPauseMenu.activeInHierarchy)
+                {
+                    audioManager.Instance.playSFX(38);
+                } else
+                {
+                    audioManager.Instance.playSFX(39);
+                }
             }
         }
     }
