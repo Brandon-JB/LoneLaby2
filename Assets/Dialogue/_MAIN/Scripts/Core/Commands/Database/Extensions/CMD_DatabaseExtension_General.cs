@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 namespace COMMANDS
 {
@@ -59,8 +60,12 @@ namespace COMMANDS
 
         private static void goTo(string itemID)
         {
-            audioManager.Instance.stopBGM(1);
-            SceneManager.LoadScene(itemID);
+            //audioManager.Instance.stopBGM(1);
+            GameObject.FindGameObjectWithTag("CutsceneFade").GetComponent<CanvasGroup>().DOFade(1, 1f).SetUpdate(true).OnComplete(() =>
+            //itemHolder.DOFade(0, 1f).SetUpdate(true).OnComplete(() =>
+            {
+                SceneManager.LoadScene(itemID);
+            });
         }
 
         private static void progressTutorial(string itemID)
