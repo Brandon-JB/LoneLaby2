@@ -224,6 +224,8 @@ public class audioManager : MonoBehaviour
         {
             // If no children, use the AudioSource attached to this object
             AudioSource thisAudio = SFXAvailable[ID].GetComponent<AudioSource>();
+            Debug.Log(thisAudio.gameObject.name + " | Enabled: " + thisAudio.enabled + " | GameObject active: " + thisAudio.gameObject.activeInHierarchy);
+
 
             thisAudio.volume = (audioStatics.SFXVolume * audioStatics.MasterVolume);
             thisAudio.Play();
