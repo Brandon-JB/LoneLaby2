@@ -6,6 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
+    // SO IT DOESNT GET DESTROYED BETWEEN SCENES
+    public static SaveManager Instance;
+
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // prevent duplicates
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject); // keep this alive across scenes
+    }
+
+    //SAVE STUFF BELOW
+
 
     public GameObject Player;
     public EquipmentManager equipmentManager;
@@ -25,6 +43,7 @@ public class SaveManager : MonoBehaviour
         data.equippedRings = ConvertDictToList(EquipmentManager.equippedRings);
 
         //Quests
+        data.quests = ConvertQuestsToList(QuestManager.questStates);
 
         //Bosses Dead
         data.bossStates = ConvertBossDictToList(BossSaveData.bossStates);
@@ -64,6 +83,8 @@ public class SaveManager : MonoBehaviour
         RebuildDictFromList(data.equippedRings, EquipmentManager.equippedRings);
 
         //Quests
+        QuestManager.ClearAllQuests();
+        RebuildQuestDict(data.quests);
 
         //Bosses Dead
         RebuildBossDictFromList(data.bossStates, BossSaveData.bossStates);
@@ -107,6 +128,38 @@ public class SaveManager : MonoBehaviour
         {
             if (dict.ContainsKey(entry.bossName))
                 dict[entry.bossName] = entry.state;
+        }
+    }
+
+    private List<QuestSaveEntry> ConvertQuestsToList(Dictionary<string, QuestData> dict)
+    {
+        List<QuestSaveEntry> list = new List<QuestSaveEntry>();
+        foreach (var quest in dict.Values)
+        {
+            list.Add(new QuestSaveEntry
+            {
+                questID = quest.questID,
+                isActive = quest.isActive,
+                isComplete = quest.isComplete,
+                currentProgress = quest.currentProgress,
+                requiredProgress = quest.requiredProgress
+            });
+        }
+        return list;
+    }
+
+    private void RebuildQuestDict(List<QuestSaveEntry> list)
+    {
+        foreach (var entry in list)
+        {
+            var newQuest = new QuestData(entry.questID, entry.requiredProgress)
+            {
+                isActive = entry.isActive,
+                isComplete = entry.isComplete,
+                currentProgress = entry.currentProgress
+            };
+
+            QuestManager.questStates[entry.questID] = newQuest;
         }
     }
 

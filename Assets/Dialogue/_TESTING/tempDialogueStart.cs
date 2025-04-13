@@ -10,6 +10,11 @@ public class tempDialogueStart : MonoBehaviour
 
     private void Start()
     {
+        //MDM.dialogueSTART(fileName);
+    }
+
+    public void StartDialogue()
+    {
         MDM.dialogueSTART(fileName);
     }
 }

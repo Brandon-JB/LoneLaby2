@@ -34,6 +34,7 @@ public class PlayerContact : MonoBehaviour
 
         if (collision.tag == "CityPortals")
         {
+            Debug.Log("City Portal Hit");
             cityPortalManager.LoadCityArea(collision.name);
         }
 
@@ -54,6 +55,7 @@ public class PlayerContact : MonoBehaviour
             roomTP.Teleport(collision.name);
         }
 
+        /*
         if (collision.tag == "OverworldEnemy")
         {
             if (collision.name == "Slime")
@@ -71,17 +73,18 @@ public class PlayerContact : MonoBehaviour
 
             }
         }
+        */
     }
 
-    IEnumerator LoadRandomFight()
-    {
-        animator.SetBool("IsFight", true);
-        animator.SetTrigger("Start");
+    //IEnumerator LoadRandomFight()
+    //{
+    //    animator.SetBool("IsFight", true);
+    //    animator.SetTrigger("Start");
 
-        yield return new WaitForSeconds(1.2f);
+    //    yield return new WaitForSeconds(1.2f);
 
-        SceneManager.LoadScene("RandomFight");
-        //Call Static Int for where to fight enemy and while enemies
-        PlayerMovement.CanWalk = true;
-    }
+    //    SceneManager.LoadScene("RandomFight");
+    //    //Call Static Int for where to fight enemy and while enemies
+    //    PlayerMovement.CanWalk = true;
+    //}
 }
