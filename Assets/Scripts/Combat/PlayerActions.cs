@@ -75,12 +75,18 @@ public class PlayerActions : MonoBehaviour
                 //Debug.Log("Reading G Input");
 
                 //Sets the Attacking bool in the animator to true
-                if (!leoraChar.attackCooldown.isCoolingDown)
+                /*if (!leoraChar.attackCooldown.isCoolingDown)
                 {
                     leoraChar.DoNextCombo();
                 }
                 else if (leoraChar.comboTimer.isCoolingDown)
                 {
+                    leoraChar.DoNextCombo();
+                }*/
+
+                if (!leoraChar.attackCooldown.isCoolingDown)
+                {
+                    leoraChar.StartComboTimer();
                     leoraChar.DoNextCombo();
                 }
             }

@@ -171,15 +171,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.25
-    functionName: StartComboTimer
+  - time: 0.28333333
+    functionName: DisableHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.3
-    functionName: DisableHitbox
+    functionName: StartComboTimer
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

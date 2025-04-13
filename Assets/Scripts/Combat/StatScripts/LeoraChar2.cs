@@ -73,6 +73,8 @@ public class LeoraChar2 : BaseChar
         if (!hyperArmor)
         {
             base.TriggerHurtAnim();
+            animator.SetBool("SecondAtk", false);
+            animator.SetBool("ThirdAtk", false);
             isParrying = false;
             isPerfectParrying = false;
             EnableHurtbox();
@@ -108,6 +110,8 @@ public class LeoraChar2 : BaseChar
         {
             animator.SetBool("isInCombo", false);
             animator.SetBool("Attacking", false);
+            animator.SetBool("SecondAtk", false);
+            animator.SetBool("ThirdAtk", false);
         }
 
         if (Time.timeScale == 0)
@@ -440,10 +444,10 @@ public class LeoraChar2 : BaseChar
     //A event to be called in the animator that starts both cooldownsa and preps the animator for whether the user continues the combo or not.
     public void StartComboTimer()
     {
-        animator.SetBool("isInCombo", true);
+        //animator.SetBool("isInCombo", true);
         comboTimer.StartCooldown();
-        attackCooldown.StartCooldown();
-        animator.SetBool("Attacking", false);
+        //attackCooldown.StartCooldown();
+        //animator.SetBool("Attacking", false);
     }
 
     public override void Death()
@@ -480,16 +484,29 @@ public class LeoraChar2 : BaseChar
     //An event to be called in the animator that goes at the end of the combo
     public void endCombo()
     {
+        //attackCooldown.StartCooldown();
         attackCooldown.StartCooldown();
         animator.SetBool("Attacking", false);
+        animator.SetBool("SecondAtk", false);
+        animator.SetBool("ThirdAtk", false);
     }
+
+
     public void DoNextCombo()
     {
         if (!animator.GetBool("Attacking"))
         {
-            comboTimer.StartCooldown();
+            animator.SetBool("Attacking", true);
         }
-        animator.SetBool("Attacking", true);
+        else if (!animator.GetBool("SecondAtk"))
+        {
+            animator.SetBool("SecondAtk", true);
+        }
+        else if (!animator.GetBool("ThirdAtk"))
+        {
+            animator.SetBool("ThirdAtk", true);
+        }
+
        
     }
 
