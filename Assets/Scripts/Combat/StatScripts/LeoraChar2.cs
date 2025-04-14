@@ -108,7 +108,6 @@ public class LeoraChar2 : BaseChar
         //Once the combo timer ends, then set the combo bool in the animator to false;
         if (!comboTimer.isCoolingDown)
         {
-            animator.SetBool("isInCombo", false);
             animator.SetBool("Attacking", false);
             animator.SetBool("SecondAtk", false);
             animator.SetBool("ThirdAtk", false);
