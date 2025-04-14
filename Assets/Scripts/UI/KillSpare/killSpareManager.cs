@@ -30,7 +30,7 @@ public class killSpareManager : MonoBehaviour
     public string bossName;
     private void Start()
     {
-        EnableKillSpare("Viin");
+        //EnableKillSpare("Viin");
     }
 
     public void EnableKillSpare(string bossName)

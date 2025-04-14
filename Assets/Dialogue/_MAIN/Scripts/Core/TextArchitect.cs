@@ -153,7 +153,6 @@ public class TextArchitect
         while (tmpro.maxVisibleCharacters < tmpro.textInfo.characterCount) // while we still have text to display
         {
             tmpro.maxVisibleCharacters += hurryUp ? charactersPerCycle * 5 : charactersPerCycle;
-            Time.timeScale = 1f;
             yield return new WaitForSecondsRealtime(0.015f / speed);
         }
         tmpro.StopCoroutine(buildProcess);   
