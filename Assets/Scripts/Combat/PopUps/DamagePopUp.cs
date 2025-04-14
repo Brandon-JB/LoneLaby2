@@ -11,6 +11,8 @@ public class DamagePopUp : MonoBehaviour
 
     private Color textColor;
 
+    [SerializeField] private Color damageColor, healthColor, manaColor;
+
     private void Awake()
     {
         textMesh = transform.GetComponent<TextMeshPro>();
@@ -22,15 +24,15 @@ public class DamagePopUp : MonoBehaviour
 
         if (textPurpose == "Damage")
         {
-            textColor = Color.red;
+            textColor = damageColor;
         }
         else if (textPurpose == "Health")
         {
-            textColor = Color.green;
+            textColor = healthColor;
         }
         else if (textPurpose == "Mana")
         {
-            textColor = Color.blue;
+            textColor = manaColor;
         }
         
         disappearTimer = 0.7f;
