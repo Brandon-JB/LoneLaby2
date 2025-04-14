@@ -45,7 +45,8 @@ public class CityPortalManager : MonoBehaviour
         }
         else if (areaName == "Training")
         {
-            //idk rn
+            
+            SceneManager.LoadScene("Tutorial");
             OpenPauseMenu.GLOBALcanOpenPause = true;
         }
         else if (areaName == "Church")
@@ -80,6 +81,7 @@ public class CityPortalManager : MonoBehaviour
         else if (areaName == "training")
         {
             //do something (UI)
+            //then once player confirms yes need to do animator.SetTrigger("Training");
         }
 
         yield return new WaitForSeconds(transitionTime);
