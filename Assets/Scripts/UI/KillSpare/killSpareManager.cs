@@ -28,6 +28,10 @@ public class killSpareManager : MonoBehaviour
     [SerializeField] private GameObject menu;
 
     public string bossName;
+    private void Start()
+    {
+        EnableKillSpare("Viin");
+    }
 
     public void EnableKillSpare(string bossName)
     {
