@@ -45,10 +45,11 @@ public class saveUI : MonoBehaviour
         Time.timeScale = 0f;
         leoraforFade.alpha = 0f;
         background.DOFade(1, 0.5f).SetUpdate(true);
-        leoraforFade.DOFade(1, 0.5f).SetUpdate(true).OnComplete(() => {
+        leoraforFade.DOFade(1, 0.5f).SetUpdate(true).OnComplete(() =>
+        {
             buttonsToDisable[0].SetActive(true);
             buttonsToDisable[1].SetActive(true);
-        }); ;
+        });
         leoraToMove.DOMove(locations[0].position, 0.25f).SetUpdate(true).SetEase(Ease.InCubic);
     }
 
