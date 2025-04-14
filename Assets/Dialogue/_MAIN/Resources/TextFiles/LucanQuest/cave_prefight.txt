@@ -11,6 +11,7 @@ Highlight(lucan -o true)
 lucan "A Justiciar, sent for a withering old soldier? My, how the Order must be <i>overflowing</i> with knights to spare."
 lucan "Years have passed since last they sought me... Tell me, what crime do they lay at my feet this time?"
 Highlight(leora -o true)
+SetSprite(leora angry)
 leora "You know it well. You abandoned your post at Grest, condemned hundreds to die in your stead. And now you steal away the innocents of Zaro to twist them to your cause. Do you deny it?"
 Highlight(lucan -o true)
 lucan "Do I deny it? Would that make a difference to the Order if I did?"
@@ -38,5 +39,4 @@ SetSprite(leora angryEyesClosed)
 leora "So be it. I had hoped to settle this without bloodshed, but you leave me no choice."
 Hide(lucan)
 Hide(leora)
-SetSprite(leora leora)
 endDialogue(false)

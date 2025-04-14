@@ -9,13 +9,14 @@ SetSprite(leora eyesClosed)
 leora "(Oh, God of Truth, what have I done? The Scepter of Truth—your scepter—was stolen; and when I found the thief... I spared him.)"
 SetSprite(leora sideeye)
 leora "(I let compassion cloud my judgment. I faltered. A knight of Verita does not hesitate. A knight of Verita follows orders. And yet... I disobeyed.)"
-SetSprite(leora confused)
+SetSprite(leora confusedEyesClosed)
 leora "(The Order would never demand me to commit an injustice. If I am their Justiciar, if I am their sword, then I must—... must—...)"
 Show(verita)
 Highlight(verita -o true)
 verita "<b>Dame Leora... grieve not so.</b>"
 Highlight(verita -o true)
 verita "<b>A broken oath weighs heavily, yet thou art not broken. Even now, thou dost seek righteousness, not in absolution, but in understanding. This is a path far harder to walk.</b>"
+SetSprite(leora confused)
 Highlight(leora -o true)
 leora "(What is the purpose of an oath, if I cannot uphold it? If I cannot condemn a simple thief—?)"
 Highlight(verita -o true)

@@ -9,13 +9,15 @@ SetSprite(leora sideeye)
 leora "...You are free to go."
 Show(ivar)
 Highlight(ivar -o true)
-SetSprite(ivar angry)
-ivar "...Huh? Wait—<i>truly</i>? You break into my <i>home</i>, bludgeon me half to death, and now you're just—letting me go?"
+SetSprite(ivar shock)
+ivar "...Huh? Wait—<i>truly</i>?"
+SetSprite(ivar confused)
+ivar "You break into my <i>home</i>, bludgeon me half to death, and now you're just—letting me go?"
 Highlight(leora -o true)
 SetSprite(leora angry)
 leora "Would you rather I change my mind?"
 Highlight(ivar -o true)
-SetSprite(ivar ivar)
+SetSprite(ivar shock)
 ivar "W-Wait, now, let's not be rash, dear knight! I jest! Certainly, I do."
 Highlight(leora -o true)
 SetSprite(leora confused)
@@ -29,6 +31,7 @@ leora "...If you insist. Once your family is secure, you <i>must</i> contact the
 SetSprite(leora confused)
 leora "Even then, where are the knights that were sent to retrieve you? What became of them?"
 Highlight(ivar -o true)
+SetSprite(ivar confused)
 ivar "...There were—.. There were other knights here?"
 Highlight(leora -o true)
 leora "Yes, what became of them?"
@@ -39,11 +42,14 @@ Highlight(leora -o true)
 leora "(I am sure others were here... are Ivar's words truly to be trusted?)"
 leora "Ivar, if you must possess the Scepter of Truth, could you at least store it away? You clutch it as if it will sprout wings and fly away."
 Highlight(ivar -o true)
+SetSprite(ivar relief)
 ivar "Ah... y-yes. A fair argument. Perhaps then... perhaps then the whispers will stop."
+SetSprite(ivar ivar)
 ivar "Regardless, I owe you my thanks, Dame. You have done a noble thing. Perhaps... this will suffice for showing my gratitude?"
 gainItem(MindAmulet)
 wait(0.5)
 SetSprite(ivar ivar)
+SetSprite(ivar relief)
 ivar "Now, if you'll excuse me, I must tidy myself before the trade. One must look presentable, even in desperate dealings."
 Hide(ivar)
 Hide(leora)

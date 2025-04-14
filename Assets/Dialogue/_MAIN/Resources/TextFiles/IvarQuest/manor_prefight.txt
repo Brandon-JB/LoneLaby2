@@ -9,6 +9,7 @@ SetSprite(leora angry)
 leora "Ivar. You stand before Leora, servant of Verita. The Order summons you. You will relinquish the Scepter of Truth and return to Zaro for judgment."
 Show(ivar)
 Highlight(ivar -o true)
+SetSprite(ivar shock)
 ivar "W-what?! A knight? Here? Oh, dear lady, you must be terribly lost. I have done nothing to provoke such an... <i>abrupt</i> search of my home."
 Highlight(leora -o true)
 leora "You know well what I seek. The Scepter of Truth belongs to the Order. Knights sent to retrieve you have vanished—one can only assume the price you made them pay? You will find that I am much less fallible than the rest."

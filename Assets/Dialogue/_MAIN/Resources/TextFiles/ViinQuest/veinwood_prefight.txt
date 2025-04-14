@@ -23,6 +23,7 @@ viin "Oh, you act fast enough when a hungry child dares steal from your reserves
 SetSprite(viin mocking)
 viin "But wait! You have a <i>god</i> backing your Order, which makes you <i>right</i>, doesn't it?"
 Highlight(leora -o true)
+SetSprite(leora REALLYangry)
 leora "Shut your damned mouth or I'll shut it for you."
 Highlight(viin -o true)
 SetSprite(viin cocky)
