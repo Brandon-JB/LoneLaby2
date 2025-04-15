@@ -11,13 +11,15 @@ public class SeverinTutorial : BaseChar
 
     private float DistanceBetweenObjectAndPlayer;
     public GameObject Player;
+    private LeoraChar2 leoraChar;
     public float interactRange;
 
     private void Start()
     {
         interactable = false;
 
-        Player = FindObjectOfType<LeoraChar2>().gameObject;
+        leoraChar = FindObjectOfType<LeoraChar2>();
+        Player = leoraChar.gameObject;
 
         animator.SetBool("Tutorial", true);
 
@@ -36,11 +38,17 @@ public class SeverinTutorial : BaseChar
 
             if (DistanceBetweenObjectAndPlayer <= interactRange)
             {
+                leoraChar.interactIcon.SetActive(true);
+
                 if (InputManager.interactPressed)
                 {
                     //Put interactions here
-                    
+                    tutorialScript.EndTutorial();
                 }
+            }
+            else
+            {
+                leoraChar.interactIcon.SetActive(false);
             }
         }
     }

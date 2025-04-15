@@ -9,6 +9,7 @@ public class JaelFogScript : MonoBehaviour
     [SerializeField] private JaelChar jaelChar;
     [SerializeField] private fakeJaelScript fakeJael;
     [SerializeField] private Animator animator;
+    [SerializeField] private BoxCollider2D hurtBox;
 
     private void Start()
     {
@@ -19,11 +20,19 @@ public class JaelFogScript : MonoBehaviour
     public void disappearJael()
     {
         jaelSprite.SetActive(false);
+        if (hurtBox != null)
+        {
+            hurtBox.enabled = false;
+        }
     }
 
     public void appearJael()
     {
         jaelSprite.SetActive(true);
+        if (hurtBox != null)
+        {
+            hurtBox.enabled = true;
+        }
     }
 
     public void ResetFog()

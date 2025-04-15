@@ -85,4 +85,16 @@ public class SeverinChar : BaseChar
             }
         }
     }
+
+    public override void Death()
+    {
+        mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
+        mdm.dialogueSTART("Endings/Compassion/severin_postfight");
+        //I don't think I have to do anything else for this, but I can modify this.
+
+        //killSpareMenu.SetActive(true);
+        //killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
+        //killSpare.bossName = "Lucan";
+        Destroy(this.gameObject);
+    }
 }

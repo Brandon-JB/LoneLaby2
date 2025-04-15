@@ -64,7 +64,7 @@ public class Tutorial : MonoBehaviour
 
     public void progressTutorial()
     {
-        Time.timeScale = 0f;
+        
         switch (tutorialCounter)
         {
             case 2:
@@ -78,7 +78,7 @@ public class Tutorial : MonoBehaviour
         tutorialtext[tutorialCounter % 2].text = parsedSteps[tutorialCounter];
 
         tutorialUI[tutorialCounter % 2].DOMove(locations[tutorialCounter % 2].position, 0.5f).SetUpdate(true).OnComplete(() => {
-
+            
             tutorialCounter++;
             if (tutorialCounter % 2 == 1)
             {
@@ -110,6 +110,9 @@ public class Tutorial : MonoBehaviour
     }
     private IEnumerator progressTutorialAfterDelay()
     {
+        yield return new WaitForSecondsRealtime(0.05f);
+        Time.timeScale = 0f;
+
         yield return new WaitForSecondsRealtime(3f); // Wait for 3 seconds
         progressTutorial();
         StopCoroutine(progressTutorialAfterDelay());

@@ -358,7 +358,7 @@ public class EquipmentManager : MonoBehaviour
                 {
                     if (boss.Value == 1)
                     {
-                        leoraChar.AddToSpecificStat("Strength", -5);
+                        leoraChar.AddToSpecificStat("Strength", -2);
                     }
                 }
                 break;
@@ -392,7 +392,7 @@ public class EquipmentManager : MonoBehaviour
                 {
                     if (boss.Value == 1)
                     {
-                        leoraChar.AddToSpecificStat("Strength", 5);
+                        leoraChar.AddToSpecificStat("Strength", 2);
                     }
                 }
                     break;

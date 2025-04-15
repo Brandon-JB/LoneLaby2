@@ -9,20 +9,22 @@ public class CombatInteraction : MonoBehaviour
     [SerializeField] protected float DistanceBetweenObjectAndPlayer;
     public LeoraChar2 leoraChar;
     [SerializeField] protected GameObject Player;
-
+    
 
     // Update is called once per frame
     public virtual void Update()
     {
         DistanceBetweenObjectAndPlayer = Vector2.Distance(transform.position, Player.transform.position);
 
-        /*if (DistanceBetweenObjectAndPlayer <= interactRange)
+        if (DistanceBetweenObjectAndPlayer <= interactRange)
         {
-            if (InputManager.interactPressed)
-            {
-                Put interactions here
-            }
-        }*/
+            leoraChar.closestInteractable = this.gameObject;
+            leoraChar.interactIcon.SetActive(true);
+        }
+        else if (leoraChar.closestInteractable != null && leoraChar.closestInteractable == this.gameObject) 
+        {
+            leoraChar.interactIcon.SetActive(false);
+        }
     }
 
     private void Awake()

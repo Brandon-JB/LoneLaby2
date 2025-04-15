@@ -240,8 +240,6 @@ public class DarkLeoraChar : BaseChar
         ParryIndicator.SetActive(false);
         isParrying = false;
         isPerfectParrying = false;
-        gameOverManager.StartGameOverHueShift();
-        audioManager.Instance.playBGM("T2");
     }
 
     //used for invincibility

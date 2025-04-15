@@ -16266,7 +16266,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 855652505}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &259595716
 MonoBehaviour:
@@ -17804,7 +17804,8 @@ MonoBehaviour:
   controls: {fileID: -944628639613478452, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
   textToDisplay:
   - When in dangerous situations, sometimes combat is necessary. Leora can move using
-    W, A, S, and D, but she can also <color=#e64539>attack</color> by pressing <color=#e64539>(ATTACK_KEY)</color>.
+    W, A, S, and D, but she can also <color=#e64539>attack</color> by pressing <color=#e64539>(ATTACK_KEY)</color>,
+    and can even attack in quick succession for a combo..
   - Try <color=#e64539>attacking</color> the training dummy now by moving and pressing
     <color=#e64539>(ATTACK_KEY)</color>.
   - Additionally, Leora can use <color=#70c6bc>magic</color> to deal damage to multiple
@@ -17817,6 +17818,8 @@ MonoBehaviour:
     key.
   - Try <color=#f0b541>parrying</color> Severin now using the <color=#f0b541>(PARRY_KEY)</color>
     key. Time it perfectly to get a perfect <color=#f0b541>parry</color>!
+  - You can interacta
+  - Use e key
   tutorialtext:
   - {fileID: 1363925927}
   - {fileID: 1841539938}
@@ -28785,6 +28788,10 @@ PrefabInstance:
       propertyPath: combatPortals
       value: 
       objectReference: {fileID: 1092162622}
+    - target: {fileID: 8675225621350306061, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8705140056556160221, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: manaBar
       value: 
@@ -28807,7 +28814,7 @@ PrefabInstance:
       objectReference: {fileID: 1779186065}
     - target: {fileID: 8876787556816172860, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431960, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_RootOrder
@@ -30307,6 +30314,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7336973070860565064, guid: 1cf19955a0c11bb4eb66c132834cb9a2, type: 3}
+      propertyPath: interactRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7336973070860565064, guid: 1cf19955a0c11bb4eb66c132834cb9a2, type: 3}
       propertyPath: tutorialScript
       value: 

@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class LeoraChar2 : BaseChar
 {
+    //Interaction Things
+    public GameObject interactIcon;
+    public GameObject closestInteractable;
 
     //Variable for the combo window.
     //If the combo timer is "cooling down" then that just means it's in the combo window.
