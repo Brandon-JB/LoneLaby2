@@ -20,6 +20,7 @@ public class EarthElementalChar : BaseChar
             Transform damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
             DamagePopUp damPopScript = damagePopupTransform.GetComponent<DamagePopUp>();
             damPopScript.SetupInt(0, "Damage");
+            audioManager.Instance.playSFX(7);
         }
     }
 

@@ -128723,6 +128723,10 @@ PrefabInstance:
       propertyPath: gameOverManager
       value: 
       objectReference: {fileID: 1377452564}
+    - target: {fileID: 8705140056556160221, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: comboTimer.cooldownTime
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 8876787556816172860, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_RootOrder
       value: 3

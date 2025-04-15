@@ -98,16 +98,20 @@ public class Drops : MonoBehaviour
             switch (dropName)
             {
                 case "Small HP":
+                    audioManager.Instance.playSFX(49);
                     charScript.Heal(25);
                     break;
                 case "Small MP":
                     charScript.RestoreMana(2);
+                    audioManager.Instance.playSFX(50);
                     break;
                 case "Large HP":
                     charScript.Heal(50);
+                    audioManager.Instance.playSFX(47);
                     break;
                 case "Large MP":
                     charScript.RestoreMana(4);
+                    audioManager.Instance.playSFX(48);
                     break;
                 case "Item":
                     //Debug.Log("Item");
@@ -115,6 +119,7 @@ public class Drops : MonoBehaviour
                     {
                         UIHandler = FindObjectOfType<ItemMenu>();
                     }
+                    audioManager.Instance.playSFX(44);
                     UIHandler.openItemMenu(itemName);
                     //UIHandler.OpenItemMenu(itemName, uiongame.spawnUiOnGameObject(itemName));
                     break;

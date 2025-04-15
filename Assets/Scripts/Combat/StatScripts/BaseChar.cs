@@ -306,7 +306,6 @@ public class BaseChar : MonoBehaviour
             ParryIndicator.SetActive(false);
             animator.SetBool("Parrying", false);
             animator.SetBool("Magicing", false);
-            animator.SetBool("isInCombo", false);
         }
     }
 
@@ -383,7 +382,7 @@ public class BaseChar : MonoBehaviour
 
     #endregion
 
-    public void EnableHitbox()
+    public virtual void EnableHitbox()
     {
         if (hbChildScript.alreadyHit == false)
         {
@@ -512,7 +511,7 @@ public class BaseChar : MonoBehaviour
         }
     }
 
-    public void GotDamaged(int incomingDamage, GameObject otherAttacker, float stMod)
+    public virtual void GotDamaged(int incomingDamage, GameObject otherAttacker, float stMod)
     {
 
         //Debug.Log(charName + " Health: " + GetHealth());
@@ -559,6 +558,20 @@ public class BaseChar : MonoBehaviour
             if (GetHealth() <= 0)
             {
                 Death();
+            }
+            else
+            {
+                if (incomingDamage > 0)
+                {
+                    if (allied)
+                    {
+                        audioManager.Instance.playSFX(1);
+                    }
+                    else
+                    {
+                        audioManager.Instance.playSFX(7);
+                    }
+                }
             }
         }
 
@@ -623,6 +636,7 @@ public class BaseChar : MonoBehaviour
         //SceneManager.LoadScene("NoCombatAreas");
         //dropManager.RandomizedDrops(this.transform.position, this.charName);
         //Destroy(this.gameObject);
+        audioManager.Instance.playSFX(16);
         animator.enabled = false;
         hurtbox.enabled = false;
         charRB.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -674,5 +688,10 @@ public class BaseChar : MonoBehaviour
         dropManager = FindObjectOfType<DropManager>();
 
         //Physics2D.IgnoreCollision();
+    }
+
+    public void PlaySFX(int id)
+    {
+        audioManager.Instance.playSFX(id);
     }
 }

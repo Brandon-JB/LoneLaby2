@@ -38,25 +38,25 @@ AnimationClip:
     - time: 0
       value: {fileID: 358546766, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
     - time: 0.016666668
-      value: {fileID: -1480724484, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
+      value: {fileID: 418263018, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
     - time: 0.083333336
-      value: {fileID: 1261701214, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
+      value: {fileID: -225377096, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
     - time: 0.16666667
-      value: {fileID: 1412862927, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
+      value: {fileID: 437388597, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
     - time: 0.23333333
-      value: {fileID: 1438972927, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
+      value: {fileID: 437388597, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
     - time: 0.25
-      value: {fileID: -1005717670, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
+      value: {fileID: -1402723751, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
     - time: 0.26666668
-      value: {fileID: 1708748879, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
+      value: {fileID: 1925925213, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
     - time: 0.28333333
-      value: {fileID: 241994081, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
+      value: {fileID: 1699423918, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
     - time: 0.3
-      value: {fileID: 381098177, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
+      value: {fileID: -1160177511, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
     - time: 0.31666666
-      value: {fileID: 1395601203, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
+      value: {fileID: 430015563, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
     - time: 0.33333334
-      value: {fileID: 1857341606, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
+      value: {fileID: 1264864299, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -84,16 +84,16 @@ AnimationClip:
       isPPtrCurve: 0
     pptrCurveMapping:
     - {fileID: 358546766, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
-    - {fileID: -1480724484, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
-    - {fileID: 1261701214, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
-    - {fileID: 1412862927, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
-    - {fileID: 1438972927, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
-    - {fileID: -1005717670, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
-    - {fileID: 1708748879, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
-    - {fileID: 241994081, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
-    - {fileID: 381098177, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
-    - {fileID: 1395601203, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
-    - {fileID: 1857341606, guid: cc2a8a469a5014f41ba4a5b9e4109b26, type: 3}
+    - {fileID: 418263018, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
+    - {fileID: -225377096, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
+    - {fileID: 437388597, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
+    - {fileID: 437388597, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
+    - {fileID: -1402723751, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
+    - {fileID: 1925925213, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
+    - {fileID: 1699423918, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
+    - {fileID: -1160177511, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
+    - {fileID: 430015563, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
+    - {fileID: 1264864299, guid: d364bc981ba52bb45a03fd3063027368, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -182,6 +182,13 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
+    messageOptions: 0
+  - time: 0.23333333
+    functionName: PlaySFX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 2
     messageOptions: 0
   - time: 0.3
     functionName: DisableHitbox

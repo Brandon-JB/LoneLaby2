@@ -61,6 +61,7 @@ public class ChestInteraction : CombatInteraction
                 break;
             case 5:
                 Door.SetActive(false);
+                audioManager.Instance.playSFX(43);
                 break;
             default:
                 Debug.Log("Haha pranked idiot");

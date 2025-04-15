@@ -10,7 +10,7 @@ public class JaelAxe : HitboxChar
 
     [SerializeField] private GameObject spriteObject;
 
-    private bool launched = false;
+    //private bool launched = false;
 
     [SerializeField] private SpriteRenderer sr;
 
@@ -28,7 +28,7 @@ public class JaelAxe : HitboxChar
         isParryable = false;
         Player = GameObject.Find("CombatPlayer");
 
-        launched = false;
+        //launched = false;
 
         Vector2 velVec = (Player.transform.position - this.transform.position).normalized;
 

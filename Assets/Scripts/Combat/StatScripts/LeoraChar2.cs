@@ -182,11 +182,13 @@ public class LeoraChar2 : BaseChar
                                 if (isPerfectParrying)
                                 {
                                     //Debug.Log("Perfect Parry");
+                                    audioManager.Instance.playSFX(5);
                                     GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
                                     otherCharTrigger.TriggerHurtAnim();
                                     //Debug.Log(otherCharTrigger.gameObject.name);
                                     otherCharTrigger.stunTimer.cooldownTime = 3.5f;
                                     otherCharTrigger.stunTimer.StartCooldown();
+                                    
                                     otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                                     if (otherCharTrigger.tag != "Boss")
                                     {
@@ -196,10 +198,12 @@ public class LeoraChar2 : BaseChar
                                 else if (isParrying)
                                 {
                                     //Debug.Log("Parry");
+                                    audioManager.Instance.playSFX(5);
                                     GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
                                     otherCharTrigger.TriggerHurtAnim();
                                     otherCharTrigger.stunTimer.cooldownTime = 2f;
                                     otherCharTrigger.stunTimer.StartCooldown();
+                                    
                                     otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                                     if (otherCharTrigger.tag != "Boss")
                                     {
@@ -210,6 +214,7 @@ public class LeoraChar2 : BaseChar
                                 else
                                 {
                                     GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                                    
                                     TriggerHurtAnim();
                                 }
                             }
@@ -220,6 +225,7 @@ public class LeoraChar2 : BaseChar
 
                                 if (isPerfectParrying)
                                 {
+                                    audioManager.Instance.playSFX(5);
                                     if (otherCharTrigger.animator.GetBool("inDash"))
                                     {
                                         lucanScript.specialStunTimer.StartCooldown();
@@ -237,6 +243,7 @@ public class LeoraChar2 : BaseChar
                                 }
                                 else if (isParrying)
                                 {
+                                    audioManager.Instance.playSFX(5);
                                     if (otherCharTrigger.animator.GetBool("inDash"))
                                     {
                                         lucanScript.specialStunTimer.StartCooldown();
@@ -254,6 +261,7 @@ public class LeoraChar2 : BaseChar
                                 else
                                 {
                                     GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                                    
                                     darknessManager.LucanProgressDarkness();
                                     TriggerHurtAnim();
                                 }
@@ -264,11 +272,13 @@ public class LeoraChar2 : BaseChar
                             {
                                 if (isPerfectParrying || isParrying)
                                 {
+                                    audioManager.Instance.playSFX(5);
                                     otherCharTrigger.animator.SetBool("stunned", true);
                                 }
                                 else
                                 {
                                     GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                                    
                                     TriggerHurtAnim();
                                 }
                             }
@@ -279,11 +289,13 @@ public class LeoraChar2 : BaseChar
 
                                 if (isPerfectParrying || isParrying)
                                 {
+                                    audioManager.Instance.playSFX(5);
                                     sevTutScript.Parried();
                                 }
                                 else
                                 {
                                     GotDamaged(0, otherCharTrigger.gameObject, 0);
+                                    
                                     TriggerHurtAnim();
                                 }
                             }
@@ -291,6 +303,7 @@ public class LeoraChar2 : BaseChar
                             {
                                 if (isPerfectParrying)
                                 {
+                                    audioManager.Instance.playSFX(5);
                                     //Debug.Log("Perfect Parry");
                                     GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
                                     //otherCharTrigger.TriggerHurtAnim();
@@ -303,6 +316,7 @@ public class LeoraChar2 : BaseChar
                                 }
                                 else if (isParrying)
                                 {
+                                    audioManager.Instance.playSFX(5);
                                     //Debug.Log("Parry");
                                     GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
                                     //otherCharTrigger.TriggerHurtAnim();
@@ -386,6 +400,7 @@ public class LeoraChar2 : BaseChar
 
                         if (isPerfectParrying)
                         {
+                            audioManager.Instance.playSFX(5);
                             //Debug.Log("Perfect Parry");
                             GotDamaged(0, otherCharTrigger.gameObject, 0);
                             otherCharTrigger.animator.SetBool("stunned", true);
@@ -395,6 +410,7 @@ public class LeoraChar2 : BaseChar
                         }
                         else if (isParrying)
                         {
+                            audioManager.Instance.playSFX(5);
                             GotDamaged(15, otherCharTrigger.gameObject, 0);
                             otherCharTrigger.animator.SetBool("stunned", true);
                             otherCharTrigger.stunTimer.cooldownTime = 2.5f;
@@ -451,6 +467,7 @@ public class LeoraChar2 : BaseChar
 
     public override void Death()
     {
+        
         OpenPauseMenu.GLOBALcanOpenPause = false;
         charRB.constraints = RigidbodyConstraints2D.FreezeAll;
         charRB.velocity = Vector2.zero;
@@ -462,6 +479,7 @@ public class LeoraChar2 : BaseChar
         isPerfectParrying = false;
         gameOverManager.StartGameOverHueShift();
         audioManager.Instance.playBGM("T2");
+        audioManager.Instance.playSFX(6);
     }
 
     //used for invincibility
@@ -509,6 +527,7 @@ public class LeoraChar2 : BaseChar
        
     }
 
+
     public void MagAttack()
     {
         animator.SetBool("Magicing", true);
@@ -522,6 +541,23 @@ public class LeoraChar2 : BaseChar
 
     public void EnableMagHitbox()
     {
+        switch (magicType)
+        {
+            case "lightMag":
+                //moved to magic particle to time it better
+                //audioManager.Instance.playSFX(28);
+                break;
+            case "darkMag":
+                audioManager.Instance.playSFX(29);
+                break;
+            case "mindMag":
+                audioManager.Instance.playSFX(30);
+                break;
+            case "bloodMag":
+                audioManager.Instance.playSFX(31);
+                break;
+        }
+
         magHitbox.SetActive(true);
         if (darknessManager != null && magicType == "lightMag" && SceneManager.GetActiveScene().name == "CombatMaps")
         {

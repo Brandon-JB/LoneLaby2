@@ -52,4 +52,9 @@ public class EvilDarkMagAoE : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+    public void PlayDarkSFX()
+    {
+        audioManager.Instance.playSFX(29);
+    }
 }
