@@ -110,7 +110,7 @@ public class killSpareManager : MonoBehaviour
                 //How many bosses have been killed?
                 if (ivarStatus == 1 && lucanStatus2 == 1)
                 {
-                    killSpareText.text = "Must justice be absolute?"; //TODO COME BACK AND CHANGE THIS LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+                    killSpareText.text = "Must justice be absolute?";
                 }
                 else if (ivarStatus == 2 && lucanStatus2 == 2)
                 {
