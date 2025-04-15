@@ -27,7 +27,6 @@ public class mainDialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] tweenInPositions;
     [SerializeField] private GameObject[] tweenOutPositions;
     [SerializeField] private Transform dialogueBox;
-    [SerializeField] private audioManager am;
     [SerializeField] private GameObject[] cutsceneScenes;
     [SerializeField] private GameObject[] cutsceneVariations;
     [SerializeField] private GameObject continueTextPrompt;
@@ -100,6 +99,11 @@ public class mainDialogueManager : MonoBehaviour
                     normaltxtbox.fontSize = 18;
                     normaltxtbox.transform.position = condemntxtbox.transform.position;
                     return;
+                case "LucanQuest/cave_prefight":
+                case "IvarQuest/mansion_prefight":
+                case "ViinQuest/veinwood_prefight":
+                    audioManager.Instance.playBGM("T8");
+                    break;
             }
 
 

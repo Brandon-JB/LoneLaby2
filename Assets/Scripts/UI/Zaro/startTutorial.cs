@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class startTutorial : MonoBehaviour
 {
@@ -12,12 +13,13 @@ public class startTutorial : MonoBehaviour
     {
         bg.alpha = 0f;
         bg.DOFade(1, 1).SetUpdate(true);
-        positions[0].DOMove(positions[1].transform.position, 0.5f).SetUpdate(true);
+        positions[0].DOMove(positions[1].transform.position, 1f).SetUpdate(true);
     }
 
     public void yes()
     {
         //transition out to tutorial
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void no()

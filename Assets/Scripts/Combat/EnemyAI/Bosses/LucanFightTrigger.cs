@@ -26,7 +26,7 @@ public class LucanFightTrigger : MonoBehaviour
         if (collision.tag == "Player")
         {
             mdm = GameObject.FindObjectOfType<mainDialogueManager>();
-            mdm.dialogueSTART("ViinQuest/veinwood_prefight");
+            mdm.dialogueSTART("LucanQuest/cave_prefight");
             lucanScript.isActive = true;
             //bossFog.SetActive(true);
             this.gameObject.SetActive(false);
