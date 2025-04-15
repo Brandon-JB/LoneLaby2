@@ -70,6 +70,7 @@ public class Tutorial : MonoBehaviour
             case 2:
             case 4:
             case 6:
+            case 8:
                 tutorialUI[0].position = locations[2].position;
                 tutorialUI[1].position = locations[3].position;
                 break;
@@ -98,9 +99,10 @@ public class Tutorial : MonoBehaviour
                         break;
                     case 6:
                         //Player must successfully parry
-                        severinTutorial.animator.SetBool("Attacking", true);
-
-                        
+                        severinTutorial.animator.SetBool("Attacking", true);    
+                        break;
+                    case 8:
+                        severinTutorial.interactable = true;
                         break;
                 }
             }
