@@ -44,6 +44,10 @@ public class InteractScript : MonoBehaviour
                 
             }
         }
+        else
+        {
+            CanInteractUI.SetActive(false);
+        }
     }
 
     IEnumerator Interaction(float Seconds, string name, int Number)
