@@ -95,7 +95,7 @@ public class killSpareManager : MonoBehaviour
                     killSpareText.text = "Does desperation excuse Ivar's crimes?";
                 } else
                 {
-                    killSpareText.text = "Should " + bossName + " be executed for his crimes?";
+                    killSpareText.text = "Should " + bossName + " be condemned for his crimes?";
                 }
 
                 break;
@@ -110,7 +110,7 @@ public class killSpareManager : MonoBehaviour
                 //How many bosses have been killed?
                 if (ivarStatus == 1 && lucanStatus2 == 1)
                 {
-                    killSpareText.text = "Would mercy be unjust?"; //TODO COME BACK AND CHANGE THIS LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+                    killSpareText.text = "Must justice be absolute?"; //TODO COME BACK AND CHANGE THIS LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
                 }
                 else if (ivarStatus == 2 && lucanStatus2 == 2)
                 {
@@ -122,7 +122,7 @@ public class killSpareManager : MonoBehaviour
                 }
                 else
                 {
-                    killSpareText.text = "Should " + bossName + " be executed for her crimes?";
+                    killSpareText.text = "Should " + bossName + " be condemned for her crimes?";
                 }
 
                 break;
@@ -149,7 +149,7 @@ public class killSpareManager : MonoBehaviour
                 }
                 else
                 {
-                    killSpareText.text = "Should " + bossName + " be executed for his crimes?";
+                    killSpareText.text = "Should " + bossName + " be condemned for his crimes?";
                 }
 
                 break;
