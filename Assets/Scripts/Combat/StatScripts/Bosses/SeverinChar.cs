@@ -88,6 +88,8 @@ public class SeverinChar : BaseChar
 
     public override void Death()
     {
+        audioManager.Instance.playSFX(18);
+
         mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
         mdm.dialogueSTART("Endings/Compassion/severin_postfight");
         //I don't think I have to do anything else for this, but I can modify this.

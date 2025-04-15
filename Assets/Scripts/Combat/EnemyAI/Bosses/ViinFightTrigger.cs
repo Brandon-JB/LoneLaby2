@@ -25,6 +25,7 @@ public class ViinFightTrigger : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            viinScript.attackCooldown.StartCooldown();
             mdm = GameObject.FindObjectOfType<mainDialogueManager>();
             mdm.dialogueSTART("ViinQuest/veinwood_prefight");
             viinScript.isActive = true;

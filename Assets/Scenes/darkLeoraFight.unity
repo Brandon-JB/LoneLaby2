@@ -165,7 +165,6 @@ MonoBehaviour:
   - {fileID: 2143136596}
   - {fileID: 364157932}
   dialogueBox: {fileID: 263399268}
-  am: {fileID: 7564308855947161438}
   cutsceneScenes:
   - {fileID: 0}
   - {fileID: 0}
@@ -3919,7 +3918,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604719906
 GameObject:
@@ -3996,6 +3995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MDM: {fileID: 37900021}
+  tutorial: {fileID: 0}
   fileName: Endings/Conflicted/beginConflictedFight
 --- !u!4 &625309313
 Transform:
@@ -4107,7 +4107,7 @@ RectTransform:
   - {fileID: 1499959735}
   - {fileID: 1351445082}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -20109,7 +20109,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2092197357}
     m_Modifications:
     - target: {fileID: 5730453822182870368, guid: 4359f0723b49ef04a980bf7324614827, type: 3}
       propertyPath: viinSpawnPoint
@@ -20121,7 +20121,7 @@ PrefabInstance:
       objectReference: {fileID: 1826665431}
     - target: {fileID: 8940570630105431960, guid: 4359f0723b49ef04a980bf7324614827, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431960, guid: 4359f0723b49ef04a980bf7324614827, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20141,15 +20141,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431960, guid: 4359f0723b49ef04a980bf7324614827, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431960, guid: 4359f0723b49ef04a980bf7324614827, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431960, guid: 4359f0723b49ef04a980bf7324614827, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431960, guid: 4359f0723b49ef04a980bf7324614827, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -20169,6 +20169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4359f0723b49ef04a980bf7324614827, type: 3}
+--- !u!4 &712274669 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8940570630105431960, guid: 4359f0723b49ef04a980bf7324614827, type: 3}
+  m_PrefabInstance: {fileID: 712274668}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &749443269
 GameObject:
   m_ObjectHideFlags: 0
@@ -24717,7 +24722,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1499959734
 GameObject:
@@ -25543,7 +25548,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1840962015
 GameObject:
@@ -26152,6 +26157,7 @@ Transform:
   - {fileID: 2135702174}
   - {fileID: 118022042}
   - {fileID: 508712651}
+  - {fileID: 712274669}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27312,17 +27318,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143136596}
   m_CullTransparentMesh: 1
---- !u!114 &7564308855947161438 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7564308855764619527, guid: 9190c4cfa71d3434d9ead5fe98e8047c, type: 3}
-  m_PrefabInstance: {fileID: 354647641}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e22e523a704921e4dbeb31548db2f226, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &7564308855952062455 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7564308855769680302, guid: 9190c4cfa71d3434d9ead5fe98e8047c, type: 3}

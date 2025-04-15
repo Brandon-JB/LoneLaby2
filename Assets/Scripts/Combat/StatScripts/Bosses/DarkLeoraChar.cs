@@ -15,6 +15,7 @@ public class DarkLeoraChar : BaseChar
     [SerializeField] public Cooldown magicCooldown = new Cooldown();
 
     [SerializeField] private GameOverAndUI gameOverManager;
+    [SerializeField] private DarkLeoraScript dLeoraScript;
 
     [SerializeField] private CombatPlayerMovement playerMovement;
 
@@ -37,6 +38,9 @@ public class DarkLeoraChar : BaseChar
     //For Darkness
     private DarknessManager darknessManager;
 
+    private string outlierBossDialogue;
+    private int outlierNum;
+
     //public bool isInFirstCombo = false;
 
     // Start is called before the first frame update
@@ -47,13 +51,61 @@ public class DarkLeoraChar : BaseChar
         allied = false;
         magicType = "darkMag";
 
-        ChangeStats(10, 10, 4, 450, 10);
+        ChangeStats(10, 10, 4, 20, 10);
 
         animator.SetFloat("LastH", 0);
         animator.SetFloat("LastV", -1);
 
         magHitbox.SetActive(false);
         darknessManager = GameObject.FindObjectOfType<DarknessManager>();
+
+        outlierBossDialogue = FindOutlierBoss();
+        if (outlierBossDialogue == "You shouldn't be here.")
+        {
+            Debug.Log(outlierBossDialogue);
+            Application.Quit();
+        }
+    }
+
+    private string FindOutlierBoss()
+    {
+        int sum = 0;
+
+        foreach(var boss in BossSaveData.bossStates)
+        {
+            Debug.Log(boss.Key + ": " + boss.Value);
+            sum += boss.Value;
+        }
+
+        Debug.Log(sum);
+
+        switch (sum)
+        {
+            case 4:
+                foreach(var boss in BossSaveData.bossStates)
+                {
+                    if (boss.Value == 2)
+                    {
+                        outlierNum = boss.Value;
+                        return boss.Key;
+                    }
+                }
+                break;
+            case 5:
+                foreach (var boss in BossSaveData.bossStates)
+                {
+                    if (boss.Value == 1)
+                    {
+                        outlierNum = boss.Value;
+                        return boss.Key;
+                    }
+                }
+                break;
+            default:
+                return "You shouldn't be here.";
+        }
+
+        return "You shouldn't be here.";
     }
 
     public override void TriggerHurtAnim()
@@ -208,7 +260,47 @@ public class DarkLeoraChar : BaseChar
         }
     }
 
-    
+    public void MidFightDialogue()
+    {
+        mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
+
+        switch (outlierNum)
+        {
+            //If the outlier boss was killed
+            case 1:
+                switch (outlierBossDialogue)
+                {
+                    case "Ivar":
+                        mdm.dialogueSTART("Endings/Conflicted/midfight_ivarkilled");
+                        break;
+                    case "Lucan":
+                        mdm.dialogueSTART("Endings/Conflicted/midfight_lucakilled");
+                        break;
+                    case "Viin":
+                        mdm.dialogueSTART("Endings/Conflicted/midfight_viinkilled");
+                        break;
+                }
+                break;
+            //If the outlier boss was spared
+            case 2:
+                switch (outlierBossDialogue)
+                {
+                    case "Ivar":
+                        mdm.dialogueSTART("Endings/Conflicted/midfight_ivarspared");
+                        break;
+                    case "Lucan":
+                        mdm.dialogueSTART("Endings/Conflicted/midfight_lucaspared");
+                        break;
+                    case "Viin":
+                        mdm.dialogueSTART("Endings/Conflicted/midfight_viinspared");
+                        break;
+                }
+                break;
+        }
+
+    }
+
+
 
     public override IEnumerator Knockback(GameObject otherAttacker, float stMod)
     {
@@ -232,14 +324,75 @@ public class DarkLeoraChar : BaseChar
 
     public override void Death()
     {
+        audioManager.Instance.playSFX(17);
+
+        DisableHurtbox();
+        animator.SetBool("Death", true);
+        darkLeoraLucanDashAI tempDLucanAI = dLeoraScript.activeLucanCopy.GetComponent<darkLeoraLucanDashAI>();
+        tempDLucanAI.leftDashArrow.SetActive(false);
+        tempDLucanAI.rightDashArrow.SetActive(false);
+        Destroy(dLeoraScript.activeLucanCopy);
+        Destroy(dLeoraScript.activeViinCopy);
+        if (dLeoraScript.activeMagicParticle != null)
+        {
+            Destroy(dLeoraScript.activeMagicParticle);
+        }
+
+        if (dLeoraScript.firstProjectile != null)
+        {
+            Destroy(dLeoraScript.firstProjectile);
+        }
+
+        if (dLeoraScript.secondProjectile != null)
+        {
+            Destroy(dLeoraScript.secondProjectile);
+        }
         charRB.constraints = RigidbodyConstraints2D.FreezeAll;
         charRB.velocity = Vector2.zero;
-        playerMovement.canMove = false;
-        animator.SetBool("Death", true);
-        gameOverManager.FadeOutUI();
         ParryIndicator.SetActive(false);
         isParrying = false;
         isPerfectParrying = false;
+    }
+
+    public void DeathDialogue()
+    {
+        mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
+
+        switch (outlierNum)
+        {
+            //If the outlier boss was killed
+            case 1:
+                switch (outlierBossDialogue)
+                {
+                    case "Ivar":
+                        mdm.dialogueSTART("Endings/Conflicted/end_ivarkilled");
+                        break;
+                    case "Lucan":
+                        mdm.dialogueSTART("Endings/Conflicted/end_lucakilled");
+                        break;
+                    case "Viin":
+                        mdm.dialogueSTART("Endings/Conflicted/end_viinkilled");
+                        break;
+                }
+                break;
+            //If the outlier boss was spared
+            case 2:
+                switch (outlierBossDialogue)
+                {
+                    case "Ivar":
+                        mdm.dialogueSTART("Endings/Conflicted/end_ivarspared");
+                        break;
+                    case "Lucan":
+                        mdm.dialogueSTART("Endings/Conflicted/end_lucaspared");
+                        break;
+                    case "Viin":
+                        mdm.dialogueSTART("Endings/Conflicted/end_viinspared");
+                        break;
+                }
+                break;
+        }
+
+        Destroy(this.gameObject);
     }
 
     //used for invincibility
@@ -251,11 +404,6 @@ public class DarkLeoraChar : BaseChar
     public void EnableHurtbox()
     {
         hurtbox.enabled = true;
-    }
-
-    public void GameOver()
-    {
-        gameOverManager.OnDeath();
     }
 
     //An event to be called in the animator that goes at the end of the combo
@@ -303,9 +451,9 @@ public class DarkLeoraChar : BaseChar
 
         if (magicType == "darkMag")
         {
-            GameObject tempMagPart = Instantiate(darkMagFollowup, this.transform.position, Quaternion.identity);
+            dLeoraScript.activeMagicParticle = Instantiate(darkMagFollowup, this.transform.position, Quaternion.identity);
 
-            EvilDarkMagAoE tempMagManager = tempMagPart.GetComponent<EvilDarkMagAoE>();
+            EvilDarkMagAoE tempMagManager = dLeoraScript.activeMagicParticle.GetComponent<EvilDarkMagAoE>();
 
             //Animator for particles would go here
             tempMagManager.animator.SetBool("darkFollowup", true);
@@ -315,12 +463,12 @@ public class DarkLeoraChar : BaseChar
                 Vector2 firstProjSpawn = new Vector2(projectileSpawnPoint.transform.position.x + projectileSpawnOffset, projectileSpawnPoint.transform.position.y);
                 Vector2 secondProjSpawn = new Vector2(projectileSpawnPoint.transform.position.x - projectileSpawnOffset, projectileSpawnPoint.transform.position.y);
 
-                GameObject projectile = Instantiate(projectilePrefab, firstProjSpawn, Quaternion.identity);
-                IvarProjectile projScript = projectile.GetComponent<IvarProjectile>();
+                dLeoraScript.firstProjectile = Instantiate(projectilePrefab, firstProjSpawn, Quaternion.identity);
+                IvarProjectile projScript = dLeoraScript.firstProjectile.GetComponent<IvarProjectile>();
                 projScript.parentChar = this;
 
-                GameObject secondProjectile = Instantiate(projectilePrefab, secondProjSpawn, Quaternion.identity);
-                IvarProjectile secondProjScript = secondProjectile.GetComponent<IvarProjectile>();
+                dLeoraScript.secondProjectile = Instantiate(projectilePrefab, secondProjSpawn, Quaternion.identity);
+                IvarProjectile secondProjScript = dLeoraScript.secondProjectile.GetComponent<IvarProjectile>();
                 secondProjScript.parentChar = this;
             }
         }

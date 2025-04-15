@@ -470,7 +470,7 @@ public class LeoraChar2 : BaseChar
 
     public override void Death()
     {
-        
+        audioManager.Instance.playSFX(6);
         OpenPauseMenu.GLOBALcanOpenPause = false;
         charRB.constraints = RigidbodyConstraints2D.FreezeAll;
         charRB.velocity = Vector2.zero;
@@ -482,7 +482,7 @@ public class LeoraChar2 : BaseChar
         isPerfectParrying = false;
         gameOverManager.StartGameOverHueShift();
         audioManager.Instance.playBGM("T2");
-        audioManager.Instance.playSFX(6);
+        
     }
 
     //used for invincibility
