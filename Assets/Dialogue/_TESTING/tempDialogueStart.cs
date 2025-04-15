@@ -23,8 +23,8 @@ public class tempDialogueStart : MonoBehaviour
         //TEMPORARY!!
         else if (SceneManager.GetActiveScene().name == "Tutorial")
         {
+            Time.timeScale = 1f;
             mainDialogueManager.GLOBALcurrentlyRunningText = "";
-            MDM.dialogueSTART(fileName);
         } else if (SceneManager.GetActiveScene().name == "NoCombatAreas")
         {
             //Another temporary fix

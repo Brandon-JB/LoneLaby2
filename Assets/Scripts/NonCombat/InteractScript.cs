@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class InteractScript : MonoBehaviour
@@ -7,8 +8,10 @@ public class InteractScript : MonoBehaviour
     public int InteractionNumber;
     public string interactionName;
     private float maxDistance = 1.5f;
-    private float DistanceBetweenObjects;
+    public float[] DistanceBetweenObjects;
     private float InteractionLength = 3f;
+    public GameObject[] NPCs;
+    public bool isClose;
     public GameObject Player;
     public GameObject InteractionUI;
     public GameObject CanInteractUI;
@@ -26,9 +29,23 @@ public class InteractScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DistanceBetweenObjects = Vector3.Distance(transform.position, Player.transform.position);
-        //The problem is it's somehow 10 units off when you first load into the scene. is it something that has to do with the church?
-        if (DistanceBetweenObjects <= maxDistance)
+        foreach (GameObject npc in NPCs)
+        {
+            for (int i = 0; i < NPCs.Length; i++)
+            {
+                DistanceBetweenObjects[i] = Vector3.Distance(NPCs[i].transform.position, Player.transform.position);
+            }
+        }
+        if(IsCloseEnough(DistanceBetweenObjects))
+        {
+            isClose = true;
+        }
+        else
+        {
+            isClose = false;
+        }
+
+        if (isClose)
         {
             CanInteractUI.SetActive(true);
 
@@ -37,11 +54,11 @@ public class InteractScript : MonoBehaviour
                 //Start Interaction
                 gainedQuest = true;
                 Debug.Log("THISIS THE NAME OF THE FILE:" + interactionName);
-                mainDialogueManager.dialogueSTART(interactionName); 
+                mainDialogueManager.dialogueSTART(interactionName);
                 CanInteractUI.SetActive(false);
                 //StartCoroutine(Interaction(InteractionLength, interactionName, InteractionNumber));
                 Debug.Log("Pressed");
-                
+
             }
         }
         else
@@ -63,5 +80,19 @@ public class InteractScript : MonoBehaviour
         yield return new WaitForSeconds(Seconds);
         InteractionUI.SetActive(false);
         CanInteractUI.SetActive(true);
+    }
+
+    public bool IsCloseEnough(float[] distBtwnObjs)
+    {
+        Debug.Log("called");
+        foreach (int element in distBtwnObjs)
+        {
+            if (element <= 1.5f)
+            {
+                Debug.Log("true");
+                return true;
+            }
+        }
+            return false;
     }
 }
