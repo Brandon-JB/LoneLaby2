@@ -25,7 +25,7 @@ public class BossTP : CombatInteraction
                 Player.transform.position = bossTP.transform.position;
                 audioManager.Instance.playBGM("T8");
                 //Temp way to play boss dialogue
-                GameObject.FindGameObjectWithTag("MainDialogueManager").GetComponent<mainDialogueManager>().dialogueSTART(bossFightDialogue);
+                //GameObject.FindGameObjectWithTag("MainDialogueManager").GetComponent<mainDialogueManager>().dialogueSTART(bossFightDialogue);
             }
         }
     }

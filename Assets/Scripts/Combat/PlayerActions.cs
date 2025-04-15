@@ -124,6 +124,7 @@ public class PlayerActions : MonoBehaviour
     {
         if (leoraChar.magicType == "lightMag")
         {
+            
 
             tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
 
@@ -138,6 +139,8 @@ public class PlayerActions : MonoBehaviour
     {
         if (leoraChar.magicType == "bloodMag")
         {
+            
+
             tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
 
             MagicParticles tempMagManager = tempMagPart.GetComponent<MagicParticles>();
@@ -151,6 +154,8 @@ public class PlayerActions : MonoBehaviour
     {
         if (leoraChar.magicType == "mindMag")
         {
+            
+
             tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
 
             MagicParticles tempMagManager = tempMagPart.GetComponent<MagicParticles>();
@@ -164,6 +169,8 @@ public class PlayerActions : MonoBehaviour
     { 
         if (leoraChar.magicType == "darkMag")
         {
+            
+
             tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
 
             MagicParticles tempMagManager = tempMagPart.GetComponent<MagicParticles>();

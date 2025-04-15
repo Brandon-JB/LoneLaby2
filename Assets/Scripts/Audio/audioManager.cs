@@ -218,7 +218,8 @@ public class audioManager : MonoBehaviour
         if (SFXAvailable[ID].transform.childCount > 0)
         {
             // If the object has children, gather AudioSources from them
-            loadedAudio = GetComponentsInChildren<AudioSource>();
+            loadedAudio = SFXAvailable[ID].GetComponentsInChildren<AudioSource>();
+            //Debug.Log(loadedAudio[ID].gameObject.name);
         }
         else
         {
@@ -233,7 +234,7 @@ public class audioManager : MonoBehaviour
             //        path = "/" + obj.name + path;
             //    }
             //print(path);
-            Debug.Log(thisAudio.gameObject.name + " | Enabled: " + thisAudio.enabled + " | GameObject active: " + thisAudio.gameObject.activeInHierarchy);
+            //Debug.Log(thisAudio.gameObject.name + " | Enabled: " + thisAudio.enabled + " | GameObject active: " + thisAudio.gameObject.activeInHierarchy);
 
 
             thisAudio.volume = (audioStatics.SFXVolume * audioStatics.MasterVolume);
@@ -243,7 +244,9 @@ public class audioManager : MonoBehaviour
 
         //If there's multiple sounds, pull a random one
         int randomIndex = Random.Range(0, loadedAudio.Length);
-        loadedAudio[ID].volume = (audioStatics.SFXVolume * audioStatics.MasterVolume);
+        //Debug.Log(loadedAudio[ID].gameObject.name);
+        //Debug.Log("sfx id: " + ID);
+        loadedAudio[randomIndex].volume = (audioStatics.SFXVolume * audioStatics.MasterVolume);
         loadedAudio[randomIndex].Play();
     }
 

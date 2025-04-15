@@ -34,4 +34,9 @@ public class MagicParticles : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+    public void PlayMagSFX(int id)
+    {
+        audioManager.Instance.playSFX(id);
+    }
 }
