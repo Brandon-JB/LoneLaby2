@@ -361,6 +361,10 @@ PrefabInstance:
       propertyPath: saveui
       value: 
       objectReference: {fileID: 831503427}
+    - target: {fileID: 1732976952701552350, guid: 177cb286dbd12ba46a5999628ea7b6b1, type: 3}
+      propertyPath: interactionPopup
+      value: 
+      objectReference: {fileID: 2025754100}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 177cb286dbd12ba46a5999628ea7b6b1, type: 3}
 --- !u!1 &74904111
@@ -128784,6 +128788,11 @@ PrefabInstance:
 --- !u!1 &2025754099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8940570630105431962, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+  m_PrefabInstance: {fileID: 2025754098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2025754100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 410937402244487568, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
   m_PrefabInstance: {fileID: 2025754098}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2035085001

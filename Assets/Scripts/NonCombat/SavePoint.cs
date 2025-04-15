@@ -8,6 +8,7 @@ public class SavePoint : MonoBehaviour
     public saveUI saveui;
     private float maxDistance = 1.5f;
     private float DistanceBetweenObjects;
+    public GameObject interactionPopup;
     //private float InteractionLength = 3f;
 
     // Start is called before the first frame update
@@ -22,6 +23,8 @@ public class SavePoint : MonoBehaviour
         DistanceBetweenObjects = Vector3.Distance(transform.position, Player.transform.position);
         if (DistanceBetweenObjects <= maxDistance)
         {
+            interactionPopup.SetActive(true);
+
             if (InputManager.interactPressed == true)
             {
                 Debug.Log("");

@@ -22,7 +22,7 @@ public class SpawnManager : MonoBehaviour
         {
             Player.transform.position = SpawnTraining.transform.position;
         }
-        else if (SpawnNumber == 0) //should be 0 for full game
+        else if (SpawnNumber == 0)
         {
             Player.transform.position = SpawnChurch.transform.position;
         }

@@ -19,6 +19,7 @@ public class startTutorial : MonoBehaviour
     public void yes()
     {
         //transition out to tutorial
+        SpawnManager.SpawnNumber = 1;
         SceneManager.LoadScene("Tutorial");
     }
 

@@ -44,7 +44,8 @@ public class Tutorial : MonoBehaviour
         //Freeze the game
 
         tutorialCounter = 0;
-        StartCoroutine(freeze());
+        //FOUND ITTTTT, THIS IS BREAKING THE TRANSITION
+        //StartCoroutine(freeze());
 
         string attackKey = controls.FindAction("Attack").bindings[0].ToDisplayString();
         string magicKey = controls.FindAction("Magic").bindings[0].ToDisplayString();
