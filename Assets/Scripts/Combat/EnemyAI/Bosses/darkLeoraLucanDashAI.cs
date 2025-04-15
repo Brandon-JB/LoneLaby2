@@ -10,8 +10,8 @@ public class darkLeoraLucanDashAI : BaseChar
 
     [SerializeField] private Cooldown timeBetweenDashes;
 
-    [SerializeField] private GameObject leftDashArrow;
-    [SerializeField] private GameObject rightDashArrow;
+    [SerializeField] public GameObject leftDashArrow;
+    [SerializeField] public GameObject rightDashArrow;
 
     [SerializeField] private Image leftArrowSprite;
     [SerializeField] private Image rightArrowSprite;

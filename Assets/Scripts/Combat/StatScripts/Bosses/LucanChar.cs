@@ -66,8 +66,7 @@ public class LucanChar : BaseChar
 
     public override void Death()
     {
-        //put whatever code to trigger the end of boss fight things
-        //SceneManager.LoadScene("Overworld");
+        audioManager.Instance.playSFX(18);
 
 
         mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();

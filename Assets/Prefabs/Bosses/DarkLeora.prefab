@@ -593,6 +593,7 @@ MonoBehaviour:
   magicCooldown:
     cooldownTime: 2
   gameOverManager: {fileID: 0}
+  dLeoraScript: {fileID: 5730453822182870368}
   playerMovement: {fileID: 0}
   magHitbox: {fileID: 6664873387653602075}
   darkMagFollowup: {fileID: 7029962831616942848, guid: 0ff63371c4aa8a843b5f8f40b4ee58b5, type: 3}
@@ -630,3 +631,8 @@ MonoBehaviour:
   lucanSpawnPoint: {fileID: 0}
   viinLeoraCopy: {fileID: 7487041304306391988, guid: 1e4620088a30dd94c9a3cbb6b55a7099, type: 3}
   viinSpawnPoint: {fileID: 0}
+  activeLucanCopy: {fileID: 0}
+  activeViinCopy: {fileID: 0}
+  firstProjectile: {fileID: 0}
+  secondProjectile: {fileID: 0}
+  activeMagicParticle: {fileID: 0}

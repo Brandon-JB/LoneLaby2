@@ -67,6 +67,8 @@ public class ViinChar : BaseChar
 
     public override void Death()
     {
+        audioManager.Instance.playSFX(18);
+
         //put whatever code to trigger the end of boss fight things
         //SceneManager.LoadScene("Overworld");
 

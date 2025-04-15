@@ -19,6 +19,12 @@ public class DarkLeoraScript : EnemyScript
     [SerializeField] private GameObject viinLeoraCopy;
     [SerializeField] private GameObject viinSpawnPoint;
 
+    public GameObject activeLucanCopy;
+    public GameObject activeViinCopy;
+    public GameObject firstProjectile;
+    public GameObject secondProjectile;
+    public GameObject activeMagicParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,11 +52,13 @@ public class DarkLeoraScript : EnemyScript
 
         if (!darkLeoraChar.secondPhaseActive && enemyChar.GetHealth() <= enemyChar.GetMaxHealth() / 2)
         {
-            darkLeoraChar.secondPhaseActive = true;
-            Instantiate(lucanLeoraCopy, lucanSpawnPoint.transform.position, Quaternion.identity);
-            GameObject tempViinObject = Instantiate(viinLeoraCopy, viinSpawnPoint.transform.position, Quaternion.identity);
+            darkLeoraChar.MidFightDialogue();
 
-            darkLeoraViinDiveAI viinAI = tempViinObject.GetComponent<darkLeoraViinDiveAI>();
+            darkLeoraChar.secondPhaseActive = true;
+            activeLucanCopy = Instantiate(lucanLeoraCopy, lucanSpawnPoint.transform.position, Quaternion.identity);
+            activeViinCopy = Instantiate(viinLeoraCopy, viinSpawnPoint.transform.position, Quaternion.identity);
+
+            darkLeoraViinDiveAI viinAI = activeViinCopy.GetComponent<darkLeoraViinDiveAI>();
 
             viinAI.diveCooldown.StartCooldown();
         }
