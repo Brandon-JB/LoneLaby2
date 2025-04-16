@@ -84,7 +84,7 @@ public class InteractScript : MonoBehaviour
 
     public bool IsCloseEnough(float[] distBtwnObjs)
     {
-        Debug.Log("called");
+        //Debug.Log("called");
         foreach (int element in distBtwnObjs)
         {
             if (element <= 1.5f)

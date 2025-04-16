@@ -11,8 +11,13 @@ public class ViinFightTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         bossFog.SetActive(false);
+
+        if (BossSaveData.bossStates["Viin"] != 0)
+        {
+            Destroy(viinScript.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame

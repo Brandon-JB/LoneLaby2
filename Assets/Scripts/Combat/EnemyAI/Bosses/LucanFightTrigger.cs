@@ -12,6 +12,12 @@ public class LucanFightTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if (BossSaveData.bossStates["Lucan"] != 0)
+        {
+            Destroy(lucanScript.gameObject);
+            Destroy(this.gameObject);
+        }
         //bossFog.SetActive(false);
     }
 

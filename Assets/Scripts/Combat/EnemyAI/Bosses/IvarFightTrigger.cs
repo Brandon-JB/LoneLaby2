@@ -13,6 +13,12 @@ public class IvarFightTrigger : MonoBehaviour
     void Start()
     {
         bossFog.SetActive(false);
+
+        if (BossSaveData.bossStates["Ivar"] != 0)
+        {
+            Destroy(ivarScript.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame
