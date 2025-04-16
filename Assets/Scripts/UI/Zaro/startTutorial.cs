@@ -11,6 +11,12 @@ public class startTutorial : MonoBehaviour
 
     private void OnEnable()
     {
+        if (mainDialogueManager.GLOBALcurrentlyRunningText == "introducingSuspects" && SceneManager.GetActiveScene().name == "NoCombatAreas")
+        {
+            bg.alpha = 0f;
+            positions[0].DOMove(positions[1].transform.position, 2f).SetUpdate(true);
+            return;
+        }
         bg.alpha = 0f;
         bg.DOFade(1, 1).SetUpdate(true);
         positions[0].DOMove(positions[1].transform.position, 1f).SetUpdate(true);

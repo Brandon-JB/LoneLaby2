@@ -38,7 +38,7 @@ public class creditsScroll : MonoBehaviour
     {
         string builtString = "";
         int condemned = BossSaveData.GetNumberOfCondemned();
-        int saved = BossSaveData.GetNumberOfKilled();
+        int saved = BossSaveData.GetNumberOfSaved();
 
         // FIRST PART OF THE DIALOGUE
 

@@ -21,11 +21,11 @@ public class BossSaveData : MonoBehaviour
         return Convert.ToInt32((bossStates["Ivar"] != 0)) + Convert.ToInt32((bossStates["Lucan"] != 0)) + Convert.ToInt32((bossStates["Viin"] != 0));
     }
 
-    public static int GetNumberOfCondemned()
+    public static int GetNumberOfCondemned() //GET PEOPLE KILLED
     {
         return Convert.ToInt32((bossStates["Ivar"] == 1)) + Convert.ToInt32((bossStates["Lucan"] == 1)) + Convert.ToInt32((bossStates["Viin"] == 1));
     }
-    public static int GetNumberOfKilled()
+    public static int GetNumberOfSaved() // GET PEOPLE WHO LIVED
     {
         return Convert.ToInt32((bossStates["Ivar"] == 2)) + Convert.ToInt32((bossStates["Lucan"] == 2)) + Convert.ToInt32((bossStates["Viin"] == 2));
     }
