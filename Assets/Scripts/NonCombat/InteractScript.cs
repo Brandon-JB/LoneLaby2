@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 
@@ -103,19 +105,23 @@ public class InteractScript : MonoBehaviour
 
     public void doSomethingBasedOnNPC(string NPCName, bool hasQuest = false, bool questCompleted = false)
     {
+        if(NPCName != "Bed Trigger")
+        {
+            QuestManager.StartQuest(NPCName, 5);
+        }
         switch (NPCName)
         {
             case "Alan":
-                findDialogueToPlay("SideQuests/getAlanQuest", "SideQuests/getAlanQuest", "SideQuests/finAlanQuest", hasQuest, questCompleted);
+                findDialogueToPlay("SideQuests/getAlanQuest", "SideQuests/getAlanQuest", "SideQuests/finAlanQuest", NPCName);
                 break;
             case "Kisa":
-                findDialogueToPlay("SideQuests/getKisaQuest", "SideQuests/getKisaQuest", "SideQuests/finKisaQuest", hasQuest, questCompleted);
+                findDialogueToPlay("SideQuests/getKisaQuest", "SideQuests/getKisaQuest", "SideQuests/finKisaQuest", NPCName);
                 break;
             case "Soph":
-                findDialogueToPlay("SideQuests/getSophQuest", "SideQuests/getSophQuest", "SideQuests/finSophQuest", hasQuest, questCompleted);
+                findDialogueToPlay("SideQuests/getSophQuest", "SideQuests/getSophQuest", "SideQuests/finSophQuest", NPCName);
                 break;
             case "Vaang":
-                findDialogueToPlay("Vaang/meetingVaang", "Vaang/vaang_condemn", "Vaang/vaang_save", hasQuest, questCompleted);
+                findDialogueToPlay("Vaang/meetingVaang", "Vaang/vaang_condemn", "Vaang/vaang_save", NPCName);
                 break;
             case "Bed Trigger":
                 break;
@@ -123,22 +129,30 @@ public class InteractScript : MonoBehaviour
         }
     }
 
-    private void findDialogueToPlay(string dialogue1, string dialogue2, string dialogue3, bool hasQuest, bool questCompleted)
+    private void findDialogueToPlay(string dialogue1, string dialogue2, string dialogue3, string NPCName)
     {
         //Add more to this if we need to do more with side quests
-        if (hasQuest && questCompleted)
+
+        try
         {
-            mainDialogueManager.dialogueSTART(dialogue3);
+            //Check if they completed the quest or not
+            if (QuestManager.IsQuestComplete(NPCName))
+            {
+                //Quest HAS been picked up and COMPLETED
+                mainDialogueManager.dialogueSTART(dialogue3);
+                return;
+            } else if (QuestManager.questStates.ContainsKey(NPCName))
+            {
+                //Finish SQ Dialogue
+                //Quest has been picked up, not completed
+                mainDialogueManager.dialogueSTART(dialogue2);
+            }
         }
-        else if (hasQuest)
+        catch (Exception)
         {
-            mainDialogueManager.dialogueSTART(dialogue2);
-        }
-        else
-        {
+            //Quest has not been picked up or something went wrong
             mainDialogueManager.dialogueSTART(dialogue1);
-        }
-        
+        }        
         CanInteractUI.SetActive(false);
     }
 }
