@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ead2893d558ca24418123a2d6cb0d0a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,3 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ef4f4832692b54689ce7608119f7de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactRange: 3
+  DistanceBetweenObjectAndPlayer: 0
+  leoraChar: {fileID: 0}
+  Player: {fileID: 0}
+  bossTP: {fileID: 0}
+  bossFightDialogue: 

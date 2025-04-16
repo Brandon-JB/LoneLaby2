@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ead2893d558ca24418123a2d6cb0d0a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -382,5 +382,7 @@ MonoBehaviour:
     cooldownTime: 5
   leftDashArrow: {fileID: 0}
   rightDashArrow: {fileID: 0}
+  leftArrowSprite: {fileID: 0}
+  rightArrowSprite: {fileID: 0}
   enemyRB: {fileID: 6549770698280233058}
   dashSpeed: 35

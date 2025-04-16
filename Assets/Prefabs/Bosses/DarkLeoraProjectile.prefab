@@ -58,6 +58,7 @@ MonoBehaviour:
     cooldownTime: 10
   launchSpeed: 0.05
   trackSpeed: 3
+  maxSpeed: 0
 --- !u!50 &7262492060793530452
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +133,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ead2893d558ca24418123a2d6cb0d0a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
