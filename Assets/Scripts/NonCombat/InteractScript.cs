@@ -87,14 +87,16 @@ public class InteractScript : MonoBehaviour
 
     public GameObject IsCloseEnough(float[] distBtwnObjs)
     {
+        int i = 0;
         //Debug.Log("called");
-        foreach (int element in distBtwnObjs)
+        foreach (float element in distBtwnObjs)
         {
             if (element <= 1.5f)
             {
-                Debug.Log("true");
-                return NPCs[element];
+                Debug.Log(NPCs[i].name + ": " + element);
+                return NPCs[i];
             }
+            i++;
         }
             return null;
     }

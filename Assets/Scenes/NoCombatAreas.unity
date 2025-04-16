@@ -532,7 +532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160405990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.937234, y: 63.88633, z: -10}
+  m_LocalPosition: {x: 12.937241, y: 63.887848, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8646,7 +8646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8907949588572893298, guid: 6edbb263f671f3743a9b573052fb3244, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -14.000015
+      value: -14.000122
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edbb263f671f3743a9b573052fb3244, type: 3}
@@ -9424,11 +9424,11 @@ MonoBehaviour:
   - {fileID: 834351036}
   - {fileID: 1171681983}
   - {fileID: 1698701234}
-  isClose: 0
   Player: {fileID: 429699489}
   InteractionUI: {fileID: 0}
   CanInteractUI: {fileID: 1966696977}
   mainDialogueManager: {fileID: 0}
+  closeTo: {fileID: 0}
 --- !u!1 &444147143
 GameObject:
   m_ObjectHideFlags: 3
@@ -9715,11 +9715,11 @@ MonoBehaviour:
   interactionName: 
   DistanceBetweenObjects: []
   NPCs: []
-  isClose: 0
   Player: {fileID: 429699489}
   InteractionUI: {fileID: 2084396534}
   CanInteractUI: {fileID: 380992016}
   mainDialogueManager: {fileID: 0}
+  closeTo: {fileID: 0}
 --- !u!1 &469702340
 GameObject:
   m_ObjectHideFlags: 3
@@ -13295,11 +13295,11 @@ MonoBehaviour:
   - {fileID: 834351036}
   - {fileID: 1171681983}
   - {fileID: 1698701234}
-  isClose: 0
   Player: {fileID: 429699489}
   InteractionUI: {fileID: 0}
   CanInteractUI: {fileID: 1966696977}
   mainDialogueManager: {fileID: 1338707133}
+  closeTo: {fileID: 0}
 --- !u!1 &817308824
 GameObject:
   m_ObjectHideFlags: 0
@@ -13403,11 +13403,11 @@ MonoBehaviour:
   interactionName: SideQuests/getKisaQuest
   DistanceBetweenObjects: []
   NPCs: []
-  isClose: 0
   Player: {fileID: 429699489}
   InteractionUI: {fileID: 0}
   CanInteractUI: {fileID: 1966696977}
   mainDialogueManager: {fileID: 1338707133}
+  closeTo: {fileID: 0}
 --- !u!61 &834351038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31081,11 +31081,11 @@ MonoBehaviour:
   interactionName: SideQuests/getSophQuest
   DistanceBetweenObjects: []
   NPCs: []
-  isClose: 0
   Player: {fileID: 429699489}
   InteractionUI: {fileID: 0}
   CanInteractUI: {fileID: 1966696977}
   mainDialogueManager: {fileID: 1338707133}
+  closeTo: {fileID: 0}
 --- !u!61 &1171681985
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31172,7 +31172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171681983}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8500004, y: -26.740002, z: 0}
+  m_LocalPosition: {x: -1.8, y: -17.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73300,11 +73300,11 @@ MonoBehaviour:
   - {fileID: 834351036}
   - {fileID: 1171681983}
   - {fileID: 1698701234}
-  isClose: 0
   Player: {fileID: 429699489}
   InteractionUI: {fileID: 0}
   CanInteractUI: {fileID: 1966696977}
   mainDialogueManager: {fileID: 1338707133}
+  closeTo: {fileID: 0}
 --- !u!61 &1433590523
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75628,11 +75628,11 @@ MonoBehaviour:
   interactionName: Bed
   DistanceBetweenObjects: []
   NPCs: []
-  isClose: 0
   Player: {fileID: 429699489}
   InteractionUI: {fileID: 0}
   CanInteractUI: {fileID: 1966696977}
   mainDialogueManager: {fileID: 1338707133}
+  closeTo: {fileID: 0}
 --- !u!1 &1719942449
 GameObject:
   m_ObjectHideFlags: 0
