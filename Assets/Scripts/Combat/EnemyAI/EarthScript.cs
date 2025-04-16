@@ -61,8 +61,12 @@ public class EarthScript : EnemyScript
             DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
             if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange) /*&& (PlayerController.isfrozen == false)*/)
             {
-                enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);
 
+                path.maxSpeed = moveSpeed;
+
+                path.destination = PlayerRB.transform.position;
+
+                //enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);
 
                 //EnemyRB.transform.position = Vector2.MoveTowards(EnemyRB.transform.position, PlayerRB.transform.position, Speed * Time.deltaTime);
 
@@ -105,6 +109,11 @@ public class EarthScript : EnemyScript
             else if (DistanceFromPlayer <= attackRange)
             {
                 if (cooldown.isCoolingDown) return;
+
+                enemyRB.velocity = Vector2.zero;
+                path.maxSpeed = 0;
+
+                path.destination = this.transform.position;
 
                 canMove = false;
 

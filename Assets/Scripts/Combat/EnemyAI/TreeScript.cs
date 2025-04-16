@@ -55,7 +55,7 @@ public class TreeScript : EnemyScript
 
             float VerticalDistance = Mathf.Abs(this.transform.position.y - Player.transform.position.y);
 
-            DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
+            DistanceFromPlayer = Vector2.Distance(this.transform.position, Player.transform.position);
             if ((DistanceFromPlayer <= followRange && (DistanceFromPlayer > attackRange))) //|| VerticalDistance > 0.5)) /*&& (PlayerController.isfrozen == false)*/)
             {
 
@@ -69,7 +69,11 @@ public class TreeScript : EnemyScript
                     movePosition = new Vector2(PlayerRB.transform.position.x + 2, PlayerRB.transform.position.y + 1);
                 }
 
-                enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePosition, moveSpeed * Time.deltaTime);
+                path.maxSpeed = moveSpeed;
+
+                path.destination = movePosition;
+
+                //enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePosition, moveSpeed * Time.deltaTime);
 
 
                 //EnemyRB.transform.position = Vector2.MoveTowards(EnemyRB.transform.position, PlayerRB.transform.position, Speed * Time.deltaTime);
@@ -113,6 +117,11 @@ public class TreeScript : EnemyScript
             else if (DistanceFromPlayer <= attackRange)
             {
                 if (cooldown.isCoolingDown) return;
+
+                enemyRB.velocity = Vector2.zero;
+                path.maxSpeed = 0;
+
+                path.destination = this.transform.position;
 
                 canMove = false;
 

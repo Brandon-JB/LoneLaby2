@@ -107,6 +107,7 @@ public class LucanScript : EnemyScript
             }
             else// if (enemyChar.animator.GetBool("Hurt") == true)
             {
+                path.destination = this.transform.position;
                 canMove = false;
                 enemyChar.animator.SetBool("isMoving", false);
             }
@@ -270,7 +271,11 @@ public class LucanScript : EnemyScript
                 DistanceFromPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
                 if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange) /*&& (PlayerController.isfrozen == false)*/ && !isDashing)
                 {
-                    enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);
+                    path.maxSpeed = moveSpeed;
+
+                    path.destination = PlayerRB.transform.position;
+
+                    //enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);
 
 
                     //EnemyRB.transform.position = Vector2.MoveTowards(EnemyRB.transform.position, PlayerRB.transform.position, Speed * Time.deltaTime);
@@ -354,6 +359,11 @@ public class LucanScript : EnemyScript
 
 
                     if (cooldown.isCoolingDown) return;
+
+                    enemyRB.velocity = Vector2.zero;
+                    path.maxSpeed = 0;
+
+                    path.destination = this.transform.position; 
 
                     canMove = false;
 

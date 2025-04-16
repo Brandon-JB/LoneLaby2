@@ -5,9 +5,12 @@ using System.Xml;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Windows;
+using Pathfinding;
 
 public class EnemyScript : MonoBehaviour
 {
+    public AIPath path;
+
     [SerializeField] public BaseChar enemyChar;
 
     [SerializeField] public Rigidbody2D PlayerRB;
@@ -38,6 +41,8 @@ public class EnemyScript : MonoBehaviour
 
         PlayerRB = Player.GetComponent<Rigidbody2D>();
 
+        path = GetComponent<AIPath>();
+
         canMove = true;
     }
 
@@ -67,7 +72,11 @@ public class EnemyScript : MonoBehaviour
             DistanceFromPlayer = Vector2.Distance(this.transform.position, Player.transform.position);
             if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange) /*&& (PlayerController.isfrozen == false)*/)
             {
-                enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);
+                path.maxSpeed = moveSpeed;
+
+                path.destination = PlayerRB.transform.position;
+
+                //enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);
 
 
                 //EnemyRB.transform.position = Vector2.MoveTowards(EnemyRB.transform.position, PlayerRB.transform.position, Speed * Time.deltaTime);
@@ -150,7 +159,14 @@ public class EnemyScript : MonoBehaviour
             {
                 if (cooldown.isCoolingDown) return;
 
+                enemyRB.velocity = Vector2.zero;
+                path.maxSpeed = 0;
+
+                path.destination = this.transform.position;
+
                 canMove = false;
+
+                
 
                 #region Somehow works
                 //Getting the distances between the x and y coordinates

@@ -10,7 +10,7 @@ namespace Pathfinding {
 		/// Holds all paths which are waiting to be flagged as completed.
 		/// See: <see cref="ReturnPaths"/>
 		/// </summary>
-		Queue<Path> pathReturnQueue = new Queue<Path>();
+		public Queue<Path> pathReturnQueue = new Queue<Path>();
 
 		/// <summary>
 		/// Paths are claimed silently by some object to prevent them from being recycled while still in use.

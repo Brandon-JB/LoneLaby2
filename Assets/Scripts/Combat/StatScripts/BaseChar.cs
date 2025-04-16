@@ -598,6 +598,7 @@ public class BaseChar : MonoBehaviour
             if (enemyMovement != null)
             {
                 enemyMovement.canMove = false;
+                enemyMovement.path.enabled = false;
             }
             //Knockback strength is multiplied due to enemies having much more mass
             charRB.AddForce(knockbackDirection * ((stMod * strength) * 10000f), ForceMode2D.Impulse);
@@ -621,6 +622,7 @@ public class BaseChar : MonoBehaviour
                 {
                     enemyMovement.cooldown.Interupted();
                     enemyMovement.canMove = true;
+                    enemyMovement.path.enabled = true;
                 }
                 charRB.velocity = Vector3.zero;
             }

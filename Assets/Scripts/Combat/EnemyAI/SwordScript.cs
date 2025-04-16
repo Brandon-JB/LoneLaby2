@@ -53,7 +53,12 @@ public class SwordScript : EnemyScript
                     movePosition = new Vector2(PlayerRB.transform.position.x + 2, PlayerRB.transform.position.y);
                 }
 
-                enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePosition, moveSpeed * Time.deltaTime);
+
+                path.maxSpeed = moveSpeed;
+
+                path.destination = movePosition;
+
+                //enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePosition, moveSpeed * Time.deltaTime);
 
                 //EnemyRB.transform.position = Vector2.MoveTowards(EnemyRB.transform.position, PlayerRB.transform.position, Speed * Time.deltaTime);
 
@@ -96,6 +101,11 @@ public class SwordScript : EnemyScript
             else if (DistanceFromPlayer <= attackRange)
             {
                 if (cooldown.isCoolingDown) return;
+
+                enemyRB.velocity = Vector2.zero;
+                path.maxSpeed = 0;
+
+                path.destination = this.transform.position;
 
                 canMove = false;
 
@@ -153,6 +163,8 @@ public class SwordScript : EnemyScript
 
         if (thrusting)
         {
+            path.enabled = false;
+
             Vector2 slidePosition = new Vector2(enemyRB.transform.position.x + (1 * enemyChar.animator.GetFloat("moveX")), enemyRB.transform.position.y);
 
             if (enemyChar.animator.GetFloat("moveX") < 0)
@@ -176,6 +188,7 @@ public class SwordScript : EnemyScript
     {
         if (thrusting == true)
         {
+            path.enabled = true;
             enemyRB.velocity = Vector2.zero;
         }
         thrusting = !thrusting;

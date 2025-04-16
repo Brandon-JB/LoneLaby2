@@ -82,7 +82,11 @@ public class DarkLeoraScript : EnemyScript
             DistanceFromPlayer = Vector2.Distance(this.transform.position, Player.transform.position);
             if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange) /*&& (PlayerController.isfrozen == false)*/)
             {
-                enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);
+                path.maxSpeed = moveSpeed;
+
+                path.destination = PlayerRB.transform.position;
+
+                //enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, PlayerRB.transform.position, moveSpeed * Time.deltaTime);
 
 
                 //EnemyRB.transform.position = Vector2.MoveTowards(EnemyRB.transform.position, PlayerRB.transform.position, Speed * Time.deltaTime);
@@ -165,6 +169,11 @@ public class DarkLeoraScript : EnemyScript
             {
                 if (cooldown.isCoolingDown) return;
 
+                enemyRB.velocity = Vector2.zero;
+                path.maxSpeed = 0;
+
+                path.destination = this.transform.position;
+
                 canMove = false;
 
                 #region Somehow works
@@ -214,7 +223,11 @@ public class DarkLeoraScript : EnemyScript
                     {
                         Vector2 movePostion = new Vector2 (this.transform.position.x, PlayerRB.transform.position.y);
 
-                        enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePostion, moveSpeed * Time.deltaTime);
+                        path.maxSpeed = moveSpeed;
+
+                        path.destination = movePostion;
+
+                        //enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePostion, moveSpeed * Time.deltaTime);
 
                         return;
                     }
@@ -226,7 +239,11 @@ public class DarkLeoraScript : EnemyScript
                     {
                         Vector2 movePostion = new Vector2(PlayerRB.transform.position.x, this.transform.position.y);
 
-                        enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePostion, moveSpeed * Time.deltaTime);
+                        path.maxSpeed = moveSpeed;
+
+                        path.destination = movePostion;
+
+                        //enemyRB.transform.position = Vector2.MoveTowards(enemyRB.transform.position, movePostion, moveSpeed * Time.deltaTime);
 
                         return;
                     }
