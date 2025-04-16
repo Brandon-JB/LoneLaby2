@@ -25,6 +25,11 @@ public class JaelChar : BaseChar
         }
     }
 
+    public override void TriggerHurtAnim()
+    {
+        //This is here to stop the hurt animation from trying to trigger
+    }
+
     public override void Death()
     {
         audioManager.Instance.playSFX(18);
