@@ -340,6 +340,11 @@ public class LeoraChar2 : BaseChar
                         {
                             GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
                             TriggerHurtAnim();
+
+                            if (hitboxChild.type == "Projectile")
+                            {
+                                Destroy(hitboxChild.gameObject);
+                            }
                         }
                     }
                 }
