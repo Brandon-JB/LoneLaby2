@@ -8,5 +8,6 @@ public class CutsceneManager : MonoBehaviour
     private void Start()
     {
         //SEND THE NAME OF THE DIALOGUE TO TEMP DIALOGUE START.FILE NAME INSTEAD OF STARTING IT HERE - Alex
+        Time.timeScale = 1.0f;
     }
 }
