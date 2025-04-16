@@ -168,31 +168,4 @@ public class QuestMenu : MonoBehaviour
 
     }
 
-    private void FindStatusSQ(string bossName, string[] descriptionOptions, Color[] colorOptions, Image[] imageoptions, TextMeshProUGUI description)
-    {
-
-        //Put an if statement here to see if they started the quest. we might need alex for this
-        switch (BossSaveData.bossStates[bossName]) // check f
-        {
-            case 0: // Not encountered
-                imageoptions[0].color = colorOptions[0];
-                imageoptions[1].color = colorOptions[0];
-                description.text = descriptionOptions[0];
-                break;
-            case 1: // Encountered, killed
-                imageoptions[0].color = colorOptions[1];
-                imageoptions[1].color = colorOptions[1];
-                description.text = descriptionOptions[1];
-                imageoptions[3].gameObject.SetActive(true);
-                break;
-            case 2: // Encountered, spared
-                imageoptions[0].color = colorOptions[0];
-                imageoptions[1].color = colorOptions[0];
-                description.text = descriptionOptions[2];
-                imageoptions[2].gameObject.SetActive(true);
-                break;
-        }
-
-    }
-
 }
