@@ -11,11 +11,13 @@ public class InteractScript : MonoBehaviour
     public float[] DistanceBetweenObjects;
     private float InteractionLength = 3f;
     public GameObject[] NPCs;
-    public bool isClose;
+    //public bool isClose;
     public GameObject Player;
     public GameObject InteractionUI;
     public GameObject CanInteractUI;
     public mainDialogueManager mainDialogueManager;
+
+    public GameObject closeTo;
 
     private bool gainedQuest = false; // SAVE THIS!!!!!!
 
@@ -36,26 +38,27 @@ public class InteractScript : MonoBehaviour
                 DistanceBetweenObjects[i] = Vector3.Distance(NPCs[i].transform.position, Player.transform.position);
             }
         }
-        if(IsCloseEnough(DistanceBetweenObjects))
-        {
-            isClose = true;
-        }
-        else
-        {
-            isClose = false;
-        }
 
-        if (isClose)
+        closeTo = IsCloseEnough(DistanceBetweenObjects);
+        
+        if (closeTo != null)
         {
+            Debug.Log(closeTo.name);
             CanInteractUI.SetActive(true);
 
             if (InputManager.interactPressed == true && gainedQuest == false)
             {
                 //Start Interaction
+
                 gainedQuest = true;
-                Debug.Log("THISIS THE NAME OF THE FILE:" + interactionName);
-                mainDialogueManager.dialogueSTART(interactionName);
-                CanInteractUI.SetActive(false);
+
+                doSomethingBasedOnNPC(closeTo.name);
+                Debug.Log(closeTo.name);
+                //Debug.Log("THISIS THE NAME OF THE FILE:" + interactionName);
+
+
+                //mainDialogueManager.dialogueSTART(interactionName);
+                //CanInteractUI.SetActive(false);
                 //StartCoroutine(Interaction(InteractionLength, interactionName, InteractionNumber));
                 Debug.Log("Pressed");
 
@@ -82,7 +85,7 @@ public class InteractScript : MonoBehaviour
         CanInteractUI.SetActive(true);
     }
 
-    public bool IsCloseEnough(float[] distBtwnObjs)
+    public GameObject IsCloseEnough(float[] distBtwnObjs)
     {
         //Debug.Log("called");
         foreach (int element in distBtwnObjs)
@@ -90,9 +93,50 @@ public class InteractScript : MonoBehaviour
             if (element <= 1.5f)
             {
                 Debug.Log("true");
-                return true;
+                return NPCs[element];
             }
         }
-            return false;
+            return null;
+    }
+
+    public void doSomethingBasedOnNPC(string NPCName, bool hasQuest = false, bool questCompleted = false)
+    {
+        switch (NPCName)
+        {
+            case "Alan":
+                findDialogueToPlay("SideQuests/getAlanQuest", "SideQuests/getAlanQuest", "SideQuests/finAlanQuest", hasQuest, questCompleted);
+                break;
+            case "Kisa":
+                findDialogueToPlay("SideQuests/getKisaQuest", "SideQuests/getKisaQuest", "SideQuests/finKisaQuest", hasQuest, questCompleted);
+                break;
+            case "Soph":
+                findDialogueToPlay("SideQuests/getSophQuest", "SideQuests/getSophQuest", "SideQuests/finSophQuest", hasQuest, questCompleted);
+                break;
+            case "Vaang":
+                findDialogueToPlay("Vaang/meetingVaang", "Vaang/vaang_condemn", "Vaang/vaang_save", hasQuest, questCompleted);
+                break;
+            case "Bed Trigger":
+                break;
+
+        }
+    }
+
+    private void findDialogueToPlay(string dialogue1, string dialogue2, string dialogue3, bool hasQuest, bool questCompleted)
+    {
+        //Add more to this if we need to do more with side quests
+        if (hasQuest && questCompleted)
+        {
+            mainDialogueManager.dialogueSTART(dialogue3);
+        }
+        else if (hasQuest)
+        {
+            mainDialogueManager.dialogueSTART(dialogue2);
+        }
+        else
+        {
+            mainDialogueManager.dialogueSTART(dialogue1);
+        }
+        
+        CanInteractUI.SetActive(false);
     }
 }

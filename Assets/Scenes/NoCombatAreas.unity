@@ -532,7 +532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160405990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.937241, y: 63.887848, z: -10}
+  m_LocalPosition: {x: 12.937234, y: 63.88633, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8644,6 +8644,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8907949588572893298, guid: 6edbb263f671f3743a9b573052fb3244, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -14.000015
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edbb263f671f3743a9b573052fb3244, type: 3}
 --- !u!1 &325393110
@@ -13396,7 +13400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionNumber: 0
-  interactionName: Vaang/meetingVaang
+  interactionName: SideQuests/getKisaQuest
   DistanceBetweenObjects: []
   NPCs: []
   isClose: 0
@@ -31074,7 +31078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionNumber: 0
-  interactionName: Vaang/meetingVaang
+  interactionName: SideQuests/getSophQuest
   DistanceBetweenObjects: []
   NPCs: []
   isClose: 0
