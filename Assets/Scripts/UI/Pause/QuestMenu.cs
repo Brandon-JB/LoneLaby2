@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-using System;
 using TMPro;
+using System.Text.RegularExpressions;
+using System;
 
 public class QuestMenu : MonoBehaviour
 {
@@ -67,11 +66,14 @@ public class QuestMenu : MonoBehaviour
     };
 
 
-    [SerializeField] private Color[] ivarColors, viinColors, lucanColors;
+    [SerializeField] private Color[] ivarColors, viinColors, lucanColors, alanColors, kisaColors, sophieColors;
 
     [SerializeField] private Image[] ivarImages, viinImages, lucanImages;
 
+    [SerializeField] private GameObject[] alanobj, kisaobj, sophieobj;
+
     [SerializeField] private TextMeshProUGUI[] description;
+    [SerializeField] private TextMeshProUGUI[] alanDesc, kisaDesc, sophieDesc;
 
 
     //This will move the back button. Yuck. Maybe turn it off for a minute to turn it back on after the side quests come up?
@@ -100,7 +102,44 @@ public class QuestMenu : MonoBehaviour
         FindStatus("Viin", viinDescriptions, viinColors, viinImages, description[1]);
         FindStatus("Lucan", lucanDescriptions, lucanColors, lucanImages, description[2]);
 
+        FindStatus("Alan", alanDescriptions, alanColors, alanobj, alanDesc);
+        FindStatus("Kisa", kisaDescriptions, kisaColors, kisaobj, kisaDesc);
+        FindStatus("Sophie", sophDescriptions, sophieColors, sophieobj, sophieDesc);
         //change ui color 
+    }
+
+    private void FindStatus(string questName, string[] descriptionOptions, Color[] colorOptions, GameObject[] characterImages, TextMeshProUGUI[] description)
+    {
+        try
+        {
+            //They have begun the quest.
+            characterImages[0].GetComponent<Image>().color = colorOptions[0];
+            description[0].text = questName.ToUpper();
+            characterImages[1].gameObject.SetActive(true);
+
+            //Check if they completed the quest or not
+            if (QuestManager.IsQuestComplete(questName))
+            {
+                //Quest HAS been picked up and COMPLETED
+                description[1].text = descriptionOptions[2];
+                return;
+            }
+
+            //Quest has been picked up, not completed
+            description[1].text = Regex.Replace(
+                descriptionOptions[1],
+                @"\(\d+\/",
+                $"({QuestManager.questStates[questName].currentProgress}/"
+            );
+        }
+        catch (Exception)
+        {
+            //Quest has not been picked up or something went wrong
+            characterImages[0].GetComponent<Image>().color = colorOptions[1];
+            description[0].text = "???";
+            description[1].text = descriptionOptions[0];
+            characterImages[1].gameObject.SetActive(false);
+        }
     }
 
 

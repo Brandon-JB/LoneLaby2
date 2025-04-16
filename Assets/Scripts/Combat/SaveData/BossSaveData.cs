@@ -11,9 +11,9 @@ public class BossSaveData : MonoBehaviour
     /// </summary>
     static public Dictionary<string, int> bossStates = new Dictionary<string, int>
     {
-        {"Ivar", 1 },
-        {"Lucan", 1 },
-        {"Viin", 1 }
+        {"Ivar", 0 },
+        {"Lucan", 0 },
+        {"Viin", 0 }
     };
 
     public static int GetNumberOfBossesObtained()
