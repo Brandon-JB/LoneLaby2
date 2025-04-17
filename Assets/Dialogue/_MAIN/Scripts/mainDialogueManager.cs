@@ -105,7 +105,13 @@ public class mainDialogueManager : MonoBehaviour
                 case "ViinQuest/veinwood_prefight":
                     audioManager.Instance.playBGM("T8");
                     break;
+                case "LucanQuest/cave_postfight_saveLucan":
+                case "IvarQuest/mansion_postfight_saveIvar":
+                case "ViinQuest/veinwood_postfight_saveViin":
+                    FindObjectOfType<killSpareManager>().GetComponent<CanvasGroup>().DOFade(0f, 1).SetUpdate(true);
+                    break;
             }
+
 
 
             top.DOMove(tweenInPositions[0].transform.position, 1.5f).SetUpdate(true).SetEase(Ease.OutCubic);

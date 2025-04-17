@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class ItemMenu : MonoBehaviour
 {
@@ -113,17 +114,47 @@ public class ItemMenu : MonoBehaviour
             case "ATKMPRing":
                 itemText.text = "Ring of Might and Magic";
                 itemImage.sprite = items[12];
-                itemDescription.text = "Crimson and teal fuse into one in this ring’s gemstone, symbolizing the unity of might and magic. <color=#92dae8>Increase Leora’s Mana by 5 points and slightly increase Leora’s attack.</color>";
+                itemDescription.text = "Crimson and teal fuse into one in this ring's gemstone, symbolizing the unity of might and magic. <color=#92dae8>Increase Leora's Mana by 5 points and slightly increase Leora's attack.</color>";
                 break;
             case "HPMPRing":
                 itemText.text = "Ring of Vigor and Magic";
                 itemImage.sprite = items[13];
-                itemDescription.text = "Forest green and teal fuse into one in this ring’s gemstone, symbolizing the unity of vigor and magic. <color=#92dae8>Increase Leora’s HP by 25 points and her Mana by 5 points</color>";
+                itemDescription.text = "Forest green and teal fuse into one in this ring's gemstone, symbolizing the unity of vigor and magic. <color=#92dae8>Increase Leora's HP by 25 points and her Mana by 5 points</color>";
                 break;
             case "ATKHPRing":
                 itemText.text = "Ring of Might and Vigor";
                 itemImage.sprite = items[14];
-                itemDescription.text = "Crimson and forest green fuse into one in this ring’s gemstone, symbolizing the unity of might and vigor. <color=#92dae8>Increase Leora’s HP by 25 points and slightly increase Leora’s attack.</color>";
+                itemDescription.text = "Crimson and forest green fuse into one in this ring's gemstone, symbolizing the unity of might and vigor. <color=#92dae8>Increase Leora's HP by 25 points and slightly increase Leora's attack.</color>";
+                break;
+            case "veritaatkbonus":
+                itemText.text = "+5 Attack";
+                itemImage.sprite = items[16];
+                itemDescription.text = "Verita has blessed you with their strength. <color=#92dae8>Leora gains a permanent +5 to her attack.</color>";
+                break;
+            case "veritampbonus":
+                itemText.text = "+5 Magic Attack";
+                itemImage.sprite = items[17];
+                itemDescription.text = "Verita has blessed you with their wisdom. <color=#92dae8>Leora gains a permanent +5 to her magic attack.</color>";
+                break;
+            case "veritahpbonus":
+                itemText.text = "+25 Health";
+                itemImage.sprite = items[18];
+                itemDescription.text = "Verita has blessed you with their courage. <color=#92dae8>Leora gains a permanent +5 to her health.</color>";
+                break;
+            case "orderatkbonus":
+                itemText.text = "+5 Attack";
+                itemImage.sprite = items[19];
+                itemDescription.text = "The Order has granted you a sharper weapon. <color=#92dae8>Leora gains a permanent +5 to her attack.</color>";
+                break;
+            case "ordermpbonus":
+                itemText.text = "+5 Magic Attack";
+                itemImage.sprite = items[20];
+                itemDescription.text = "The Order has granted you an insightful tome. <color=#92dae8>Leora gains a permanent +5 to her magic attack.</color>";
+                break;
+            case "orderhpbonus":
+                itemText.text = "+25 Health";
+                itemImage.sprite = items[21];
+                itemDescription.text = "The Order has bestowed you with new armor. <color=#92dae8>Leora gains a permanent +25 to her health.</color>";
                 break;
             default:
                 Debug.Log("I couldn't find the item equipped. Sorry pookie");
@@ -139,7 +170,11 @@ public class ItemMenu : MonoBehaviour
 
         ChangeTextAndSprite(itemName);
 
-        equipmentManager.GainedEquipment(itemName);
+        // only do this if the itemName doesn't end with bonus
+        if (!itemName.EndsWith("bonus"))
+        {
+            equipmentManager.GainedEquipment(itemName);
+        }
 
         infoHolder.DOMove(locations[0].position, 0.5f).SetUpdate(true);
         //itemHolder.DOFade(1, 1f).SetUpdate(true);

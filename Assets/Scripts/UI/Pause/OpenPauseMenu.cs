@@ -126,6 +126,7 @@ public class OpenPauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        pauseOpened = false;
         if (canOpenPause)
         {
             //Open main pause menu
@@ -144,6 +145,7 @@ public class OpenPauseMenu : MonoBehaviour
 
     public void mainMenu()
     {
+        pauseOpened = false;
         SceneManager.LoadScene("MainMenu");
     }
 }

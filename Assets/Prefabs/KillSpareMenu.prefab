@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 5974312705697427413}
   - component: {fileID: 3694223661667277790}
   - component: {fileID: 6168335103269926674}
+  - component: {fileID: 4985877305058888220}
   m_Layer: 5
   m_Name: KillSpareMenu
   m_TagString: Untagged
@@ -492,6 +493,18 @@ MonoBehaviour:
   mainDialogueManager: {fileID: 0}
   menu: {fileID: 6581692847677757403}
   bossName: Viin
+--- !u!225 &4985877305058888220
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067838947540501796}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1429769468818207584
 GameObject:
   m_ObjectHideFlags: 0

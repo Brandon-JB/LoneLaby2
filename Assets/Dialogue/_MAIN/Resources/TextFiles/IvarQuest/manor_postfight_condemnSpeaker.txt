@@ -6,6 +6,7 @@ wait(0.5)
 Show(speaker)
 Highlight(speaker -o true)
 speaker "Well done, Dame Leora. The Order commends you."
+gainItem(ordermpbonus)
 speaker "As a token of our gratitude, you are granted new arms— courtesy of Verita's forge. May they serve you well in the trials ahead."
 gainItem(MindAmulet)
 Highlight(leora -o true)
