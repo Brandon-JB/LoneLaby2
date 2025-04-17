@@ -26,6 +26,7 @@ public class EarthElementalChar : BaseChar
 
     public override void Death()
     {
+        QuestManager.AddProgress("Alan", 1);
         dropManager.RandomizedDrops(this.transform.position, this.charName);
         Destroy(this.gameObject);
     }

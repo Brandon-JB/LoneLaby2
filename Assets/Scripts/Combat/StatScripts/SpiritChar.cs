@@ -15,6 +15,8 @@ public class SpiritChar : BaseChar
 
     public override void TriggerHurtAnim()
     {
+        QuestManager.AddProgress("Sophie", 1);
+
         base.TriggerHurtAnim();
 
         animator.SetBool("StartWalk", false);
