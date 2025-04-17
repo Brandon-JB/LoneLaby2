@@ -36,6 +36,8 @@ public class ChestInteraction : CombatInteraction
                 //Put interactions here
                 animator.SetBool("Open", true);
                 leoraChar.interactIcon.SetActive(false);
+                audioManager.Instance.playSFX(51);
+                audioManager.Instance.playSFX(52);
             }
         }
 

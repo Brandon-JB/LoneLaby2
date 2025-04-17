@@ -356,6 +356,7 @@ public class BaseChar : MonoBehaviour
         //testParrySprite.color = Color.yellow;
         ParryIndicator.SetActive(true);
         isParrying = true;
+        audioManager.Instance.playSFX(53);
         //Debug.Log("Parry Window");
     }
 

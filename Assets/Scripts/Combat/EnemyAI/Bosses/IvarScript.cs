@@ -186,7 +186,10 @@ public class IvarScript : MonoBehaviour
     {
         Vector2 tpPosition = new Vector2(Random.Range(bottomLeftArenaBounds.x, topRightArenaBounds.x), Random.Range(bottomLeftArenaBounds.y, topRightArenaBounds.y));
 
+        Instantiate(tpParticlePrefab, tpPosition, Quaternion.identity);
+
         this.transform.position = tpPosition;
+
     }
 
     public void SpawnTPParticle()
