@@ -41,6 +41,7 @@ public class IvarScript : MonoBehaviour
     public Animator castParticleAnimator;
     [SerializeField] private GameObject projectileSpawnPoint;
     [SerializeField] private float projectileSpawnOffset;
+    [SerializeField] private GameObject tpParticlePrefab;
 
     private int whichMoveToCast;
 
@@ -181,6 +182,19 @@ public class IvarScript : MonoBehaviour
         ivarChar.animator.SetBool("tpCast", false);
     }
 
+    public void SelfTeleport()
+    {
+        Vector2 tpPosition = new Vector2(Random.Range(bottomLeftArenaBounds.x, topRightArenaBounds.x), Random.Range(bottomLeftArenaBounds.y, topRightArenaBounds.y));
+
+        this.transform.position = tpPosition;
+    }
+
+    public void SpawnTPParticle()
+    {
+        Instantiate(tpParticlePrefab, this.transform.position, Quaternion.identity);
+        audioManager.Instance.playSFX(46);
+    }
+
     //Teleports the player and himself to the mazes 
     public void Teleport()
     {
@@ -292,5 +306,7 @@ public class IvarScript : MonoBehaviour
 
                 break;
         }
+
+        SelfTeleport();
     }
 }
