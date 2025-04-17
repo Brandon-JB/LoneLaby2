@@ -3435,7 +3435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6b6e3bacbcde95b4591e1eb50ff49415, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26045db6532361f4fa15a760f2e773c7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4585,7 +4585,6 @@ MonoBehaviour:
   - {fileID: 6332053272956658371}
   - {fileID: 6332053273660838523}
   dialogueBox: {fileID: 6332053273224212211}
-  am: {fileID: 0}
   cutsceneScenes:
   - {fileID: 6332053273844489969}
   - {fileID: 6332053273261265362}
@@ -4613,6 +4612,9 @@ MonoBehaviour:
   equipmentMenu: {fileID: 0}
   condemntxtbox: {fileID: 6332053274245977265}
   normaltxtbox: {fileID: 6332053273796710004}
+  nametxt: {fileID: 6332053272315271174}
+  nameBox: {fileID: 6332053273118451887}
+  voidSprite: {fileID: 21300000, guid: 26045db6532361f4fa15a760f2e773c7, type: 3}
   dialogueRunning: 0
 --- !u!1 &6332053273414143570
 GameObject:

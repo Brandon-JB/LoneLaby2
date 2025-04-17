@@ -23,6 +23,10 @@ public class SavePoint : MonoBehaviour
         DistanceBetweenObjects = Vector3.Distance(transform.position, Player.transform.position);
         if (DistanceBetweenObjects <= maxDistance)
         {
+            if(interactionPopup == null)
+            {
+                interactionPopup = GameObject.FindObjectOfType<KeyPromptUI>().gameObject;
+            }
             interactionPopup.SetActive(true);
 
             if (InputManager.interactPressed == true)

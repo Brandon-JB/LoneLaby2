@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class mainDialogueManager : MonoBehaviour
 {
@@ -33,7 +34,9 @@ public class mainDialogueManager : MonoBehaviour
     [SerializeField] private HUD_Equipment equipmentMenu;
 
 
-    [SerializeField] private TextMeshProUGUI condemntxtbox, normaltxtbox;
+    [SerializeField] private TextMeshProUGUI condemntxtbox, normaltxtbox, nametxt;
+    [SerializeField] private Image nameBox;
+    [SerializeField] private Sprite voidSprite;
 
     //[SerializeField] private pauseMenuManager pauseMenuManager;
 
@@ -80,6 +83,12 @@ public class mainDialogueManager : MonoBehaviour
         // Only start the coroutine if it's not already running
         if (!dialogueRunning)
         {
+            //Turn off previous dialogue
+            nameBox.sprite = voidSprite;
+            normaltxtbox.text = "";
+            nametxt.text = "";
+
+
             Time.timeScale = 0f;
             OpenPauseMenu.GLOBALcanOpenPause = true;
             OpenPauseMenu.canOpenPause = false;
@@ -109,6 +118,13 @@ public class mainDialogueManager : MonoBehaviour
                 case "IvarQuest/mansion_postfight_saveIvar":
                 case "ViinQuest/veinwood_postfight_saveViin":
                     FindObjectOfType<killSpareManager>().GetComponent<CanvasGroup>().DOFade(0f, 1).SetUpdate(true);
+                    break;
+                case "Endings/Condemn/meetingJael":
+                case "Endings/Compassion/severin_prefight":
+                    audioManager.Instance.playBGM("T9");
+                    break;
+                case "Endings/Conflicted/beginConflictedFight":
+                    audioManager.Instance.playBGM("T11");
                     break;
             }
 
