@@ -61,6 +61,28 @@ public class LeoraChar2 : BaseChar
 
         ChangeStats(14, 10, 4, 100, 10);
 
+        #region Add stats based on bosses
+
+        foreach (var boss in BossSaveData.bossStates)
+        {
+            if (boss.Value != 0)
+            {
+                switch (boss.Key)
+                {
+                    case "Ivar":
+                        AddToSpecificStat("MagAttack", 5);
+                        break;
+                    case "Viin":
+                        AddToSpecificStat("Strength", 5);
+                        break;
+                    case "Lucan":
+                        AddToSpecificStat("MaxHealth", 25);
+                        break;
+                }
+            }
+        }
+        #endregion
+
         healthBar.text = GetHealth() + "/" + statsSheet["MaxHealth"];
         manaBar.text = GetMana() + "/" + statsSheet["MaxMana"];
 

@@ -38,6 +38,7 @@ public class JaelScript : MonoBehaviour
     void Start()
     {
         Player = FindObjectOfType<LeoraChar2>().gameObject;
+        throwingCooldown.StartCooldown();
         specialAttacking = false;
         teleporting = false;
 
