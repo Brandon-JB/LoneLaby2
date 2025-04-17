@@ -32,4 +32,11 @@ public class SwordChar : BaseChar
         swordScript.enemyRB.velocity = Vector2.zero;
     }
 
+    public override void Death()
+    {
+        QuestManager.AddProgress("Kisa", 1);
+
+        base.Death();
+    }
+
 }

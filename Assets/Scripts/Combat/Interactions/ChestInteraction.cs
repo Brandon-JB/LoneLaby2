@@ -25,15 +25,23 @@ public class ChestInteraction : CombatInteraction
     // Update is called once per frame
     public override void Update()
     {
-        base.Update();
+        DistanceBetweenObjectAndPlayer = Vector2.Distance(transform.position, Player.transform.position);
 
-        if (DistanceBetweenObjectAndPlayer <= interactRange)
+        if (!animator.GetBool("Open") && DistanceBetweenObjectAndPlayer <= interactRange)
         {
-            if (!animator.GetBool("Open") && InputManager.interactPressed)
+            leoraChar.closestInteractable = this.gameObject;
+            leoraChar.interactIcon.SetActive(true);
+            if (InputManager.interactPressed)
             {
                 //Put interactions here
                 animator.SetBool("Open", true);
+                leoraChar.interactIcon.SetActive(false);
             }
+        }
+
+        if (DistanceBetweenObjectAndPlayer > interactRange && leoraChar.closestInteractable != null && leoraChar.closestInteractable == this.gameObject)
+        {
+            leoraChar.interactIcon.SetActive(false);
         }
     }
 
