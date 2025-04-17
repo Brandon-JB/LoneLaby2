@@ -41,10 +41,20 @@ public class CombatPortals : MonoBehaviour
 
         if (name == "Floor2-3")
         {
-            Player.transform.position = Destination[2].transform.position;
+            Player.transform.position = Destination[6].transform.position;
         }
 
         if (name == "Floor3-2")
+        {
+            Player.transform.position = Destination[7].transform.position;
+        }
+
+        if (name == "Floor2-S")
+        {
+            Player.transform.position = Destination[2].transform.position;
+        }
+
+        if (name == "FloorS-2")
         {
             Player.transform.position = Destination[3].transform.position;
         }
