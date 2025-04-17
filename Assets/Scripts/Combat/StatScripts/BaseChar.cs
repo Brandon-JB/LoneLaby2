@@ -29,6 +29,11 @@ public class BaseChar : MonoBehaviour
         statsSheet["MaxHealth"] = HP;
         statsSheet["Mana"] = MP;
         statsSheet["MaxMana"] = MP;
+
+        if (!allied)
+        {
+            AdjustDifficulty();
+        }
     }
 
     public void ChangeSpecificStat(string stat, int newValue)
@@ -122,6 +127,19 @@ public class BaseChar : MonoBehaviour
     public int GetSpecificStat(string stat)
     {
         return statsSheet[stat];
+    }
+
+    public void AdjustDifficulty()
+    {
+        foreach(var bossKilled in BossSaveData.bossStates)
+        {
+            //if the boss was defeated
+            if (bossKilled.Value != 0)
+            {
+                AddToSpecificStat("MaxHealth", 15);
+                AddToSpecificStat("Strength", 2);
+            }
+        }
     }
 
     public void AddToSpecificStat(string stat, int addedValue)
@@ -550,7 +568,7 @@ public class BaseChar : MonoBehaviour
             damPopScript.SetupInt(incomingDamage, "Damage");
             //Debug.Log(charName + " After damage health: " + GetHealth());
 
-            if (this.tag != "Boss")
+            if (this.tag != "Boss" && charName != "Spirit")
             {
                 StartCoroutine(Knockback(otherAttacker, stMod));
                 //Debug.Log("Knockback");

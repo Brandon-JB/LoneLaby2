@@ -25,7 +25,7 @@ public class InteractScript : MonoBehaviour
     private Dictionary<string, bool> gainedQuests = new Dictionary<string, bool>()
     {
         {"Alan", false},
-        {"Soph", false},
+        {"Sophie", false},
         {"Vaang", false },
         {"Kisa", false }
     };

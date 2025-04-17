@@ -93,6 +93,26 @@ public class LucanScript : EnemyScript
                 //Final Phase
                 secondPhase = false;
                 dashSpeed += 4;
+
+                isDashing = true;
+
+                enemyChar.animator.SetBool("shieldRush", true);
+
+                //Lucan goes to the left side
+                if (enemyChar.animator.GetFloat("moveX") == -1)
+                {
+                    //Setting dash animation and marking the side he dashes to
+                    //enemyChar.animator.SetFloat("moveX", -1);
+                    dashTarget = new Vector2(bottomLeftArenaBounds.x, this.transform.position.y);
+                }
+                //Lucan goes to the right side
+                else
+                {
+                    //Setting dash animation and marking the side he dashes to
+                    //enemyChar.animator.SetFloat("moveX", 1);
+                    dashTarget = new Vector2(topRightArenaBounds.x, this.transform.position.y);
+                }
+
             }
 
             if (DistanceFromPlayer > followRange || DistanceFromPlayer < attackRange || isDashing)
@@ -144,13 +164,13 @@ public class LucanScript : EnemyScript
                                 if (Vector2.Distance(enemyRB.transform.position, bottomLeftArenaBounds) < Vector2.Distance(enemyRB.transform.position, topRightArenaBounds))
                                 {
                                     dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
-                                    Debug.Log("Change side");
+                                    //Debug.Log("Change side");
                                     enemyChar.animator.SetFloat("moveX", 1);
                                 }
                                 else
                                 {
                                     dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
-                                    Debug.Log("Change side");
+                                    //Debug.Log("Change side");
                                     enemyChar.animator.SetFloat("moveX", -1);
                                 }
                             }
@@ -175,10 +195,9 @@ public class LucanScript : EnemyScript
                                 EnableHurtbox();
                                 enemyChar.StopAttackAnim();
                             }
-                        }/* This part is literally useless why did i have it here
+                        }// This part is literally useless why did i have it here
                         else
                         {
-                            Debug.Log("Reached end");
 
                             timeBetweenDashes.StartCooldown();
 
@@ -192,16 +211,16 @@ public class LucanScript : EnemyScript
                             if (Mathf.Abs(enemyRB.transform.position.x - bottomLeftArenaBounds.x) < Mathf.Abs(enemyRB.transform.position.x - topRightArenaBounds.x))
                             {
                                 dashTarget = new Vector2(topRightArenaBounds.x, Player.transform.position.y);
-                                Debug.Log("Change side");
+                                //Debug.Log("Change side");
                                 enemyChar.animator.SetFloat("moveX", 1);
                             }
                             else
                             {
                                 dashTarget = new Vector2(bottomLeftArenaBounds.x, Player.transform.position.y);
-                                Debug.Log("Change side");
+                                //Debug.Log("Change side");
                                 enemyChar.animator.SetFloat("moveX", -1);
                             }
-                        }*/
+                        }
                     }
                 }
                 else
