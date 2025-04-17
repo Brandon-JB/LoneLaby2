@@ -28,7 +28,7 @@ public class ItemMenu : MonoBehaviour
 
     public void CloseMenu()
     {
-        
+        OpenPauseMenu.pauseOpened = false;
         itemImage.gameObject.SetActive(false);
         leoraAnimator.enabled = true;
         infoHolder.DOMove(locations[1].position, 0.5f).SetUpdate(true).OnComplete(() =>
@@ -133,6 +133,7 @@ public class ItemMenu : MonoBehaviour
 
     public void openItemMenu(string itemName)
     {
+        OpenPauseMenu.pauseOpened = true;
         Time.timeScale = 0;
         OpenPauseMenu.GLOBALcanOpenPause = false;
 

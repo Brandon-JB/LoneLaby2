@@ -9,6 +9,7 @@ public class OpenPauseMenu : MonoBehaviour
 {
 
     public static bool canOpenPause = true;
+    public static bool pauseOpened = false;
 
     public static bool GLOBALcanOpenPause = false;
 
@@ -98,9 +99,11 @@ public class OpenPauseMenu : MonoBehaviour
                 if (pauseMenuObject.activeInHierarchy)
                 {
                     audioManager.Instance.playSFX(38);
+                    pauseOpened = true;
                 } else
                 {
                     audioManager.Instance.playSFX(39);
+                    pauseOpened = false;
                 }
             } else
             {
@@ -111,9 +114,11 @@ public class OpenPauseMenu : MonoBehaviour
                 if(quickPauseMenu.activeInHierarchy)
                 {
                     audioManager.Instance.playSFX(38);
+                    pauseOpened =true;
                 } else
                 {
                     audioManager.Instance.playSFX(39);
+                    pauseOpened = false;
                 }
             }
         }
