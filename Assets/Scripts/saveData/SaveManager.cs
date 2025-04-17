@@ -54,6 +54,7 @@ public class SaveManager : MonoBehaviour
         data.currentHP = leoraChar.GetHealth();
         data.currentMana = leoraChar.GetMana();
         data.mansionDoorOpened = MansionDoorManager.DoorOpened;
+        data.LastPortal = PortalScript.LastPortal;
 
 
         SaveSystem.SaveGame(data);
@@ -93,6 +94,7 @@ public class SaveManager : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         Player.transform.position = data.playerPosition;
         MansionDoorManager.DoorOpened = data.mansionDoorOpened;
+        PortalScript.LastPortal = data.LastPortal;
     }
 
     private List<EquipmentEntry> ConvertDictToList(Dictionary<string, bool> dict)
