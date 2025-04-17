@@ -5,6 +5,7 @@ speaker.Move(0.95 0 -spd 1000)
 Show(speaker)
 Highlight(speaker -o true)
 speaker "Well done, Dame Leora. The Order commends you."
+gainItem(BloodAmulet)
 speaker "As a token of our gratitude, you are granted new arms— courtesy of Verita's forge. May they serve you well in the trials ahead."
 Show(leora)
 Highlight(leora -o true)

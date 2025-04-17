@@ -30,8 +30,8 @@ Highlight(kisa -o true)
 SetSprite(kisa kisa_youngish_ig)
 kisa "A party? I hadn't considered that before... but that could be fun!"
 SetSprite(kisa happy)
-kisa "Thank you, madam! Here, take this as payment. I must pay you for your work, yes? Thank you again! Goodbye!"
 gainItem(KisaAmulet)
+kisa "Thank you, madam! Here, take this as payment. I must pay you for your work, yes? Thank you again! Goodbye!"
 Hide(kisa)
 Highlight(leora -o true)
 SetSprite(leora surprised)

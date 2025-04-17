@@ -28,8 +28,8 @@ Highlight(sophie -o true)
 SetSprite(sophie thoughtful)
 sophie "...I see."
 SetSprite(sophie earnest)
-sophie "Regardless, thank you for investigating, Dame. Here-a token of gratitude. May it serve you better than my theories did. And if I uncover anything of value, you'll be the first to know."
 gainItem(SophieAmulet)
+sophie "Regardless, thank you for investigating, Dame. Here-a token of gratitude. May it serve you better than my theories did. And if I uncover anything of value, you'll be the first to know."
 Hide(sophie)
 Hide(leora)
 endDialogue(false)
