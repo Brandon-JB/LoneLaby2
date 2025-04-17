@@ -83,6 +83,7 @@ public class mainDialogueManager : MonoBehaviour
             Time.timeScale = 0f;
             OpenPauseMenu.GLOBALcanOpenPause = true;
             OpenPauseMenu.canOpenPause = false;
+            OpenPauseMenu.pauseOpened = false;
             StartCoroutine(completeDialogue("TextFiles/" + dialogueFile));
             dialogueRunning = true; // Set the flag to true when starting the coroutine
 

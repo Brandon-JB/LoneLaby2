@@ -117,7 +117,7 @@ public class InteractScript : MonoBehaviour
             case "Kisa":
                 findDialogueToPlay("SideQuests/getKisaQuest", "SideQuests/getKisaQuest", "SideQuests/finKisaQuest", NPCName);
                 break;
-            case "Soph":
+            case "Sophie":
                 findDialogueToPlay("SideQuests/getSophQuest", "SideQuests/getSophQuest", "SideQuests/finSophQuest", NPCName);
                 break;
             case "Vaang":
