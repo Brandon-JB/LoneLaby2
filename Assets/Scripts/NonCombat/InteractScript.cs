@@ -21,7 +21,14 @@ public class InteractScript : MonoBehaviour
 
     public GameObject closeTo;
 
-    private bool gainedQuest = false; // SAVE THIS!!!!!!
+    //private bool gainedQuest = false; // SAVE THIS!!!!!!
+    private Dictionary<string, bool> gainedQuests = new Dictionary<string, bool>()
+    {
+        {"Alan", false},
+        {"Soph", false},
+        {"Vaang", false },
+        {"Kisa", false }
+    };
 
     // Start is called before the first frame update
     void Start()
@@ -48,11 +55,11 @@ public class InteractScript : MonoBehaviour
             Debug.Log(closeTo.name);
             CanInteractUI.SetActive(true);
 
-            if (InputManager.interactPressed == true && gainedQuest == false)
+            if (InputManager.interactPressed == true && gainedQuests[closeTo.name] == false)
             {
                 //Start Interaction
 
-                gainedQuest = true;
+                gainedQuests[closeTo.name] = true;
 
                 doSomethingBasedOnNPC(closeTo.name);
                 Debug.Log(closeTo.name);
