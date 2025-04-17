@@ -342,7 +342,7 @@ public class EquipmentManager : MonoBehaviour
         switch (amulet)
         {
             case "BloodAmulet":
-                leoraChar.magicType = "lightMap";
+                leoraChar.magicType = "lightMag";
                 break;
             case "MindAmulet":
                 leoraChar.magicType = "lightMag";
