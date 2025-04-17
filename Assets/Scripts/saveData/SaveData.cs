@@ -8,6 +8,7 @@ public class SaveData
 {
     public string currentScene;
     public Vector3 playerPosition;
+    public int LastPortal;
 
     public List<EquipmentEntry> equipmentObtained;
     public List<EquipmentEntry> equippedAmuletSlot;
