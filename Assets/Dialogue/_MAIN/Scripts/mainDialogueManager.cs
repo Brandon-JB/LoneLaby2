@@ -83,10 +83,18 @@ public class mainDialogueManager : MonoBehaviour
         // Only start the coroutine if it's not already running
         if (!dialogueRunning)
         {
-            //Turn off previous dialogue
-            nameBox.sprite = voidSprite;
-            normaltxtbox.text = "";
-            nametxt.text = "";
+            try
+            {
+                //Turn off previous dialogue
+                nameBox.sprite = voidSprite;
+                normaltxtbox.text = "";
+                nametxt.text = "";
+                
+            }
+            catch
+            {
+                Debug.Log("Dialogue bug");
+            }
 
 
             Time.timeScale = 0f;
