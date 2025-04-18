@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEngine.EventSystems;
 
 public class saveUI : MonoBehaviour
 {
@@ -49,6 +50,8 @@ public class saveUI : MonoBehaviour
         {
             buttonsToDisable[0].SetActive(true);
             buttonsToDisable[1].SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(buttonsToDisable[0]);
         });
         leoraToMove.DOMove(locations[0].position, 0.25f).SetUpdate(true).SetEase(Ease.InCubic);
     }
@@ -56,6 +59,7 @@ public class saveUI : MonoBehaviour
 
     public void CLOSEPAUSEMENU()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         buttonsToDisable[0].SetActive(false);
         buttonsToDisable[1].SetActive(false);
         isSaveOpen = false;

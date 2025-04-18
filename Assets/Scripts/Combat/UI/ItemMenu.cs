@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System;
+using UnityEngine.EventSystems;
 
 public class ItemMenu : MonoBehaviour
 {
@@ -25,10 +26,13 @@ public class ItemMenu : MonoBehaviour
     [SerializeField] private Transform infoHolder;
     [SerializeField] private Transform[] locations;
 
+    [SerializeField] private GameObject contButton;
+
     [SerializeField] private CanvasGroup itemHolder;
 
     public void CloseMenu()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         OpenPauseMenu.pauseOpened = false;
         itemImage.gameObject.SetActive(false);
         leoraAnimator.enabled = true;
@@ -182,6 +186,8 @@ public class ItemMenu : MonoBehaviour
         leoraAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         leoraAnimator.enabled = false;
         leoraAnimator.GetComponent<SpriteRenderer>().sprite = items[15];
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(contButton);
     }
 
     public void Awake()
