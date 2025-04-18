@@ -52,26 +52,31 @@ public class JaelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!firstPhase && jaelChar.GetHealth() <= jaelChar.GetMaxHealth() - jaelChar.GetMaxHealth() / 4)
+        {
+            firstPhase = true;
+            maxAxeThrowCount = originalMaxAxeCount + 2;
+        }
+
+        if (!secondPhase && jaelChar.GetHealth() <= jaelChar.GetMaxHealth() / 2)
+        {
+            secondPhase = true;
+            maxAxeThrowCount = originalMaxAxeCount + 4;
+        }
+
+        if (!specialAttacking && jaelChar.GetHealth() <= jaelChar.GetMaxHealth() / 4)
+        {
+            //Debug.Log("Final phase");
+            jaelChar.stunTimer.Interupted();
+            jaelChar.animator.SetBool("stunned", false);
+            maxAxeThrowCount = originalMaxAxeCount + 6;
+            specialAttacking = true;
+            throwingCooldown.cooldownTime = 0.5f;
+        }
+
         //If Jael is available to throw an axe
         if (!jaelChar.animator.GetBool("stunned") && !throwingCooldown.isCoolingDown && !jaelChar.animator.GetBool("Attacking") && teleporting == false)
         {
-            if (!firstPhase &&  jaelChar.GetHealth() <= jaelChar.GetMaxHealth() - jaelChar.GetMaxHealth() / 4)
-            {
-                firstPhase = true;
-                maxAxeThrowCount = originalMaxAxeCount + 2;
-            }
-
-            if (!secondPhase && jaelChar.GetMaxHealth() <= jaelChar.GetMaxHealth() / 2)
-            {
-                secondPhase = true;
-                maxAxeThrowCount = originalMaxAxeCount + 4;
-            }
-
-            if (!specialAttacking && jaelChar.GetMaxHealth() <= jaelChar.GetMaxHealth() / 4)
-            {
-                specialAttacking = true;
-                throwingCooldown.cooldownTime = 0.5f;
-            }
 
             if (axesThrown <= maxAxeThrowCount)
             {

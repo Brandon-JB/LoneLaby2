@@ -22,6 +22,8 @@ public class SeverinScript : EnemyScript
         secondBigHitDone = false;
         screenFlash.SetActive(false);
         parryIndicator.SetActive(false);
+
+        cooldown.StartCooldown();
     }
 
     public void TriggerParry()
@@ -54,6 +56,7 @@ public class SeverinScript : EnemyScript
         {
             canMove = false;
             enemyChar.animator.SetBool("isMoving", false);
+            
         }
 
         //Beginning charged attack

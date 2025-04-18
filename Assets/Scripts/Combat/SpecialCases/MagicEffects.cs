@@ -47,7 +47,7 @@ public class MagicEffects : MonoBehaviour
             }
             else if (magicType == "bloodMag")
             {
-                leoraChar.Heal(5);
+                leoraChar.Heal(leoraChar.GetSpecificStat("MagAttack"));
             }
             else if (magicType == "mindMag")
             {

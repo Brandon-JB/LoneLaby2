@@ -19,4 +19,9 @@ public class Cooldown
     {
         _nextFireTime = Time.time;
     }
+
+    public float GetTimeLeft()
+    {
+        return _nextFireTime - Time.time;
+    }
 }

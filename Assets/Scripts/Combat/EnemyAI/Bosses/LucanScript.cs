@@ -242,9 +242,13 @@ public class LucanScript : EnemyScript
             {
                 dashCooldown.StartCooldown();
 
-                if (!specialStunTimer.isCoolingDown)
+                if (specialStunTimer.GetTimeLeft() < 1 && !cooldown.isCoolingDown)
                 {
                     cooldown.StartCooldown();
+                }
+
+                if (!specialStunTimer.isCoolingDown)
+                {
                     enemyChar.animator.SetBool("stunned", false);
                 }
             }

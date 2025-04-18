@@ -9,6 +9,7 @@ public class SavePoint : MonoBehaviour
     private float maxDistance = 1.5f;
     private float DistanceBetweenObjects;
     public GameObject interactionPopup;
+    private bool wasCloseTo = false;
     //private float InteractionLength = 3f;
 
     // Start is called before the first frame update
@@ -20,13 +21,14 @@ public class SavePoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DistanceBetweenObjects = Vector3.Distance(transform.position, Player.transform.position);
+        DistanceBetweenObjects = Vector2.Distance(transform.position, Player.transform.position);
         if (DistanceBetweenObjects <= maxDistance)
         {
             if(interactionPopup == null)
             {
                 interactionPopup = GameObject.FindObjectOfType<KeyPromptUI>().gameObject;
             }
+            wasCloseTo = true;
             interactionPopup.SetActive(true);
 
             if (InputManager.interactPressed == true)
@@ -34,6 +36,11 @@ public class SavePoint : MonoBehaviour
                 Debug.Log("");
                 saveui.OPENSAVEMENU();
             }
+        }
+        else if (wasCloseTo)
+        {
+            interactionPopup.SetActive(false);
+            wasCloseTo = false;
         }
     }
 }

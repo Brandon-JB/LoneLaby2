@@ -208,12 +208,12 @@ public class LeoraChar2 : BaseChar
                                 {
                                     //Debug.Log("Perfect Parry");
                                     audioManager.Instance.playSFX(5);
-                                    GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
+                                    GotDamaged(0, otherCharTrigger.gameObject, 0);
                                     otherCharTrigger.TriggerHurtAnim();
                                     //Debug.Log(otherCharTrigger.gameObject.name);
                                     otherCharTrigger.stunTimer.cooldownTime = 3.5f;
                                     otherCharTrigger.stunTimer.StartCooldown();
-                                    
+
                                     otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                                     if (otherCharTrigger.tag != "Boss")
                                     {
@@ -228,7 +228,7 @@ public class LeoraChar2 : BaseChar
                                     otherCharTrigger.TriggerHurtAnim();
                                     otherCharTrigger.stunTimer.cooldownTime = 2f;
                                     otherCharTrigger.stunTimer.StartCooldown();
-                                    
+
                                     otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                                     if (otherCharTrigger.tag != "Boss")
                                     {
@@ -239,7 +239,7 @@ public class LeoraChar2 : BaseChar
                                 else
                                 {
                                     GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
-                                    
+
                                     TriggerHurtAnim();
                                 }
                             }
@@ -259,7 +259,7 @@ public class LeoraChar2 : BaseChar
                                     else
                                     {
                                         //Debug.Log("Perfect Parry");
-                                        GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
+                                        GotDamaged(0, otherCharTrigger.gameObject, 0);
                                         //Debug.Log(otherCharTrigger.gameObject.name);
                                         otherCharTrigger.stunTimer.cooldownTime = 1f;
                                         otherCharTrigger.stunTimer.StartCooldown();
@@ -286,7 +286,7 @@ public class LeoraChar2 : BaseChar
                                 else
                                 {
                                     GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
-                                    
+
                                     darknessManager.LucanProgressDarkness();
                                     TriggerHurtAnim();
                                 }
@@ -303,7 +303,7 @@ public class LeoraChar2 : BaseChar
                                 else
                                 {
                                     GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
-                                    
+
                                     TriggerHurtAnim();
                                 }
                             }
@@ -320,7 +320,40 @@ public class LeoraChar2 : BaseChar
                                 else
                                 {
                                     GotDamaged(0, otherCharTrigger.gameObject, 0);
-                                    
+
+                                    TriggerHurtAnim();
+                                }
+                            }
+                            else if (otherCharTrigger.charName == "DarkLeora")
+                            {
+                                if (isPerfectParrying)
+                                {
+                                    audioManager.Instance.playSFX(5);
+                                    //Debug.Log("Perfect Parry");
+                                    GotDamaged(0, otherCharTrigger.gameObject, 0);
+                                    //otherCharTrigger.TriggerHurtAnim();
+                                    //Debug.Log(otherCharTrigger.gameObject.name);
+                                    otherCharTrigger.stunTimer.cooldownTime = 2f;
+                                    otherCharTrigger.TriggerHurtAnim();
+                                    otherCharTrigger.animator.SetBool("Attacking", false);
+                                    otherCharTrigger.stunTimer.StartCooldown();
+                                    otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                                }
+                                else if (isParrying)
+                                {
+                                    audioManager.Instance.playSFX(5);
+                                    //Debug.Log("Parry");
+                                    GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
+                                    //otherCharTrigger.TriggerHurtAnim();
+                                    otherCharTrigger.stunTimer.cooldownTime = 1f;
+                                    otherCharTrigger.TriggerHurtAnim();
+                                    otherCharTrigger.animator.SetBool("Attacking", false);
+                                    otherCharTrigger.stunTimer.StartCooldown();
+                                    otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
+                                }
+                                else
+                                {
+                                    GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
                                     TriggerHurtAnim();
                                 }
                             }
@@ -330,7 +363,7 @@ public class LeoraChar2 : BaseChar
                                 {
                                     audioManager.Instance.playSFX(5);
                                     //Debug.Log("Perfect Parry");
-                                    GotDamaged(incomingDamage / 10, otherCharTrigger.gameObject, 0);
+                                    GotDamaged(0, otherCharTrigger.gameObject, 0);
                                     //otherCharTrigger.TriggerHurtAnim();
                                     //Debug.Log(otherCharTrigger.gameObject.name);
                                     otherCharTrigger.stunTimer.cooldownTime = 2f;
@@ -449,7 +482,7 @@ public class LeoraChar2 : BaseChar
                         }
                         else
                         {
-                            GotDamaged(50, collision.gameObject, 1);
+                            GotDamaged(35, collision.gameObject, 1);
                             TriggerHurtAnim();
                         }
                     }

@@ -72,22 +72,12 @@ public class Drops : MonoBehaviour
                     itemName = "HPMPRing";
                     break;
             }
-            /*
-            if (enemyName == "Slime" || enemyName == "Sword")
+            
+            if (EquipmentManager.equipmentObtained[itemName] == true)
             {
-                animator.SetBool("ATKRing", true);
-                itemName = "ATKRing";
+                animator.SetBool("largeHP", true);
+                dropName = "Large HP";
             }
-            if (enemyName == "EarthElement" || enemyName == "TreeMimic")
-            {
-                animator.SetBool("MPRing", true);
-                itemName = "MPRing";
-            }
-            if (enemyName == "Spirit" || enemyName == "Shield")
-            {
-                animator.SetBool("HPRing", true);
-                itemName = "HPRing";
-            }*/
         }
     }
 

@@ -30,6 +30,7 @@ public class DarkLeoraScript : EnemyScript
     {
         leoraChar = FindObjectOfType<LeoraChar2>();
         darkLeoraChar.secondPhaseActive = false;
+        cooldown.StartCooldown();
     }
 
     public void SpawnDarkParticle()

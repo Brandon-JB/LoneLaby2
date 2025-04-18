@@ -12,7 +12,7 @@ public class SeverinChar : BaseChar
         charName = "Severin";
         allied = false;
 
-        ChangeStats(16, 0, 8, 350, 0);
+        ChangeStats(13, 0, 8, 350, 0);
     }
 
     // Update is called once per frame
@@ -24,6 +24,7 @@ public class SeverinChar : BaseChar
         {
             animator.SetBool("Attacking", false);
             animator.SetBool("stunned", false);
+            hbChildScript.alreadyHit = false;
             sevScript.cooldown.cooldownTime = 1;
             sevScript.cooldown.StartCooldown();
         }

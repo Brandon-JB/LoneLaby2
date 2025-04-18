@@ -14,7 +14,7 @@ public class ViinChar : BaseChar
         charName = "Viin";
         allied = false;
 
-        ChangeStats(14, 0, 4, 250, 0);
+        ChangeStats(14, 0, 4, 350, 0);
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)

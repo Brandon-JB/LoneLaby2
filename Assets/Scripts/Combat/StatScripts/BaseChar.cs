@@ -137,7 +137,7 @@ public class BaseChar : MonoBehaviour
             if (bossKilled.Value != 0)
             {
                 AddToSpecificStat("MaxHealth", 15);
-                AddToSpecificStat("Strength", 2);
+                AddToSpecificStat("Strength", 1);
             }
         }
     }
@@ -172,7 +172,7 @@ public class BaseChar : MonoBehaviour
     private float strength = 25f;
 
     [SerializeField] private GameObject hitboxChild = null;
-    [SerializeField] private HitboxChar hbChildScript;
+    [SerializeField] public HitboxChar hbChildScript;
 
     [SerializeField] public Transform damagePopup;
     
