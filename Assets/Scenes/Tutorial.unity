@@ -18199,23 +18199,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controls: {fileID: -944628639613478452, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
   textToDisplay:
-  - When in dangerous situations, sometimes combat is necessary. Leora can move using
-    W, A, S, and D, but she can also <color=#e64539>attack</color> by pressing <color=#e64539>(ATTACK_KEY)</color>,
-    and can even attack in quick succession for a combo..
-  - Try <color=#e64539>attacking</color> the training dummy now by moving and pressing
-    <color=#e64539>(ATTACK_KEY)</color>.
-  - Additionally, Leora can use <color=#70c6bc>magic</color> to deal damage to multiple
-    enemies at once. Each type of <color=#70c6bc>magic</color> also has an additional
-    effect, with <color=#70c6bc>Light magic</color> stunning enemies.
-  - Try casting <color=#70c6bc>Light magic</color> by pressing <color=#70c6bc>(MAGIC_KEY)</color>.
-    Leora can gain different types of <color=#70c6bc>magic</color> at a later date.
-  - Finally, Leora can also <color=#f0b541>parry</color> attacks, stunning the attacker
-    and diminishing the damage dealt to her. This can be done using the <color=#f0b541>(PARRY_KEY)</color>
-    key.
-  - Try <color=#f0b541>parrying</color> Severin now using the <color=#f0b541>(PARRY_KEY)</color>
-    key. Time it perfectly to get a perfect <color=#f0b541>parry</color>!
-  - You can interacta
-  - Use e key
+  - Leora can move using W, A, S, and D. She can also <color=#e64539>attack</color>
+    when <color=#e64539>(ATTACK_KEY)</color> is pressed.
+  - Try <color=#e64539>attacking</color> the training dummy now. Hit the key multiple
+    times to do a combo.
+  - Pressing <color=#70c6bc>(MAGIC_KEY)</color> also allows you to use <color=#70c6bc>magic</color>.
+    Leora uses <color=#70c6bc>Light magic</color>, which deals damage and stuns enemies.
+  - Try using <color=#70c6bc>Light magic</color> on the training dummy. Leora can
+    gain other <color=#70c6bc>magic</color> types at a later date.
+  - Leora can mitigate incoming damage by <color=#f0b541>parrying</color>, done by
+    pressing <color=#f0b541>(PARRY_KEY)</color>.<color=#f0b541>Parrying</color> not
+    only reduces incoming damage, but it also stuns your attacker.
+  - Try <color=#f0b541>parrying</color> using <color=#f0b541>(PARRY_KEY)</color>
+    now. Time your <color=#f0b541>parries</color> perfectly to negate incoming damage!
+  - "Now that you\u2019ve mastered combat, speak to Severin to end the tutorial.
+    You can <color=#3b7d4f>interact</color> with the environment by pressing <color=#3b7d4f>(INTERACT_KEY)</color>."
+  - Talk to Severin using <color=#3b7d4f>(INTERACT_KEY)</color> to end the tutorial.
   tutorialtext:
   - {fileID: 1363925927}
   - {fileID: 1841539938}
@@ -36632,6 +36631,9 @@ MonoBehaviour:
   equipmentMenu: {fileID: 0}
   condemntxtbox: {fileID: 0}
   normaltxtbox: {fileID: 0}
+  nametxt: {fileID: 0}
+  nameBox: {fileID: 0}
+  voidSprite: {fileID: 0}
   dialogueRunning: 0
 --- !u!1 &7332341704593595771
 GameObject:

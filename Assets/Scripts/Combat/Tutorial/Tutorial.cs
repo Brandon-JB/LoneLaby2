@@ -50,12 +50,14 @@ public class Tutorial : MonoBehaviour
         string attackKey = controls.FindAction("Attack").bindings[0].ToDisplayString();
         string magicKey = controls.FindAction("Magic").bindings[0].ToDisplayString();
         string parryKey = controls.FindAction("Parry").bindings[0].ToDisplayString();
+        string interactKey = controls.FindAction("Interact").bindings[0].ToDisplayString();
 
         parsedSteps = textToDisplay
             .Select(step => step
                 .Replace("(ATTACK_KEY)", attackKey)
                 .Replace("(MAGIC_KEY)", magicKey)
-                .Replace("(PARRY_KEY)", parryKey))
+                .Replace("(PARRY_KEY)", parryKey)
+                .Replace("(INTERACT_KEY)", interactKey))
             .ToArray();
 
         //Debug.Log(parsedSteps.Length);
@@ -65,7 +67,7 @@ public class Tutorial : MonoBehaviour
 
     public void progressTutorial()
     {
-        
+        Debug.Log("I am progressing the tutorial!");
         switch (tutorialCounter)
         {
             case 2:
@@ -76,11 +78,10 @@ public class Tutorial : MonoBehaviour
                 tutorialUI[1].position = locations[3].position;
                 break;
         }
-        tutorialtext[tutorialCounter % 2].text = parsedSteps[tutorialCounter];
+        tutorialCounter++;
+        tutorialtext[(tutorialCounter-1) % 2].text = parsedSteps[(tutorialCounter-1)];
 
-        tutorialUI[tutorialCounter % 2].DOMove(locations[tutorialCounter % 2].position, 0.5f).SetUpdate(true).OnComplete(() => {
-            
-            tutorialCounter++;
+        tutorialUI[(tutorialCounter-1) % 2].DOMove(locations[(tutorialCounter-1) % 2].position, 0.5f).SetUpdate(true).OnComplete(() => {
             if (tutorialCounter % 2 == 1)
             {
                 StartCoroutine(progressTutorialAfterDelay());
@@ -111,10 +112,10 @@ public class Tutorial : MonoBehaviour
     }
     private IEnumerator progressTutorialAfterDelay()
     {
-        yield return new WaitForSecondsRealtime(0.05f);
+        yield return new WaitForSecondsRealtime(0.3f);
         Time.timeScale = 0f;
 
-        yield return new WaitForSecondsRealtime(3f); // Wait for 3 seconds
+        yield return new WaitForSecondsRealtime(2f); // Wait for 2 seconds
         progressTutorial();
         StopCoroutine(progressTutorialAfterDelay());
     }
