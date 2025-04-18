@@ -15,7 +15,8 @@ public class MainMenuScript : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         bg.alpha = 1.0f;
-        bg.DOFade(0, 1f).SetUpdate(true);
+        bg.gameObject.SetActive(true);
+        bg.DOFade(0, 1f).SetUpdate(true).OnComplete(() => { bg.gameObject.SetActive(false); });
         //audioManager.Instance.playBGM("T1");
     }
 
@@ -37,6 +38,7 @@ public class MainMenuScript : MonoBehaviour
 
         //If there is save data, go to last saved area. If there is NOT save data, play opening cutscene
         mainDialogueManager.dialogueSTART("openingCutscene");
+        bg.gameObject.SetActive(true);
         bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true);
         //SceneManager.LoadScene("Dialogue");
     }

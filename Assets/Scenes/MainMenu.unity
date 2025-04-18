@@ -5426,7 +5426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 400, y: 0}
+  m_AnchoredPosition: {x: 1993, y: 1197}
   m_SizeDelta: {x: 800.01, y: 500.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &770047151
@@ -7602,7 +7602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -446.58, y: 0.20712}
+  m_AnchoredPosition: {x: -1123, y: 1294}
   m_SizeDelta: {x: 893.1577, y: 500.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1029769532
@@ -14357,7 +14357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1910766344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14425,8 +14425,8 @@ CanvasGroup:
   m_GameObject: {fileID: 1910766343}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1912175327
 GameObject:
@@ -15358,6 +15358,9 @@ MonoBehaviour:
   equipmentMenu: {fileID: 0}
   condemntxtbox: {fileID: 0}
   normaltxtbox: {fileID: 0}
+  nametxt: {fileID: 0}
+  nameBox: {fileID: 0}
+  voidSprite: {fileID: 0}
   dialogueRunning: 0
 --- !u!4 &2057187904
 Transform:
