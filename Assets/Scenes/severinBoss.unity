@@ -192,6 +192,9 @@ MonoBehaviour:
   equipmentMenu: {fileID: 0}
   condemntxtbox: {fileID: 0}
   normaltxtbox: {fileID: 0}
+  nametxt: {fileID: 0}
+  nameBox: {fileID: 0}
+  voidSprite: {fileID: 0}
   dialogueRunning: 0
 --- !u!4 &37900022
 Transform:
@@ -2967,7 +2970,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Veinwood
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22ea09a1914e7f7438588e5b0bd15c23, type: 2}
   m_sharedMaterial: {fileID: -914684645224612307, guid: 22ea09a1914e7f7438588e5b0bd15c23, type: 2}
@@ -36159,6 +36162,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3940375451877810975, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 26045db6532361f4fa15a760f2e773c7, type: 3}
     - target: {fileID: 4057515452848069481, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
       propertyPath: m_TagString
       value: HUD
@@ -36342,6 +36349,10 @@ PrefabInstance:
     - target: {fileID: 4057515454879252289, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -1.0802994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681888034626207649, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6146734659155122529, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
       propertyPath: m_AnchoredPosition.x
