@@ -70,7 +70,8 @@ public class ChestInteraction : CombatInteraction
                 //Enemies
                 break;
             case 5:
-                Door.SetActive(false);
+                //Door.SetActive(false);
+                MansionDoorManager.hasKey = true;
                 audioManager.Instance.playSFX(43);
                 break;
             default:

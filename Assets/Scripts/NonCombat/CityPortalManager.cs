@@ -16,10 +16,12 @@ public class CityPortalManager : MonoBehaviour
     public GameObject ChurchGO;
     public GameObject ChurchLEAVE;
 
+    public GameObject StartTutorial;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        NonCombatPlayerMovement.canMove = true;
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class CityPortalManager : MonoBehaviour
     public void LoadCityArea(string name)
     {
 
-        PlayerMovement.CanWalk = false;
+        NonCombatPlayerMovement.canMove = false;
         StartCoroutine(Load(areaNumber,name));
     }
 
@@ -69,24 +71,40 @@ public class CityPortalManager : MonoBehaviour
         if (areaName == "ChurchLeave")
         {
             animator.SetTrigger("City");
+            yield return new WaitForSecondsRealtime(transitionTime);
+
+            teleport(areaName);
+            yield return new WaitForSecondsRealtime(2f);
+
+            NonCombatPlayerMovement.canMove = true;
+
         }
         else if (areaName == "Church")
         {
             animator.SetTrigger("Church");
+            yield return new WaitForSecondsRealtime(transitionTime);
+
+            teleport(areaName);
+            yield return new WaitForSecondsRealtime(2f);
+            NonCombatPlayerMovement.canMove = true;
         }
         else if (areaName == "Exit")
         {
             animator.SetTrigger("Leaving");
+            yield return new WaitForSecondsRealtime(transitionTime);
+
+            teleport(areaName);
+            yield return new WaitForSecondsRealtime(2f);
+            NonCombatPlayerMovement.canMove = true;
         }
-        else if (areaName == "training")
+        else if (areaName == "Training")
         {
+
+            StartTutorial.SetActive(true);
             //do something (UI)
             //then once player confirms yes need to do animator.SetTrigger("Training");
         }
 
-        yield return new WaitForSeconds(transitionTime);
 
-        teleport(areaName);
-        PlayerMovement.CanWalk = true;
     }
 }

@@ -11,6 +11,7 @@ public class tempDialogueStart : MonoBehaviour
 
     [SerializeField] private string fileName = "introducingSuspects";
 
+
     private void Start()
     {
         if(mainDialogueManager.GLOBALcurrentlyRunningText == "introducingSuspects" && SceneManager.GetActiveScene().name == "NoCombatAreas")
@@ -70,4 +71,5 @@ public class tempDialogueStart : MonoBehaviour
     {
         MDM.dialogueSTART(fileName);
     }
+
 }

@@ -17,6 +17,7 @@ public class NonCombatPlayerMovement : MonoBehaviour
     private const string LastH = "LastH";
     private const string LastV = "LastV";
 
+    public static bool canMove;
 
     // Start is called before the first frame update
     void Start()
@@ -30,18 +31,30 @@ public class NonCombatPlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        movement.Set(InputManager.Movement.x, InputManager.Movement.y);
-
-        rb.velocity = movement * MoveSpeed;
-
-        animator.SetFloat(horizontal, movement.x);
-        animator.SetFloat(vertical, movement.y);
-
-        if (movement != Vector2.zero)
+        if (canMove)
         {
-            animator.SetFloat(LastH, movement.x);
-            animator.SetFloat(LastV, movement.y);
+            movement.Set(InputManager.Movement.x, InputManager.Movement.y);
+
+            rb.velocity = movement * MoveSpeed;
+
+            animator.SetFloat(horizontal, movement.x);
+            animator.SetFloat(vertical, movement.y);
+
+            if (movement != Vector2.zero)
+            {
+                animator.SetFloat(LastH, movement.x);
+                animator.SetFloat(LastV, movement.y);
+            }
         }
+        else
+        {
+            movement.Set(0, 0);
+            rb.velocity = movement * MoveSpeed;
+
+            animator.SetFloat(horizontal, movement.x);
+            animator.SetFloat(vertical, movement.y);
+        }
+        
     }
 
 }

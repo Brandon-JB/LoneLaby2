@@ -196,6 +196,7 @@ public class pauseMenuManager : MonoBehaviour
     public void DELETESAVE()
     {
         //Delete the save game
+        SaveManager.DeleteSaveData();
         SceneManager.LoadScene("MainMenu");
     }
 }

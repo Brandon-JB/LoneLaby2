@@ -26,6 +26,8 @@ public class saveUI : MonoBehaviour
 
     [SerializeField] private GameObject menu;
 
+    [SerializeField] private SaveManager saveManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +90,8 @@ public class saveUI : MonoBehaviour
             CLOSEPAUSEMENU();
         });
         //super animate the buttons
+
+        saveManager.SaveGame();
     }
 
 

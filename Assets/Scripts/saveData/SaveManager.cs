@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
+        leoraChar.Heal(300);
+        leoraChar.RestoreMana(50);
+
         SaveData data = new SaveData();
 
         //Equipment
@@ -51,8 +55,8 @@ public class SaveManager : MonoBehaviour
         //Other Stats
         data.currentScene = SceneManager.GetActiveScene().name;
         data.playerPosition = Player.transform.position;
-        data.currentHP = leoraChar.GetHealth();
-        data.currentMana = leoraChar.GetMana();
+        //data.currentHP = leoraChar.GetHealth();
+        //data.currentMana = leoraChar.GetMana();
         data.mansionDoorOpened = MansionDoorManager.DoorOpened;
         data.LastPortal = PortalScript.LastPortal;
 
@@ -68,6 +72,21 @@ public class SaveManager : MonoBehaviour
 
         SceneManager.LoadScene(data.currentScene);
         StartCoroutine(LoadAfterSceneLoad(data));
+    }
+
+    public static void DeleteSaveData()
+    {
+        string path = Application.persistentDataPath + "/save.json";
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+        else
+        {
+            Debug.Log("somethigns fucked");
+        }
+
     }
 
     private IEnumerator LoadAfterSceneLoad(SaveData data)
@@ -95,6 +114,8 @@ public class SaveManager : MonoBehaviour
         Player.transform.position = data.playerPosition;
         MansionDoorManager.DoorOpened = data.mansionDoorOpened;
         PortalScript.LastPortal = data.LastPortal;
+        leoraChar.Heal(300);
+        leoraChar.RestoreMana(50);
     }
 
     private List<EquipmentEntry> ConvertDictToList(Dictionary<string, bool> dict)
@@ -165,4 +186,15 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    public static bool Isdata()
+    {
+        SaveData data = SaveSystem.LoadGame();
+
+        if (data != null)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class MansionDoorManager : MonoBehaviour
 {
-    public static bool hasKey = true;
+    public static bool hasKey = false;
     public static bool DoorOpened;
     public GameObject Player;
     public GameObject Door;
 
     private float maxDistance = 3f;
     private float DistanceBetweenObjects;
+
 
     // Update is called once per frame
     void Update()

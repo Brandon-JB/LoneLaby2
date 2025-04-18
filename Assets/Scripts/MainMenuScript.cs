@@ -11,6 +11,9 @@ public class MainMenuScript : MonoBehaviour
 
     [SerializeField]private Transform[] optionsLoc;
 
+    public GameObject StartButton;
+    public GameObject ContinueButton;
+
     private void Start()
     {
         Time.timeScale = 1.0f;
@@ -18,6 +21,17 @@ public class MainMenuScript : MonoBehaviour
         bg.gameObject.SetActive(true);
         bg.DOFade(0, 1f).SetUpdate(true).OnComplete(() => { bg.gameObject.SetActive(false); });
         //audioManager.Instance.playBGM("T1");
+
+        if(SaveManager.Isdata() == true)
+        {
+            StartButton.SetActive(false);
+            ContinueButton.SetActive(true);
+        }
+        else
+        {
+            StartButton.SetActive(true);
+            ContinueButton.SetActive(false);
+        }
     }
 
     public void goToOptions()

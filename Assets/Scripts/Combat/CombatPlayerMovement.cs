@@ -89,6 +89,13 @@ public class CombatPlayerMovement : MonoBehaviour
                 animator.SetFloat(LastV, movement.y);
             }
         }
+        else //if can move is false, dont let them move?
+        {
+            movement.Set(0, 0);
+            rb.velocity = movement * MoveSpeed;
+            animator.SetFloat(horizontal, movement.x);
+            animator.SetFloat(vertical, movement.y);
+        }
          
     }
 
