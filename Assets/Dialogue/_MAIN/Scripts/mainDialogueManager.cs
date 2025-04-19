@@ -337,6 +337,8 @@ public class mainDialogueManager : MonoBehaviour
                     bottom.DOMove(tweenOutPositions[1].transform.position, 1).SetUpdate(true).SetEase(Ease.OutCubic);
                     dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack);
                     return;
+                case "beginTutorial":
+                    break;
                 default:
                     Time.timeScale = 1f;
                     break;

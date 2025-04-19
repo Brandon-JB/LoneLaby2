@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.EventSystems;
 
 public class TrainingDummy : MonoBehaviour
 {
@@ -9,6 +11,22 @@ public class TrainingDummy : MonoBehaviour
     public MagicParticles particleManager;
 
     public Tutorial tutorialScript;
+    public SpriteRenderer dummyOutline;
+    public Color enabledColor, disabledColor;
+    private void Start()
+    {
+        dummyOutline.color = disabledColor;
+        flashDummyOutline();
+    }
+
+    private void flashDummyOutline()
+    {
+        dummyOutline.DOColor(disabledColor, 2.5f).OnComplete(() => {
+            dummyOutline.DOColor(enabledColor, 2.5f).OnComplete(() => {
+                flashDummyOutline();
+            });
+        });
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,6 +52,7 @@ public class TrainingDummy : MonoBehaviour
             if (tutorialScript.tutorialCounter == 4)
             {
                 tutorialScript.progressTutorial();
+                dummyOutline.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
     }
