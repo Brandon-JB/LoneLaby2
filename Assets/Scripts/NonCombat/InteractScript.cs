@@ -50,17 +50,18 @@ public class InteractScript : MonoBehaviour
 
         closeTo = IsCloseEnough(DistanceBetweenObjects);
         
-        if (closeTo != null)
+        //hi katie note that this is gonna break, we need a better system
+        if (closeTo != null && gainedQuests[closeTo.name] == false)
         {
             Debug.Log(closeTo.name);
             CanInteractUI.SetActive(true);
 
-            if (InputManager.interactPressed == true && gainedQuests[closeTo.name] == false)
+            if (InputManager.interactPressed == true)
             {
                 //Start Interaction
 
                 gainedQuests[closeTo.name] = true;
-
+                CanInteractUI.SetActive(false);
                 doSomethingBasedOnNPC(closeTo.name);
                 Debug.Log(closeTo.name);
                 //Debug.Log("THISIS THE NAME OF THE FILE:" + interactionName);
@@ -112,25 +113,37 @@ public class InteractScript : MonoBehaviour
 
     public void doSomethingBasedOnNPC(string NPCName, bool hasQuest = false, bool questCompleted = false)
     {
-        if(NPCName != "Bed Trigger")
-        {
-            QuestManager.StartQuest(NPCName, 5);
-        }
         switch (NPCName)
         {
             case "Alan":
+                QuestManager.StartQuest(NPCName, 5);
                 findDialogueToPlay("SideQuests/getAlanQuest", "SideQuests/getAlanQuest", "SideQuests/finAlanQuest", NPCName);
                 break;
             case "Kisa":
+                QuestManager.StartQuest(NPCName, 5);
                 findDialogueToPlay("SideQuests/getKisaQuest", "SideQuests/getKisaQuest", "SideQuests/finKisaQuest", NPCName);
                 break;
             case "Sophie":
+                QuestManager.StartQuest(NPCName, 5);
                 findDialogueToPlay("SideQuests/getSophQuest", "SideQuests/getSophQuest", "SideQuests/finSophQuest", NPCName);
                 break;
             case "Vaang":
-                findDialogueToPlay("Vaang/meetingVaang", "Vaang/vaang_condemn", "Vaang/vaang_save", NPCName);
+                switch (BossSaveData.bossStates["Viin"])
+                {
+                    case 0: // Viin not encountered
+                        mainDialogueManager.dialogueSTART("Vaang/meetingVaang"); 
+                        break;
+                    case 1: // Viin dead
+                        mainDialogueManager.dialogueSTART("Vaang/vaang_condemn"); 
+                        break;
+                    case 2: // Viin saved
+                        mainDialogueManager.dialogueSTART("Vaang/vaang_save"); 
+                        break;
+                }
+                //findDialogueToPlay("Vaang/meetingVaang", "Vaang/vaang_condemn", "Vaang/vaang_save", NPCName);
                 break;
             case "Bed Trigger":
+                //open menu asking if you'd like to end your game
                 break;
 
         }

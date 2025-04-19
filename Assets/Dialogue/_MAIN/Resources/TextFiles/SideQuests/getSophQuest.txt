@@ -1,7 +1,7 @@
 CreateCharacter(leora -enabled false)
 CreateCharacter(sophie -enabled false)
 leora.Move(0.15 0 -spd 1000)
-sophie.Move(0.8 0 -spd 1000)
+sophie.Move(0.95 0 -spd 1000)
 wait(0.5)
 Show(sophie)
 Highlight(sophie -o true)
@@ -26,6 +26,6 @@ leora "I will search the Veinwood and see what I uncover."
 Highlight(sophie -o true)
 SetSprite(sophie earnest)
 sophie "Splendid. Let me know what you find, should it be of interest."
-Hide(sophie)
+SetSprite(sophie sophie)
 Hide(leora)
 endDialogue(false)

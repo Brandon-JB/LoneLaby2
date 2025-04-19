@@ -109,6 +109,7 @@ public class OpenPauseMenu : MonoBehaviour
             {
                 //Open quick pause
                 //Hypothetically, will make time scale 0 if pause menu is closing and 1 if pause menu is opening
+                Debug.Log(Convert.ToInt32(quickPauseMenu.activeInHierarchy && SceneManager.GetActiveScene().name == "Overworld"));
                 Time.timeScale = Convert.ToInt32(quickPauseMenu.activeInHierarchy && SceneManager.GetActiveScene().name == "Overworld");
                 quickPauseMenu.SetActive(!quickPauseMenu.activeInHierarchy);
                 if(quickPauseMenu.activeInHierarchy)
@@ -138,7 +139,8 @@ public class OpenPauseMenu : MonoBehaviour
         {
             //Open quick pause
             //Hypothetically, will make time scale 0 if pause menu is closing and 1 if pause menu is opening
-            Time.timeScale = Convert.ToInt32(quickPauseMenu.activeInHierarchy);
+            Debug.Log(Convert.ToInt32(quickPauseMenu.activeInHierarchy && SceneManager.GetActiveScene().name == "Overworld"));
+            Time.timeScale = Convert.ToInt32(quickPauseMenu.activeInHierarchy && SceneManager.GetActiveScene().name == "Overworld");
             quickPauseMenu.SetActive(!quickPauseMenu.activeInHierarchy);
         }
     }

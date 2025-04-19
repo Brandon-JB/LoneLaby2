@@ -1,7 +1,7 @@
 CreateCharacter(leora -enabled false)
 CreateCharacter(kisa -enabled false)
 leora.Move(0.15 0 -spd 1000)
-kisa.Move(0.8 0 -spd 1000)
+kisa.Move(0.925 0 -spd 1000)
 wait(0.5)
 Show(kisa)
 Highlight(kisa -o true)

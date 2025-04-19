@@ -31,9 +31,8 @@ public class SavePoint : MonoBehaviour
             wasCloseTo = true;
             interactionPopup.SetActive(true);
 
-            if (InputManager.interactPressed == true)
+            if (InputManager.interactPressed == true && saveUI.isSaveOpen == false && OpenPauseMenu.pauseOpened == false)
             {
-                Debug.Log("");
                 saveui.OPENSAVEMENU();
             }
         }

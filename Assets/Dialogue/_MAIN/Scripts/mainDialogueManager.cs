@@ -38,6 +38,8 @@ public class mainDialogueManager : MonoBehaviour
     [SerializeField] private Image nameBox;
     [SerializeField] private Sprite voidSprite;
 
+    [SerializeField] private gainQuest gainQuestMenu;
+
     //[SerializeField] private pauseMenuManager pauseMenuManager;
 
     //[SerializeField] private PlayerController playerController;
@@ -312,6 +314,29 @@ public class mainDialogueManager : MonoBehaviour
                             return;
                     }
                     break;
+                case "SideQuests/getAlanQuest":
+                case "SideQuests/getKisaQuest":
+                case "SideQuests/getSophQuest":
+                    gainQuestMenu.ShowQuestStart(currentlyRunningText, false);
+                    currentlyRunningText = "";
+                    GLOBALcurrentlyRunningText = "";
+                    continueTextPrompt.SetActive(false);
+                    top.DOMove(tweenOutPositions[1].transform.position, 1).SetUpdate(true).SetEase(Ease.OutCubic);
+                    bottom.DOMove(tweenOutPositions[1].transform.position, 1).SetUpdate(true).SetEase(Ease.OutCubic);
+                    dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack);
+                    return;
+                case "SideQuests/finAlanQuest":
+                case "SideQuests/finKisaQuest":
+                case "SideQuests/finSophQuest":
+                    gainQuestMenu.ShowQuestStart(currentlyRunningText, true);
+                    currentlyRunningText = "";
+                    GLOBALcurrentlyRunningText = "";
+                    continueTextPrompt.SetActive(false);
+                    top.DOMove(tweenOutPositions[1].transform.position, 1).SetUpdate(true).SetEase(Ease.OutCubic);
+                    //Change bottom
+                    bottom.DOMove(tweenOutPositions[1].transform.position, 1).SetUpdate(true).SetEase(Ease.OutCubic);
+                    dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack);
+                    return;
                 default:
                     Time.timeScale = 1f;
                     break;

@@ -39,6 +39,6 @@ SetSprite(alan alan_young)
 alan "Still—be careful. I wanted to be out there with you today, but..."
 Highlight(leora -o true)
 leora "No, you need to recover. Then I can drill you relentlessly on what <i>not</i> to do in battle. I'll be back when I've won our bet."
-Hide(alan)
+Highlight(alan -o true)
 Hide(leora)
 endDialogue(false)

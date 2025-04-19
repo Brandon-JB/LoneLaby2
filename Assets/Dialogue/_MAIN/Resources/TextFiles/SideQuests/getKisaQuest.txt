@@ -1,7 +1,7 @@
 CreateCharacter(leora -enabled false)
 CreateCharacter(kisa -enabled false)
 leora.Move(0.15 0 -spd 1000)
-kisa.Move(0.8 0 -spd 1000)
+kisa.Move(0.925 0 -spd 1000)
 wait(0.5)
 Show(kisa)
 Highlight(kisa -o true)
@@ -20,8 +20,10 @@ Highlight(leora -o true)
 SetSprite(leora confused)
 leora "I'm afraid I don't have a quest to give you. In fact, I have one of my own that I should be tending to."
 Highlight(kisa -o true)
+SetSprite(kisa kisa_youngish_ig)
+kisa "Ah."
 SetSprite(kisa thinking)
-kisa "Ah. ... Curses! How is a bard supposed to start her life's story if her life is not noteworthy! Father had already defeated dragons at my age... "
+kisa "... Curses! How is a bard supposed to start her life's story if her life is not noteworthy! Father had already defeated dragons at my age... "
 Highlight(leora -o true)
 SetSprite(leora leora)
 leora "Do not fret, friend. A quest will come to you in time. You could always travel for the sake of exploration—many knights venture to Isen's eastern peninsula purely for the experience."
@@ -35,7 +37,8 @@ leora "How about this? I must travel there for my quest regardless. I can scout 
 leora "I am certain I will encounter monsters along the way-I can gauge their strength to ensure you are... adequately prepared. Does that sound fair?"
 Highlight(kisa -o true)
 SetSprite(kisa happy)
-kisa "Do not worry, madam, for I can tackle any threat! ... But that would be appreciated."
-Hide(kisa)
+kisa "Do not worry, madam, for I can tackle any threat!"
+SetSprite(kisa kisa_youngish_ig)
+kisa " ... But that would be appreciated."
 Hide(leora)
 endDialogue(false)

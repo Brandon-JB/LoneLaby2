@@ -5,39 +5,47 @@ vaang.Move(0.9 0 -spd 1000)
 wait(0.5)
 Show(leora)
 Highlight(leora -o true)
+SetSprite(leora leora)
 leora "You must be Vaang. I am Dame Leora, sent by the Speaker of Truth."
 Show(vaang)
 Highlight(vaang -o true)
-vaang "A pleasure to meet you, Dame. Yes, I am Vaang. And I assume you, like the ones before you, seek knowledge of Viin."
+vaang "A pleasure to meet you, Dame. Yes, I am Vaang. I assume you seek knowledge of Viin?"
 Highlight(leora -o true)
-leora "The ones before me?"
+leora "You are well-informed."
 Highlight(vaang -o true)
-vaang "Indeed. I have long since lost count of the times the Order has questioned me about my sister. I understand their caution—after all, to them, blood ties are as damning as the crime itself."
-vaang "Do not misunderstand me. I do not condone her actions. But nor do I wish her harm. She is my sister, and that alone is enough."
+SetSprite(vaang glance)
+vaang "Experienced is the better word. The Order questions me often in pursuit of my sister."
+SetSprite(vaang vaang)
+vaang "Though, do not misunderstand me– I do not condone her actions. But I do not wish her harm either. She is still my sister."
 vaang "But I suspect you did not come for sentiments. Ask what you will."
 Highlight(leora -o true)
-leora "If you do not mind the intrusion, I do have questions. You must be aware of Viin's title—the Butcher of Knights. The Order believes I alone can best her and bring her to justice."
-leora "I trust Verita's will... yet I will not lie to you, Vaang. I do not know if my skill will be enough."
-leora "I seek no dishonorable advantage. I do not wish to die, but I also do not wish to cheat my way to victory. Tell me plainly—does Viin have any weaknesses?"
+SetSprite(leora confused)
+leora "You are aware of Viin's title—the Butcher of Knights. The Order believes I alone can best her and bring her to justice. However, I do not know if my skill will be enough."
+leora "I do not relish fighting with an advantage, but given the circumstances, I think it wisest to ask if there is any edge I might bring to battle against her."
 Highlight(vaang -o true)
-vaang "...It is strange. The Order has sent many before you, yet none were given the honor of facing her alone. Either they see something in you... or they are desperate."
-vaang "Yes, Viin has a weakness. She is relentless, unpredictable—her ambition knows no restraint. She wields her blood magic in ways I hesitate to describe, but she is vulnerable to psychic attacks."
-vaang "Mind over matter, as the saying goes."
+SetSprite(vaang sad)
+vaang "Oh my. The Order has sent many before you, yet none alone. They must see something in you... or they are desperate."
+SetSprite(vaang vaang)
+vaang "Either way, I agree it is wise to ask—Viin is unpredictable and lacks restraint. However her constitution, just like mine, is weak to psychic energy. It has been that way since we we're children."
 Highlight(leora -o true)
 leora "That is valuable knowledge. However, I lack the means to deal psychic damage."
 Highlight(vaang -o true)
-vaang "Then alter your means. I have heard whispers of enchanted amulets, ones that reshape the wearer's magic. You wield the Light, do you not? Find an Amulet of the Mind... perhaps that could assist you."
+vaang "I believe you have an option—I have heard whispers of enchanted amulets, able to reshape the wearer's magic. You wield the Light, yes? An Amulet of the Mind could assist you."
 Highlight(leora -o true)
+SetSprite(leora leora)
 leora "Interesting... I will seek one out. Thank you, Vaang."
-leora "The Speaker claimed Viin is in the Veinwood, south of Zaro. Is that where I will find her?"
+leora "The Speaker claimed Viin is in the Veinwood, southeast of Zaro. Is that where I will find her?"
 Highlight(vaang -o true)
+SetSprite(vaang glance)
 vaang "Yes. Across the bridge to the island. I have only been there once, and I have no desire to return."
+SetSprite(vaang vaang)
 vaang "Is there anything else you require?"
 Highlight(leora -o true)
-leora "No. You have been more helpful than you know."
+SetSprite(leora smile)
+leora "Not at the moment. Thank you, Vaang. You have been more helpful than you know."
 Highlight(vaang -o true)
-vaang "Then allow me to return the kindness. Should you be wounded in battle, come to me. The Order has been in disarray since the scepter was stolen—no offense—but I will not let that stop me from healing those in need."
-vaang "Good luck, Dame Leora. Just remember—your choices shape more lives than your own."
+SetSprite(vaang smile)
+vaang "Of course. Good luck, Dame Leora."
 Hide(vaang)
 Hide(leora)
 endDialogue(false)
