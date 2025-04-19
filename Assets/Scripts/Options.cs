@@ -5,6 +5,8 @@ using DIALOGUE;
 using UnityEngine.UI;
 using TMPro;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
+using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class Options : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class Options : MonoBehaviour
     [SerializeField] private AudioSource voiceVol; //Needs to be grabbed
     [SerializeField] private Slider[] optionsSliders;
     [SerializeField] private GameObject DeleteSaveMenu;
+
 
     void Start()
     {
@@ -101,6 +104,5 @@ public class Options : MonoBehaviour
 
         PlayerPrefs.Save(); // Actually writes to disk
     }
-
 }
 

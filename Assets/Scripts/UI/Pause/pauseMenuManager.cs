@@ -31,7 +31,12 @@ public class pauseMenuManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //Commented out to spare us for now
+        
+        if(SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            return;
+        }
+
         ////Reset EVERYTHING
         ///EXCEPT ITEM MENU
         DOTween.KillAll();
@@ -173,6 +178,7 @@ public class pauseMenuManager : MonoBehaviour
     public void exitOptions()
     {
         //move the entiiiirrreeee UI
+        OpenPauseMenu.GLOBALcanOpenPause = true;
         audioStatics.SaveSettings();
         this.transform.DOMove(startLocations[3].position, 1).SetUpdate(true);
         optionsTXT.DOFade(0, 1).SetUpdate(true);

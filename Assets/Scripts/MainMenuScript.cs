@@ -13,6 +13,7 @@ public class MainMenuScript : MonoBehaviour
 
     public GameObject StartButton;
     public GameObject ContinueButton;
+    [SerializeField] public GameObject deleteSaveMenu;
 
     private void Start()
     {
@@ -60,5 +61,24 @@ public class MainMenuScript : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+    public void startDeleteSave()
+    {
+        optionsLoc[0].transform.DOMove(optionsLoc[3].position, 1).SetUpdate(true);
+        deleteSaveMenu.SetActive(true);
+        Debug.Log("I ahve moved");
+    }
+
+    public void exitDeleteSave()
+    {
+        optionsLoc[0].transform.DOMove(optionsLoc[1].position, 1).SetUpdate(true);
+        deleteSaveMenu.SetActive(false);
+    }
+
+    public void DELETESAVE()
+    {
+        //Delete the save game
+        SaveManager.DeleteSaveData();
+        SceneManager.LoadScene("MainMenu");
     }
 }
