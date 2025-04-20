@@ -34,7 +34,7 @@ public class DarkMagicAoE : MonoBehaviour
         {
             enemyChar = collision.GetComponent<BaseChar>();
 
-            enemyChar.GotDamaged(leoraChar.statsSheet["MagAttack"], enemyChar.gameObject, 0);
+            enemyChar.GotDamaged(leoraChar.statsSheet["MagAttack"] / 2, enemyChar.gameObject, 0);
             enemyChar.TriggerHurtAnim();
         }
     }

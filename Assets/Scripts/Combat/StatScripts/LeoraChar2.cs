@@ -600,7 +600,14 @@ public class LeoraChar2 : BaseChar
 
         magEffects.magicType = magicType;
 
-        SetMana(GetMana() - 2);
+        if (magicType != "darkMag")
+        {
+            SetMana(GetMana() - 2);
+        }
+        else
+        {
+            SetMana(GetMana() - 3);
+        }
     }
 
     public void EnableMagHitbox()
