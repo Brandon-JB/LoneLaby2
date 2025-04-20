@@ -32,6 +32,19 @@ public class ivarText : MonoBehaviour
 
         // Start coroutine to update over time
         StartCoroutine(TextOverTime());
+
+        //randomly turn on text so it goes at different intervals
+
+        foreach(TextMeshProUGUI text in area == 1 ? inGameText1 : inGameText2)
+        {
+            StartCoroutine(turnOnText(text, Random.Range(0f, 3f)));
+        }
+    }
+
+    private IEnumerator turnOnText(TextMeshProUGUI text, float randomRange)
+    {
+        yield return new WaitForSeconds(randomRange);
+        text.gameObject.SetActive(true);
     }
 
     private IEnumerator TextOverTime()
