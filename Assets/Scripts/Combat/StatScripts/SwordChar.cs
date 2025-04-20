@@ -13,7 +13,7 @@ public class SwordChar : BaseChar
         charName = "Sword";
         allied = false;
 
-        ChangeStats(13, 0, 1, 40, 0);
+        ChangeStats(13, 0, 1, 60, 0);
     }
 
     public override void TriggerHurtAnim()

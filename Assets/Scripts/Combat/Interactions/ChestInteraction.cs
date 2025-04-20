@@ -75,7 +75,8 @@ public class ChestInteraction : CombatInteraction
                 audioManager.Instance.playSFX(43);
                 break;
             default:
-                Debug.Log("Haha pranked idiot");
+                //Debug.Log("Haha pranked idiot");
+                audioManager.Instance.playSFX(54);
                 break;
         }
     }

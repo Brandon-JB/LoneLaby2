@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class AmbushTrigger : CombatInteraction
 {
-    public List<EnemyScript> ambushingScripts = new List<EnemyScript>(); 
+    public List<EnemyScript> ambushingScripts = new List<EnemyScript>();
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -17,13 +19,15 @@ public class AmbushTrigger : CombatInteraction
     {
         base.Update();
 
-        if (DistanceBetweenObjectAndPlayer <= interactRange)
+        if (alreadyInteracted == false && DistanceBetweenObjectAndPlayer <= interactRange)
         {
             if (InputManager.interactPressed)
             {
                 Debug.Log("Die");
                 foreach (var enemy in ambushingScripts)
                 {
+                    alreadyInteracted = true;
+                    audioManager.Instance.playSFX(55);
                     enemy.followRange = 10000f;
                 }
             }
