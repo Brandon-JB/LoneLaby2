@@ -68,6 +68,9 @@ public class IvarScript : MonoBehaviour
     //1 for the first teleport, 2 for the second teleport
     private int teleportNum = 0;
 
+    //to play the ivar text
+    [SerializeField] ivarText ivartext;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -131,11 +134,13 @@ public class IvarScript : MonoBehaviour
             {
                 teleportNum = 1;
                 TriggerTPCast();
+                ivartext.openText(teleportNum);
             }
             else if (secondTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 3)
             {
                 teleportNum = 2;
                 TriggerTPCast();
+                ivartext.openText(teleportNum);
             }
 
             //Massive attack during the maze
