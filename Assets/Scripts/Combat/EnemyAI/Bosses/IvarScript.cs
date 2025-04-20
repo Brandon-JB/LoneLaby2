@@ -134,13 +134,10 @@ public class IvarScript : MonoBehaviour
             {
                 teleportNum = 1;
                 TriggerTPCast();
-                ivartext.openText(teleportNum);
             }
             else if (secondTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 3)
             {
                 teleportNum = 2;
-                TriggerTPCast();
-                ivartext.openText(teleportNum);
             }
 
             //Massive attack during the maze
@@ -206,6 +203,8 @@ public class IvarScript : MonoBehaviour
     //Teleports the player and himself to the mazes 
     public void Teleport()
     {
+
+        ivartext.openText(teleportNum);
         damageTaken = 0;
 
         switch (teleportNum)
@@ -229,7 +228,7 @@ public class IvarScript : MonoBehaviour
         }
 
         timeUntilBigAttack.StartCooldown();
-        bigCasting = true; 
+        bigCasting = true;
     }
 
    

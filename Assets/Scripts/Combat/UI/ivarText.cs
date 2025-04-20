@@ -17,7 +17,7 @@ public class ivarText : MonoBehaviour
 
     private List<string> unusedStrings = new List<string>();
 
-    public void openText(int area, float duration = 30f)
+    public void openText(int area, float duration = 20f)
     {
         this.area = area;
         // Set timer variables
@@ -28,6 +28,7 @@ public class ivarText : MonoBehaviour
 
         // Prepare string pool
         unusedStrings = new List<string>(textbatch1);
+        TriggerTextUpdate(area == 1 ? inGameText1 : inGameText2);
 
         // Start coroutine to update over time
         StartCoroutine(TextOverTime());
@@ -42,26 +43,28 @@ public class ivarText : MonoBehaviour
             if (timer >= intervalDuration * (intervalsTriggered + 1))
             {
                 //[condition] ? [code to be run if condition is true] : [code to be run if condition is false];
-                Debug.Log("Text should be changed");
-                TriggerTextUpdate(area == 1 ? inGameText1 : inGameText2);
                 intervalsTriggered++;
                 switch (intervalsTriggered)
                 {
                     case 0:
-                        break;
-                    case 1:
+                        Debug.Log("String 1");
                         unusedStrings = new List<string>(textbatch1);
                         break;
-                    case 2:
+                    case 1:
+                        Debug.Log("String 2");
                         unusedStrings = new List<string>(textbatch2);
                         break;
-                    case 3:
+                    case 2:
+                        Debug.Log("String 3");
                         unusedStrings = new List<string>(textbatch3);
                         break;
-                    case 4:
+                    case 3:
+                        Debug.Log("String 4");
                         unusedStrings = new List<string>(textbatch4);
                         break;
                 }
+                Debug.Log("Starting to change the text, here is the number we're at: " + intervalsTriggered);
+                TriggerTextUpdate(area == 1 ? inGameText1 : inGameText2);
             }
 
             yield return null;
@@ -102,8 +105,6 @@ public class ivarText : MonoBehaviour
         }
        
         int index = Random.Range(0, unusedStrings.Count);
-        Debug.Log(index);
-        Debug.Log(unusedStrings.Count);
         string selected = unusedStrings[index];
         unusedStrings.RemoveAt(index);
         return selected;
