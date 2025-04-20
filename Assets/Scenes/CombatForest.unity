@@ -175460,6 +175460,7 @@ MonoBehaviour:
   Player: {fileID: 1493470641}
   animator: {fileID: 875284615}
   leaveAnim: {fileID: 1746078865}
+  combatMovement: {fileID: 0}
 --- !u!4 &407410166
 Transform:
   m_ObjectHideFlags: 0
@@ -362389,6 +362390,10 @@ PrefabInstance:
       propertyPath: gameOverManager
       value: 
       objectReference: {fileID: 171063665}
+    - target: {fileID: 8705140056556160221, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: leoraFaceAnimator
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8876787556816172860, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_RootOrder
       value: 4

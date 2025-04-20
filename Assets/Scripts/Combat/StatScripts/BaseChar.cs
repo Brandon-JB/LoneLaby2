@@ -231,7 +231,7 @@ public class BaseChar : MonoBehaviour
         return statsSheet["MaxMana"];
     }
 
-    public void SetHealth(int health)
+    public virtual void SetHealth(int health)
     {
         statsSheet["Health"] = health;
 
@@ -626,6 +626,7 @@ public class BaseChar : MonoBehaviour
         else
         {
             playerMovement.canMove = false;
+            Debug.Log(stMod + " " + strength + " on " + this.gameObject.name);
             charRB.AddForce(knockbackDirection * (stMod * strength), ForceMode2D.Impulse);
         }
 

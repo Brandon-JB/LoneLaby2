@@ -37,6 +37,8 @@ public class LeoraChar2 : BaseChar
 
     private bool hyperArmor;
 
+    [SerializeField] private Animator leoraFaceAnimator;
+
     [Header("AmuletEffects")]
 
     public bool alanAmuletActive = false;
@@ -91,6 +93,15 @@ public class LeoraChar2 : BaseChar
 
         magHitbox.SetActive(false);
         darknessManager = GameObject.FindObjectOfType<DarknessManager>();
+
+        leoraFaceAnimator = GameObject.FindGameObjectWithTag("FaceAnim").GetComponent<Animator>();
+    }
+
+    public override void SetHealth(int health)
+    {
+        base.SetHealth(health);
+
+        leoraFaceAnimator.SetInteger("health", GetHealth());
     }
 
     public override void TriggerHurtAnim()
@@ -515,7 +526,7 @@ public class LeoraChar2 : BaseChar
             stMod = 0;
         }
 
-        return base.Knockback(otherAttacker, stMod);
+        yield return base.Knockback(otherAttacker, stMod);
     }
 
 
