@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class EquipmentMenu : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class EquipmentMenu : MonoBehaviour
     private HUD_Equipment hudEquipment;
 
     [SerializeField] private TextMeshProUGUI[] texts;
+    [SerializeField] private TextMeshProUGUI magicType;
+    [SerializeField] private Image magicTypeIcon;
+    [SerializeField] private Sprite[] magicTypeSprites;
 
     [SerializeField] private Color tintColor;
 
@@ -73,6 +77,16 @@ public class EquipmentMenu : MonoBehaviour
 
         // Finally, if they do have something equipped, show it on Leora's sprite
         hudEquipment = FindObjectOfType<HUD_Equipment>();
+
+        //FOr magic
+        foreach (var equip in EquipmentManager.amuletSlot)
+        {
+            if(equip.Value == true)
+            {
+                changeMagicType(equip.Key);
+                break;
+            }
+        }
     }
 
     public void setGlow()
@@ -163,6 +177,7 @@ public class EquipmentMenu : MonoBehaviour
         //If this is an amulet, just do it. If this is a ring, figure out what ring we're overwriting.
         if (item.Substring(item.Length - 6) == "Amulet")
         {
+            
             if (lastActiveAmulet != null && lastActiveAmulet != glowToCheckIfEquipped )
             {
                 lastActiveAmulet.SetActive(false);
@@ -187,7 +202,8 @@ public class EquipmentMenu : MonoBehaviour
             }
             texts[0].text = "Set as last active amulet";
             lastActiveAmulet = glowToCheckIfEquipped;
-
+            //Update magic type
+            changeMagicType(item);
             //glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
         }
         else
@@ -352,4 +368,31 @@ public class EquipmentMenu : MonoBehaviour
         //hudEquipment.changeHUDOnEquip(item,1);
     }
 
+
+    public void changeMagicType(string amuletName)
+    {
+        switch (amuletName)
+        {
+            case "BloodAmulet":
+                magicType.text = "Deals damage, \nsiphon health";
+                magicTypeIcon.sprite = magicTypeSprites[1];
+                break;
+            case "MindAmulet":
+                magicType.text = "Deals damage, \nslows enemies";
+                magicTypeIcon.sprite = magicTypeSprites[2];
+                break;
+            case "DarkAmulet":
+                magicType.text = "Deals damage \nin pulses";
+                magicTypeIcon.sprite = magicTypeSprites[3];
+                break;
+            default:
+                //Light magic
+                magicType.text = "Deals damage, \nstuns enemies";
+               // magicTypeIcon.sprite = magicTypeSprites[0];
+                break;
+        }
+
+        //change text
+        //change icon
+    }
 }

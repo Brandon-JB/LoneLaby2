@@ -9,6 +9,7 @@ public class pauseMenuManager : MonoBehaviour
     [SerializeField] private Animator leoraAnimator;
     [SerializeField] private Transform equipMenu;
     [SerializeField] private Transform questMenu;
+    [SerializeField] private Transform magicType;
 
     [SerializeField] private CanvasGroup mainButtons;
     [SerializeField] private CanvasGroup questsTXT;
@@ -86,6 +87,7 @@ public class pauseMenuManager : MonoBehaviour
     }
     public void goToEquip()
     {
+        magicType.DOMove(equipLocations[3].position, 1f).SetUpdate(true);
         FindObjectOfType<EquipmentMenu>().setGlow();
         equipMenu.DOMove(equipLocations[0].position, 1f).SetUpdate(true);
         leoraAnimator.transform.DOMove(equipLocations[1].position, 1f).SetUpdate(true);
@@ -113,6 +115,7 @@ public class pauseMenuManager : MonoBehaviour
         equipMenu.DOMove(startLocations[0].position, 1f).SetUpdate(true);
         questMenu.DOMove(startLocations[1].position, 1f).SetUpdate(true);
         leoraAnimator.transform.DOMove(startLocations[2].position, 1f).SetUpdate(true);
+        magicType.DOMove(equipLocations[4].position, 1f).SetUpdate(true);
 
         mainButtons.alpha = 0;
         mainButtons.gameObject.SetActive(true);
