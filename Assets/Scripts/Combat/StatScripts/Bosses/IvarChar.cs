@@ -15,7 +15,7 @@ public class IvarChar : BaseChar
         allied = false;
         charName = "Ivar";
 
-        ChangeStats(12, 0, 4, 300, 0);
+        ChangeStats(12, 0, 4, 350, 0);
     }
 
     public override void Update()
@@ -73,6 +73,7 @@ public class IvarChar : BaseChar
                         if (ivarScript.bigCasting)
                         {
                             ivarScript.damageTaken += incomingDamage;
+                            AddToSpecificStat("Health", incomingDamage);
                         }
 
                         GotDamaged(incomingDamage, otherCharTrigger.gameObject, 0);

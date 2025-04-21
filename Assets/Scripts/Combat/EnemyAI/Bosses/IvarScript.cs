@@ -132,12 +132,16 @@ public class IvarScript : MonoBehaviour
             //Teleporting to the fire mazes
             if (firstTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() - (ivarChar.GetMaxHealth() / 4))
             {
+                ivarChar.statsSheet["Health"] = Mathf.Clamp(ivarChar.statsSheet["Health"], ivarChar.GetMaxHealth() - (ivarChar.GetMaxHealth() / 4), ivarChar.GetMaxHealth());
                 teleportNum = 1;
                 TriggerTPCast();
             }
             else if (secondTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 3)
             {
+                //the clamp isn't working for some reason
+                ivarChar.statsSheet["Health"] = Mathf.Clamp(ivarChar.statsSheet["Health"], ivarChar.GetMaxHealth() / 3, ivarChar.GetMaxHealth());
                 teleportNum = 2;
+                TriggerTPCast();
             }
 
             //Massive attack during the maze
@@ -159,13 +163,15 @@ public class IvarScript : MonoBehaviour
                 {
                     bigCasting = false;
                     ivarChar.animator.SetBool("bigAttack", false);
-                    leoraChar.GotDamaged(50, this.gameObject, 0);
-                    leoraChar.TriggerHurtAnim();
                     darknessEffect.SetActive(false);
 
                     //Sending Ivar and player back to normal arena
                     Player.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, ((bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2) - 2);
                     this.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, (bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2);
+
+                    leoraChar.GotDamaged(50, this.gameObject, 0);
+                    leoraChar.TriggerHurtAnim();
+                    
                 }
                 
 
