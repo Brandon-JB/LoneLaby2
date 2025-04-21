@@ -85,8 +85,15 @@ public class LeoraChar2 : BaseChar
         }
         #endregion
 
-        healthBar.text = GetHealth() + "/" + statsSheet["MaxHealth"];
-        manaBar.text = GetMana() + "/" + statsSheet["MaxMana"];
+        if (healthBar != null)
+        {
+            healthBar.text = GetHealth() + "/" + statsSheet["MaxHealth"];
+        }
+
+        if (manaBar != null)
+        {
+            manaBar.text = GetMana() + "/" + statsSheet["MaxMana"];
+        }
 
         animator.SetFloat("LastH", 0);
         animator.SetFloat("LastV", -1);
