@@ -628,11 +628,16 @@ public class BaseChar : MonoBehaviour
             playerMovement.canMove = false;
             Debug.Log(stMod + " " + strength + " on " + this.gameObject.name);
             charRB.AddForce(knockbackDirection * (stMod * strength), ForceMode2D.Impulse);
+            //charRB.velocity = (knockbackDirection * 100000);
         }
 
         //charRB.AddForce(knockbackDirection * strength, ForceMode2D.Impulse);
 
+        //Debug.Log("Before: " + charRB.velocity.magnitude);
+
         yield return new WaitForSeconds(0.3f);
+
+        //Debug.Log("After: " + charRB.velocity.magnitude);
 
         if (GetHealth() > 0)
         {

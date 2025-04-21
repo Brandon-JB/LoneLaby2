@@ -89,7 +89,7 @@ public class CombatPlayerMovement : MonoBehaviour
                 animator.SetFloat(LastV, movement.y);
             }
         }
-        else //if can move is false, dont let them move?
+        else if (!animator.GetBool("Hurt")) //if can move is false, dont let them move?
         {
             movement.Set(0, 0);
             rb.velocity = movement * MoveSpeed;
