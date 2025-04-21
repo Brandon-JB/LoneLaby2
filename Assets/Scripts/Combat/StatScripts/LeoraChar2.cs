@@ -106,6 +106,8 @@ public class LeoraChar2 : BaseChar
 
     public override void TriggerHurtAnim()
     {
+        leoraFaceAnimator.SetTrigger("hurt");
+
         if (!hyperArmor)
         {
             base.TriggerHurtAnim();
