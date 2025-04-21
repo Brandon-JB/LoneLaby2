@@ -104,9 +104,28 @@ public class LeoraChar2 : BaseChar
         leoraFaceAnimator.SetInteger("health", GetHealth());
     }
 
+    public override void GotDamaged(int incomingDamage, GameObject otherAttacker, float stMod)
+    {
+        base.GotDamaged(incomingDamage, otherAttacker, stMod);
+
+        if (GetHealth() <= 0)
+        {
+            leoraFaceAnimator.SetTrigger("dead");
+        }
+    }
+
+    public override void Heal(int healAmount)
+    {
+        leoraFaceAnimator.SetTrigger("heal");
+
+        base.Heal(healAmount);
+    }
+
     public override void TriggerHurtAnim()
     {
+
         leoraFaceAnimator.SetTrigger("hurt");
+        leoraFaceAnimator.ResetTrigger("heal");
 
         if (!hyperArmor)
         {
@@ -129,6 +148,8 @@ public class LeoraChar2 : BaseChar
     public override void StopHurtAnim()
     {
         base.StopHurtAnim();
+
+        leoraFaceAnimator.ResetTrigger("hurt");
 
         if (hyperArmor)
         {

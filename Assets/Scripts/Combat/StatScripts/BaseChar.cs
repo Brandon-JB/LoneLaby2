@@ -254,7 +254,7 @@ public class BaseChar : MonoBehaviour
         
     }
 
-    public void Heal(int healAmount)
+    public virtual void Heal(int healAmount)
     {
         SetHealth(GetHealth() + healAmount);
 
