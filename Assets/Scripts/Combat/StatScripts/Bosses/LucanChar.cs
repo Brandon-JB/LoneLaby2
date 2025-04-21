@@ -12,7 +12,7 @@ public class LucanChar : BaseChar
         charName = "Lucan";
         allied = false;
 
-        ChangeStats(15, 0, 6, 3, 0);
+        ChangeStats(15, 0, 6, 350, 0);
     }
 
     
