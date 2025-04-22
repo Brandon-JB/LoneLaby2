@@ -30,7 +30,7 @@ public class MainMenuScript : MonoBehaviour
             StartButton.SetActive(false);
             ContinueButton.SetActive(true);
         }
-        else
+        else if(SaveManager.Isdata() == false)
         {
             StartButton.SetActive(true);
             ContinueButton.SetActive(false);
