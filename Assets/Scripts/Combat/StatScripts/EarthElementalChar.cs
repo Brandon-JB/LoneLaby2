@@ -17,7 +17,7 @@ public class EarthElementalChar : BaseChar
     {
         if (collision.tag == "Hitbox")
         {
-            Transform damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+            GameObject damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
             DamagePopUp damPopScript = damagePopupTransform.GetComponent<DamagePopUp>();
             damPopScript.SetupInt(0, "Damage");
             audioManager.Instance.playSFX(7);

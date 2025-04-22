@@ -117,15 +117,15 @@ public class InteractScript : MonoBehaviour
         {
             case "Alan":
                 QuestManager.StartQuest(NPCName, 5);
-                findDialogueToPlay("SideQuests/getAlanQuest", "SideQuests/midAlanQuest", "SideQuests/finAlanQuest", NPCName);
+                findDialogueToPlay(NPCName, "SideQuests/getAlanQuest", "SideQuests/midAlanQuest", "SideQuests/finAlanQuest", "SideQuests/postAlanQuest", "AlanAmulet");
                 break;
             case "Kisa":
                 QuestManager.StartQuest(NPCName, 5);
-                findDialogueToPlay("SideQuests/getKisaQuest", "SideQuests/midKisaQuest", "SideQuests/finKisaQuest", NPCName);
+                findDialogueToPlay(NPCName, "SideQuests/getKisaQuest", "SideQuests/midKisaQuest", "SideQuests/finKisaQuest", "SideQuests/postKisaQuest", "KisaAmulet");
                 break;
             case "Sophie":
                 QuestManager.StartQuest(NPCName, 5);
-                findDialogueToPlay("SideQuests/getSophQuest", "SideQuests/midSophQuest", "SideQuests/finSophQuest", NPCName);
+                findDialogueToPlay(NPCName, "SideQuests/getSophQuest", "SideQuests/midSophQuest", "SideQuests/finSophQuest", "SideQuests/postSophQuest", "SophieAmulet");
                 break;
             case "Vaang":
                 switch (BossSaveData.bossStates["Viin"])
@@ -149,9 +149,15 @@ public class InteractScript : MonoBehaviour
         }
     }
 
-    private void findDialogueToPlay(string dialogue1, string dialogue2, string dialogue3, string NPCName)
+    private void findDialogueToPlay(string NPCName, string dialogue1, string dialogue2, string dialogue3, string dialogue4, string itemName = "")
     {
-        //Add more to this if we need to do more with side quests
+        //If the quest has been completed and the dialogue already seen, play dialogue 4
+        if (EquipmentManager.equipmentObtained[itemName])
+        {
+            mainDialogueManager.dialogueSTART(dialogue4);
+            CanInteractUI.SetActive(false);
+            return;
+        }
 
         try
         {
@@ -167,7 +173,6 @@ public class InteractScript : MonoBehaviour
                 //Quest has been picked up, not completed
                 mainDialogueManager.dialogueSTART(dialogue2);
             }
-            //have another if for if the quest dialogue has already been done
         }
         catch (Exception)
         {

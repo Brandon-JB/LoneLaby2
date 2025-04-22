@@ -179,7 +179,7 @@ public class BaseChar : MonoBehaviour
     [SerializeField] private GameObject hitboxChild = null;
     [SerializeField] public HitboxChar hbChildScript;
 
-    [SerializeField] public Transform damagePopup;
+    [SerializeField] public GameObject damagePopup;
     
 
 
@@ -263,7 +263,7 @@ public class BaseChar : MonoBehaviour
     {
         SetHealth(GetHealth() + healAmount);
 
-        Transform healPopUpTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+        GameObject healPopUpTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
         DamagePopUp damPopScript = healPopUpTransform.GetComponent<DamagePopUp>();
         damPopScript.SetupInt(healAmount, "Health");
     }
@@ -299,7 +299,7 @@ public class BaseChar : MonoBehaviour
     {
         SetMana(GetMana() + restoreAmount);
 
-        Transform manaPopUpTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+        GameObject manaPopUpTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
         DamagePopUp damPopScript = manaPopUpTransform.GetComponent<DamagePopUp>();
         damPopScript.SetupInt(restoreAmount, "Mana");
     }
@@ -553,7 +553,7 @@ public class BaseChar : MonoBehaviour
                     incomingDamage = incomingDamage * 2;
 
                     Vector3 critPosition = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-                    Transform critTransform = Instantiate(damagePopup, critPosition, Quaternion.identity);
+                    GameObject critTransform = Instantiate(damagePopup, critPosition, Quaternion.identity);
                     DamagePopUp critPopUpScript = critTransform.GetComponent<DamagePopUp>();
                     critPopUpScript.SetupString("Critical!");
                 }
@@ -568,8 +568,8 @@ public class BaseChar : MonoBehaviour
 
 
             SetHealth(GetHealth() - incomingDamage);
-            Transform damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
-            DamagePopUp damPopScript = damagePopupTransform.GetComponent<DamagePopUp>();
+            GameObject damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+            DamagePopUp damPopScript = damagePopupTransform.GetComponentInChildren<DamagePopUp>();
             damPopScript.SetupInt(incomingDamage, "Damage");
             //Debug.Log(charName + " After damage health: " + GetHealth());
 
