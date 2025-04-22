@@ -1,0 +1,21 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(sophie -enabled false)
+leora.Move(0.15 0 -spd 1000)
+sophie.Move(0.9 0 -spd 1000)
+wait(0.5)
+
+Show(sophie)
+Highlight(sophie -o true)
+SetSprite(sophie earnest)
+sophie "I see you return in one piece. That bodes well. Did you find the spirits?"
+Show(leora)
+Highlight(leora -o true)
+leora "Not yet, I apologize. You wished for me to investigate the Veinwood, yes?"
+Highlight(sophie -o true)
+SetSprite(sophie thoughtful)
+sophie "Yes. Specifically the spirits of the Veinwood... if you could defeat a handful of them, that could give us more information on their origin. Or perhaps their intentions."
+SetSprite(sophie sophie_young)
+sophie "Be wary, Dame. I can investigate at a later date if needed."
+Hide(sophie)
+Hide(leora)
+endDialogue(false)

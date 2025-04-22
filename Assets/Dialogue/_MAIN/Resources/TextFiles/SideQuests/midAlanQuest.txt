@@ -1,0 +1,30 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(alan -enabled false)
+leora.Move(0.15 0 -spd 1000)
+alan.Move(0.95 0 -spd 1000)
+wait(0.5)
+
+Show(alan)
+Highlight(alan -o true)
+SetSprite(alan smile)
+alan "So? Done yet?"
+Show(leora)
+Highlight(leora -o true)
+SetSprite(leora leora)
+leora "Not quite. Winning a bet isn't exactly my priority, Alan. Some of us have responsibilities."
+Highlight(alan -o true)
+alan "Excuses, excuses. You're only proving my point, you know."
+Highlight(leora -o true)
+leora "Surely. You said to defeat five earth elementals, yes?"
+Highlight(alan -o true)
+alan "Yep. What was it you said? You could do it "without a shadow of a doubt"?"
+alan "For someone so righteous, you're awfully slow. Maybe you’re finally getting old."
+SetSprite(leora angryEyesClosed)
+Highlight(leora -o true)
+leora "Alan."
+SetSprite(alan alan_young)
+Highlight(alan -o true)
+alan "Right. Sorry."
+Hide(alan)
+Hide(leora)
+endDialogue(false)

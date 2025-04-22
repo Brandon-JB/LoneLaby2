@@ -1,0 +1,24 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(kisa -enabled false)
+leora.Move(0.15 0 -spd 1000)
+kisa.Move(0.9 0 -spd 1000)
+wait(0.5)
+Show(kisa)
+Highlight(kisa -o true)
+SetSprite(kisa happy)
+kisa "Madam! You have returned! So, is the eastern peninsula... good?"
+Show(leora)
+Highlight(leora -o true)
+leora "I apologize, I have yet to properly survey the area."
+Highlight(kisa -o true)
+SetSprite(kisa thinking)
+kisa "I see. I shall survey it myself—"
+Highlight(leora -o true)
+SetSprite(leora confused)
+leora "Perhaps... that is not best. I will get to it by the end of the day, and I will return once I defeat a few enemies northeast of Zaro."
+Highlight(kisa -o true)
+SetSprite(kisa kisa_youngish_ig)
+kisa "Ah! Yes, I apologize. I do not mean to rush. Take your time."
+Hide(kisa)
+Hide(leora)
+endDialogue(false)
