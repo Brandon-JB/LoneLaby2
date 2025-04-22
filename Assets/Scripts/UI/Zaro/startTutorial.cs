@@ -35,6 +35,9 @@ public class startTutorial : MonoBehaviour
         positions[0].DOMove(positions[2].transform.position, 0.5f).SetUpdate(true).OnComplete(() =>
         {
             Time.timeScale = 1f;
+            OpenPauseMenu.GLOBALcanOpenPause = true;
+            OpenPauseMenu.canOpenPause = true;
+            OpenPauseMenu.pauseOpened = false;
             this.gameObject.SetActive(false);
         });
     }
