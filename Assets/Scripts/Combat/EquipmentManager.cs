@@ -8,10 +8,10 @@ public class EquipmentManager : MonoBehaviour
 
     static public Dictionary<string, bool> equipmentObtained = new Dictionary<string, bool>()
     {
-        {"BloodAmulet", false },
+        {"BloodAmulet", true },
         {"MindAmulet", false },
         {"DarkAmulet", false },
-        {"AlanAmulet", false },
+        {"AlanAmulet", true },
         {"KisaAmulet", false },
         {"SophieAmulet", false },
         {"AdvATKRing", false },
@@ -83,6 +83,11 @@ public class EquipmentManager : MonoBehaviour
     private void Awake()
     {
         leoraChar = GameObject.FindObjectOfType<LeoraChar2>();
+
+        foreach(var amulet in amuletSlot)
+        {
+            Debug.Log(amulet);
+        }
     }
 
     private void Update()

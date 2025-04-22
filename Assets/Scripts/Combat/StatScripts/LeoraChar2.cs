@@ -295,6 +295,7 @@ public class LeoraChar2 : BaseChar
                                     if (otherCharTrigger.animator.GetBool("inDash"))
                                     {
                                         lucanScript.specialStunTimer.StartCooldown();
+                                        RestoreMana(2);
                                         lucanScript.TriggerStunAnimation();
                                     }
                                     else
@@ -313,6 +314,7 @@ public class LeoraChar2 : BaseChar
                                     if (otherCharTrigger.animator.GetBool("inDash"))
                                     {
                                         lucanScript.specialStunTimer.StartCooldown();
+                                        RestoreMana(1);
                                         lucanScript.TriggerStunAnimation();
                                     }
                                     else

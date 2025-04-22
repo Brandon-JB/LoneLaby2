@@ -88,7 +88,7 @@ public class HUD_Equipment : MonoBehaviour
             case "ATKHPRing":
                 return arrayOfSprites[8];
             default:
-                Debug.Log("I couldn't find the item equipped. Sorry pookie");
+                //Debug.Log("I couldn't find the item equipped. Sorry pookie");
                 return voidImage;
     }
     }

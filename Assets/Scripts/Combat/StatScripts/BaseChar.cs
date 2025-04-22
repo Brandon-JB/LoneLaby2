@@ -20,6 +20,8 @@ public class BaseChar : MonoBehaviour
         {"MaxMana", 4}
     };
 
+    #region Stat change functions
+
     public void ChangeStats(int strength, int magATK, int Defense, int HP, int MP)
     {
         statsSheet["Strength"] = strength;
@@ -138,6 +140,7 @@ public class BaseChar : MonoBehaviour
             {
                 AddToSpecificStat("MaxHealth", 15);
                 AddToSpecificStat("Strength", 1);
+                AddToSpecificStat("Defense", 1);
             }
         }
     }
@@ -146,6 +149,8 @@ public class BaseChar : MonoBehaviour
     {
         ChangeSpecificStat(stat, GetSpecificStat(stat) + addedValue);
     }
+
+    #endregion
 
     public string charName = "";
     public SpriteRenderer charSprite;

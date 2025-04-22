@@ -81,11 +81,11 @@ public class EquipmentMenu : MonoBehaviour
     public void setGlow()
     {
         checkIfWearing(EquipmentManager.amuletSlot, amuletIcons_borders, 1);
-        Debug.Log("got through amulets");
+        //Debug.Log("got through amulets");
         checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders, 0);
-        Debug.Log("got through rings 1");
+        //Debug.Log("got through rings 1");
         checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders, 2);
-        Debug.Log("got through rings 2");
+        //Debug.Log("got through rings 2");
         //FOr magic
         foreach (var equip in EquipmentManager.amuletSlot)
         {
@@ -370,7 +370,7 @@ public class EquipmentMenu : MonoBehaviour
 
     public void changeMagicType(string amuletName)
     {
-        Debug.Log("I am changing the thing");
+        //Debug.Log("I am changing the thing");
         switch (amuletName)
         {
             case "BloodAmulet":
