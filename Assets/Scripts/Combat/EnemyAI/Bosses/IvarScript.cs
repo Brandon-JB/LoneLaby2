@@ -61,6 +61,8 @@ public class IvarScript : MonoBehaviour
 
     [Header("Massive Damage Cast")]
     [SerializeField] private Cooldown timeUntilBigAttack;
+    [SerializeField] private float firstTPTime = 30;
+    [SerializeField] private float secondTPTime = 50;
     public int damageThreshold;
     public int damageTaken;
     public bool bigCasting;
@@ -219,6 +221,7 @@ public class IvarScript : MonoBehaviour
                 this.transform.position = ivarFirstTPObject.transform.position;
                 darknessEffect.SetActive(true);
                 firstTeleportHappened = true;
+                timeUntilBigAttack.cooldownTime = firstTPTime;
                 break;
 
             case 2:
@@ -226,6 +229,7 @@ public class IvarScript : MonoBehaviour
                 this.transform.position = ivarSecondTPObject.transform.position;
                 darknessEffect.SetActive(true);
                 secondTeleportHappened = true;
+                timeUntilBigAttack.cooldownTime = secondTPTime;
                 break;
             default:
                 Debug.Log("Wrong teleport number");

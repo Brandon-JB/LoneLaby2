@@ -186,6 +186,8 @@ public class killSpareManager : MonoBehaviour
 
     private IEnumerator endAfterTimePeriod(float time, bool isKilling = false)
     {
+        PortalScript.LastPortal = 1;
+
         yield return new WaitForSecondsRealtime(time);
 
         mainDialogueManager = GameObject.FindObjectOfType<mainDialogueManager>();
