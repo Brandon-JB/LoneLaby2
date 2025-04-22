@@ -43,6 +43,7 @@ public class saveUI : MonoBehaviour
     public void OPENSAVEMENU()
     {
         menu.SetActive(true);
+        OpenPauseMenu.GLOBALcanOpenPause = false;
         isSaveOpen = true;
         //
         Time.timeScale = 0f;
@@ -73,6 +74,7 @@ public class saveUI : MonoBehaviour
             buttonAnimators[2].SetFloat("speed", 1f);
             menu.SetActive(false);
             Time.timeScale = 1f;
+            OpenPauseMenu.GLOBALcanOpenPause = true;
         });
     }
 
