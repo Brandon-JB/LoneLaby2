@@ -77,16 +77,6 @@ public class EquipmentMenu : MonoBehaviour
 
         // Finally, if they do have something equipped, show it on Leora's sprite
         hudEquipment = FindObjectOfType<HUD_Equipment>();
-
-        //FOr magic
-        foreach (var equip in EquipmentManager.amuletSlot)
-        {
-            if(equip.Value == true)
-            {
-                changeMagicType(equip.Key);
-                break;
-            }
-        }
     }
 
     public void setGlow()
@@ -97,6 +87,16 @@ public class EquipmentMenu : MonoBehaviour
         Debug.Log("got through rings 1");
         checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders, 2);
         Debug.Log("got through rings 2");
+        //FOr magic
+        foreach (var equip in EquipmentManager.amuletSlot)
+        {
+            if (equip.Value == true)
+            {
+                changeMagicType(equip.Key);
+                return;
+            }
+        }
+        changeMagicType("");
     }
 
 
@@ -371,6 +371,7 @@ public class EquipmentMenu : MonoBehaviour
 
     public void changeMagicType(string amuletName)
     {
+        Debug.Log("I am changing the thing");
         switch (amuletName)
         {
             case "BloodAmulet":
@@ -388,7 +389,7 @@ public class EquipmentMenu : MonoBehaviour
             default:
                 //Light magic
                 magicType.text = "Deals damage, \nstuns enemies";
-               // magicTypeIcon.sprite = magicTypeSprites[0];
+                magicTypeIcon.sprite = magicTypeSprites[0];
                 break;
         }
 
