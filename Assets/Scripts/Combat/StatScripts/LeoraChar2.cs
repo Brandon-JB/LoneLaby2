@@ -108,7 +108,11 @@ public class LeoraChar2 : BaseChar
     {
         base.SetHealth(health);
 
-        leoraFaceAnimator.SetInteger("health", GetHealth());
+        if(leoraFaceAnimator)
+        {
+            leoraFaceAnimator.SetInteger("health", GetHealth());
+        }
+        
     }
 
     public override void GotDamaged(int incomingDamage, GameObject otherAttacker, float stMod)
@@ -123,7 +127,11 @@ public class LeoraChar2 : BaseChar
 
     public override void Heal(int healAmount)
     {
-        leoraFaceAnimator.SetTrigger("heal");
+        if (leoraFaceAnimator)
+        {
+
+            leoraFaceAnimator.SetTrigger("heal");
+        }
 
         base.Heal(healAmount);
     }

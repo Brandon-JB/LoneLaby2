@@ -364042,6 +364042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropPrefab: {fileID: 6155707023862539881, guid: ba426c54c63382b4bb303a7ed31e083c, type: 3}
+  pityItemDrop: 30
 --- !u!4 &1813355962
 Transform:
   m_ObjectHideFlags: 0
@@ -365276,6 +365277,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2631412067058549382, guid: 6edbb263f671f3743a9b573052fb3244, type: 3}
+      propertyPath: saveManager
+      value: 
+      objectReference: {fileID: 708222571}
     - target: {fileID: 4710684292275376957, guid: 6edbb263f671f3743a9b573052fb3244, type: 3}
       propertyPath: m_Name
       value: SaveMenu

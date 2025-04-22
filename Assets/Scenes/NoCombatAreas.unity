@@ -117034,6 +117034,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6483451813152639840, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431960, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -117081,6 +117085,10 @@ PrefabInstance:
     - target: {fileID: 8940570630105431962, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_Name
       value: CombatPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940570630105431962, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5654782468327757369, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}

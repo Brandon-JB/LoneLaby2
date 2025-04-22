@@ -641,6 +641,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 860baf08f52809845b7990a7d32a7fcf, type: 3}
+--- !u!114 &91444435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5405411895791358665, guid: 860baf08f52809845b7990a7d32a7fcf, type: 3}
+  m_PrefabInstance: {fileID: 91444434}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2eb5e28959505c4b97c6590eeb4d18c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &104610078
 GameObject:
   m_ObjectHideFlags: 0
@@ -27678,6 +27689,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2631412067058549382, guid: 6edbb263f671f3743a9b573052fb3244, type: 3}
+      propertyPath: saveManager
+      value: 
+      objectReference: {fileID: 91444435}
     - target: {fileID: 4710684292275376957, guid: 6edbb263f671f3743a9b573052fb3244, type: 3}
       propertyPath: m_Name
       value: SaveMenu
@@ -134778,6 +134793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropPrefab: {fileID: 6155707023862539881, guid: ba426c54c63382b4bb303a7ed31e083c, type: 3}
+  pityItemDrop: 30
 --- !u!4 &1853057820
 Transform:
   m_ObjectHideFlags: 0
