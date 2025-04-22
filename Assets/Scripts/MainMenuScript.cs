@@ -15,6 +15,8 @@ public class MainMenuScript : MonoBehaviour
     public GameObject ContinueButton;
     [SerializeField] public GameObject deleteSaveMenu;
 
+    [SerializeField] private SaveManager saveManager;
+
     private void Start()
     {
         Time.timeScale = 1.0f;
@@ -52,9 +54,20 @@ public class MainMenuScript : MonoBehaviour
         //AT SOME POINT CHECK IF WE HAVE SAVE DATA!
 
         //If there is save data, go to last saved area. If there is NOT save data, play opening cutscene
-        mainDialogueManager.dialogueSTART("openingCutscene");
-        bg.gameObject.SetActive(true);
-        bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true);
+        if (SaveManager.Isdata())
+        {
+            bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true).OnComplete(() => {
+                saveManager.LoadGame();
+                });
+
+            }
+        else
+        {
+            mainDialogueManager.dialogueSTART("openingCutscene");
+            bg.gameObject.SetActive(true);
+            bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true);
+        }
+        
         //SceneManager.LoadScene("Dialogue");
     }
 

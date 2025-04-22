@@ -7,6 +7,11 @@ using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
+    public GameObject Player;
+    public EquipmentManager equipmentManager;
+    public LeoraChar2 leoraChar;
+    //public QuestManager questManager;
+
     // SO IT DOESNT GET DESTROYED BETWEEN SCENES
     public static SaveManager Instance;
 
@@ -21,15 +26,14 @@ public class SaveManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject); // keep this alive across scenes
+
+        leoraChar = Player.gameObject.GetComponent<LeoraChar2>();
     }
 
     //SAVE STUFF BELOW
 
 
-    public GameObject Player;
-    public EquipmentManager equipmentManager;
-    public LeoraChar2 leoraChar;
-    //public QuestManager questManager;
+
 
 
     public void SaveGame()
@@ -173,6 +177,12 @@ public class SaveManager : MonoBehaviour
 
     private void RebuildQuestDict(List<QuestSaveEntry> list)
     {
+        if (list == null)
+        {
+            Debug.LogError("Quest list is null, cannot rebuild quest dictionary.");
+            return; // Or handle the error appropriately
+        }
+
         foreach (var entry in list)
         {
             var newQuest = new QuestData(entry.questID, entry.requiredProgress)
