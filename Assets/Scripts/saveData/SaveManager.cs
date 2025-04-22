@@ -34,8 +34,8 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
-        leoraChar.Heal(300);
-        leoraChar.RestoreMana(50);
+        leoraChar.SetHealth(300);
+        leoraChar.SetMana(50);
 
         SaveData data = new SaveData();
 
