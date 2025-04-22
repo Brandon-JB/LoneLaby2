@@ -82,6 +82,41 @@ public class mainDialogueManager : MonoBehaviour
     //MUST PASS IN THE 
     public void dialogueSTART(string dialogueFile)
     {
+
+        switch (dialogueFile)
+        {
+            case "IvarQuest/manor_entry":
+                if (BossSaveData.bossStates["Ivar"] != 0)
+                {
+                    OpenPauseMenu.GLOBALcanOpenPause = true;
+                    OpenPauseMenu.canOpenPause = true;
+                    OpenPauseMenu.pauseOpened = false;
+                    Time.timeScale = 1f;
+                    return;
+                }
+                break;
+            case "ViinQuest/veinwood_entry":
+                if (BossSaveData.bossStates["Viin"] != 0)
+                {
+                    OpenPauseMenu.GLOBALcanOpenPause = true;
+                    OpenPauseMenu.canOpenPause = true;
+                    OpenPauseMenu.pauseOpened = false;
+                    Time.timeScale = 1f;
+                    return;
+                }
+                break;
+            case "LucanQuest/cave_entry":
+                if (BossSaveData.bossStates["Lucan"] != 0)
+                {
+                    OpenPauseMenu.GLOBALcanOpenPause = true;
+                    OpenPauseMenu.canOpenPause = true;
+                    OpenPauseMenu.pauseOpened = false;
+                    Time.timeScale = 1f;
+                    return;
+                }
+                break;
+        }
+
         // Only start the coroutine if it's not already running
         if (!dialogueRunning)
         {

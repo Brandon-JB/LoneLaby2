@@ -5,10 +5,11 @@ speaker.Move(0.95 0 -spd 1000)
 wait(0.5)
 Show(speaker)
 Highlight(speaker -o true)
-gainItem(orderhpbonus)
 speaker "Well done, Dame Leora. The Order commends you."
-gainItem(DarkAmulet)
+gainItem(orderhpbonus)
 speaker "As a token of our gratitude, you are granted new arms— courtesy of Verita's forge. May they serve you well in the trials ahead."
+speaker "Additionally, there is one more gift: a confiscated amulet. It was to be locked away, but a sense of purpose still clings to it. The Order has no doubt that you will wield its power honorably."
+gainItem(DarkAmulet)
 Show(leora)
 Highlight(leora -o true)
 leora "I am honored, Holy One. You have my deepest thanks."
