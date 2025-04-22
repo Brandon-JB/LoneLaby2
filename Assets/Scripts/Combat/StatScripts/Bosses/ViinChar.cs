@@ -7,6 +7,7 @@ public class ViinChar : BaseChar
 {
 
     [SerializeField] private GameObject killSpareMenu;
+    [SerializeField] private ViinScript viinScript;
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,7 @@ public class ViinChar : BaseChar
         charName = "Viin";
         allied = false;
 
-        ChangeStats(14, 0, 4, 350, 0);
+        ChangeStats(14, 0, 4, 4, 0);
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)
@@ -67,20 +68,42 @@ public class ViinChar : BaseChar
 
     public override void Death()
     {
-        audioManager.Instance.playSFX(18);
+        if (viinScript.thirdCrystalsSpawned)
+        {
+            audioManager.Instance.playSFX(18);
 
-        //put whatever code to trigger the end of boss fight things
-        //SceneManager.LoadScene("Overworld");
-
-
-        mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
-        mdm.dialogueSTART("ViinQuest/veinwood_postfight");
-        //I don't think I have to do anything else for this, but I can modify this.
+            //put whatever code to trigger the end of boss fight things
+            //SceneManager.LoadScene("Overworld");
 
 
-        //killSpareMenu.SetActive(true);
-        //killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
-        //killSpare.bossName = "Viin";
-        //Destroy(this.gameObject);
+            mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
+            mdm.dialogueSTART("ViinQuest/veinwood_postfight");
+            //I don't think I have to do anything else for this, but I can modify this.
+
+
+            //killSpareMenu.SetActive(true);
+            //killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
+            //killSpare.bossName = "Viin";
+            //Destroy(this.gameObject);
+        }
+        else
+        {
+            //Prevents boss from dying if they haven't done their final move yet
+            SetHealth(Mathf.Clamp(GetHealth(), 1, GetMaxHealth()));
+        }
+    }
+
+    public override void GotDamaged(int incomingDamage, GameObject otherAttacker, float stMod)
+    {
+        base.GotDamaged(incomingDamage, otherAttacker, stMod);
+
+        if (!viinScript.firstCrystalsSpawned)
+        {
+            SetHealth(Mathf.Clamp(GetHealth(), GetMaxHealth() - (GetMaxHealth() / 4), GetMaxHealth()));
+        }
+        else if (!viinScript.secondCrystalsSpawned)
+        {
+            SetHealth(Mathf.Clamp(GetHealth(), GetMaxHealth() / 2, GetMaxHealth()));
+        }
     }
 }

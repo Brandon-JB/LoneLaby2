@@ -380,6 +380,7 @@ MonoBehaviour:
   slowTimer:
     cooldownTime: 100
   killSpareMenu: {fileID: 0}
+  lucanScript: {fileID: 4162863000404215161}
 --- !u!114 &4162863000404215161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +419,7 @@ MonoBehaviour:
   dashSpeed: 10
   leftDashArrow: {fileID: 0}
   rightDashArrow: {fileID: 0}
+  inFinalPhase: 0
 --- !u!114 &3640646829353059952
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -121,22 +121,31 @@ public class IvarChar : BaseChar
 
     public override void Death()
     {
-        audioManager.Instance.playSFX(18);
-        //put whatever code to trigger the end of boss fight things
-        //SceneManager.LoadScene("Overworld");
-        foreach (var enemy in ivarScript.enemyList)
+        if (ivarScript.secondTeleportHappened)
         {
-            Destroy(enemy.gameObject);
+
+            audioManager.Instance.playSFX(18);
+            //put whatever code to trigger the end of boss fight things
+            //SceneManager.LoadScene("Overworld");
+            foreach (var enemy in ivarScript.enemyList)
+            {
+                Destroy(enemy.gameObject);
+            }
+
+            mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
+            mdm.dialogueSTART("IvarQuest/manor_postfight");
+            //I don't think I have to do anything else for this, but I can modify this.
+
+            //This opens kill/spare
+            //killSpareMenu.SetActive(true);
+            //killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
+            //killSpare.bossName = "Ivar";
+            Destroy(this.gameObject);
         }
-
-        mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
-        mdm.dialogueSTART("IvarQuest/manor_postfight");
-        //I don't think I have to do anything else for this, but I can modify this.
-
-        //This opens kill/spare
-        //killSpareMenu.SetActive(true);
-        //killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
-        //killSpare.bossName = "Ivar";
-        Destroy(this.gameObject);
+        else
+        {
+            //Prevents boss from dying if they haven't done their final move yet
+            SetHealth(Mathf.Clamp(GetHealth(), 1, GetMaxHealth()));
+        }
     }
 }

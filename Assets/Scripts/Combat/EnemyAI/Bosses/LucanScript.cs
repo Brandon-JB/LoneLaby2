@@ -28,6 +28,8 @@ public class LucanScript : EnemyScript
     [SerializeField] private GameObject leftDashArrow;
     [SerializeField] private GameObject rightDashArrow;
 
+    public bool inFinalPhase;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -195,9 +197,13 @@ public class LucanScript : EnemyScript
                                 EnableHurtbox();
                                 enemyChar.StopAttackAnim();
                             }
-                        }// This part is literally useless why did i have it here
+                        }//Final phase
                         else
                         {
+                            if (!inFinalPhase)
+                            {
+                                inFinalPhase = true;
+                            }
 
                             timeBetweenDashes.StartCooldown();
 
