@@ -4080,8 +4080,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2061011011}
-        m_TargetAssemblyTypeName: pauseMenuManager, Assembly-CSharp
+      - m_Target: {fileID: 1742744021}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
         m_MethodName: exitOptions
         m_Mode: 1
         m_Arguments:
@@ -19988,17 +19988,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1d291920f7d96b4aa72eba835a5bbcf, type: 3}
---- !u!114 &2061011011 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8894318324141578414, guid: a1d291920f7d96b4aa72eba835a5bbcf, type: 3}
-  m_PrefabInstance: {fileID: 2061011009}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e99f0f5a3859c459f4331e65a09812, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2061011012 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 717444125729924831, guid: a1d291920f7d96b4aa72eba835a5bbcf, type: 3}
