@@ -54,6 +54,15 @@ public class NonCombatPlayerMovement : MonoBehaviour
             animator.SetFloat(horizontal, movement.x);
             animator.SetFloat(vertical, movement.y);
         }
+
+        if (Time.timeScale == 0)
+        {
+            animator.enabled = false;
+        }
+        else
+        {
+            animator.enabled = true;
+        }
         
     }
 
