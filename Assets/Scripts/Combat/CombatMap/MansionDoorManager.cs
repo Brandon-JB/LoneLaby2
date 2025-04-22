@@ -2,35 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MansionDoorManager : MonoBehaviour
+public class MansionDoorManager : CombatInteraction
 {
     public static bool hasKey = false;
     public static bool DoorOpened;
-    public GameObject Player;
+    //public GameObject Player;
     public GameObject Door;
 
-    private float maxDistance = 3f;
-    private float DistanceBetweenObjects;
 
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         if (DoorOpened)
         {
             Door.SetActive(false);
         }
 
-        DistanceBetweenObjects = Vector3.Distance(Door.transform.position, Player.transform.position);
+        DistanceBetweenObjectAndPlayer = Vector2.Distance(transform.position, Player.transform.position);
 
-        if (DistanceBetweenObjects <= maxDistance)
+        if (alreadyInteracted == false && DistanceBetweenObjectAndPlayer <= interactRange)
         {
-            
-            if (hasKey && InputManager.interactPressed == true)
+            if (hasKey)
             {
-                Door.SetActive(false);
-                DoorOpened = true;
+                leoraChar.closestInteractable = this.gameObject;
+                leoraChar.interactIcon.SetActive(true);
+
+                if (InputManager.interactPressed == true)
+                {
+                    alreadyInteracted = true;
+                    Door.SetActive(false);
+                    DoorOpened = true;
+                }
             }
+        }
+        else if (leoraChar.closestInteractable != null && leoraChar.closestInteractable == this.gameObject)
+        {
+            leoraChar.interactIcon.SetActive(false);
         }
     }
 }

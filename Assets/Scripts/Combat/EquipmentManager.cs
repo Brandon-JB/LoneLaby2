@@ -84,10 +84,10 @@ public class EquipmentManager : MonoBehaviour
     {
         leoraChar = GameObject.FindObjectOfType<LeoraChar2>();
 
-        foreach(var amulet in amuletSlot)
+        /*foreach(var amulet in amuletSlot)
         {
             Debug.Log(amulet);
-        }
+        }*/
     }
 
     private void Update()

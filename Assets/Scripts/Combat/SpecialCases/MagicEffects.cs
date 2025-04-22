@@ -34,6 +34,12 @@ public class MagicEffects : MonoBehaviour
 
                 if (!enemyChar.allied && collision.tag != "Boss")
                 {
+                    enemyAI = collision.GetComponent<EnemyScript>();
+
+                    if (enemyAI.path != null)
+                    {
+                        enemyAI.path.destination = enemyAI.transform.position;
+                    }
                     enemyChar.stunTimer.cooldownTime = 3.5f;
                     enemyChar.stunTimer.StartCooldown();
                     enemyChar.SpawnParticle("stunFX", collision.transform.position, collision.transform, enemyChar.stunTimer.cooldownTime);
