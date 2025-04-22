@@ -80,16 +80,8 @@ public class SaveManager : MonoBehaviour
 
     public static void DeleteSaveData()
     {
-        string path = Application.persistentDataPath + "/save.json";
 
-        if (File.Exists(path))
-        {
-            File.Delete(path);
-        }
-        else
-        {
-            Debug.Log("somethigns fucked");
-        }
+        SaveSystem.Deletegame();
 
     }
 
@@ -198,13 +190,13 @@ public class SaveManager : MonoBehaviour
 
     public static bool Isdata()
     {
-        SaveData data = SaveSystem.LoadGame();
-
-        if (data != null)
+        if(SaveSystem.DataExists())
         {
             return true;
         }
-
-        return false;
+        else
+        {
+            return false;
+        }
     }
 }

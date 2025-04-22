@@ -28,6 +28,27 @@ public class SaveSystem
             return new SaveData(); // Return default data
         }
     }
+
+    public static void Deletegame()
+    {
+        if (File.Exists(SavePath))
+        {
+            File.Delete(SavePath);
+        }
+        else
+        {
+            Debug.Log("somethigns fucked");
+        }
+    }
+
+    public static bool DataExists()
+    {
+        if (File.Exists(SavePath))
+        {
+            return true;
+        }
+        else { return false; }
+    }
 }
 
 
