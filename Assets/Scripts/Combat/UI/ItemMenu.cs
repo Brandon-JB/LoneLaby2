@@ -27,6 +27,7 @@ public class ItemMenu : MonoBehaviour
     [SerializeField] private Transform[] locations;
 
     [SerializeField] private GameObject contButton;
+    [SerializeField] private GameObject key;
 
     [SerializeField] private CanvasGroup itemHolder;
 
@@ -159,6 +160,11 @@ public class ItemMenu : MonoBehaviour
                 itemText.text = "+25 Health";
                 itemImage.sprite = items[21];
                 itemDescription.text = "The Order has bestowed you with new armor. <color=#92dae8>Leora gains a permanent +25 to her health.</color>";
+                break;
+            case "Key":
+                itemText.text = "Worn Key";
+                itemImage.sprite = items[22];
+                itemDescription.text = "This <i>must</i> unlock something important...";
                 break;
             default:
                 Debug.Log("I couldn't find the item equipped. Sorry pookie");

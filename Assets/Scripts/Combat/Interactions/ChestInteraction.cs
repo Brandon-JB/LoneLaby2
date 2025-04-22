@@ -73,6 +73,7 @@ public class ChestInteraction : CombatInteraction
                 //Door.SetActive(false);
                 MansionDoorManager.hasKey = true;
                 audioManager.Instance.playSFX(43);
+                itemMenu.openItemMenu("Key");
                 break;
             default:
                 //Debug.Log("Haha pranked idiot");
