@@ -80,9 +80,9 @@ public class EquipmentMenu : MonoBehaviour
 
     public void setGlow()
     {
-        checkIfWearing(EquipmentManager.amuletSlot, amuletIcons_borders, 1);
+        lastActiveAmulet = checkIfWearing(EquipmentManager.amuletSlot, amuletIcons_borders, 1);
         //Debug.Log("got through amulets");
-        checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders, 0);
+        lastEquippedRing1 = checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders, 0);
         //Debug.Log("got through rings 1");
         checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders, 2);
         //Debug.Log("got through rings 2");
@@ -112,7 +112,7 @@ public class EquipmentMenu : MonoBehaviour
     }
 
     //Slot number is for changing the HUD
-    public void checkIfWearing(Dictionary<string, bool> wornEquipment, GameObject[] uiImages, int slotNumber)
+    public GameObject checkIfWearing(Dictionary<string, bool> wornEquipment, GameObject[] uiImages, int slotNumber)
     {
         int i = 0;
         foreach (var equip in wornEquipment)
@@ -127,11 +127,12 @@ public class EquipmentMenu : MonoBehaviour
                 }
                 LeoraShadowEquipment[slotNumber].sprite = hudEquipment.uglyAssSwitchStatement(equip.Key, slotNumber == 1? amuletsForLeoraShadow : ringsForLeoraShadow);
                 uiImages[i].SetActive(true);
-                break; // Just stop the function if equip is true
+                return uiImages[i];
             }
             //uiImages[i].color = equip.Value ? Color.white : tintColor;
             i++;
         }
+        return null;
     }
 
     private bool checkIfWearingRing(Dictionary<string, bool> wornEquipment)
@@ -176,34 +177,40 @@ public class EquipmentMenu : MonoBehaviour
         //If this is an amulet, just do it. If this is a ring, figure out what ring we're overwriting.
         if (item.Substring(item.Length - 6) == "Amulet")
         {
-            
-            if (lastActiveAmulet != null && lastActiveAmulet != glowToCheckIfEquipped )
+            Debug.Log(lastActiveAmulet);
+
+            if (lastActiveAmulet) //  != null && lastActiveAmulet != glowToCheckIfEquipped 
             {
                 lastActiveAmulet.SetActive(false);
             }
-            texts[0].text = "Trying to equip amulet...";
+            Debug.Log("Trying to equip amulet...");
             equipmentManager.EquipAmulet(item, glowToCheckIfEquipped.activeInHierarchy);
-            texts[0].text = "Equipped amulet!";
+            Debug.Log("Equipped amulet!");
             if (glowToCheckIfEquipped.activeInHierarchy)
             {
                 audioManager.Instance.playSFX(41);
-                texts[0].text = "Change HUD (ring is equipped, unequip it)";
+                Debug.Log("Change HUD (ring is equipped, unequip it)");
                 hudEquipment.changeHUDOnEquip("", 1);
-                texts[0].text = "Change Leora Sprite (ring is equipped, unequip it)";
+                Debug.Log("Change Leora Sprite (ring is equipped, unequip it)");
                 LeoraShadowEquipment[1].sprite = hudEquipment.uglyAssSwitchStatement("", amuletsForLeoraShadow);
                 //Update magic type
                 changeMagicType("");
-            } else
+            } //Check if there is something else equipped
+            //else if (lastActiveAmulet.activeInHierarchy)
+            //{
+                
+            //}
+            else
             {
                 audioManager.Instance.playSFX(40);
-                texts[0].text = "Change HUD (ring is NOT equipped)";
+                Debug.Log("Change HUD (ring is NOT equipped)");
                 hudEquipment.changeHUDOnEquip(item, 1);
-                texts[0].text = "Change Leora Sprite (ring is NOT equipped)";
+                Debug.Log("Change Leora Sprite (ring is NOT equipped)");
                 LeoraShadowEquipment[1].sprite = hudEquipment.uglyAssSwitchStatement(item, amuletsForLeoraShadow);
                 //Update magic type
                 changeMagicType(item);
             }
-            texts[0].text = "Set as last active amulet";
+            Debug.Log("Set as last active amulet");
             lastActiveAmulet = glowToCheckIfEquipped;
             //glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
         }
