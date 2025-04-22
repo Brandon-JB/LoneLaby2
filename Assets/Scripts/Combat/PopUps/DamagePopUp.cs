@@ -13,9 +13,12 @@ public class DamagePopUp : MonoBehaviour
 
     [SerializeField] private Color damageColor, healthColor, manaColor;
 
+    private bool isDamage = false;
+    [SerializeField] private Animator animator;
+
     private void Awake()
     {
-        textMesh = transform.GetComponent<TextMeshPro>();
+        textMesh = transform.GetComponentInChildren<TextMeshPro>();
     }
 
     public void SetupInt(int damageAmount, string textPurpose)
@@ -24,14 +27,23 @@ public class DamagePopUp : MonoBehaviour
 
         if (textPurpose == "Damage")
         {
+            isDamage = true;
+            animator.enabled = true;
+            
             textColor = damageColor;
         }
         else if (textPurpose == "Health")
         {
+            isDamage = false;
+            animator.enabled = false;
+
             textColor = healthColor;
         }
         else if (textPurpose == "Mana")
         {
+            isDamage = false;
+            animator.enabled = false;
+
             textColor = manaColor;
         }
         
@@ -50,7 +62,10 @@ public class DamagePopUp : MonoBehaviour
         textMesh.color = textColor;
 
         float moveYSpeed = 2;
-        transform.position += new Vector3(0, moveYSpeed) * Time.deltaTime;
+        if (isDamage == false)
+        {
+            transform.position += new Vector3(0, moveYSpeed) * Time.deltaTime;
+        }
 
         disappearTimer -= Time.deltaTime;
 
