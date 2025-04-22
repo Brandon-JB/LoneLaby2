@@ -7,6 +7,9 @@ public class SeverinScript : EnemyScript
     private bool firstBigHitDone;
     private bool secondBigHitDone;
 
+    public bool fstBigMoveOver;
+    public bool sndBigMoveOver;
+
     [SerializeField] public GameObject screenFlash;
     [SerializeField] private GameObject massiveHitbox;
 
@@ -20,6 +23,8 @@ public class SeverinScript : EnemyScript
     {
         firstBigHitDone = false;
         secondBigHitDone = false;
+        fstBigMoveOver = false;
+        sndBigMoveOver = false;
         screenFlash.SetActive(false);
         parryIndicator.SetActive(false);
 
@@ -267,6 +272,15 @@ public class SeverinScript : EnemyScript
     public void enableScreenFlash()
     {
         screenFlash.SetActive(true);
+
+        if (firstBigHitDone && !secondBigHitDone) 
+        {
+            fstBigMoveOver = true;
+        }
+        else
+        {
+            sndBigMoveOver = true;
+        }
     }
 
     public void DisabledChargeAnim()

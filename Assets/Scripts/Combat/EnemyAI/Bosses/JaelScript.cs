@@ -27,11 +27,10 @@ public class JaelScript : MonoBehaviour
 
     private bool teleporting;
 
-    [SerializeField] private bool specialAttacking;
+    [SerializeField] public bool specialAttacking;
 
-    private bool firstPhase;
-    private bool secondPhase;
-    private bool thirdPhase;
+    public bool firstPhase;
+    public bool secondPhase;
 
 
     // Start is called before the first frame update
@@ -52,20 +51,22 @@ public class JaelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!firstPhase && jaelChar.GetHealth() <= jaelChar.GetMaxHealth() - jaelChar.GetMaxHealth() / 4)
+        if (!firstPhase && jaelChar.GetHealth() <= jaelChar.GetMaxHealth() - jaelChar.GetMaxHealth() / 4 && !jaelChar.animator.GetBool("stunned"))
         {
             firstPhase = true;
             maxAxeThrowCount = originalMaxAxeCount + 2;
         }
-
-        if (!secondPhase && jaelChar.GetHealth() <= jaelChar.GetMaxHealth() / 2)
+        else if (!secondPhase && jaelChar.GetHealth() <= jaelChar.GetMaxHealth() / 2 && !jaelChar.animator.GetBool("stunned"))
         {
+            firstPhase = false;
             secondPhase = true;
             maxAxeThrowCount = originalMaxAxeCount + 4;
         }
-
+        
         if (!specialAttacking && jaelChar.GetHealth() <= jaelChar.GetMaxHealth() / 4)
         {
+            firstPhase = false;
+            secondPhase = false;
             //Debug.Log("Final phase");
             jaelChar.stunTimer.Interupted();
             jaelChar.animator.SetBool("stunned", false);
@@ -205,6 +206,14 @@ public class JaelScript : MonoBehaviour
             //Axe limit reached
             else
             {
+                //Disappear clones
+                foreach (var fakeJael in fakeJaelList)
+                {
+                    fakeJaelScript tempFakeJael = fakeJael.GetComponent<fakeJaelScript>();
+
+                    tempFakeJael.fogAnimator.SetBool("tpOut", true);
+                }
+
                 /*int jaelPosition = Random.Range(0, 4);
 
                 Vector2 tpPosition = Player.transform.position;
@@ -395,8 +404,114 @@ public class JaelScript : MonoBehaviour
                 }
             }
         }*/
+        int cloneLimit = 4;
+        int cloneCount = 0;
 
-        if (specialAttacking)
+        if (firstPhase && !secondPhase)
+        {
+            cloneLimit = 1;
+
+            foreach (var fakeJ in fakeJaelList)
+            {
+                if (cloneCount >= cloneLimit)
+                {
+                    break;
+                }
+
+                for (int i = 0; i < tpList.Count; i++)
+                {
+                    if (!takenPositions.Contains(i))
+                    {
+                        fakeJaelScript tempFakeJael = fakeJ.GetComponent<fakeJaelScript>();
+                        //Debug.Log("Does not contain the tp in index: " + i);
+
+                        tempFakeJael.animator.SetFloat("xDir", 0);
+                        tempFakeJael.animator.SetFloat("yDir", 0);
+
+                        switch (i)
+                        {
+                            case 0:
+                                tempFakeJael.animator.SetFloat("xDir", -1);
+                                //tpPosition = new Vector2(tpPosition.x + offsetFromPlayer, tpPosition.y);
+                                break;
+                            case 1:
+                                tempFakeJael.animator.SetFloat("yDir", -1);
+                                //tpPosition = new Vector2(tpPosition.x, tpPosition.y + offsetFromPlayer);
+                                break;
+                            case 2:
+                                tempFakeJael.animator.SetFloat("xDir", 1);
+                                //tpPosition = new Vector2(tpPosition.x - offsetFromPlayer, tpPosition.y);
+                                break;
+                            case 3:
+                                tempFakeJael.animator.SetFloat("yDir", 1);
+                                //tpPosition = new Vector2(tpPosition.x, tpPosition.y - offsetFromPlayer);
+                                break;
+                        }
+
+                        fakeJ.transform.position = tpList[i];
+                        //tempFakeJael.TriggerAttackAnim();
+                        tempFakeJael.fogAnimator.SetBool("tpIn", true);
+                        takenPositions.Add(i);
+                        cloneCount++;
+                        break;
+                    }
+
+                }
+            }
+        }
+        else if (secondPhase && !specialAttacking)
+        {
+            cloneLimit = 2;
+
+            foreach (var fakeJ in fakeJaelList)
+            {
+                if (cloneCount >= cloneLimit)
+                {
+                    break;
+                }
+
+                for (int i = 0; i < tpList.Count; i++)
+                {
+                    if (!takenPositions.Contains(i))
+                    {
+                        fakeJaelScript tempFakeJael = fakeJ.GetComponent<fakeJaelScript>();
+                        //Debug.Log("Does not contain the tp in index: " + i);
+
+                        tempFakeJael.animator.SetFloat("xDir", 0);
+                        tempFakeJael.animator.SetFloat("yDir", 0);
+
+                        switch (i)
+                        {
+                            case 0:
+                                tempFakeJael.animator.SetFloat("xDir", -1);
+                                //tpPosition = new Vector2(tpPosition.x + offsetFromPlayer, tpPosition.y);
+                                break;
+                            case 1:
+                                tempFakeJael.animator.SetFloat("yDir", -1);
+                                //tpPosition = new Vector2(tpPosition.x, tpPosition.y + offsetFromPlayer);
+                                break;
+                            case 2:
+                                tempFakeJael.animator.SetFloat("xDir", 1);
+                                //tpPosition = new Vector2(tpPosition.x - offsetFromPlayer, tpPosition.y);
+                                break;
+                            case 3:
+                                tempFakeJael.animator.SetFloat("yDir", 1);
+                                //tpPosition = new Vector2(tpPosition.x, tpPosition.y - offsetFromPlayer);
+                                break;
+                        }
+
+                        fakeJ.transform.position = tpList[i];
+                        //tempFakeJael.TriggerAttackAnim();
+                        tempFakeJael.fogAnimator.SetBool("tpIn", true);
+                        takenPositions.Add(i);
+                        cloneCount++;
+                        break;
+                    }
+
+                }
+            }
+        }
+        else if (specialAttacking)
         {
             foreach (var fakeJ in fakeJaelList)
             {
