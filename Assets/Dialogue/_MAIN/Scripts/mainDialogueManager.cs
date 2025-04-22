@@ -171,6 +171,17 @@ public class mainDialogueManager : MonoBehaviour
                 case "Endings/Conflicted/beginConflictedFight":
                     audioManager.Instance.playBGM("T11");
                     break;
+                //UPDATE THIS TACKETT
+                case "Endings/Compassion/severin_postfight":
+                case "Endings/Condemn/finishCondemn":
+                case "Endings/Conflicted/end_viinspared":
+                case "Endings/Conflicted/end_viinkilled":
+                case "Endings/Conflicted/end_ivarspared":
+                case "Endings/Conflicted/end_ivarkilled":
+                case "Endings/Conflicted/end_lucaspared":
+                case "Endings/Conflicted/end_lucakilled":
+                    cutsceneBG.DOFade(1, 3f).SetUpdate(true);
+                    break;
             }
 
 
