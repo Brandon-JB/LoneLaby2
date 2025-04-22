@@ -22,6 +22,9 @@ public class DropManager : MonoBehaviour
     {
         int randomNum = Random.Range(1, 31);
 
+        //randomNum = 0;
+
+        //Guarantees an item drop after 30 kills
         if (enemyDeathCount.ContainsKey(enemyName))
         {
             enemyDeathCount[enemyName]++;
@@ -29,6 +32,7 @@ public class DropManager : MonoBehaviour
             if (enemyDeathCount[enemyName] >= pityItemDrop)
             {
                 randomNum = 30;
+                enemyDeathCount[enemyName] = 0;
             }
         }
 

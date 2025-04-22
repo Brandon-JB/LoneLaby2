@@ -626,7 +626,7 @@ public class BaseChar : MonoBehaviour
         else
         {
             playerMovement.canMove = false;
-            Debug.Log(stMod + " " + strength + " on " + this.gameObject.name);
+            //Debug.Log(stMod + " " + strength + " on " + this.gameObject.name);
             charRB.AddForce(knockbackDirection * (stMod * strength), ForceMode2D.Impulse);
             //charRB.velocity = (knockbackDirection * 100000);
         }
