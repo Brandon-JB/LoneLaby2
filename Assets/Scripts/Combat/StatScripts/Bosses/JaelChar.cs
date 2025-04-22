@@ -13,7 +13,7 @@ public class JaelChar : BaseChar
         charName = "Jael";
         allied = false;
 
-        ChangeStats(11, 0, 5, 4, 0);
+        ChangeStats(11, 0, 5, 400, 0);
     }
 
     // Update is called once per frame

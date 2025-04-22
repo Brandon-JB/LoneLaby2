@@ -6,6 +6,7 @@ using UnityEngine;
 public class JaelFogScript : MonoBehaviour
 {
     [SerializeField] private GameObject jaelSprite;
+    [SerializeField] private GameObject shadow;
     [SerializeField] private JaelChar jaelChar;
     [SerializeField] private fakeJaelScript fakeJael;
     [SerializeField] private Animator animator;
@@ -22,6 +23,7 @@ public class JaelFogScript : MonoBehaviour
         jaelSprite.SetActive(false);
         if (hurtBox != null)
         {
+            shadow.SetActive(false);
             hurtBox.enabled = false;
         }
     }
@@ -31,6 +33,7 @@ public class JaelFogScript : MonoBehaviour
         jaelSprite.SetActive(true);
         if (hurtBox != null)
         {
+            shadow.SetActive(true);
             hurtBox.enabled = true;
         }
     }
