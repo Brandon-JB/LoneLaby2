@@ -174,6 +174,7 @@ public class ItemMenu : MonoBehaviour
 
     public void openItemMenu(string itemName)
     {
+        audioManager.Instance.playSFX(44);
         OpenPauseMenu.pauseOpened = true;
         Time.timeScale = 0;
         OpenPauseMenu.GLOBALcanOpenPause = false;

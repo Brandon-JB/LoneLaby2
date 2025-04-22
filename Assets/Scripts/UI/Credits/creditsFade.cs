@@ -12,6 +12,10 @@ public class creditsFade : MonoBehaviour
     private void OnEnable()
     {
         selectedGameObject.DOFade(1, 1).OnComplete(() => {
+            if(time == 0 )
+            {
+                return;
+            }
             StartCoroutine(waitToDisappear());
         });
     }

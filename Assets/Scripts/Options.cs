@@ -30,15 +30,6 @@ public class Options : MonoBehaviour
         if (voiceVol == null)
         {
             voiceVol = GameObject.FindGameObjectWithTag("CharVoice").GetComponent<AudioSource>();
-        }
-        //buttonTXT.text = audioStatics.interractButton.ToUpper();
-    }
-
-    private void OnEnable()
-    {
-        if (voiceVol == null)
-        {
-            voiceVol = GameObject.FindGameObjectWithTag("CharVoice").GetComponent<AudioSource>();
             voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
         }
         else
@@ -51,6 +42,24 @@ public class Options : MonoBehaviour
         optionsSliders[3].value = audioStatics.VoiceVolume;
         optionsSliders[4].value = audioStatics.TextSpeedMultiplier;
     }
+
+    //private void OnEnable()
+    //{
+    //    if (voiceVol == null)
+    //    {
+    //        voiceVol = GameObject.FindGameObjectWithTag("CharVoice").GetComponent<AudioSource>();
+    //        voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
+    //    }
+    //    else
+    //    {
+    //        voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
+    //    }
+    //    optionsSliders[0].value = audioStatics.MasterVolume;
+    //    optionsSliders[1].value = audioStatics.BGMVolume;
+    //    optionsSliders[2].value = audioStatics.SFXVolume;
+    //    optionsSliders[3].value = audioStatics.VoiceVolume;
+    //    optionsSliders[4].value = audioStatics.TextSpeedMultiplier;
+    //}
 
     public void onMasterSliderChanged()
     {
@@ -74,6 +83,10 @@ public class Options : MonoBehaviour
     }
     public void onVoiceSliderChanged()
     {
+        if (voiceVol == null)
+        {
+            voiceVol = GameObject.FindGameObjectWithTag("CharVoice").GetComponent<AudioSource>();
+        }
         audioStatics.VoiceVolume = optionsSliders[3].value;
         //voiceVol.volume = audioStatics.VoiceVolume * audioStatics.MasterVolume;
     }

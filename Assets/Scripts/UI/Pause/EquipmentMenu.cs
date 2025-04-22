@@ -191,6 +191,8 @@ public class EquipmentMenu : MonoBehaviour
                 hudEquipment.changeHUDOnEquip("", 1);
                 texts[0].text = "Change Leora Sprite (ring is equipped, unequip it)";
                 LeoraShadowEquipment[1].sprite = hudEquipment.uglyAssSwitchStatement("", amuletsForLeoraShadow);
+                //Update magic type
+                changeMagicType("");
             } else
             {
                 audioManager.Instance.playSFX(40);
@@ -198,11 +200,11 @@ public class EquipmentMenu : MonoBehaviour
                 hudEquipment.changeHUDOnEquip(item, 1);
                 texts[0].text = "Change Leora Sprite (ring is NOT equipped)";
                 LeoraShadowEquipment[1].sprite = hudEquipment.uglyAssSwitchStatement(item, amuletsForLeoraShadow);
+                //Update magic type
+                changeMagicType(item);
             }
             texts[0].text = "Set as last active amulet";
             lastActiveAmulet = glowToCheckIfEquipped;
-            //Update magic type
-            changeMagicType(item);
             //glowToCheckIfEquipped.SetActive(!glowToCheckIfEquipped.activeInHierarchy);
         }
         else

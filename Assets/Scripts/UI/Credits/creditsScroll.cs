@@ -10,6 +10,7 @@ public class creditsScroll : MonoBehaviour
 
     [SerializeField] private CanvasGroup fadeIn;
     [SerializeField] private Transform[] locations;
+    [SerializeField] private TextMeshProUGUI endingText1, endingText2;
 
     [SerializeField] private Transform titletext, scrollingText;
     [SerializeField] private GameObject firsttextToAppear;
@@ -22,7 +23,7 @@ public class creditsScroll : MonoBehaviour
             buildText();
             titletext.DOMove(locations[0].position, 2f).SetEase(Ease.Linear).OnComplete(() => {
                 firsttextToAppear.SetActive(true);
-                scrollingText.DOMove(locations[1].position, 95f).SetEase(Ease.Linear);
+                scrollingText.DOMove(locations[1].position, 100f).SetEase(Ease.Linear);
             });
         });
     }
@@ -49,16 +50,22 @@ public class creditsScroll : MonoBehaviour
                 "opportunity that would bring in a new age of peace and order. With the passing of slightly " +
                 "stricter laws, the people of Isen fell further under the Order's ideals. Never had its " +
                 "influence been so complete.\r\n";
+            endingText1.text = "Ending 1 of 3";
+            endingText2.text = "Condemnation Route";
         } else if (saved == 3)
         {
             builtString += "With Severin dead, the Scepter's disappearance caused fixable deaths, a quiet " +
                 "rebellion gained ground, and its grip on Isen weakened. Jael led the charge, stepping in " +
                 "where Lucan would not.\r\n";
+            endingText1.text = "Ending 3 of 3";
+            endingText2.text = "Compassion Route";
         } else
         {
             builtString += "Leora's choices rippled across Isen. She stood at the center of it all—unknown to " +
                 "most, unthanked by many. Her decisions had saved lives, ruined others, and set forces into " +
                 "motion that could not be undone.\r\n";
+            endingText1.text = "Ending 2 of 3";
+            endingText2.text = "Conflicted Route";
         }
 
 
@@ -123,18 +130,18 @@ public class creditsScroll : MonoBehaviour
         }
         else if (saved == 3)
         {
-            builtString += "\r\nLeora remained in her position, but the weight of her choices never left her. Why had some been " +
-                "spared and others condemned? She obeyed the Order and spoke in Verita's name, yet she hesitated when it mattered " +
-                "most. She often has the same nightmare, battling her faceless self, confronting her choices and identity as a " +
-                "knight.\r\nShe always woke unsure of who had won.\r\n";
-        }
-        else
-        {
             builtString += "\r\nIsen was unstable, but Leora remained. She stayed not for the Order, but for the people. She helped " +
                 "where she could, walked among them as one of their own. She defied orders she didn't believe in, refused arrests " +
                 "without reason, and only intervened when violence broke out. With so few knights left, the Order let her defiance " +
                 "slide. She frequently prayed, not because she had to, but because she chose to.\r\nAnd for the first time in a " +
                 "long while, the people believed in a knight again.\r\n";
+        }
+        else
+        {
+            builtString += "\r\nLeora remained in her position, but the weight of her choices never left her. Why had some been " +
+                "spared and others condemned? She obeyed the Order and spoke in Verita's name, yet she hesitated when it mattered " +
+                "most. She often has the same nightmare, battling her faceless self, confronting her choices and identity as a " +
+                "knight.\r\nShe always woke unsure of who had won.\r\n";
         }
 
         scrollingText.GetComponent<TextMeshProUGUI>().text = builtString;
