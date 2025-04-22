@@ -1,11 +1,10 @@
 wait(0.5)
 Show(darkleora)
-Show(leora)
 Highlight(darkleora -o true)
 darkleora as ??? "Vaang's body will grow cold before the night's end. The orphans will wake, waiting for a man who will never come. And when they weep, will you stand among them and tell them this was justice?"
 darkleora as ??? "And who kidnapped the people? Did it ever matter?"
 Hide(darkleora)
 addCutscene(0)
-wait(0.75)
+wait(2)
 addCutscene(1)
 goTo(Credits)

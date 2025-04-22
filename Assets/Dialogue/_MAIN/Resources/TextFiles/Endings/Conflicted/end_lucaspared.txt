@@ -1,10 +1,9 @@
 Show(darkleora)
-Show(leora)
 Highlight(darkleora -o true)
 darkleora as ??? "Lucan broke his oath, and you let him live. When the next knight falters, when the next army wavers, will you whisper his name as your excuse?"
 darkleora as ??? "And who kidnapped the people? Did it ever matter?"
 Hide(darkleora)
 addCutscene(0)
-wait(0.75)
+wait(2)
 addCutscene(1)
 goTo(Credits)

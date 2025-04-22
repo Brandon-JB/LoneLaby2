@@ -13,16 +13,16 @@ public class EquipmentManager : MonoBehaviour
         {"DarkAmulet", false },
         {"AlanAmulet", false },
         {"KisaAmulet", false },
-        {"SophieAmulet", false },
+        {"SophieAmulet", true },
         {"AdvATKRing", false },
         {"AdvHPRing", false },
         {"AdvMPRing", false },
-        {"ATKRing", false },
+        {"ATKRing", true },
         {"MPRing", false },
         {"HPRing", false },
         {"ATKMPRing", false },
         {"HPMPRing", false },
-        {"ATKHPRing", false }
+        {"ATKHPRing", true }
     };
 
     static public Dictionary<string, bool> amuletSlot = new Dictionary<string, bool>()
