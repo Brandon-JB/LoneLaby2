@@ -117,15 +117,15 @@ public class InteractScript : MonoBehaviour
         {
             case "Alan":
                 QuestManager.StartQuest(NPCName, 5);
-                findDialogueToPlay("SideQuests/getAlanQuest", "SideQuests/getAlanQuest", "SideQuests/finAlanQuest", NPCName);
+                findDialogueToPlay("SideQuests/getAlanQuest", "SideQuests/midAlanQuest", "SideQuests/finAlanQuest", NPCName);
                 break;
             case "Kisa":
                 QuestManager.StartQuest(NPCName, 5);
-                findDialogueToPlay("SideQuests/getKisaQuest", "SideQuests/getKisaQuest", "SideQuests/finKisaQuest", NPCName);
+                findDialogueToPlay("SideQuests/getKisaQuest", "SideQuests/midKisaQuest", "SideQuests/finKisaQuest", NPCName);
                 break;
             case "Sophie":
                 QuestManager.StartQuest(NPCName, 5);
-                findDialogueToPlay("SideQuests/getSophQuest", "SideQuests/getSophQuest", "SideQuests/finSophQuest", NPCName);
+                findDialogueToPlay("SideQuests/getSophQuest", "SideQuests/midSophQuest", "SideQuests/finSophQuest", NPCName);
                 break;
             case "Vaang":
                 switch (BossSaveData.bossStates["Viin"])
@@ -167,6 +167,7 @@ public class InteractScript : MonoBehaviour
                 //Quest has been picked up, not completed
                 mainDialogueManager.dialogueSTART(dialogue2);
             }
+            //have another if for if the quest dialogue has already been done
         }
         catch (Exception)
         {
