@@ -1,0 +1,31 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(alan -enabled false)
+leora.Move(0.15 0 -spd 1000)
+alan.Move(0.95 0 -spd 1000)
+wait(0.5)
+Show(alan)
+Highlight(alan -o true)
+SetSprite(alan alan_young)
+alan "...What? You’ve already won the wager. No need to gloat."
+Show(leora)
+Highlight(leora -o true)
+SetSprite(leora smile)
+leora "I wasn’t here to gloat. Am I not allowed to check in on my apprentice?"
+Highlight(alan -o true)
+alan "Didn't say that."
+SetSprite(alan embarrassed)
+alan "... Just figured you had better things to do than watch me sulk with a cracked rib."
+Highlight(leora -o true)
+leora "And yet here I am. Strange, isn't it? Almost like I care whether you're still breathing."
+Highlight(alan -o true)
+alan "I <i>am</i> still breathing. Barely."
+SetSprite(alan alan_young)
+alan "Anyways, shouldn't you be out doing your job?"
+Highlight(leora -o true)
+SetSprite(leora leora)
+leora "I am doing my job—as your mentor, it is equally my duty to make sure you are well as it is to make sure you are capable."
+SetSprite(leora angry)
+leora "I've done what you've asked, now go rest. That's an order."
+Hide(alan)
+Hide(leora)
+endDialogue(false)

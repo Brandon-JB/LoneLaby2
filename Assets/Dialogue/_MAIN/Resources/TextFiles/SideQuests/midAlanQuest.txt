@@ -3,7 +3,6 @@ CreateCharacter(alan -enabled false)
 leora.Move(0.15 0 -spd 1000)
 alan.Move(0.95 0 -spd 1000)
 wait(0.5)
-
 Show(alan)
 Highlight(alan -o true)
 SetSprite(alan smile)
