@@ -12,7 +12,7 @@ public class SeverinChar : BaseChar
         charName = "Severin";
         allied = false;
 
-        ChangeStats(13, 0, 8, 350, 0);
+        ChangeStats(13, 0, 10, 450, 0);
     }
 
     // Update is called once per frame
@@ -89,15 +89,35 @@ public class SeverinChar : BaseChar
 
     public override void Death()
     {
-        audioManager.Instance.playSFX(18);
+        if (sevScript.sndBigMoveOver)
+        {
 
-        mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
-        mdm.dialogueSTART("Endings/Compassion/severin_postfight");
-        //I don't think I have to do anything else for this, but I can modify this.
+            audioManager.Instance.playSFX(18);
 
-        //killSpareMenu.SetActive(true);
-        //killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
-        //killSpare.bossName = "Lucan";
-        Destroy(this.gameObject);
+            mainDialogueManager mdm = GameObject.FindObjectOfType<mainDialogueManager>();
+            mdm.dialogueSTART("Endings/Compassion/severin_postfight");
+            //I don't think I have to do anything else for this, but I can modify this.
+
+            //killSpareMenu.SetActive(true);
+            //killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
+            //killSpare.bossName = "Lucan";
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            //Prevents boss from dying if they haven't done their final move yet
+            SetHealth(Mathf.Clamp(GetHealth(), 1, GetMaxHealth()));
+        }
     }
+
+    public override void GotDamaged(int incomingDamage, GameObject otherAttacker, float stMod)
+    {
+        base.GotDamaged(incomingDamage, otherAttacker, stMod);
+
+        if (!sevScript.fstBigMoveOver)
+        {
+            SetHealth(Mathf.Clamp(GetHealth(), GetMaxHealth() / 2, GetMaxHealth()));
+        }
+    }
+
 }
