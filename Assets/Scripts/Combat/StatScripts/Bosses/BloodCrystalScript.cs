@@ -171,7 +171,7 @@ public class BloodCrystalScript : MonoBehaviour
             if (otherCharTrigger.allied == true && isShielded != true)
             {
                 health--;
-                Transform damagePopupTransform = Instantiate(viinScript.viinChar.damagePopup, transform.position, Quaternion.identity);
+                GameObject damagePopupTransform = Instantiate(viinScript.viinChar.damagePopup, transform.position, Quaternion.identity);
                 DamagePopUp damPopScript = damagePopupTransform.GetComponent<DamagePopUp>();
                 damPopScript.SetupInt(otherCharTrigger.GetSpecificStat("Strength"), "Damage");
                 animator.SetBool("hurt", true);
