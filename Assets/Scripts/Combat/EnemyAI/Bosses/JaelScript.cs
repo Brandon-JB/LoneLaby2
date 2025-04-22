@@ -206,6 +206,14 @@ public class JaelScript : MonoBehaviour
             //Axe limit reached
             else
             {
+                //Disappear clones
+                foreach (var fakeJael in fakeJaelList)
+                {
+                    fakeJaelScript tempFakeJael = fakeJael.GetComponent<fakeJaelScript>();
+
+                    tempFakeJael.fogAnimator.SetBool("tpOut", true);
+                }
+
                 /*int jaelPosition = Random.Range(0, 4);
 
                 Vector2 tpPosition = Player.transform.position;
