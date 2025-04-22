@@ -65,9 +65,9 @@ public class ViinScript : MonoBehaviour
      * Each crystal buff: -0.5 second attack cooldown speed, + 5 attack dive limit
      */
 
-    private bool firstCrystalsSpawned = false;
-    private bool secondCrystalsSpawned = false;
-    private bool thirdCrystalsSpawned = false;
+    public bool firstCrystalsSpawned = false;
+    public bool secondCrystalsSpawned = false;
+    public bool thirdCrystalsSpawned = false;
 
     public Dictionary<int, bool> CrystalDestroyed = new Dictionary<int, bool>()
     {
@@ -224,9 +224,8 @@ public class ViinScript : MonoBehaviour
                 attackCooldown.cooldownTime = 3;
                 SpawnBloodOrbs();
             }
-
             //Spawning the second wave of crystals at 50% health
-            if (!secondCrystalsSpawned && viinChar.GetHealth() <= viinChar.GetMaxHealth() / 2 && viinChar.GetHealth() > viinChar.GetMaxHealth() / 4)
+            else if (!secondCrystalsSpawned && viinChar.GetHealth() <= viinChar.GetMaxHealth() / 2 && viinChar.GetHealth() > viinChar.GetMaxHealth() / 4)
             {
                 if (!firstCrystalsSpawned)
                 {
@@ -237,9 +236,8 @@ public class ViinScript : MonoBehaviour
                 secondCrystalsSpawned = true;
                 SpawnBloodOrbs();
             }
-
             //Spawning the third wave of crystals at 25% health
-            if (!thirdCrystalsSpawned && viinChar.GetHealth() <= viinChar.GetMaxHealth() / 4)
+            else if (!thirdCrystalsSpawned && viinChar.GetHealth() <= viinChar.GetMaxHealth() / 4)
             {
                 thirdCrystalsSpawned = true;
                 SpawnBloodOrbs();

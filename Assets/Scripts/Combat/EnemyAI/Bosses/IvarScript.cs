@@ -55,7 +55,7 @@ public class IvarScript : MonoBehaviour
     private bool firstTeleportHappened;
     public GameObject firstTPObject;
     public GameObject ivarFirstTPObject;
-    private bool secondTeleportHappened;
+    public bool secondTeleportHappened;
     public GameObject secondTPObject;
     public GameObject ivarSecondTPObject;
 
@@ -138,7 +138,6 @@ public class IvarScript : MonoBehaviour
             }
             else if (secondTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 3)
             {
-                //the clamp isn't working for some reason
                 ivarChar.statsSheet["Health"] = Mathf.Clamp(ivarChar.statsSheet["Health"], ivarChar.GetMaxHealth() / 3, ivarChar.GetMaxHealth());
                 teleportNum = 2;
                 TriggerTPCast();

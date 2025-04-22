@@ -443,6 +443,9 @@ MonoBehaviour:
   attackVariation: 1
   AttackCount: 0
   attackLimit: 3
+  firstCrystalsSpawned: 0
+  secondCrystalsSpawned: 0
+  thirdCrystalsSpawned: 0
   bloodCrystals: []
 --- !u!114 &2273221603947604141
 MonoBehaviour:
@@ -483,6 +486,7 @@ MonoBehaviour:
   slowTimer:
     cooldownTime: 100
   killSpareMenu: {fileID: 0}
+  viinScript: {fileID: 8214764589442215997}
 --- !u!1 &8483249752781059758
 GameObject:
   m_ObjectHideFlags: 0
