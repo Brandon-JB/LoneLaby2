@@ -6,9 +6,31 @@ public class DropManager : MonoBehaviour
 {
     [SerializeField] private GameObject dropPrefab;
 
+    static private Dictionary<string, int> enemyDeathCount = new Dictionary<string, int>()
+    {
+        {"Slime", 0},
+        {"EarthElement", 0},
+        {"TreeMimic", 0},
+        {"Sword", 0},
+        {"Spirit", 0},
+        {"Shield", 0}
+    };
+
+    public int pityItemDrop = 30;
+
     public void RandomizedDrops(Vector3 deathLocation, string enemyName)
     {
         int randomNum = Random.Range(1, 31);
+
+        if (enemyDeathCount.ContainsKey(enemyName))
+        {
+            enemyDeathCount[enemyName]++;
+
+            if (enemyDeathCount[enemyName] >= pityItemDrop)
+            {
+                randomNum = 30;
+            }
+        }
 
         //randomNum = 30;
 
