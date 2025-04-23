@@ -94,7 +94,7 @@ public class SeverinScript : EnemyScript
             enemyChar.animator.SetBool("isMoving", false);
         }
 
-        if (!cooldown.isCoolingDown && enemyChar.animator.GetBool("Hurt") == false && enemyChar.stunTimer.isCoolingDown == false && !enemyChar.animator.GetBool("charging"))
+        if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false && !enemyChar.animator.GetBool("charging"))
         {
             canMove = true;
         }

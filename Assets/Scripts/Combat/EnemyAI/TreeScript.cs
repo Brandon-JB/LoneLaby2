@@ -62,11 +62,11 @@ public class TreeScript : EnemyScript
                 //Variations to positions are to fit sprite
                 if (Player.transform.position.x > transform.position.x)
                 {
-                    movePosition = new Vector2(PlayerRB.transform.position.x - 2, PlayerRB.transform.position.y + 1);
+                    movePosition = new Vector2(PlayerRB.transform.position.x - 2, PlayerRB.transform.position.y + .3f);
                 }
                 else
                 {
-                    movePosition = new Vector2(PlayerRB.transform.position.x + 2, PlayerRB.transform.position.y + 1);
+                    movePosition = new Vector2(PlayerRB.transform.position.x + 2, PlayerRB.transform.position.y + .3f);
                 }
 
                 path.maxSpeed = moveSpeed;

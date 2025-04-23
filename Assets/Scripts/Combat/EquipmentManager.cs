@@ -10,7 +10,7 @@ public class EquipmentManager : MonoBehaviour
     {
         {"BloodAmulet", false },
         {"MindAmulet", false },
-        {"DarkAmulet", false },
+        {"DarkAmulet", true },
         {"AlanAmulet", false },
         {"KisaAmulet", false },
         {"SophieAmulet", false },
@@ -372,6 +372,7 @@ public class EquipmentManager : MonoBehaviour
                 break;
             case "SophieAmulet":
                 leoraChar.sophieAmuletActive = false;
+                leoraChar.AddToSpecificStat("Strength", +1);
                 break;
         }
     }
@@ -406,7 +407,8 @@ public class EquipmentManager : MonoBehaviour
                     break;
                 case "SophieAmulet":
                 leoraChar.sophieAmuletActive = true;
-                    break;
+                leoraChar.AddToSpecificStat("Strength", -1);
+                break;
             }
         }
 }

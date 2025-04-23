@@ -120,4 +120,14 @@ public class SeverinChar : BaseChar
         }
     }
 
+    public override void StopHurtAnim()
+    {
+        
+    }
+
+    public override void TriggerHurtAnim()
+    {
+        
+    }
+
 }
