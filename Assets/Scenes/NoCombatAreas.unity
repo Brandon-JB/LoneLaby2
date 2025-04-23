@@ -14564,6 +14564,7 @@ GameObject:
   - component: {fileID: 843531407}
   - component: {fileID: 843531406}
   - component: {fileID: 843531405}
+  - component: {fileID: 843531409}
   m_Layer: 0
   m_Name: EnterFinalBoss
   m_TagString: Untagged
@@ -14658,6 +14659,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &843531409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843531404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64bf813fb488e9046b61f49acc39d683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bg: {fileID: 776362389}
+  positions:
+  - {fileID: 1260578309}
+  - {fileID: 956231652}
+  - {fileID: 1052817076}
+  bgColor: {r: 0.09803922, g: 0.11372549, b: 0.21568628, a: 1}
 --- !u!1 &916088612
 GameObject:
   m_ObjectHideFlags: 0
@@ -31696,7 +31715,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1260578312}
+      - m_Target: {fileID: 843531409}
         m_TargetAssemblyTypeName: startFinalBosses, Assembly-CSharp
         m_MethodName: no
         m_Mode: 1
@@ -32616,7 +32635,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1260578312}
+      - m_Target: {fileID: 843531409}
         m_TargetAssemblyTypeName: startFinalBosses, Assembly-CSharp
         m_MethodName: yes
         m_Mode: 1
@@ -32754,7 +32773,6 @@ GameObject:
   - component: {fileID: 1260578309}
   - component: {fileID: 1260578311}
   - component: {fileID: 1260578310}
-  - component: {fileID: 1260578312}
   m_Layer: 5
   m_Name: end game?
   m_TagString: Untagged
@@ -32824,24 +32842,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260578308}
   m_CullTransparentMesh: 1
---- !u!114 &1260578312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260578308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bf813fb488e9046b61f49acc39d683, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bg: {fileID: 776362389}
-  positions:
-  - {fileID: 1260578309}
-  - {fileID: 956231652}
-  - {fileID: 1052817076}
-  bgColor: {r: 0.078431375, g: 0.09411765, b: 0.18039216, a: 1}
 --- !u!1 &1288574508
 GameObject:
   m_ObjectHideFlags: 0

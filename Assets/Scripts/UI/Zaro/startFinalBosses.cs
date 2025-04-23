@@ -11,33 +11,38 @@ public class startFinalBosses : MonoBehaviour
     [SerializeField] private Transform[] positions;
     [SerializeField] private Color bgColor;
 
-    private void OnEnable()
+
+    public void openStartFinalBossMenu()
     {
+        positions[0].position = positions[2].transform.position;
         Time.timeScale = 0f;
         bg.alpha = 0f;
         bg.DOFade(1, 1).SetUpdate(true);
+        positions[0].gameObject.SetActive(true);
         positions[0].DOMove(positions[1].transform.position, 1f).SetUpdate(true);
     }
 
     public void yes()
     {
         //move ui out, play final cutscene, yay
-        bg.gameObject.GetComponent<Image>().DOColor(bgColor, 1f);
-        positions[0].DOMove(positions[2].transform.position, 0.5f).SetUpdate(true).OnComplete(() =>
-        {
-            Time.timeScale = 1f;
-            this.gameObject.SetActive(false);
-        });
+        bg.gameObject.GetComponent<Image>().DOColor(bgColor, 1f).SetUpdate(true);
+
         if (BossSaveData.GetNumberOfCondemned() == 3)
         {
             GameObject.FindObjectOfType<mainDialogueManager>().dialogueSTART("Endings/transitionCondemn");
-        } else if (BossSaveData.GetNumberOfSaved() == 3)
+        }
+        else if (BossSaveData.GetNumberOfSaved() == 3)
         {
             GameObject.FindObjectOfType<mainDialogueManager>().dialogueSTART("Endings/transitionCompassion");
-        } else
+        }
+        else
         {
             GameObject.FindObjectOfType<mainDialogueManager>().dialogueSTART("Endings/transitionConflicted");
         }
+        positions[0].DOMove(positions[2].transform.position, 2f).SetUpdate(true).OnComplete(() =>
+        {
+            positions[0].gameObject.SetActive(false);
+        });
 
     }
 
@@ -47,7 +52,7 @@ public class startFinalBosses : MonoBehaviour
         positions[0].DOMove(positions[2].transform.position, 0.5f).SetUpdate(true).OnComplete(() =>
         {
             Time.timeScale = 1f;
-            this.gameObject.SetActive(false);
+            positions[0].gameObject.SetActive(false);
         });
     }
 }

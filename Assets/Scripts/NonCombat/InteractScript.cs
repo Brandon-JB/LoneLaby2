@@ -27,6 +27,7 @@ public class InteractScript : MonoBehaviour
         {"Alan", false},
         {"Sophie", false},
         {"Vaang", false },
+        {"BedTrigger", false },
         {"Kisa", false }
     };
 
@@ -59,8 +60,10 @@ public class InteractScript : MonoBehaviour
             if (InputManager.interactPressed == true)
             {
                 //Start Interaction
-
-                gainedQuests[closeTo.name] = true;
+                if (closeTo.name != "BedTrigger")
+                {
+                    gainedQuests[closeTo.name] = true;
+                }
                 CanInteractUI.SetActive(false);
                 doSomethingBasedOnNPC(closeTo.name);
                 Debug.Log(closeTo.name);
@@ -142,8 +145,9 @@ public class InteractScript : MonoBehaviour
                 }
                 //findDialogueToPlay("Vaang/meetingVaang", "Vaang/vaang_condemn", "Vaang/vaang_save", NPCName);
                 break;
-            case "Bed Trigger":
+            case "BedTrigger":
                 //open menu asking if you'd like to end your game
+                GameObject.FindObjectOfType<startFinalBosses>().openStartFinalBossMenu();
                 break;
 
         }
