@@ -13,16 +13,16 @@ public class EquipmentManager : MonoBehaviour
         {"DarkAmulet", false },
         {"AlanAmulet", false },
         {"KisaAmulet", false },
-        {"SophieAmulet", true },
+        {"SophieAmulet", false },
         {"AdvATKRing", false },
         {"AdvHPRing", false },
         {"AdvMPRing", false },
-        {"ATKRing", true },
+        {"ATKRing", false },
         {"MPRing", false },
         {"HPRing", false },
         {"ATKMPRing", false },
         {"HPMPRing", false },
-        {"ATKHPRing", true }
+        {"ATKHPRing", false }
     };
 
     static public Dictionary<string, bool> amuletSlot = new Dictionary<string, bool>()
@@ -271,7 +271,7 @@ public class EquipmentManager : MonoBehaviour
         switch (ring)
         {
             case "AdvATKRing":
-                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 10);
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 6);
                 break;
             case "AdvHPRing":
                 leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] - 50);
@@ -280,7 +280,7 @@ public class EquipmentManager : MonoBehaviour
                 leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] - 10);
                 break;
             case "ATKRing":
-                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 5);
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 3);
                 break;
             case "MPRing":
                 leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] - 5);
@@ -289,7 +289,7 @@ public class EquipmentManager : MonoBehaviour
                 leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] - 25);
                 break;
             case "ATKMPRing":
-                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 5);
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 2);
                 leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] - 5);
                 break;
             case "HPMPRing":
@@ -297,7 +297,7 @@ public class EquipmentManager : MonoBehaviour
                 leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] - 5);
                 break;
             case "ATKHPRing":
-                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 5);
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 2);
                 leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] - 25);
                 break;
         }
@@ -310,7 +310,7 @@ public class EquipmentManager : MonoBehaviour
         switch (ring)
         {
             case "AdvATKRing":
-                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 10);
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 6);
                 break;
             case "AdvHPRing":
                 leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] + 50);
@@ -319,7 +319,7 @@ public class EquipmentManager : MonoBehaviour
                 leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] + 10);
                 break;
             case "ATKRing":
-                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 5);
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 3);
                 break;
             case "MPRing":
                 leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] + 5);
@@ -328,7 +328,7 @@ public class EquipmentManager : MonoBehaviour
                 leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] + 25);
                 break;
             case "ATKMPRing":
-                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 5);
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 2);
                 leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] + 5);
                 break;
             case "HPMPRing":
@@ -336,7 +336,7 @@ public class EquipmentManager : MonoBehaviour
                 leoraChar.ChangeSpecificStat("MaxMana", baseStatSheet["MaxMana"] + 5);
                 break;
             case "ATKHPRing":
-                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 5);
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 2);
                 leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] + 25);
                 break;
         }
