@@ -37,7 +37,7 @@ public class ivarText : MonoBehaviour
 
         foreach(TextMeshProUGUI text in area == 1 ? inGameText1 : inGameText2)
         {
-            StartCoroutine(turnOnText(text, Random.Range(0f, 3f)));
+            StartCoroutine(turnOnText(text, Random.Range(0f, 5f)));
         }
     }
 

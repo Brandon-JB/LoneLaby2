@@ -211,7 +211,7 @@ public class IvarScript : MonoBehaviour
     public void Teleport()
     {
 
-        ivartext.openText(teleportNum);
+        
         damageTaken = 0;
 
         switch (teleportNum)
@@ -222,6 +222,7 @@ public class IvarScript : MonoBehaviour
                 darknessEffect.SetActive(true);
                 firstTeleportHappened = true;
                 timeUntilBigAttack.cooldownTime = firstTPTime;
+                ivartext.openText(teleportNum, firstTPTime);
                 break;
 
             case 2:
@@ -230,6 +231,7 @@ public class IvarScript : MonoBehaviour
                 darknessEffect.SetActive(true);
                 secondTeleportHappened = true;
                 timeUntilBigAttack.cooldownTime = secondTPTime;
+                ivartext.openText(teleportNum, secondTPTime);
                 break;
             default:
                 Debug.Log("Wrong teleport number");

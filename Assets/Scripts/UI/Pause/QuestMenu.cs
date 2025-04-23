@@ -105,7 +105,8 @@ public class QuestMenu : MonoBehaviour
         FindStatus("Alan", alanDescriptions, alanColors, alanobj, alanDesc);
         FindStatus("Kisa", kisaDescriptions, kisaColors, kisaobj, kisaDesc);
         FindStatus("Sophie", sophDescriptions, sophieColors, sophieobj, sophieDesc);
-        //change ui color 
+        //Move back
+        wholeQuestMenu.DOMove(locations[0].position, 0f).SetUpdate(true);
     }
 
     private void FindStatus(string questName, string[] descriptionOptions, Color[] colorOptions, GameObject[] characterImages, TextMeshProUGUI[] description)

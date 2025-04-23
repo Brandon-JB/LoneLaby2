@@ -181,19 +181,30 @@ public class killSpareManager : MonoBehaviour
         leoraAnimator.SetTrigger("kill");
         //wait 0.5 seconds
         StartCoroutine(endAfterTimePeriod(0.75f, true));
-        
+        //wait for 0.3 seconds and then swipe
+        StartCoroutine(waitForSFX());
+
+
+    }
+    private IEnumerator waitForSFX()
+    {
+        yield return new WaitForSecondsRealtime(1.15f);
+        audioManager.Instance.playSFX(4);
+        yield return new WaitForSecondsRealtime(10f);
     }
 
-    private IEnumerator endAfterTimePeriod(float time, bool isKilling = false)
+        private IEnumerator endAfterTimePeriod(float time, bool isKilling = false)
     {
         PortalScript.LastPortal = 1;
 
         yield return new WaitForSecondsRealtime(time);
-
+        
         mainDialogueManager = GameObject.FindObjectOfType<mainDialogueManager>();
 
         sideL.DOMove(locations[0].position, 0.75f).SetUpdate(true).SetEase(Ease.InOutBack);
         sideR.DOMove(locations[1].position, 0.75f).SetUpdate(true).SetEase(Ease.InOutBack);
+        yield return new WaitForSecondsRealtime(0.05f);
+        audioManager.Instance.playSFX(59);
 
         yield return new WaitForSecondsRealtime(1.5f);
 

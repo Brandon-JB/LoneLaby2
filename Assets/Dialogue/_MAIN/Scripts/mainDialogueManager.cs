@@ -155,12 +155,12 @@ public class mainDialogueManager : MonoBehaviour
                     normaltxtbox.transform.position = condemntxtbox.transform.position;
                     return;
                 case "LucanQuest/cave_prefight":
-                case "IvarQuest/mansion_prefight":
+                case "IvarQuest/manor_prefight":
                 case "ViinQuest/veinwood_prefight":
                     audioManager.Instance.playBGM("T8");
                     break;
                 case "LucanQuest/cave_postfight_saveLucan":
-                case "IvarQuest/mansion_postfight_saveIvar":
+                case "IvarQuest/manor_postfight_saveIvar":
                 case "ViinQuest/veinwood_postfight_saveViin":
                     FindObjectOfType<killSpareManager>().GetComponent<CanvasGroup>().DOFade(0f, 1).SetUpdate(true);
                     break;
@@ -315,9 +315,11 @@ public class mainDialogueManager : MonoBehaviour
                         switch(BossSaveData.GetNumberOfCondemned())
                         {
                             case 0:
+                                Debug.Log("Should be beginning compassion");
                                 dialogueSTART("Endings/Compassion/beginCompassion");
                                 return;
                             default:
+                                Debug.Log("Should be grabbing leora to show her final cutscene");
                                 dialogueSTART("Endings/Conflicted/withVerita/grabLeora");
                                 return;
                         }
@@ -328,17 +330,21 @@ public class mainDialogueManager : MonoBehaviour
                 case "ViinQuest/veinwood_postfight_condemnSpeaker":
                     if (BossSaveData.GetNumberOfBossesObtained() == 3)
                     {
+                        Debug.Log("I DID IT");
                         //ok cool we are triggering the final boss. what dialogue are we playing
                         switch (BossSaveData.GetNumberOfCondemned())
                         {
                             //If they are talking to the speaker, they have condemned *someone*.
                             case 1:
+                                Debug.Log("should start conflicted");
                                 dialogueSTART("Endings/Conflicted/withSpeaker/onecondemned");
                                 return;
                             case 2:
+                                Debug.Log("shoudlstarttwo conflicted");
                                 dialogueSTART("Endings/Conflicted/withSpeaker/twocondemned");
                                 return;
                             case 3:
+                                Debug.Log("should start condemn");
                                 dialogueSTART("Endings/Condemn/beginCondemn");
                                 return;
                         }
@@ -389,7 +395,7 @@ public class mainDialogueManager : MonoBehaviour
                     Time.timeScale = 1f;
                     break;
             }
-
+            OpenPauseMenu.GLOBALcanOpenPause = false;
             //switch (currentlyRunningText) // if this is the end of a route
             //{
             //    case "end_genocide":// 0 = everyone dead
@@ -432,12 +438,15 @@ public class mainDialogueManager : MonoBehaviour
             bottom.DOMove(tweenOutPositions[1].transform.position, 2).SetUpdate(true).SetEase(Ease.OutCubic);
             //CHANGE THIS KATIE YOU ARE STUPID AND NEED TO DIE
 
-            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack);
+            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack).OnComplete(() =>
+            {
+                OpenPauseMenu.canOpenPause = true;
+                OpenPauseMenu.GLOBALcanOpenPause = true;
+            });
             if (equipmentMenu)
             {
                 equipmentMenu.GetComponent<CanvasGroup>().DOFade(1, 1f).SetUpdate(true);
             }
-            OpenPauseMenu.canOpenPause = true;
             //.OnComplete(() => { SceneManager.LoadScene("Overworld"); });
             //if (isBoss)
             //{

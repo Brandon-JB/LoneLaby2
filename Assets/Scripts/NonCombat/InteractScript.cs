@@ -166,10 +166,8 @@ public class InteractScript : MonoBehaviour
             {
                 //Quest HAS been picked up and COMPLETED
                 mainDialogueManager.dialogueSTART(dialogue3);
-                return;
             } else if (QuestManager.questStates.ContainsKey(NPCName))
             {
-                //Finish SQ Dialogue
                 //Quest has been picked up, not completed
                 mainDialogueManager.dialogueSTART(dialogue2);
             }
