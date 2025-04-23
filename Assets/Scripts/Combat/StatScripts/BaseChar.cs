@@ -252,8 +252,11 @@ public class BaseChar : MonoBehaviour
 
         if (allied)
         {
-            healthBar.text = GetHealth() + "/" + GetMaxHealth();
-            hpSlider.value = ((float)GetHealth()) / GetMaxHealth();
+            if (healthBar != null)
+            {
+                healthBar.text = GetHealth() + "/" + GetMaxHealth();
+                hpSlider.value = ((float)GetHealth()) / GetMaxHealth();
+            }
         }
 
         
@@ -289,8 +292,11 @@ public class BaseChar : MonoBehaviour
 
         if (allied)
         {
-            manaBar.text = GetMana() + "/" + GetMaxMana();
-            mpSlider.value = ((float)GetMana()) / GetMaxMana();
+            if (manaBar != null)
+            {
+                manaBar.text = GetMana() + "/" + GetMaxMana();
+                mpSlider.value = ((float)GetMana()) / GetMaxMana();
+            }
         }
       
     }
