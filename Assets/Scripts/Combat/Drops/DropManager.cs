@@ -38,6 +38,7 @@ public class DropManager : MonoBehaviour
 
         //randomNum = 30;
 
+
         if (randomNum >= 1 && randomNum <= 23)
         {
             //Debug.Log("Nothing");

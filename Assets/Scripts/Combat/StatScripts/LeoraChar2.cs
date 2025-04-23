@@ -115,6 +115,14 @@ public class LeoraChar2 : BaseChar
         
     }
 
+    public override void StopAttackAnim()
+    {
+        base.StopAttackAnim();
+
+        hitboxChild.SetActive(false);
+        hbChildScript.alreadyHit = false;
+    }
+
     public override void GotDamaged(int incomingDamage, GameObject otherAttacker, float stMod)
     {
         base.GotDamaged(incomingDamage, otherAttacker, stMod);
@@ -134,6 +142,16 @@ public class LeoraChar2 : BaseChar
         }
 
         base.Heal(healAmount);
+    }
+
+    public override void RestoreMana(int restoreAmount)
+    {
+        if (leoraFaceAnimator)
+        {
+            leoraFaceAnimator.SetTrigger("mana");
+        }
+
+        base.RestoreMana(restoreAmount);
     }
 
     public override void TriggerHurtAnim()

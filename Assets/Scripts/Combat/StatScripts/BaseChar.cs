@@ -176,7 +176,7 @@ public class BaseChar : MonoBehaviour
     [SerializeField] private Vector2 knockbackDirection = Vector2.zero;
     private float strength = 25f;
 
-    [SerializeField] private GameObject hitboxChild = null;
+    [SerializeField] public GameObject hitboxChild = null;
     [SerializeField] public HitboxChar hbChildScript;
 
     [SerializeField] public GameObject damagePopup;
@@ -301,7 +301,7 @@ public class BaseChar : MonoBehaviour
       
     }
 
-    public void RestoreMana(int restoreAmount)
+    public virtual void RestoreMana(int restoreAmount)
     {
         SetMana(GetMana() + restoreAmount);
 
@@ -319,7 +319,7 @@ public class BaseChar : MonoBehaviour
         animator.SetBool("Attacking", true);
     }
 
-    public void StopAttackAnim()
+    public virtual void StopAttackAnim()
     {
         animator.SetBool("Attacking", false);
     }
