@@ -14,23 +14,28 @@ SetSprite(lucan thinking)
 lucan "...I was like you once. A loyal hound, eager to serve. I knew the Order's game and played my part."
 SetSprite(lucan lucan)
 lucan "But one mistake—one moment of defiance—and I was cast aside. They would rather see me dead than acknowledge their own folly. My oath? I care nothing for it. I did what was right."
-lucan "That is the difference between us, Justiciar. I follow what is right—you follow what you are told."
-lucan "What happens when the Order commands you to take an innocent life? Will you obey without question?"
+lucan "That is the difference between us, Justiciar. I follow what is <i>right</i>—you follow what you are <i>told</i>."
+lucan "What will happen when <i>you</i> slip up? When <i>you</i> don't follow your orders until the end?"
 Highlight(leora -o true)
-leora "... The Order would never demand such a thing."
+leora "I will not ''slip up''. I am a knight. I will follow orders until the end, and that is just. Your sense of justice is colored by failure, and it is influencing the people of Isen."
+leora "I know of your collective. You're gathering outcasts, building a rebellion. I will not stand idle while a traitor amasses power."
 Highlight(lucan -o true)
-lucan "Would they not? You speak of Zaro's missing citizens—have you ever considered the Order's hand in their disappearance?"
+lucan "...You think this ''collective'' is some grand rebellion? That I'm plotting to overthrow Zaro with outcasts and beggars?"
+lucan "They found <i>me</i>. People cast out for stealing bread, speaking too freely, refusing to kneel. The Order didn't care about the reasons. Only the law."
 Highlight(leora -o true)
-leora "You dare accuse the Order of kidnapping?"
+leora "And you took them in. You gave them weapons. Shelter. Leadership."
 Highlight(lucan -o true)
+lucan "I gave them <i>options</i>. That's more than your Order ever did."
 SetSprite(lucan thinking)
-lucan "Similar cases broke out in my days under the oath."
+lucan "However, there is talk of rebellion, I will not deny it. They want me as their leader. I tell them I want no part in it."
 SetSprite(lucan lucan)
-lucan "It is an obedience test— a ploy they pull when they wish for their enemy's quick demise. Capture a few people from the slums, accuse someone they need gone, and wait for their justiciars to carry out their orders. This is a ruse, Dame."
+lucan "Who am I to stop them? Let them burn what tried to burn them."
 Highlight(leora -o true)
-leora "No... You're distorting the truth. Hundreds died because of you. You're only lying to protect yourself."
+SetSprite(leora REALLYangry)
+leora "Enough."
+leora "You think stepping aside absolves you? You speak as though you are the victim, when the blood of hundreds stains your hands. You disobeyed orders. You sparked a massacre. And now you twist others to serve your failed cause."
 Highlight(lucan -o true)
-lucan "Then do it. Condemn me. Sentence me to death over one order."
+lucan "Then do it. Condemn me. Sentence me to death over <i>one</i> order."
 Hide(lucan)
 Hide(leora)
 endDialogue(false)
