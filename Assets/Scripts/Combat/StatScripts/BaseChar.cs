@@ -113,12 +113,12 @@ public class BaseChar : MonoBehaviour
 
         if (allied)
         {
-            if (stat == "MaxHealth")
+            if (stat == "MaxHealth" && healthBar != null)
             {
                 healthBar.text = GetHealth() + "/" + GetMaxHealth();
                 hpSlider.value = ((float)GetHealth()) / GetMaxHealth();
             }
-            else if (stat == "MaxMana")
+            else if (stat == "MaxMana" && manaBar != null)
             {
                 manaBar.text = GetMana() + "/" + GetMaxMana();
                 mpSlider.value = ((float)GetMana()) / GetMaxMana();

@@ -11,6 +11,8 @@ public class ItemMenu : MonoBehaviour
 {
     [SerializeField] private GameObject menu;
     private Animator leoraAnimator;
+    public Sprite idleSprite;
+    private SpriteRenderer sr;
     //Reference Leora if we want her sprite to change? should I just do an overlay? I might just do that
 
 
@@ -33,6 +35,18 @@ public class ItemMenu : MonoBehaviour
 
     public void CloseMenu()
     {
+        if (leoraAnimator.gameObject.name == "Player")
+        {
+            sr = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>();
+            sr.sprite = idleSprite;
+        }
+        
+        /*else if (leoraAnimator.gameObject.name == "CombatPlayer")
+        {
+            sr = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<SpriteRenderer>();
+        }*/
+        
+
         EventSystem.current.SetSelectedGameObject(null);
         OpenPauseMenu.pauseOpened = false;
         itemImage.gameObject.SetActive(false);
