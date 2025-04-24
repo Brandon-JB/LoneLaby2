@@ -74192,6 +74192,7 @@ GameObject:
   - component: {fileID: 531956836}
   - component: {fileID: 531956835}
   - component: {fileID: 531956839}
+  - component: {fileID: 531956840}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -74322,6 +74323,18 @@ MonoBehaviour:
   MDM: {fileID: 1211530839}
   tutorial: {fileID: 0}
   fileName: IvarQuest/manor_entry
+--- !u!114 &531956840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531956833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd32a772642207f44a0f2a0d7b198064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &532395729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84487,6 +84500,10 @@ PrefabInstance:
     - target: {fileID: 8940570630105431960, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940570630105431961, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431962, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_Name

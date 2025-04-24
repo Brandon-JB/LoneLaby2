@@ -129347,6 +129347,7 @@ GameObject:
   - component: {fileID: 1496202259}
   - component: {fileID: 1496202258}
   - component: {fileID: 1496202262}
+  - component: {fileID: 1496202263}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -129477,6 +129478,18 @@ MonoBehaviour:
   MDM: {fileID: 1607524627}
   tutorial: {fileID: 0}
   fileName: LucanQuest/cave_entry
+--- !u!114 &1496202263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496202256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd32a772642207f44a0f2a0d7b198064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1520133133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7487041304306391987, guid: 0c249aeb38e96bf49ba35c7a0561696d, type: 3}
@@ -138745,11 +138758,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431960, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 118.6
+      value: 118.64
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431960, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.7
+      value: -15.67
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431960, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -138782,6 +138795,10 @@ PrefabInstance:
     - target: {fileID: 8940570630105431960, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940570630105431961, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8940570630105431962, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_Name
