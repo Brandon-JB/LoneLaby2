@@ -156,7 +156,7 @@ public class IvarScript : MonoBehaviour
                     bigCasting = false;
                     ivarChar.animator.SetBool("bigAttack", false);
                     timeUntilBigAttack.Interupted();
-                    darknessEffect.SetActive(false);
+                    darknessEffect.GetComponent<ivarDark>().closeMenu();
 
                     //Sending Ivar and player back to normal area
                     Player.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, ((bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2) - 2);
@@ -166,7 +166,7 @@ public class IvarScript : MonoBehaviour
                 {
                     bigCasting = false;
                     ivarChar.animator.SetBool("bigAttack", false);
-                    darknessEffect.SetActive(false);
+                    darknessEffect.GetComponent<ivarDark>().closeMenu();
 
                     //Sending Ivar and player back to normal arena
                     Player.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, ((bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2) - 2);
@@ -185,6 +185,7 @@ public class IvarScript : MonoBehaviour
     private void TriggerTPCast()
     {
         playerSprite.sortingLayerName = "SolidObjects";
+        darknessEffect.SetActive(true);
         ivarChar.animator.SetBool("tpCast", true);
         ivarChar.animator.SetBool("bigAttack", true);
     }
@@ -223,7 +224,7 @@ public class IvarScript : MonoBehaviour
             case 1:
                 Player.transform.position = firstTPObject.transform.position;
                 this.transform.position = ivarFirstTPObject.transform.position;
-                darknessEffect.SetActive(true);
+                //darknessEffect.SetActive(true);
                 firstTeleportHappened = true;
                 timeUntilBigAttack.cooldownTime = firstTPTime;
                 ivartext.openText(teleportNum, firstTPTime);
@@ -232,7 +233,7 @@ public class IvarScript : MonoBehaviour
             case 2:
                 Player.transform.position = secondTPObject.transform.position;
                 this.transform.position = ivarSecondTPObject.transform.position;
-                darknessEffect.SetActive(true);
+                //darknessEffect.SetActive(true);
                 secondTeleportHappened = true;
                 timeUntilBigAttack.cooldownTime = secondTPTime;
                 ivartext.openText(teleportNum, secondTPTime);
