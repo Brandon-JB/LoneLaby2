@@ -51,6 +51,7 @@ public class IvarScript : MonoBehaviour
     [SerializeField] private float moveSpeed;
 
     [Header("Phase Change")]
+    [SerializeField] private SpriteRenderer playerSprite;
     public GameObject darknessEffect;
     private bool firstTeleportHappened;
     public GameObject firstTPObject;
@@ -81,6 +82,7 @@ public class IvarScript : MonoBehaviour
 
         Player = GameObject.Find("CombatPlayer");
         leoraChar = Player.GetComponent<LeoraChar2>();
+        playerSprite = Player.GetComponent<SpriteRenderer>();
 
         firstTeleportHappened = false;
         secondTeleportHappened = false;
@@ -182,6 +184,7 @@ public class IvarScript : MonoBehaviour
 
     private void TriggerTPCast()
     {
+        playerSprite.sortingLayerName = "SolidObjects";
         ivarChar.animator.SetBool("tpCast", true);
         ivarChar.animator.SetBool("bigAttack", true);
     }
@@ -189,6 +192,7 @@ public class IvarScript : MonoBehaviour
     public void StopTPCast()
     {
         ivarChar.animator.SetBool("tpCast", false);
+        playerSprite.sortingLayerName = "Default";
     }
 
     public void SelfTeleport()
