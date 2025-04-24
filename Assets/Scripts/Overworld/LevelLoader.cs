@@ -53,7 +53,7 @@ public class LevelLoader : MonoBehaviour
 
         animator[0].SetTrigger("Start");
 
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSecondsRealtime(transitionTime);
 
         OpenPauseMenu.GLOBALcanOpenPause = true;
         SceneManager.LoadScene(SceneName);

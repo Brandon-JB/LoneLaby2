@@ -16,7 +16,7 @@ public class PortalScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        PlayerMovement.CanWalk = true;
     }
 
     // Update is called once per frame

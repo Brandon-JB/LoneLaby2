@@ -30,6 +30,7 @@ public class MansionDoorManager : CombatInteraction
 
                 if (InputManager.interactPressed == true)
                 {
+                    audioManager.Instance.playSFX(60);
                     alreadyInteracted = true;
                     Door.SetActive(false);
                     DoorOpened = true;
