@@ -12,6 +12,6 @@ public class TransitionFreezeManager : MonoBehaviour
 
     public void UnFreezeTime()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 1;
     }
 }

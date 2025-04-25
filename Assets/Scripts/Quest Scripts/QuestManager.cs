@@ -55,6 +55,18 @@ public class QuestManager : MonoBehaviour
         return questStates.ContainsKey(questID) && questStates[questID].isComplete;
     }
 
+    public static bool IsOnQuest(string questID)
+    {
+        if (questStates.ContainsKey(questID))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public static void ClearAllQuests()
     {
         questStates.Clear();

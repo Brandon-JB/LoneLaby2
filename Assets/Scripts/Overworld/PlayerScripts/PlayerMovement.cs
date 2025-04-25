@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //animator = GetComponent<Animator>();
         movePoint.parent = null;
+        CanWalk = true;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
