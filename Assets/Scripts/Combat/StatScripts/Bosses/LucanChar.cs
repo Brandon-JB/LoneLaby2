@@ -66,6 +66,16 @@ public class LucanChar : BaseChar
 
     }
 
+    public override void GotDamaged(int incomingDamage, GameObject otherAttacker, float stMod)
+    {
+        base.GotDamaged(incomingDamage, otherAttacker, stMod);
+
+        if (!animator.GetBool("stunned"))
+        {
+            lucanScript.dmgTaken += incomingDamage;
+        }
+    }
+
     public override void Death()
     {
         //if done final attack yet

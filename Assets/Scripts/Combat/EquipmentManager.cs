@@ -10,7 +10,7 @@ public class EquipmentManager : MonoBehaviour
     {
         {"BloodAmulet", false },
         {"MindAmulet", false },
-        {"DarkAmulet", true },
+        {"DarkAmulet", false },
         {"AlanAmulet", false },
         {"KisaAmulet", false },
         {"SophieAmulet", false },

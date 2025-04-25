@@ -23,12 +23,16 @@ public class LucanScript : EnemyScript
 
     [SerializeField] private int dashCount;
     [SerializeField] private int dashLimit = 4;
-
     [SerializeField] private int dashSpeed = 10;
+
+
     [SerializeField] private GameObject leftDashArrow;
     [SerializeField] private GameObject rightDashArrow;
 
     public bool inFinalPhase;
+
+    public int damageLimit = 65;
+    public int dmgTaken = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -263,6 +267,33 @@ public class LucanScript : EnemyScript
             //Movement
             if (canMove == true && enemyChar.animator.GetBool("Attacking") == false)
             {
+                if (dmgTaken >= damageLimit)
+                {
+                    dmgTaken = 0;
+
+                    isDashing = true;
+
+                    enemyChar.animator.SetBool("shieldRush", true);
+
+                    //Lucan goes to the left side
+                    if (Random.Range(0, 2) == 0)
+                    {
+                        //Setting dash animation and marking the side he dashes to
+                        enemyChar.animator.SetFloat("moveX", -1);
+                        dashTarget = new Vector2(bottomLeftArenaBounds.x, this.transform.position.y);
+                    }
+                    //Lucan goes to the right side
+                    else
+                    {
+                        //Setting dash animation and marking the side he dashes to
+                        enemyChar.animator.SetFloat("moveX", 1);
+                        dashTarget = new Vector2(topRightArenaBounds.x, this.transform.position.y);
+                    }
+
+                    return;
+                }
+
+
                 if (!dashCooldown.isCoolingDown && !isDashing)
                 {
                     dashCooldown.StartCooldown();
@@ -288,12 +319,15 @@ public class LucanScript : EnemyScript
                             enemyChar.animator.SetFloat("moveX", 1);
                             dashTarget = new Vector2(topRightArenaBounds.x, this.transform.position.y);
                         }
+
+                        return;
                     }
                     else
                     {
                         Debug.Log("Don't do dash");
                     }
                 }
+
 
                 enemyRB.velocity = Vector2.zero;
 
