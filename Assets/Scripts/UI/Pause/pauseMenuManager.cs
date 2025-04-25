@@ -28,6 +28,8 @@ public class pauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject[] objectsToTurnOff;
 
     [SerializeField] private GameObject deleteSaveMenu;
+    [SerializeField] private GameObject sideQuestBTN;
+    [SerializeField] private GameObject mainQuestBTN;
 
 
     private void OnEnable()
@@ -82,6 +84,9 @@ public class pauseMenuManager : MonoBehaviour
             questBack.alpha = 0f;
             questBack.gameObject.SetActive(true);
             questBack.DOFade(1, 1f).SetUpdate(true);
+            //Bring out the start sq buttn
+            sideQuestBTN.SetActive(true);
+            sideQuestBTN.transform.DOMoveX(questsLocations[3].position.x, 1f).SetUpdate(true);
         });
 
         leoraAnimator.SetTrigger("enterQuest");
@@ -133,6 +138,12 @@ public class pauseMenuManager : MonoBehaviour
         } else
         {
             leoraAnimator.SetTrigger("exitQuest");
+            mainQuestBTN.transform.DOMoveX(questsLocations[4].position.x, 1f).SetUpdate(true).OnComplete(() => {
+                mainQuestBTN.gameObject.SetActive(false);
+            });
+            sideQuestBTN.transform.DOMoveX(questsLocations[4].position.x, 1f).SetUpdate(true).OnComplete(() => {
+                sideQuestBTN.gameObject.SetActive(false);
+            });
         }
 
         equipBack.DOFade(0, 0.5f).SetUpdate(true).OnComplete(() => {

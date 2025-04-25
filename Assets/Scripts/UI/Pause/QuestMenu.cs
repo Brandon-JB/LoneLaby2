@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Text.RegularExpressions;
 using System;
+using UnityEngine.SceneManagement;
 
 public class QuestMenu : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class QuestMenu : MonoBehaviour
 
     [SerializeField] private Transform wholeQuestMenu;
     [SerializeField] private Transform[] locations;
+    [SerializeField] private Transform sideQuestBtn;
+    [SerializeField] private Transform mainQuestBtn;
 
     private string[] ivarDescriptions = { 
     //Ivar unobtained
@@ -82,11 +85,17 @@ public class QuestMenu : MonoBehaviour
     public void GoToSideQuest()
     {
         wholeQuestMenu.DOMove(locations[1].position, 1f).SetUpdate(true);
+        sideQuestBtn.DOMoveX(locations[4].position.x, 0.5f).SetUpdate(true).OnComplete(() => { sideQuestBtn.gameObject.SetActive(false); });
+        mainQuestBtn.gameObject.SetActive(true);
+        mainQuestBtn.DOMoveX(locations[3].position.x, 1f).SetUpdate(true);
     }
 
     public void GoToCoreQuests()
     {
         wholeQuestMenu.DOMove(locations[0].position, 1f).SetUpdate(true);
+        sideQuestBtn.gameObject.SetActive(true);
+        sideQuestBtn.DOMoveX(locations[2].position.x, 1f).SetUpdate(true);
+        mainQuestBtn.DOMoveX(locations[4].position.x, 0.5f).SetUpdate(true).OnComplete(() => { mainQuestBtn.gameObject.SetActive(false); });
     }
 
     private void OnEnable()
@@ -107,6 +116,8 @@ public class QuestMenu : MonoBehaviour
         FindStatus("Sophie", sophDescriptions, sophieColors, sophieobj, sophieDesc);
         //Move back
         wholeQuestMenu.DOMove(locations[0].position, 0f).SetUpdate(true);
+        sideQuestBtn.DOMoveX(locations[4].position.x, 0f).SetUpdate(true).OnComplete(() => { sideQuestBtn.gameObject.SetActive(false); });
+        mainQuestBtn.DOMoveX(locations[4].position.x, 0f).SetUpdate(true).OnComplete(() => { mainQuestBtn.gameObject.SetActive(false); });
     }
 
     private void FindStatus(string questName, string[] descriptionOptions, Color[] colorOptions, GameObject[] characterImages, TextMeshProUGUI[] description)
