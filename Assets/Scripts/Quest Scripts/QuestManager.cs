@@ -27,6 +27,7 @@ public class QuestManager : MonoBehaviour
     // Call this to start a quest
     public static void StartQuest(string questID, int requiredProgress)
     {
+
         if (!questStates.ContainsKey(questID))
             questStates.Add(questID, new QuestData(questID, requiredProgress));
     }
@@ -57,7 +58,8 @@ public class QuestManager : MonoBehaviour
 
     public static bool IsOnQuest(string questID)
     {
-        if (questStates.ContainsKey(questID))
+        if (!questStates.ContainsKey(questID)) return false;
+        if (questStates[questID].isActive)
         {
             return true;
         }

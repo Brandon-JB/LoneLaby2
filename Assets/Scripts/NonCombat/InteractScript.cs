@@ -119,15 +119,12 @@ public class InteractScript : MonoBehaviour
         switch (NPCName)
         {
             case "Alan":
-                QuestManager.StartQuest(NPCName, 5);
                 findDialogueToPlay(NPCName, "SideQuests/getAlanQuest", "SideQuests/midAlanQuest", "SideQuests/finAlanQuest", "SideQuests/postAlanQuest", "AlanAmulet");
                 break;
             case "Kisa":
-                QuestManager.StartQuest(NPCName, 5);
                 findDialogueToPlay(NPCName, "SideQuests/getKisaQuest", "SideQuests/midKisaQuest", "SideQuests/finKisaQuest", "SideQuests/postKisaQuest", "KisaAmulet");
                 break;
             case "Sophie":
-                QuestManager.StartQuest(NPCName, 5);
                 findDialogueToPlay(NPCName, "SideQuests/getSophQuest", "SideQuests/midSophQuest", "SideQuests/finSophQuest", "SideQuests/postSophQuest", "SophieAmulet");
                 break;
             case "Vaang":
@@ -170,10 +167,18 @@ public class InteractScript : MonoBehaviour
             {
                 //Quest HAS been picked up and COMPLETED
                 mainDialogueManager.dialogueSTART(dialogue3);
-            } else if (QuestManager.questStates.ContainsKey(NPCName))
+            } else if (QuestManager.IsOnQuest(NPCName))
             {
                 //Quest has been picked up, not completed
+                Debug.Log("They have the quest picked up");
                 mainDialogueManager.dialogueSTART(dialogue2);
+            }
+            else
+            {
+                //They haven't started the quest
+                Debug.Log("They do NOT have the quest picked up");
+                mainDialogueManager.dialogueSTART(dialogue1);
+                QuestManager.StartQuest(NPCName, 5);
             }
         }
         catch (Exception)

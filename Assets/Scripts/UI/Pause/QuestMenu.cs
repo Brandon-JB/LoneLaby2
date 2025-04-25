@@ -111,17 +111,28 @@ public class QuestMenu : MonoBehaviour
         FindStatus("Viin", viinDescriptions, viinColors, viinImages, description[1]);
         FindStatus("Lucan", lucanDescriptions, lucanColors, lucanImages, description[2]);
 
-        FindStatus("Alan", alanDescriptions, alanColors, alanobj, alanDesc);
-        FindStatus("Kisa", kisaDescriptions, kisaColors, kisaobj, kisaDesc);
-        FindStatus("Sophie", sophDescriptions, sophieColors, sophieobj, sophieDesc);
+        FindStatus("Alan", alanDescriptions, alanColors, alanobj, alanDesc, "AlanAmulet");
+        FindStatus("Kisa", kisaDescriptions, kisaColors, kisaobj, kisaDesc, "KisaAmulet");
+        FindStatus("Sophie", sophDescriptions, sophieColors, sophieobj, sophieDesc, "SophieAmulet");
         //Move back
         wholeQuestMenu.DOMove(locations[0].position, 0f).SetUpdate(true);
         sideQuestBtn.DOMoveX(locations[4].position.x, 0f).SetUpdate(true).OnComplete(() => { sideQuestBtn.gameObject.SetActive(false); });
         mainQuestBtn.DOMoveX(locations[4].position.x, 0f).SetUpdate(true).OnComplete(() => { mainQuestBtn.gameObject.SetActive(false); });
     }
 
-    private void FindStatus(string questName, string[] descriptionOptions, Color[] colorOptions, GameObject[] characterImages, TextMeshProUGUI[] description)
+    private void FindStatus(string questName, string[] descriptionOptions, Color[] colorOptions, GameObject[] characterImages, TextMeshProUGUI[] description, string amuletName)
     {
+        //ORDER TO CHECK IN:
+
+        //Do they have the amulet?
+
+        //Have they completed the quest?
+
+        //Have they picked up the quest?
+
+        //If it reaches here, they have not completed the quest
+
+
         try
         {
             //They have begun the quest.
@@ -129,20 +140,35 @@ public class QuestMenu : MonoBehaviour
             description[0].text = questName.ToUpper();
             characterImages[1].gameObject.SetActive(true);
 
-            //Check if they completed the quest or not
-            if (QuestManager.IsQuestComplete(questName))
+            if (EquipmentManager.equipmentObtained[amuletName])
             {
-                //Quest HAS been picked up and COMPLETED
+                //They have completed the quest AND obtained the reward
                 description[1].text = descriptionOptions[2];
                 return;
             }
-
-            //Quest has been picked up, not completed
-            description[1].text = Regex.Replace(
-                descriptionOptions[1],
-                @"\(\d+\/",
-                $"({QuestManager.questStates[questName].currentProgress}/"
-            );
+            //Check if they completed the quest or not
+            if (QuestManager.IsQuestComplete(questName))
+            {
+                //They have completed the quest, but have not gone back for the reward
+                description[1].text = "Return to Zaro for your reward!";
+                return;
+            } else if (QuestManager.IsOnQuest(questName))
+            {
+                //They have picked up the quest
+                //Quest has been picked up, not completed
+                description[1].text = Regex.Replace(
+                    descriptionOptions[1],
+                    @"\(\d+\/",
+                    $"({QuestManager.questStates[questName].currentProgress}/"
+                );
+            } else
+            {
+                //Quest has not been picked up
+                characterImages[0].GetComponent<Image>().color = colorOptions[1];
+                description[0].text = "???";
+                description[1].text = descriptionOptions[0];
+                characterImages[1].gameObject.SetActive(false);
+            }
         }
         catch (Exception)
         {
