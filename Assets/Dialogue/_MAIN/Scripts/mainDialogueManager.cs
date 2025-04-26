@@ -309,45 +309,39 @@ public class mainDialogueManager : MonoBehaviour
                 case "LucanQuest/cave_postfight_saveVerita":
                 case "IvarQuest/manor_postfight_saveVerita":
                 case "ViinQuest/veinwood_postfight_saveVerita":
-                    if (BossSaveData.GetNumberOfBossesObtained() == 3)
+                    //ok cool we are triggering the final boss. what dialogue are we playing
+                    switch (BossSaveData.GetNumberOfCondemned())
                     {
-                        //ok cool we are triggering the final boss. what dialogue are we playing
-                        switch(BossSaveData.GetNumberOfCondemned())
-                        {
-                            case 0:
-                                Debug.Log("Should be beginning compassion");
-                                dialogueSTART("Endings/Compassion/beginCompassion");
-                                return;
-                            default:
-                                Debug.Log("Should be grabbing leora to show her final cutscene");
-                                dialogueSTART("Endings/Conflicted/withVerita/grabLeora");
-                                return;
-                        }
+                        case 0:
+                            Debug.Log("Should be beginning compassion");
+                            dialogueSTART("Endings/Compassion/beginCompassion");
+                            return;
+                        default:
+                            Debug.Log("Should be grabbing leora to show her final cutscene");
+                            dialogueSTART("Endings/Conflicted/withVerita/grabLeora");
+                            return;
                     }
                     break;
                 case "LucanQuest/cave_postfight_condemnSpeaker":
                 case "IvarQuest/manor_postfight_condemnSpeaker":
                 case "ViinQuest/veinwood_postfight_condemnSpeaker":
-                    if (BossSaveData.GetNumberOfBossesObtained() == 3)
+                    Debug.Log("I DID IT");
+                    //ok cool we are triggering the final boss. what dialogue are we playing
+                    switch (BossSaveData.GetNumberOfCondemned())
                     {
-                        Debug.Log("I DID IT");
-                        //ok cool we are triggering the final boss. what dialogue are we playing
-                        switch (BossSaveData.GetNumberOfCondemned())
-                        {
-                            //If they are talking to the speaker, they have condemned *someone*.
-                            case 1:
-                                Debug.Log("should start conflicted");
-                                dialogueSTART("Endings/Conflicted/withSpeaker/onecondemned");
-                                return;
-                            case 2:
-                                Debug.Log("shoudlstarttwo conflicted");
-                                dialogueSTART("Endings/Conflicted/withSpeaker/twocondemned");
-                                return;
-                            case 3:
-                                Debug.Log("should start condemn");
-                                dialogueSTART("Endings/Condemn/beginCondemn");
-                                return;
-                        }
+                        //If they are talking to the speaker, they have condemned *someone*.
+                        case 1:
+                            Debug.Log("should start conflicted");
+                            dialogueSTART("Endings/Conflicted/withSpeaker/onecondemned");
+                            return;
+                        case 2:
+                            Debug.Log("shoudlstarttwo conflicted");
+                            dialogueSTART("Endings/Conflicted/withSpeaker/twocondemned");
+                            return;
+                        case 3:
+                            Debug.Log("should start condemn");
+                            dialogueSTART("Endings/Condemn/beginCondemn");
+                            return;
                     }
                     break;
                 case "Endings/Compassion/beginCompassion":

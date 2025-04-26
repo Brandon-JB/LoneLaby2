@@ -36,6 +36,4 @@ Highlight(verita -o true)
 verita "<b>Child of the Light... that, I cannot answer. But know this—in sparing Viin, thou hast also saved Vaang.</b>"
 verita "<b>Their fates are balanced, like two weights upon a scale. Viin takes life, yet Vaang nurtures it. This is why thou didst choose mercy, is it not?</b>"
 verita "<b>Go now, Justiciar of Light. Though bound by the Order's oath, let not thy mind be bound with it.</b>"
-Hide(verita)
-Hide(leora)
-goTo(NoCombatAreas)
+endDialogue(NoCombatAreas)

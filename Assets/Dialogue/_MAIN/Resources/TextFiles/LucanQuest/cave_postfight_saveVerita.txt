@@ -33,6 +33,4 @@ SetSprite(leora eyesClosed)
 leora "(I... T-thank you, Verita. This blessing means more than I can express.)"
 Highlight(verita -o true)
 verita "<b>Go now, Justiciar of Light. Though bound by the Order's oath, let not thy mind be bound with it.</b>"
-Hide(verita)
-Hide(leora)
-goTo(NoCombatAreas)
+endDialogue(NoCombatAreas)

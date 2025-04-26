@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using static UnityEditor.Progress;
 
 namespace COMMANDS
 {
@@ -39,17 +40,20 @@ namespace COMMANDS
         {
             MainDiaManager = GameObject.FindGameObjectWithTag("MainDialogueManager").GetComponent<mainDialogueManager>();
 
-            if (isBoss.ToLower() == "true")
-            {
-                MainDiaManager.dialogueEND(true);
-            }
-            else if (isBoss.ToLower() == "false")
+            if (isBoss.ToLower() == "false")
             {
                 MainDiaManager.dialogueEND(false);
-            }
-            else
+            } else
             {
-                Debug.Log(isBoss + " needs to be a true or a false.");
+                //there's a chance this could end the game. check, and if it doesn't run goTo
+                if (BossSaveData.GetNumberOfBossesObtained() == 3)
+                {
+                    MainDiaManager.dialogueEND(true);
+                }
+                else
+                {
+                    goTo(isBoss);
+                }
             }
         }
 
