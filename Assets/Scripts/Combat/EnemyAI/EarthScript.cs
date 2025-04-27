@@ -50,6 +50,7 @@ public class EarthScript : EnemyScript
             if ((DistanceFromPlayer <= followRange && DistanceFromPlayer > attackRange))
             {
                 enemyChar.animator.SetBool("isActive", true);
+                followRange += followRange;
             }
         }
 
