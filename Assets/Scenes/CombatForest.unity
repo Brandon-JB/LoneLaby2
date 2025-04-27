@@ -324640,6 +324640,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8214764589442215997, guid: 4fb694f7aaaec4f418eb9c212449033b, type: 3}
+      propertyPath: attackCooldown.cooldownTime
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214764589442215997, guid: 4fb694f7aaaec4f418eb9c212449033b, type: 3}
       propertyPath: bloodCrystals.Array.data[0]
       value: 
       objectReference: {fileID: 1344426140}

@@ -372,6 +372,7 @@ public class LeoraChar2 : BaseChar
                                 if (isPerfectParrying || isParrying)
                                 {
                                     audioManager.Instance.playSFX(5);
+                                    otherCharTrigger.DisableHitbox();
                                     otherCharTrigger.animator.SetBool("stunned", true);
                                 }
                                 else
