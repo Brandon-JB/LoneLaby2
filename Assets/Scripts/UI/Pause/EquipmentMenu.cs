@@ -127,6 +127,18 @@ public class EquipmentMenu : MonoBehaviour
                     hudEquipment = FindObjectOfType<HUD_Equipment>();
                 }
                 LeoraShadowEquipment[slotNumber].sprite = hudEquipment.uglyAssSwitchStatement(equip.Key, slotNumber == 1? amuletsForLeoraShadow : ringsForLeoraShadow);
+
+
+                //KATIE. please. fix this at some point dear god
+                if(equip.Key == "ATKHPRing")
+                {
+                    uiImages[8].SetActive(true);
+                    return uiImages[8];
+                } else if (equip.Key == "ATKMPRing")
+                {
+                    uiImages[6].SetActive(true);
+                    return uiImages[6];
+                }
                 uiImages[i].SetActive(true);
                 return uiImages[i];
             }
