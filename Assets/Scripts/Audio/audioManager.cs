@@ -42,7 +42,6 @@ public class audioManager : MonoBehaviour
     {
         Debug.Log("New Scene Loaded: " + scene.name);
         int speedForLoad = 1;
-        stopBGM(1);
 
         switch (scene.name)
         {
@@ -176,6 +175,7 @@ public class audioManager : MonoBehaviour
         }
         if (currentlyPlaying)
         {
+            Debug.Log("leaving audio " + currentlyPlaying.name);
             if (playingMusicAfter)
             {
                 currentlyPlaying.DOFade(0, (speed - 0.05f)).OnComplete(() => { 

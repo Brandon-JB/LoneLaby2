@@ -64,6 +64,10 @@ public class pauseMenuManager : MonoBehaviour
         equipTXT.alpha = 0;
         optionsTXT.alpha = 0;
         leoraAnimatorEquipment.alpha = 0;
+        mainQuestBTN.gameObject.SetActive(false);
+        sideQuestBTN.gameObject.SetActive(false);
+        mainQuestBTN.transform.DOMoveX(questsLocations[4].position.x, 0f).SetUpdate(true);
+        sideQuestBTN.transform.DOMoveX(questsLocations[4].position.x, 0f).SetUpdate(true);
 
         //Make sure everything that should be off is off
         foreach (GameObject obj in objectsToTurnOff)
