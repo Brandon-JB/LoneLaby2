@@ -344,22 +344,6 @@ public class mainDialogueManager : MonoBehaviour
                             return;
                     }
                     break;
-                case "Endings/Compassion/beginCompassion":
-                    dialogueSTART("Endings/Compassion/speakerCompassion");
-                    break;
-                case "Endings/Conflicted/withVerita/grabLeora":
-                    //ok cool we are triggering the final boss. what dialogue are we playing
-                    switch (BossSaveData.GetNumberOfCondemned())
-                    {
-                        //If they are talking to the speaker, they have condemned *someone*.
-                        case 1:
-                            dialogueSTART("Endings/Conflicted/withVerita/onecondemned");
-                            return;
-                        case 2:
-                            dialogueSTART("Endings/Conflicted/withVerita/twocondemned");
-                            return;
-                    }
-                    break;
                 case "SideQuests/getAlanQuest":
                 case "SideQuests/getKisaQuest":
                 case "SideQuests/getSophQuest":
@@ -425,6 +409,46 @@ public class mainDialogueManager : MonoBehaviour
             //        fadeOut.DOFade(1, 3).OnComplete(() => { SceneManager.LoadScene("Credits"); });
             //        return;
             //}
+
+            switch (currentlyRunningText)
+            {
+                case "Endings/Compassion/beginCompassion":
+                    continueTextPrompt.SetActive(false);
+                    top.DOMove(tweenOutPositions[0].transform.position, 2).SetUpdate(true).SetEase(Ease.OutCubic);
+                    bottom.DOMove(tweenOutPositions[1].transform.position, 2).SetUpdate(true).SetEase(Ease.OutCubic);
+                    dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack).OnComplete(() =>
+                    {
+                        dialogueSTART("Endings/Compassion/speakerCompassion");
+                    });
+                    
+                    break;
+                case "Endings/Conflicted/withVerita/grabLeora":
+                    //ok cool we are triggering the final boss. what dialogue are we playing
+                    switch (BossSaveData.GetNumberOfCondemned())
+                    {
+                        //If they are talking to the speaker, they have condemned *someone*.
+                        case 1:
+                            continueTextPrompt.SetActive(false);
+                            top.DOMove(tweenOutPositions[0].transform.position, 2).SetUpdate(true).SetEase(Ease.OutCubic);
+                            bottom.DOMove(tweenOutPositions[1].transform.position, 2).SetUpdate(true).SetEase(Ease.OutCubic);
+                            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack).OnComplete(() =>
+                            {
+                                dialogueSTART("Endings/Conflicted/withVerita/onecondemned");
+                            });
+                            return;
+                        case 2:
+                            continueTextPrompt.SetActive(false);
+                            top.DOMove(tweenOutPositions[0].transform.position, 2).SetUpdate(true).SetEase(Ease.OutCubic);
+                            bottom.DOMove(tweenOutPositions[1].transform.position, 2).SetUpdate(true).SetEase(Ease.OutCubic);
+                            dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack).OnComplete(() =>
+                            {
+                                dialogueSTART("Endings/Conflicted/withVerita/twocondemned");
+                            });
+                            return;
+                    }
+                    break;
+            }
+
             currentlyRunningText = "";
             GLOBALcurrentlyRunningText = "";
             continueTextPrompt.SetActive(false);

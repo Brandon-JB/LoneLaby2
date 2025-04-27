@@ -48,6 +48,17 @@ namespace COMMANDS
                 //there's a chance this could end the game. check, and if it doesn't run goTo
                 if (BossSaveData.GetNumberOfBossesObtained() == 3)
                 {
+                    if (mainDialogueManager.GLOBALcurrentlyRunningText == "Endings/Conflicted/withVerita/grabLeora" || mainDialogueManager.GLOBALcurrentlyRunningText == "Endings/Compassion/speakerCompassion")
+                    {
+                        CanvasGroup fade = GameObject.FindGameObjectWithTag("CutsceneFade").GetComponent<CanvasGroup>();
+                        fade.DOFade(1, 1f).SetUpdate(true).OnComplete(() =>
+                        {
+                            //move leora idk how to do that
+                            CutsceneSpawnManager.CutsceneSpawnpoint = 0;
+                            GameObject.FindObjectOfType<CutsceneSpawnManager>().moveLeoraOnFly();
+                            fade.DOFade(0, 1f).SetUpdate(true);
+                        });
+                    }
                     MainDiaManager.dialogueEND(true);
                 }
                 else

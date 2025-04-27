@@ -23,7 +23,16 @@ public class CutsceneSpawnManager : MonoBehaviour
         }
 
     }
-
+    public void moveLeoraOnFly()
+    {
+        if (CutsceneSpawnpoint == 0)
+        {
+            Player.transform.position = upstairs.transform.position;
+        } else if (CutsceneSpawnpoint == 1)
+        {
+            Player.transform.position = downstairs.transform.position;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
