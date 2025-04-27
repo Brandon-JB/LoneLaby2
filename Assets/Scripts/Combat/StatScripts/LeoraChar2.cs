@@ -604,7 +604,6 @@ public class LeoraChar2 : BaseChar
 
     public override void Death()
     {
-        
         OpenPauseMenu.GLOBALcanOpenPause = false;
         charRB.constraints = RigidbodyConstraints2D.FreezeAll;
         charRB.velocity = Vector2.zero;
