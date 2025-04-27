@@ -60,6 +60,7 @@ public class EquipmentMenu : MonoBehaviour
 
     private GameObject lastActiveAmulet = null;
     private GameObject lastEquippedRing1 = null;
+    private GameObject lastEquippedRing2 = null;
 
     public void OnEnable()
     {
@@ -84,7 +85,7 @@ public class EquipmentMenu : MonoBehaviour
         //Debug.Log("got through amulets");
         lastEquippedRing1 = checkIfWearing(EquipmentManager.ringSlot1, ringIcons_borders, 0);
         //Debug.Log("got through rings 1");
-        checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders, 2);
+        lastEquippedRing2 =  checkIfWearing(EquipmentManager.ringSlot2, ringIcons_borders, 2);
         //Debug.Log("got through rings 2");
         //FOr magic
         foreach (var equip in EquipmentManager.amuletSlot)
@@ -139,7 +140,11 @@ public class EquipmentMenu : MonoBehaviour
     {
         foreach (var equip in wornEquipment)
         {
-            if (equip.Value == true) return true;
+            if (equip.Value == true)
+            {
+                Debug.Log(equip.Key); 
+                return true;
+            }
         }
         return false;
     }
@@ -179,7 +184,7 @@ public class EquipmentMenu : MonoBehaviour
         {
             Debug.Log(lastActiveAmulet);
 
-            if (lastActiveAmulet) //  != null && lastActiveAmulet != glowToCheckIfEquipped 
+            if (lastActiveAmulet != null && lastActiveAmulet != glowToCheckIfEquipped) 
             {
                 lastActiveAmulet.SetActive(false);
             }
@@ -265,6 +270,8 @@ public class EquipmentMenu : MonoBehaviour
                 //If the equipped ring is in ring slot 2
                 else
                 {
+                    lastEquippedRing2 = glowToCheckIfEquipped;
+
                     equipmentManager.EquipRing2(item, true);
                     if (glowToCheckIfEquipped.activeInHierarchy)
                     {
@@ -307,6 +314,8 @@ public class EquipmentMenu : MonoBehaviour
                     //ring slot two
                     else
                     {
+                        lastEquippedRing2 = glowToCheckIfEquipped;
+
                         equipmentManager.EquipRing2(item, false);
                         if (glowToCheckIfEquipped.activeInHierarchy)
                         {
