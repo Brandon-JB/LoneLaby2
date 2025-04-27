@@ -54,7 +54,7 @@ public class darkLeoraLucanDashAI : BaseChar
     // Update is called once per frame
     public override void Update()
     {
-        if (!timeBetweenDashes.isCoolingDown)
+        if (!timeBetweenDashes.isCoolingDown && !animator.GetBool("stunned"))
         {
             //If Lucan hasn't reached is target yet
             if (Vector2.Distance(enemyRB.transform.position, dashTarget) > 1 && animator.GetBool("stunned") == false) 
