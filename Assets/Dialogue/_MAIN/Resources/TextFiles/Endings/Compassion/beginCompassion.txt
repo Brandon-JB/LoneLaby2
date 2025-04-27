@@ -1,6 +1,5 @@
 CreateCharacter(severin -enabled false)
 severin.Move(1.25 0 -spd 1000)
-wait(0.5)
 Show(severin)
 Highlight(severin -o true)
 verita.Move(1.25 0 -spd 3)

@@ -1,6 +1,5 @@
 CreateCharacter(severin -enabled false)
 severin.Move(1.25 0 -spd 1000)
-wait(0.5)
 Show(severin)
 Highlight(severin -o true)
 verita.Move(1.25 0 -spd 3)
@@ -10,4 +9,6 @@ severin "Leora. Halt your prayers. The Speaker summons you."
 Highlight(leora -o true)
 SetSprite(leora leora)
 leora "Give me but a moment. I will be up shortly."
+Hide(severin)
+Hide(leora)
 endDialogue(Cutscenes)
