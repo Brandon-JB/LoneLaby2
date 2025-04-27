@@ -20,15 +20,26 @@ public class SaveManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
+            Instance.Player = GameObject.Find("CombatPlayer");
+            Instance.leoraChar = GameObject.Find("CombatPlayer").GetComponent<LeoraChar2>();
+
+            /*if (Instance.Player != null)
+            {
+                Instance.leoraChar = Instance.Player.gameObject.GetComponent<LeoraChar2>();
+            }*/
+
             Destroy(gameObject); // prevent duplicates
             return;
         }
 
         Instance = this;
+        Instance.Player = GameObject.Find("CombatPlayer");
+        Instance.leoraChar = GameObject.Find("CombatPlayer").GetComponent<LeoraChar2>();
         DontDestroyOnLoad(gameObject); // keep this alive across scenes
 
-        leoraChar = Player.gameObject.GetComponent<LeoraChar2>();
+        
     }
+
 
     //SAVE STUFF BELOW
 
@@ -38,8 +49,8 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
-        leoraChar.SetMaxHealth();
-        leoraChar.SetMaxMana();
+        Instance.leoraChar.SetMaxHealth();
+        Instance.leoraChar.SetMaxMana();
 
         SaveData data = new SaveData();
 
@@ -110,8 +121,8 @@ public class SaveManager : MonoBehaviour
         Player.transform.position = data.playerPosition;
         MansionDoorManager.DoorOpened = data.mansionDoorOpened;
         PortalScript.LastPortal = data.LastPortal;
-        leoraChar.SetMaxHealth();
-        leoraChar.SetMaxMana();
+        Instance.leoraChar.SetMaxHealth();
+        Instance.leoraChar.SetMaxMana();
 
     }
 

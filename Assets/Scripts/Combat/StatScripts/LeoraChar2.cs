@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LeoraChar2 : BaseChar
 {
@@ -60,6 +61,8 @@ public class LeoraChar2 : BaseChar
         alanAmuletActive = false;
         kisaAmuletActive = false;
         sophieAmuletActive = false;
+        healthBar = GameObject.FindGameObjectWithTag("HPText").GetComponent<TMP_Text>();
+        hpSlider = GameObject.FindGameObjectWithTag("HPBar").GetComponent<Slider>();
 
         ChangeStats(14, 10, 4, 100, 10);
 
@@ -107,6 +110,8 @@ public class LeoraChar2 : BaseChar
     public override void SetHealth(int health)
     {
         base.SetHealth(health);
+
+        //Debug.Log(gameObject.name);
 
         if(leoraFaceAnimator)
         {

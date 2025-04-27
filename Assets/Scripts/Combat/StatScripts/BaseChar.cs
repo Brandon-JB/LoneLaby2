@@ -239,11 +239,8 @@ public class BaseChar : MonoBehaviour
 
     public virtual void SetHealth(int health)
     {
-        //Commented lines are where the build plays the sound
 
         statsSheet["Health"] = health;
-
-        //Plays here
 
         if (GetHealth() > GetMaxHealth())
         {
@@ -257,12 +254,10 @@ public class BaseChar : MonoBehaviour
 
         if (allied)
         {
-            //Plays here
 
             if (healthBar != null)
             {
-                //DOESN"T PLAY HERE WHEN DOING SAVE BUT PLAYS WHEN  LEORA GETS HIT I HATE IT HERE
-                audioManager.Instance.playSFX(24);
+
 
                 healthBar.text = GetHealth() + "/" + GetMaxHealth();
                 hpSlider.value = ((float)GetHealth()) / GetMaxHealth();
