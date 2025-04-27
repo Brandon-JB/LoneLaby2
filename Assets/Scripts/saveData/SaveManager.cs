@@ -38,8 +38,8 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
-        leoraChar.SetHealth(300);
-        leoraChar.SetMana(50);
+        leoraChar.SetMaxHealth();
+        leoraChar.SetMaxMana();
 
         SaveData data = new SaveData();
 
@@ -110,8 +110,9 @@ public class SaveManager : MonoBehaviour
         Player.transform.position = data.playerPosition;
         MansionDoorManager.DoorOpened = data.mansionDoorOpened;
         PortalScript.LastPortal = data.LastPortal;
-        leoraChar.Heal(300);
-        leoraChar.RestoreMana(50);
+        leoraChar.SetMaxHealth();
+        leoraChar.SetMaxMana();
+
     }
 
     private List<EquipmentEntry> ConvertDictToList(Dictionary<string, bool> dict)

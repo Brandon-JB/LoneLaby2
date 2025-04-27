@@ -168,7 +168,7 @@ public class BaseChar : MonoBehaviour
     //Only for use with Leora. Kept here so there's only one damage script
     [SerializeField] public TMP_Text healthBar;
     [SerializeField] public TMP_Text manaBar;
-    [SerializeField] Slider hpSlider;
+    [SerializeField] public Slider hpSlider;
     [SerializeField] public Slider mpSlider;
 
     [Header("Knockback")]
@@ -211,14 +211,15 @@ public class BaseChar : MonoBehaviour
 
     #region Stats
 
-    protected void SetMaxHealth()
+    public void SetMaxHealth()
     {
-        statsSheet["Health"] = GetMaxHealth();
+
+        SetHealth(GetMaxHealth());
     }
 
-    protected void SetMaxMana()
+    public void SetMaxMana()
     {
-        statsSheet["Mana"] = GetMaxMana();
+        SetMana(GetMaxMana());
     }
 
     public int GetHealth()
@@ -238,11 +239,15 @@ public class BaseChar : MonoBehaviour
 
     public virtual void SetHealth(int health)
     {
+        //Commented lines are where the build plays the sound
+
         statsSheet["Health"] = health;
+
+        //Plays here
 
         if (GetHealth() > GetMaxHealth())
         {
-            SetMaxHealth();
+            statsSheet["Health"] = GetMaxHealth();
         }
 
         if (GetHealth() < 0)
@@ -252,8 +257,13 @@ public class BaseChar : MonoBehaviour
 
         if (allied)
         {
+            //Plays here
+
             if (healthBar != null)
             {
+                //DOESN"T PLAY HERE WHEN DOING SAVE BUT PLAYS WHEN  LEORA GETS HIT I HATE IT HERE
+                audioManager.Instance.playSFX(24);
+
                 healthBar.text = GetHealth() + "/" + GetMaxHealth();
                 hpSlider.value = ((float)GetHealth()) / GetMaxHealth();
             }
@@ -282,7 +292,7 @@ public class BaseChar : MonoBehaviour
 
         if (GetMana() > GetMaxMana())
         {
-            SetMaxMana();
+            statsSheet["Mana"] = GetMaxMana();
         }
 
         if (GetMana() < 0)

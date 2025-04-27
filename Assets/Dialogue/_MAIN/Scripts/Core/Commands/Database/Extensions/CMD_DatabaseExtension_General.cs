@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
-using static UnityEditor.Progress;
 
 namespace COMMANDS
 {
