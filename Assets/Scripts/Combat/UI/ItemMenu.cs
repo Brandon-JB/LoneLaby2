@@ -30,6 +30,7 @@ public class ItemMenu : MonoBehaviour
 
     [SerializeField] private GameObject contButton;
     [SerializeField] private GameObject key;
+    [SerializeField] private GameObject goToPauseUI;
 
     [SerializeField] private CanvasGroup itemHolder;
 
@@ -68,6 +69,10 @@ public class ItemMenu : MonoBehaviour
     {
         //Commented out the lines about assigning the image, will add back later
         //Debug.Log(dropName);
+        if(goToPauseUI != null)
+        {
+            goToPauseUI.SetActive(false);
+        }
         switch (dropName)
         {
             case "BloodAmulet":
@@ -146,39 +151,46 @@ public class ItemMenu : MonoBehaviour
                 itemDescription.text = "Crimson and forest green fuse into one in this ring's gemstone, symbolizing the unity of might and vigor. <color=#92dae8>Increase Leora's HP by 25 points and slightly increase Leora's attack.</color>";
                 break;
             case "veritaatkbonus":
-                itemText.text = "+5 Attack";
+                itemText.text = "Attack Bonus";
                 itemImage.sprite = items[16];
                 itemDescription.text = "Verita has blessed you with their strength. <color=#92dae8>Leora gains a permanent +5 to her attack.</color>";
+                goToPauseUI.SetActive(false);
                 break;
             case "veritampbonus":
-                itemText.text = "+5 Magic Attack";
+                itemText.text = "Magic Bonus";
                 itemImage.sprite = items[17];
                 itemDescription.text = "Verita has blessed you with their wisdom. <color=#92dae8>Leora gains a permanent +5 to her magic attack.</color>";
+                goToPauseUI.SetActive(false);
                 break;
             case "veritahpbonus":
-                itemText.text = "+25 Health";
+                itemText.text = "Health Bonus";
                 itemImage.sprite = items[18];
-                itemDescription.text = "Verita has blessed you with their courage. <color=#92dae8>Leora gains a permanent +5 to her health.</color>";
+                itemDescription.text = "Verita has blessed you with their courage. <color=#92dae8>Leora gains a permanent +25 to her health.</color>";
+                goToPauseUI.SetActive(false);
                 break;
             case "orderatkbonus":
-                itemText.text = "+5 Attack";
+                itemText.text = "Attack Bonus";
                 itemImage.sprite = items[19];
-                itemDescription.text = "The Order has granted you a sharper weapon. <color=#92dae8>Leora gains a permanent +5 to her attack.</color>";
+                itemDescription.text = "The Order has granted you a sharper weapon. <color=#92dae8>Leora gains a permanent bonus to her attack.</color>";
+                goToPauseUI.SetActive(false);
                 break;
             case "ordermpbonus":
-                itemText.text = "+5 Magic Attack";
+                itemText.text = "Magic Bonus";
                 itemImage.sprite = items[20];
-                itemDescription.text = "The Order has granted you an insightful tome. <color=#92dae8>Leora gains a permanent +5 to her magic attack.</color>";
+                itemDescription.text = "The Order has granted you an insightful tome. <color=#92dae8>Leora gains a permanent bonus to her magic attack.</color>";
+                goToPauseUI.SetActive(false);
                 break;
             case "orderhpbonus":
-                itemText.text = "+25 Health";
+                itemText.text = "Health Bonus";
                 itemImage.sprite = items[21];
                 itemDescription.text = "The Order has bestowed you with new armor. <color=#92dae8>Leora gains a permanent +25 to her health.</color>";
+                goToPauseUI.SetActive(false);
                 break;
             case "Key":
                 itemText.text = "Worn Key";
                 itemImage.sprite = items[22];
                 itemDescription.text = "This <i>must</i> unlock something important...";
+                goToPauseUI.SetActive(false);
                 break;
             default:
                 Debug.Log("I couldn't find the item equipped. Sorry pookie");
@@ -201,14 +213,16 @@ public class ItemMenu : MonoBehaviour
             equipmentManager.GainedEquipment(itemName);
         }
 
-        infoHolder.DOMove(locations[0].position, 0.5f).SetUpdate(true);
+        infoHolder.DOMove(locations[0].position, 0.5f).SetUpdate(true).OnComplete(() =>
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(contButton);
+        });
         //itemHolder.DOFade(1, 1f).SetUpdate(true);
         itemImage.gameObject.SetActive(true);
         leoraAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         leoraAnimator.enabled = false;
         leoraAnimator.GetComponent<SpriteRenderer>().sprite = items[15];
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(contButton);
     }
 
     public void Awake()
