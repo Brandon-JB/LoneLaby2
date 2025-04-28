@@ -52,6 +52,7 @@ namespace COMMANDS
                         CanvasGroup fade = GameObject.FindGameObjectWithTag("CutsceneFade").GetComponent<CanvasGroup>();
                         fade.DOFade(1, 1f).SetUpdate(true).OnComplete(() =>
                         {
+                            OpenPauseMenu.GLOBALcanOpenPause = false;
                             //move leora idk how to do that
                             CutsceneSpawnManager.CutsceneSpawnpoint = 0;
                             GameObject.FindObjectOfType<CutsceneSpawnManager>().moveLeoraOnFly();
@@ -75,6 +76,8 @@ namespace COMMANDS
         private static void goTo(string itemID)
         {
             //audioManager.Instance.stopBGM(1);
+            OpenPauseMenu.GLOBALcanOpenPause = false;
+            OpenPauseMenu.canOpenPause = false;
             GameObject.FindGameObjectWithTag("CutsceneFade").GetComponent<CanvasGroup>().DOFade(1, 1f).SetUpdate(true).OnComplete(() =>
             //itemHolder.DOFade(0, 1f).SetUpdate(true).OnComplete(() =>
             {

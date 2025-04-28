@@ -30,6 +30,8 @@ public class pauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject deleteSaveMenu;
     [SerializeField] private GameObject sideQuestBTN;
     [SerializeField] private GameObject mainQuestBTN;
+    [SerializeField] private GameObject sidequest;
+    [SerializeField] private Transform sideQuestLoc;
 
 
     private void OnEnable()
@@ -121,7 +123,9 @@ public class pauseMenuManager : MonoBehaviour
     /// </summary>
     public void returnToCenter()
     {
+        DOTween.KillAll();
         //Reset ALL spaces
+        sidequest.transform.DOMove(sideQuestLoc.position, 1f).SetUpdate(true);
         equipMenu.DOMove(startLocations[0].position, 1f).SetUpdate(true);
         questMenu.DOMove(startLocations[1].position, 1f).SetUpdate(true);
         leoraAnimator.transform.DOMove(startLocations[2].position, 1f).SetUpdate(true);
@@ -142,6 +146,7 @@ public class pauseMenuManager : MonoBehaviour
         } else
         {
             leoraAnimator.SetTrigger("exitQuest");
+            sidequest.transform.DOMove(sideQuestLoc.position, 1f).SetUpdate(true);
             mainQuestBTN.transform.DOMoveX(questsLocations[4].position.x, 1f).SetUpdate(true).OnComplete(() => {
                 mainQuestBTN.gameObject.SetActive(false);
             });
