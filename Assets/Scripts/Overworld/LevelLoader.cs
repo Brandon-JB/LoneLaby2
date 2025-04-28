@@ -57,6 +57,7 @@ public class LevelLoader : MonoBehaviour
 
         OpenPauseMenu.GLOBALcanOpenPause = true;
         SceneManager.LoadScene(SceneName);
+        Debug.Log("called loadScene");
         PlayerMovement.CanWalk = true;
     }
 }

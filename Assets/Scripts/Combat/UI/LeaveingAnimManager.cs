@@ -29,9 +29,10 @@ public class LeaveingAnimManager : MonoBehaviour
 
         animator.SetTrigger("Leaving");
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         OpenPauseMenu.GLOBALcanOpenPause = true;
         SceneManager.LoadScene("Overworld");
+        Debug.Log("Called load scene");
     }
 }
