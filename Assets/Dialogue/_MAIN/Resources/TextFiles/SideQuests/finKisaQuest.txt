@@ -38,6 +38,7 @@ SetSprite(leora surprised)
 leora "Wait, I don't-"
 wait(0.5)
 leora "(...She just shoved this into my hands and ran off. ...Who <i>was</i> that?)"
-Hide(kisa)
+Highlight(kisa -o true)
+SetSprite(kisa kisa_youngish_ig)
 Hide(leora)
 endDialogue(false)

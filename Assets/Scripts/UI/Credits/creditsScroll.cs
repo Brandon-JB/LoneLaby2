@@ -108,7 +108,7 @@ public class creditsScroll : MonoBehaviour
         {
             //Play viin killed text
             builtString += "\r\nIsen exhaled in relief when Viin was captured. She was publicly hanged shortly after her " +
-                "capture, Zaro cheering and roaring as she was “given what she deserved”. Vaang was found shortly after, " +
+                "capture, Zaro cheering and roaring as she was ''given what she deserved''. Vaang was found shortly after, " +
                 "angry red scratches around his neck—cold and lifeless. With his death, the orphanage fell under the " +
                 "Order's control. Caretakers rotated frequently, and the children were forced to mourn in silence. The " +
                 "warmth Vaang brought was gone, and the Order just wasn't the same.\r\n";

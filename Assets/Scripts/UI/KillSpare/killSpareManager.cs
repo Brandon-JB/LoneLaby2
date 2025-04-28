@@ -92,7 +92,7 @@ public class killSpareManager : MonoBehaviour
                     killSpareText.text = "Am I failing my purpose?";
                 } else if (viinStatus == 1 || lucanStatus == 1)
                 {
-                    killSpareText.text = "Does desperation excuse Ivar's crimes?";
+                    killSpareText.text = "Are the acts of a desperate man inexcusable?"; // Old: "Does desperation excuse Ivar's crimes?"
                 } else
                 {
                     killSpareText.text = "Should " + bossName + " be condemned for his crimes?";
@@ -110,7 +110,7 @@ public class killSpareManager : MonoBehaviour
                 //How many bosses have been killed?
                 if (ivarStatus == 1 && lucanStatus2 == 1)
                 {
-                    killSpareText.text = "Must justice be absolute?";
+                    killSpareText.text = "Is retribution worth all else?";
                 }
                 else if (ivarStatus == 2 && lucanStatus2 == 2)
                 {
@@ -118,7 +118,7 @@ public class killSpareManager : MonoBehaviour
                 }
                 else if (ivarStatus == 1 || lucanStatus2 == 1)
                 {
-                    killSpareText.text = "Is it justice if an innocent must die with Viin?";
+                    killSpareText.text = "Is it justice if an innocent is also condemned?";
                 }
                 else
                 {
@@ -145,7 +145,7 @@ public class killSpareManager : MonoBehaviour
                 }
                 else if (ivarStatus2 == 1 || viinStatus2 == 1)
                 {
-                    killSpareText.text = "Does betraying the Order make Lucan unredeemable?";
+                    killSpareText.text = "Does choosing the soldiers make Lucan unredeemable?";
                 }
                 else
                 {
@@ -195,6 +195,14 @@ public class killSpareManager : MonoBehaviour
 
         private IEnumerator endAfterTimePeriod(float time, bool isKilling = false)
     {
+        yescanvas.DOFade(0, 0.5f).SetUpdate(true);
+        nocanvas.DOFade(0, 0.5f).SetUpdate(true);
+        killSpareTextCanvas.DOFade(0, 0.5f).SetUpdate(true).OnComplete(() =>
+        {
+            yescanvas.gameObject.SetActive(false);
+            nocanvas.gameObject.SetActive(false);
+        });
+
         PortalScript.LastPortal = 1;
 
         yield return new WaitForSecondsRealtime(time);
