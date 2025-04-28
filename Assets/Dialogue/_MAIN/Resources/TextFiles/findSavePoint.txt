@@ -1,0 +1,9 @@
+wait(0.5)
+Show(leora)
+Highlight(leora -o true)
+SetSprite(leora eyesClosed)
+leora "(I feel the presence of Verita... Are they aiding me on this quest?)"
+SetSprite(leora confused)
+leora "(No, that must not be true. Regardless, it is worth investigation.)"
+Hide(leora)
+goTo(NoCombatAreas)

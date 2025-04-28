@@ -6,15 +6,14 @@ wait(0.5)
 SetSprite(leora leora)
 Show(leora)
 Highlight(leora -o true)
-leora "(Perhaps I should brush up on my skills before heading out.)"
-Highlight(leora -o true)
-leora "Severin. Do you have a moment? I want a quick refresher before I begin my quest."
+leora "(Brushing up on the essentials of combat would be wise, given my current task.)"
+leora "Severin. Do you have a moment? I could use your assistance, I wish for a quick refresher of the basics."
 Show(severin)
 Highlight(severin -o true)
-severin "''A quick refresher''? Dame Leora, are you not an instructor? You should know the basics better than anyone."
+severin "''A quick refresher''? Dame Leora, are you not an instructor? You should know this better than anyone."
 Highlight(leora -o true)
-SetSprite(leora smile)
-leora "I know, but practice makes perfect. Want to make sure I'm teaching the right information, yes?"
+SetSprite(leora confused)
+leora "I agree, however... given my quest, I wish to be as prepared as possible."
 Highlight(severin -o true)
 severin "...Very well."
 Hide(severin)
