@@ -93,8 +93,8 @@ public class MainMenuScript : MonoBehaviour
     {
         //Delete the save game
         audioManager.Instance.stopBGM(1);
-        SaveManager.DeleteSaveData();
         ResetStatics();
+        SaveManager.DeleteSaveData();
         bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true).OnComplete(() => {
             SceneManager.LoadScene("MainMenu");
         });
@@ -109,9 +109,5 @@ public class MainMenuScript : MonoBehaviour
         MansionDoorManager.hasKey = false;
         MansionDoorManager.DoorOpened = false;
         //EDIT DROPMANAGER ENEMY DEATH COUNT
-        KeybindManager.isRebinding = false;
-        SpawnManager.SpawnNumber = 0;
-        PortalScript.whereGo = 0;
-        PortalScript.LastPortal = 0;
     }
 }
