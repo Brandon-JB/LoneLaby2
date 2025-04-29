@@ -56,6 +56,7 @@ public class MainMenuScript : MonoBehaviour
         //If there is save data, go to last saved area. If there is NOT save data, play opening cutscene
         if (SaveManager.Isdata())
         {
+            ResetStatics();
             bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true).OnComplete(() => {
                 saveManager.LoadGame();
                 });
@@ -91,7 +92,26 @@ public class MainMenuScript : MonoBehaviour
     public void DELETESAVE()
     {
         //Delete the save game
+        audioManager.Instance.stopBGM(1);
         SaveManager.DeleteSaveData();
-        SceneManager.LoadScene("MainMenu");
+        ResetStatics();
+        bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true).OnComplete(() => {
+            SceneManager.LoadScene("MainMenu");
+        });
+    }
+
+
+
+
+    //
+    private void ResetStatics()
+    {
+        MansionDoorManager.hasKey = false;
+        MansionDoorManager.DoorOpened = false;
+        //EDIT DROPMANAGER ENEMY DEATH COUNT
+        KeybindManager.isRebinding = false;
+        SpawnManager.SpawnNumber = 0;
+        PortalScript.whereGo = 0;
+        PortalScript.LastPortal = 0;
     }
 }
