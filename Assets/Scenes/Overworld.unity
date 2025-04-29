@@ -61241,6 +61241,7 @@ GameObject:
   - component: {fileID: 1468918316}
   - component: {fileID: 1468918315}
   - component: {fileID: 1468918319}
+  - component: {fileID: 1468918320}
   m_Layer: 0
   m_Name: TownFade
   m_TagString: Untagged
@@ -61367,6 +61368,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd32a772642207f44a0f2a0d7b198064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1468918320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468918313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739050f72e762354c968df76654310ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1518503503
@@ -72565,7 +72578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677794004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.4275513, y: 2.1958172, z: -8.198263}
+  m_LocalPosition: {x: -5.4275513, y: 2.195817, z: -8.198263}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

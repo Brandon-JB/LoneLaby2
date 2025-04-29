@@ -5396,6 +5396,7 @@ GameObject:
   - component: {fileID: 653210800}
   - component: {fileID: 653210799}
   - component: {fileID: 653210804}
+  - component: {fileID: 653210805}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -5456,7 +5457,7 @@ Animator:
   m_GameObject: {fileID: 653210797}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 231e03df347fa934492737546cd8076e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 42cba7ecd82a7164895363ac80a205a4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -5537,6 +5538,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd32a772642207f44a0f2a0d7b198064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &653210805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653210797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739050f72e762354c968df76654310ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &655893627

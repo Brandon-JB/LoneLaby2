@@ -9373,7 +9373,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 8
   m_Sprite: {fileID: -1897290119, guid: 31e986799fa38c34abb4a7d44be4ca5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9992,6 +9992,7 @@ GameObject:
   - component: {fileID: 389155511}
   - component: {fileID: 389155515}
   - component: {fileID: 389155516}
+  - component: {fileID: 389155517}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -10136,6 +10137,18 @@ MonoBehaviour:
   MDM: {fileID: 1338707133}
   tutorial: {fileID: 1374980253}
   fileName: playtestDialogue
+--- !u!114 &389155517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389155509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739050f72e762354c968df76654310ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &391653996
 PrefabInstance:
   m_ObjectHideFlags: 0
