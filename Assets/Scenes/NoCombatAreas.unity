@@ -10136,6 +10136,8 @@ MonoBehaviour:
   MDM: {fileID: 1338707133}
   tutorial: {fileID: 1374980253}
   fileName: playtestDialogue
+  bedTrigger: {fileID: 1715606712}
+  kisa: {fileID: 0}
 --- !u!1001 &391653996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14673,7 +14675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834351036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.2, y: -16, z: 0}
+  m_LocalPosition: {x: 16.21, y: -16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74135,6 +74137,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[VN Controller]'
       objectReference: {fileID: 0}
+    - target: {fileID: 6332053273411946338, guid: 9546f50686d4c214f9a6e97ff098ba40, type: 3}
+      propertyPath: kisa
+      value: 
+      objectReference: {fileID: 834351036}
     - target: {fileID: 7255016205149063060, guid: 9546f50686d4c214f9a6e97ff098ba40, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
@@ -76839,7 +76845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1715606713
 Transform:
   m_ObjectHideFlags: 0

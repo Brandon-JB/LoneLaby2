@@ -12,6 +12,8 @@ public class tempDialogueStart : MonoBehaviour
     [SerializeField] private string fileName = "introducingSuspects";
 
     private bool isThisFirstEntry = true;
+    [SerializeField] private GameObject bedTrigger;
+    [SerializeField] private GameObject kisa;
 
 
     private void Start()
@@ -79,10 +81,15 @@ public class tempDialogueStart : MonoBehaviour
         Debug.Log("Is This First Entry?: " + isThisFirstEntry);
         if(BossSaveData.GetNumberOfBossesObtained() == 3 && isThisFirstEntry)
         {
+            bedTrigger.SetActive(true);
             isThisFirstEntry = false;
             fileName = "needToRestPrompt";
             StartDialogue();
             fileName = "introducingSuspects";
+        }
+        if (EquipmentManager.equipmentObtained["KisaAmulet"] == true)
+        {
+            kisa.SetActive(false);
         }
     }
 }
