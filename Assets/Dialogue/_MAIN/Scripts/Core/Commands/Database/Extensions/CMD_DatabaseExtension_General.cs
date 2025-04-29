@@ -76,6 +76,7 @@ namespace COMMANDS
         private static void goTo(string itemID)
         {
             //audioManager.Instance.stopBGM(1);
+            SpawnManager.SpawnNumber = 0;
             OpenPauseMenu.GLOBALcanOpenPause = false;
             OpenPauseMenu.canOpenPause = false;
             GameObject.FindGameObjectWithTag("CutsceneFade").GetComponent<CanvasGroup>().DOFade(1, 1f).SetUpdate(true).OnComplete(() =>

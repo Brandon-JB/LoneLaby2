@@ -4,4 +4,4 @@ Highlight(leora -o true)
 SetSprite(leora eyesClosed)
 leora "(I grow weary. The Speaker of Truth instructed me to rest, and I am tempted to do so, after the day I've had. I should finish up my business and retreat to my quarters in the Temple.)"
 Hide(leora)
-goTo(NoCombatAreas)
+endDialogue(NoCombatAreas)

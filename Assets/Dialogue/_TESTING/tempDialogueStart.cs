@@ -11,6 +11,8 @@ public class tempDialogueStart : MonoBehaviour
 
     [SerializeField] private string fileName = "introducingSuspects";
 
+    private bool isThisFirstEntry = true;
+
 
     private void Start()
     {
@@ -72,4 +74,15 @@ public class tempDialogueStart : MonoBehaviour
         MDM.dialogueSTART(fileName);
     }
 
+    public void checkIfGameEnded()
+    {
+        Debug.Log("Is This First Entry?: " + isThisFirstEntry);
+        if(BossSaveData.GetNumberOfBossesObtained() == 3 && isThisFirstEntry)
+        {
+            isThisFirstEntry = false;
+            fileName = "needToRestPrompt";
+            StartDialogue();
+            fileName = "introducingSuspects";
+        }
+    }
 }
