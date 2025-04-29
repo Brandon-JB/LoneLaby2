@@ -8,7 +8,7 @@ public class MansionDoorManager : CombatInteraction
     public static bool DoorOpened;
     //public GameObject Player;
     public GameObject Door;
-
+    [SerializeField] private GameObject keyUI;
 
 
     // Update is called once per frame
@@ -31,6 +31,7 @@ public class MansionDoorManager : CombatInteraction
                 if (InputManager.interactPressed == true)
                 {
                     audioManager.Instance.playSFX(60);
+                    keyUI.SetActive(false);
                     alreadyInteracted = true;
                     Door.SetActive(false);
                     DoorOpened = true;
