@@ -9,6 +9,8 @@ public class SpiritScript : EnemyScript
 
     [SerializeField] private GameObject warningAoE;
 
+    private bool FinishingAttack;
+
     public void EnableWarning()
     {
         warningAoE.SetActive(true);
@@ -17,6 +19,7 @@ public class SpiritScript : EnemyScript
     public void DisableWarning()
     {
         warningAoE.SetActive(false);
+        FinishingAttack = true;
     }
 
     public void EnableHurtbox()
@@ -49,6 +52,7 @@ public class SpiritScript : EnemyScript
     public void EndWalk()
     {
         enemyChar.animator.SetBool("StartWalk", false);
+        FinishingAttack = false;
         DisableMovement();
     }
 
@@ -56,6 +60,7 @@ public class SpiritScript : EnemyScript
     void Start()
     {
         canMove = false;
+        FinishingAttack = false;
     }
 
     public override void Update()
@@ -65,7 +70,7 @@ public class SpiritScript : EnemyScript
             enemyChar.animator.SetBool("isMoving", false);
         }
 
-        if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false && enemyChar.animator.GetBool("Hurt") == false && ableToMove == true)
+        if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false && enemyChar.animator.GetBool("Hurt") == false && ableToMove == true && FinishingAttack == false)
         {
             canMove = true;
         }
