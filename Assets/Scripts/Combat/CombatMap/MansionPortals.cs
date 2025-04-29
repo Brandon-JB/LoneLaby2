@@ -10,29 +10,50 @@ public class MansionPortals : MonoBehaviour
     public GameObject Floor3Exit;
     public GameObject Player;
 
+    public GameObject[] Destination;
+
+    public CombatPlayerMovement combatMovement;
+    public LeaveingAnimManager leaveAnim;
+    public Animator animator;
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void MansionStairs(string name)
     {
         if (name == "Floor1-2")
         {
-            Player.transform.position =  Floor2.transform.position;
+            leaveAnim.PlayPortalAnimation(animator);
+            StartCoroutine(Wait(1));
         }
         else if (name == "Floor2-1")
         {
-            Player.transform.position = Floor1.transform.position;
+            leaveAnim.PlayPortalAnimation(animator);
+            StartCoroutine(Wait(0));
         }
         else if (name == "Floor2-3")
         {
-            Player.transform.position = Floor3Exit.transform.position;
+            leaveAnim.PlayPortalAnimation(animator);
+            StartCoroutine(Wait(3));
         }
-        else if (name == "Floor3-2")
+        else if (name == "Floor3")
         {
-            Player.transform.position = Floor3Enter.transform.position;
+            leaveAnim.PlayPortalAnimation(animator);
+            StartCoroutine(Wait(2));
         }
     }
+
+
+    IEnumerator Wait(int DestNum)
+    {
+        combatMovement.canMove = false;
+        yield return new WaitForSeconds(0.2f);
+        Player.transform.position = Destination[DestNum].transform.position;
+        yield return new WaitForSeconds(0.1f);
+        combatMovement.canMove = true;
+    }
 }
+

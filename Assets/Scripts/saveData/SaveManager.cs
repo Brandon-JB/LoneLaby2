@@ -85,7 +85,7 @@ public class SaveManager : MonoBehaviour
 
         if (data == null) return;
 
-        SceneManager.LoadScene(data.currentScene);
+        
         StartCoroutine(LoadAfterSceneLoad(data));
     }
 
@@ -98,6 +98,7 @@ public class SaveManager : MonoBehaviour
 
     private IEnumerator LoadAfterSceneLoad(SaveData data)
     {
+        SceneManager.LoadScene(data.currentScene);
         yield return new WaitForSeconds(0.5f);
 
         //Load all data
@@ -124,10 +125,17 @@ public class SaveManager : MonoBehaviour
         Instance.leoraChar.SetMaxHealth();
         Instance.leoraChar.SetMaxMana();
 
+        Debug.Log(MansionDoorManager.DoorOpened);
+        Debug.Log(PortalScript.LastPortal);
     }
 
     private List<EquipmentEntry> ConvertDictToList(Dictionary<string, bool> dict)
     {
+        if (dict == null)
+        {
+            return null;
+        }
+
         List<EquipmentEntry> list = new List<EquipmentEntry>();
         foreach (var pair in dict)
         {
@@ -138,15 +146,28 @@ public class SaveManager : MonoBehaviour
 
     private void RebuildDictFromList(List<EquipmentEntry> list, Dictionary<string, bool> dict)
     {
-        foreach (var entry in list)
+        if(list != null)
         {
-            if (dict.ContainsKey(entry.itemName))
-                dict[entry.itemName] = entry.isUnlocked;
+            foreach (var entry in list)
+            {
+                if (dict.ContainsKey(entry.itemName))
+                    dict[entry.itemName] = entry.isUnlocked;
+            }
         }
+        else
+        {
+            return;
+        }
+        
     }
 
     private List<BossStateEntry> ConvertBossDictToList(Dictionary<string, int> dict)
     {
+        if (dict == null)
+        {
+            return null;
+        }
+
         List<BossStateEntry> list = new List<BossStateEntry>();
         foreach (var kvp in dict)
             list.Add(new BossStateEntry(kvp.Key, kvp.Value));
@@ -155,6 +176,11 @@ public class SaveManager : MonoBehaviour
 
     private void RebuildBossDictFromList(List<BossStateEntry> list, Dictionary<string, int> dict)
     {
+        if (list == null)
+        {
+            return;
+        }
+
         foreach (var entry in list)
         {
             if (dict.ContainsKey(entry.bossName))
@@ -164,6 +190,11 @@ public class SaveManager : MonoBehaviour
 
     private List<QuestSaveEntry> ConvertQuestsToList(Dictionary<string, QuestData> dict)
     {
+        if (dict == null)
+        {
+            return null;
+        }
+
         List<QuestSaveEntry> list = new List<QuestSaveEntry>();
         foreach (var quest in dict.Values)
         {

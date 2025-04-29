@@ -196,6 +196,7 @@ MonoBehaviour:
   nameBox: {fileID: 0}
   voidSprite: {fileID: 0}
   gainQuestMenu: {fileID: 0}
+  kisa: {fileID: 0}
   dialogueRunning: 0
 --- !u!4 &37900022
 Transform:
@@ -4399,6 +4400,8 @@ MonoBehaviour:
   MDM: {fileID: 37900021}
   tutorial: {fileID: 0}
   fileName: Endings/Conflicted/beginConflictedFight
+  bedTrigger: {fileID: 0}
+  kisa: {fileID: 0}
 --- !u!4 &625309313
 Transform:
   m_ObjectHideFlags: 0
@@ -25217,6 +25220,8 @@ MonoBehaviour:
   MDM: {fileID: 37900021}
   tutorial: {fileID: 0}
   fileName: Endings/Conflicted/beginConflictedFight
+  bedTrigger: {fileID: 0}
+  kisa: {fileID: 0}
 --- !u!95 &1175526630
 Animator:
   serializedVersion: 4
@@ -25289,7 +25294,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -26909,6 +26914,10 @@ PrefabInstance:
     - target: {fileID: 4057515454879252289, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -1.0802994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591903322360722213, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6146734659155122529, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
       propertyPath: m_AnchoredPosition.x

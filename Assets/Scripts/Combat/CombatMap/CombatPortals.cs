@@ -32,44 +32,48 @@ public class CombatPortals : MonoBehaviour
         Debug.Log(name);
         if (name == "Floor1-2")
         {
-            Player.transform.position = Destination[0].transform.position;
-            StartCoroutine(Wait());
+            leaveAnim.PlayPortalAnimation(animator);
+            StartCoroutine(Wait(0));
         }
 
         if (name == "Floor2-1")
         {
-            Player.transform.position = Destination[1].transform.position;
-            StartCoroutine(Wait());
+            leaveAnim.PlayPortalAnimation(animator);
+            
+            StartCoroutine(Wait(1));
         }
 
         if (name == "Floor2-3")
         {
-            Player.transform.position = Destination[6].transform.position;
-            StartCoroutine(Wait());
+            leaveAnim.PlayPortalAnimation(animator);
+            
+            StartCoroutine(Wait(6));
         }
 
         if (name == "Floor3-2")
         {
-            Player.transform.position = Destination[7].transform.position;
-            StartCoroutine(Wait());
+            leaveAnim.PlayPortalAnimation(animator);
+            
+            StartCoroutine(Wait(7));
         }
 
         if (name == "Floor2-S")
         {
-            Player.transform.position = Destination[2].transform.position;
-            StartCoroutine(Wait());
+            leaveAnim.PlayPortalAnimation(animator);
+            StartCoroutine(Wait(2));
         }
 
         if (name == "FloorS-2")
         {
-            Player.transform.position = Destination[3].transform.position;
-            StartCoroutine(Wait());
+            leaveAnim.PlayPortalAnimation(animator);
+            StartCoroutine(Wait(3));
         }
 
         if (name == "BossLeave")
         {
-            Player.transform.position = Destination[4].transform.position;
-            StartCoroutine(Wait());
+            leaveAnim.PlayPortalAnimation(animator);
+            
+            StartCoroutine(Wait(4));
         }
 
         if (name == "Exit")
@@ -86,15 +90,18 @@ public class CombatPortals : MonoBehaviour
 
         if (name == "Boss")
         {
-            Player.transform.position = Destination[5].transform.position;
-            StartCoroutine(Wait());
+            leaveAnim.PlayPortalAnimation(animator);
+            
+            StartCoroutine(Wait(5));
         }
     }
 
-    IEnumerator Wait()
+    IEnumerator Wait(int DestNum)
     {
         combatMovement.canMove = false;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
+        Player.transform.position = Destination[DestNum].transform.position;
+        yield return new WaitForSeconds(0.1f);
         combatMovement.canMove = true;
     }
 }
