@@ -22,6 +22,7 @@ public class SaveManager : MonoBehaviour
         {
             Instance.Player = GameObject.Find("CombatPlayer");
             Instance.leoraChar = GameObject.Find("CombatPlayer").GetComponent<LeoraChar2>();
+            Instance.equipmentManager = FindObjectOfType<EquipmentManager>();
 
             /*if (Instance.Player != null)
             {
@@ -35,6 +36,7 @@ public class SaveManager : MonoBehaviour
         Instance = this;
         Instance.Player = GameObject.Find("CombatPlayer");
         Instance.leoraChar = GameObject.Find("CombatPlayer").GetComponent<LeoraChar2>();
+        Instance.equipmentManager = FindObjectOfType<EquipmentManager>();
         DontDestroyOnLoad(gameObject); // keep this alive across scenes
 
         
