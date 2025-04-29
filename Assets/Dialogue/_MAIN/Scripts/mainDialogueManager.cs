@@ -39,6 +39,7 @@ public class mainDialogueManager : MonoBehaviour
     [SerializeField] private Sprite voidSprite;
 
     [SerializeField] private gainQuest gainQuestMenu;
+    [SerializeField] private GameObject kisa;
 
     //[SerializeField] private pauseMenuManager pauseMenuManager;
 
@@ -366,8 +367,18 @@ public class mainDialogueManager : MonoBehaviour
                     dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack);
                     return;
                 case "SideQuests/finAlanQuest":
-                case "SideQuests/finKisaQuest":
                 case "SideQuests/finSophQuest":
+                    gainQuestMenu.ShowQuestStart(currentlyRunningText, true);
+                    currentlyRunningText = "";
+                    GLOBALcurrentlyRunningText = "";
+                    continueTextPrompt.SetActive(false);
+                    top.DOMove(tweenOutPositions[1].transform.position, 1).SetUpdate(true).SetEase(Ease.OutCubic);
+                    //Change bottom
+                    bottom.DOMove(tweenOutPositions[1].transform.position, 1).SetUpdate(true).SetEase(Ease.OutCubic);
+                    dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack);
+                    return;
+                case "SideQuests/finKisaQuest":
+                    kisa.SetActive(false);
                     gainQuestMenu.ShowQuestStart(currentlyRunningText, true);
                     currentlyRunningText = "";
                     GLOBALcurrentlyRunningText = "";
