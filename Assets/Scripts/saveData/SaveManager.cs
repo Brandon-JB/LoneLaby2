@@ -127,6 +127,7 @@ public class SaveManager : MonoBehaviour
         PortalScript.LastPortal = data.LastPortal;
         Instance.leoraChar.SetMaxHealth();
         Instance.leoraChar.SetMaxMana();
+        SavePointTigger.isFirstTime = false;
 
         Debug.Log(MansionDoorManager.DoorOpened);
         Debug.Log(PortalScript.LastPortal);
