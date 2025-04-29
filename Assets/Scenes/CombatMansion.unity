@@ -1676,6 +1676,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 850726148171959294, guid: 3f9d4833316d13c42beda352fad628fb, type: 3}
   m_PrefabInstance: {fileID: 126363307}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &127417873 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5654782468327757369, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+  m_PrefabInstance: {fileID: 1169239786}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169239787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864cf50d06bc0eb4cafcb51cfcc08412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &134477184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -92392,6 +92403,7 @@ RectTransform:
   - {fileID: 1676956492}
   - {fileID: 1308791128}
   - {fileID: 1491893367}
+  - {fileID: 1976908576}
   m_Father: {fileID: 1883708832}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -92496,6 +92508,8 @@ MonoBehaviour:
   MDM: {fileID: 1211530839}
   tutorial: {fileID: 0}
   fileName: IvarQuest/manor_entry
+  bedTrigger: {fileID: 0}
+  kisa: {fileID: 0}
 --- !u!114 &531956840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98738,6 +98752,14 @@ MonoBehaviour:
   Floor3Enter: {fileID: 1976945050}
   Floor3Exit: {fileID: 798724979}
   Player: {fileID: 1169239787}
+  Destination:
+  - {fileID: 1268959618}
+  - {fileID: 1958581162}
+  - {fileID: 1976945050}
+  - {fileID: 798724979}
+  combatMovement: {fileID: 127417873}
+  leaveAnim: {fileID: 1341472933}
+  animator: {fileID: 531956835}
 --- !u!1001 &888422813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168867,6 +168889,82 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 850726148171959294, guid: 3f9d4833316d13c42beda352fad628fb, type: 3}
   m_PrefabInstance: {fileID: 1965999215}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1976908575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1976908576}
+  - component: {fileID: 1976908578}
+  - component: {fileID: 1976908577}
+  m_Layer: 0
+  m_Name: moveThru
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1976908576
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976908575}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 531956834}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000061035156, y: 448.00012}
+  m_SizeDelta: {x: 800, y: 448}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1976908577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976908575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 98854b3cb689aaa4398d6b307dc55e5c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1976908578
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976908575}
+  m_CullTransparentMesh: 1
 --- !u!1 &1976945050
 GameObject:
   m_ObjectHideFlags: 0

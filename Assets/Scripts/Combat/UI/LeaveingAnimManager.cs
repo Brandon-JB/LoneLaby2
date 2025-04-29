@@ -17,6 +17,11 @@ public class LeaveingAnimManager : MonoBehaviour
     {
         
     }
+    
+    public void PlayPortalAnimation(Animator animator)
+    {
+        animator.SetTrigger("Portal");
+    }
 
     public void LeaveAnimation(Animator animator)
     {
