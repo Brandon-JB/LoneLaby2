@@ -31,6 +31,7 @@ public class creditsScroll : MonoBehaviour
     public void onClickGoToTitle()
     {
         fadeIn.DOFade(1, 3f).OnComplete(() => {
+            audioManager.Instance.stopBGM(2.5f);
             SceneManager.LoadScene("MainMenu");
         });
     }
@@ -61,6 +62,8 @@ public class creditsScroll : MonoBehaviour
             endingText2.text = "Compassion Route";
         } else
         {
+            audioManager.Instance.stopBGM(1);
+            audioManager.Instance.playBGM("T1");
             builtString += "Leora's choices rippled across Isen. She stood at the center of it all—unknown to " +
                 "most, unthanked by many. Her decisions had saved lives, ruined others, and set forces into " +
                 "motion that could not be undone.\r\n";

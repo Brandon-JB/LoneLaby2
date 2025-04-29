@@ -173,7 +173,15 @@ public class mainDialogueManager : MonoBehaviour
                     break;
                 //UPDATE THIS TACKETT
                 case "Endings/Compassion/severin_postfight":
+                    audioManager.Instance.stopBGM(1);
+                    audioManager.Instance.playBGM("T12");
+                    cutsceneBG.DOFade(1, 3f).SetUpdate(true);
+                    break;
                 case "Endings/Condemn/finishCondemn":
+                    cutsceneBG.DOFade(1, 3f).SetUpdate(true);
+                    audioManager.Instance.stopBGM(1);
+                    audioManager.Instance.playBGM("T7");
+                    break;
                 case "Endings/Conflicted/end_viinspared":
                 case "Endings/Conflicted/end_viinkilled":
                 case "Endings/Conflicted/end_ivarspared":
@@ -181,6 +189,8 @@ public class mainDialogueManager : MonoBehaviour
                 case "Endings/Conflicted/end_lucaspared":
                 case "Endings/Conflicted/end_lucakilled":
                     cutsceneBG.DOFade(1, 3f).SetUpdate(true);
+                    audioManager.Instance.stopBGM(1);
+                    audioManager.Instance.playBGM("T13");
                     break;
             }
 
