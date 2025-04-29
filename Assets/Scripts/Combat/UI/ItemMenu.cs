@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System;
 using UnityEngine.EventSystems;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 public class ItemMenu : MonoBehaviour
 {
@@ -187,10 +189,11 @@ public class ItemMenu : MonoBehaviour
                 goToPauseUI.SetActive(false);
                 break;
             case "Key":
-                itemText.text = "Worn Key";
+                itemText.text = "Key";
                 itemImage.sprite = items[22];
                 itemDescription.text = "This <i>must</i> unlock something important...";
                 goToPauseUI.SetActive(false);
+                key.SetActive(true);
                 break;
             default:
                 Debug.Log("I couldn't find the item equipped. Sorry pookie");
@@ -228,5 +231,9 @@ public class ItemMenu : MonoBehaviour
     public void Awake()
     {
         equipmentManager = FindObjectOfType<EquipmentManager>();
+        if(key != null && MansionDoorManager.hasKey == true)
+        {
+            key.SetActive(true);
+        }
     }
 }

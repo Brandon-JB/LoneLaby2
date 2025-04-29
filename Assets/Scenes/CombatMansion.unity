@@ -84296,6 +84296,7 @@ MonoBehaviour:
   Player: {fileID: 1169239787}
   alreadyInteracted: 0
   Door: {fileID: 118855656}
+  keyUI: {fileID: 1170957756}
 --- !u!4 &1158251707
 Transform:
   m_ObjectHideFlags: 0
@@ -84616,8 +84617,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemObtainedMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4263774326716545004, guid: 69d1b51ef96bce7499d64df0a9fc6508, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d1b51ef96bce7499d64df0a9fc6508, type: 3}
+--- !u!1 &1170957756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4263774326716545004, guid: 69d1b51ef96bce7499d64df0a9fc6508, type: 3}
+  m_PrefabInstance: {fileID: 1170957755}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1189846905
 GameObject:
   m_ObjectHideFlags: 0
