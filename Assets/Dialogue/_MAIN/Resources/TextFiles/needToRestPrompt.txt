@@ -1,4 +1,5 @@
 CreateCharacter(leora -enabled false)
+leora.Move(0.125 0 -spd 1000)
 wait(0.5)
 Show(leora)
 Highlight(leora -o true)
