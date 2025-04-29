@@ -46,35 +46,45 @@ public class audioManager : MonoBehaviour
         switch (scene.name)
         {
             case "BossRush":
-                playSongUsingID(7, speedForLoad);
+                playBGM("T8", speedForLoad);
+                //playSongUsingID(7, speedForLoad);
                 break;
             case "BrandonPortfolioScene":
-                playSongUsingID(7, speedForLoad);
+                playBGM("T8", speedForLoad);
+                //playSongUsingID(7, speedForLoad);
                 break;
             case "CombatForest":
-                playSongUsingID(4, speedForLoad);
+                playBGM("T5", speedForLoad);
+                //playSongUsingID(4, speedForLoad);
                 break;
             case "CombatMansion":
-                playSongUsingID(3, speedForLoad);
+                playBGM("T4", speedForLoad);
+                //playSongUsingID(3, speedForLoad);
                 break;
             case "CombatMaps":
-                playSongUsingID(5, speedForLoad);
+                playBGM("T6", speedForLoad);
+                //playSongUsingID(5, speedForLoad);
                 break;
             case "Cutscenes":
-                playSongUsingID(6, speedForLoad);
+                //playBGM("T7", speedForLoad);
+                //playSongUsingID(6, speedForLoad);
                 break;
             case "Dialogue":
-                playSongUsingID(6, speedForLoad);
+                //playBGM("T7", speedForLoad);
+                //playSongUsingID(6, speedForLoad);
                 break;
             case "MainMenu":
-                playSongUsingID(0, speedForLoad);
+                playBGM("T1", speedForLoad);
+                //playSongUsingID(0, speedForLoad);
                 break;
             case "NoCombatAreas":
-                Debug.Log("playing sound2");
-                playSongUsingID(2, speedForLoad);
+                playBGM("T3", speedForLoad);
+                //Debug.Log("playing sound2");
+                //playSongUsingID(2, speedForLoad);
                 break;
             case "Overworld":
-                playSongUsingID(9, speedForLoad);
+                playBGM("T10", speedForLoad);
+                //playSongUsingID(9, speedForLoad);
                 break;
             case "RandomFight":
                 //Keep same music as overworld
@@ -83,14 +93,16 @@ public class audioManager : MonoBehaviour
                 // Keep same music as other scene
                 break;
             case "Credits":
-                playSongUsingID(0, speedForLoad);
+                //playSongUsingID(0, speedForLoad);
                 break;
             case "darkLeoraFight":
-                playSongUsingID(12, speedForLoad);
+                playBGM("T13", speedForLoad);
+                //playSongUsingID(12, speedForLoad);
                 break;
             case "finalBoss":
                 // Keep same music as other scene
-                playSongUsingID(2, speedForLoad);
+                playBGM("T3", speedForLoad);
+                //playSongUsingID(2, speedForLoad);
                 break;
         }
     }
@@ -178,13 +190,7 @@ public class audioManager : MonoBehaviour
             Debug.Log("leaving audio " + currentlyPlaying.name);
             if (playingMusicAfter)
             {
-                currentlyPlaying.DOFade(0, (speed - 0.05f)).OnComplete(() => { 
-                    //this is the only music that stays at the same pitch
-                    if(currentlyPlaying != BGMAvailable[1])
-                    {
-                        currentlyPlaying.pitch = 1f;
-                    }
-                });
+                currentlyPlaying.DOFade(0, (speed - 0.05f)).SetUpdate(true);
             } else
             {
                 currentlyPlaying.DOFade(0, (speed - 0.05f)).SetUpdate(true).OnComplete(() => { currentlyPlaying.Stop(); currentlyPlaying.pitch = 1f; });

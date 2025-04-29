@@ -56,6 +56,7 @@ public class MainMenuScript : MonoBehaviour
         //If there is save data, go to last saved area. If there is NOT save data, play opening cutscene
         if (SaveManager.Isdata())
         {
+            //audioManager.Instance.stopBGM(0.75f);
             ResetStatics();
             bg.gameObject.SetActive(true);
             bg.DOFade(1, 1f).SetUpdate(true).OnComplete(() => {
@@ -97,7 +98,7 @@ public class MainMenuScript : MonoBehaviour
     public void DELETESAVE()
     {
         //Delete the save game
-        audioManager.Instance.stopBGM(1);
+        //audioManager.Instance.stopBGM(0.75f);
         ResetStatics();
         SaveManager.DeleteSaveData();
         bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true).OnComplete(() => {
