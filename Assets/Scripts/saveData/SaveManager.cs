@@ -53,6 +53,7 @@ public class SaveManager : MonoBehaviour
     {
         Instance.leoraChar.SetMaxHealth();
         Instance.leoraChar.SetMaxMana();
+        audioManager.Instance.playSFX(42);
 
         SaveData data = new SaveData();
 

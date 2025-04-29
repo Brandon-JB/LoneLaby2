@@ -57,7 +57,12 @@ public class MainMenuScript : MonoBehaviour
         if (SaveManager.Isdata())
         {
             ResetStatics();
-            bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true).OnComplete(() => {
+            bg.gameObject.SetActive(true);
+            bg.DOFade(1, 1f).SetUpdate(true).OnComplete(() => {
+                if(saveManager == null)
+                {
+                    saveManager = GameObject.FindObjectOfType<SaveManager>();
+                }
                 saveManager.LoadGame();
                 });
 
@@ -66,7 +71,7 @@ public class MainMenuScript : MonoBehaviour
         {
             mainDialogueManager.dialogueSTART("openingCutscene");
             bg.gameObject.SetActive(true);
-            bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true);
+            bg.DOFade(1, 1f).SetUpdate(true);
         }
         
         //SceneManager.LoadScene("Dialogue");

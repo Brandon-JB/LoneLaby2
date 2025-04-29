@@ -60,8 +60,13 @@ public class saveUI : MonoBehaviour
     }
 
 
-    public void CLOSEPAUSEMENU()
+    public void CLOSEPAUSEMENU(bool notSaving)
     {
+        if (notSaving)
+        {
+            audioManager.Instance.playSFX(36);
+        }
+
         EventSystem.current.SetSelectedGameObject(null);
         buttonsToDisable[0].SetActive(false);
         buttonsToDisable[1].SetActive(false);
@@ -89,7 +94,7 @@ public class saveUI : MonoBehaviour
         leoraAnimator.SetTrigger("saved");
 
         leoraToMove.DOMove(locations[0].position, 1f).SetUpdate(true).OnComplete(() => {
-            CLOSEPAUSEMENU();
+            CLOSEPAUSEMENU(false);
         });
         //super animate the buttons
 
