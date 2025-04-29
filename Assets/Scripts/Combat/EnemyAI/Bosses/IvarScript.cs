@@ -42,6 +42,7 @@ public class IvarScript : MonoBehaviour
     [SerializeField] private GameObject projectileSpawnPoint;
     [SerializeField] private float projectileSpawnOffset;
     [SerializeField] private GameObject tpParticlePrefab;
+    [SerializeField] private IvarFlashScript flashScript;
 
     private int whichMoveToCast;
 
@@ -164,22 +165,42 @@ public class IvarScript : MonoBehaviour
                 }
                 else if (!timeUntilBigAttack.isCoolingDown)
                 {
-                    bigCasting = false;
-                    ivarChar.animator.SetBool("bigAttack", false);
-                    darknessEffect.GetComponent<ivarDark>().closeMenu();
-
-                    //Sending Ivar and player back to normal arena
-                    Player.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, ((bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2) - 2);
-                    this.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, (bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2);
-
-                    leoraChar.GotDamaged(50, this.gameObject, 0);
-                    leoraChar.TriggerHurtAnim();
+                    StartCoroutine(doBigAttack());
                     
                 }
                 
 
             }
         }
+    }
+
+    private IEnumerator doBigAttack()
+    {
+        bigCasting = false;
+        darknessEffect.GetComponent<ivarDark>().closeMenu();
+
+        flashScript.expand = true;
+        audioManager.Instance.playSFX(61);
+
+        OpenPauseMenu.GLOBALcanOpenPause = false;
+        Time.timeScale = 0;
+
+        yield return new WaitForSecondsRealtime(2);
+        leoraChar.GotDamaged(50, this.gameObject, 0);
+        //leoraChar.TriggerHurtAnim();
+
+        yield return new WaitForSecondsRealtime(1);
+
+        //Sending Ivar and player back to normal arena
+        Time.timeScale = 1;
+        Player.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, ((bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2) - 2);
+        this.transform.position = new Vector2((bottomLeftArenaBounds.x + topRightArenaBounds.x) / 2, (bottomLeftArenaBounds.y + topRightArenaBounds.y) / 2);
+        ivarChar.animator.SetBool("bigAttack", false);
+
+        flashScript.expand = false;
+
+        OpenPauseMenu.GLOBALcanOpenPause = true;
+        
     }
 
     private void TriggerTPCast()

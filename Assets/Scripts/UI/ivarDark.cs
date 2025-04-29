@@ -13,6 +13,6 @@ public class ivarDark : MonoBehaviour
     public void closeMenu()
     {
         darkness.alpha = 1.0f;
-        darkness.DOFade(0, 0.5f).OnComplete(() => { this.gameObject.SetActive(false); });
+        darkness.DOFade(0, 0.5f).SetUpdate(true).OnComplete(() => { this.gameObject.SetActive(false); });
     }
 }
