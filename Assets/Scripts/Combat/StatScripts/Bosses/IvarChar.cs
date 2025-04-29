@@ -15,7 +15,7 @@ public class IvarChar : BaseChar
         allied = false;
         charName = "Ivar";
 
-        ChangeStats(12, 0, 4, 350, 0);
+        ChangeStats(12, 0, 4, 425, 0);
     }
 
     public override void Update()
