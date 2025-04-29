@@ -147,7 +147,7 @@ public class SaveManager : MonoBehaviour
 
     private void RebuildDictFromList(List<EquipmentEntry> list, Dictionary<string, bool> dict)
     {
-        if(list != null)
+        if (list != null)
         {
             foreach (var entry in list)
             {
@@ -157,7 +157,10 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            return;
+            foreach (var entry in list)
+            {
+                dict[entry.itemName] = false;
+            }
         }
         
     }
