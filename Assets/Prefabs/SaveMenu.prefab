@@ -450,14 +450,14 @@ MonoBehaviour:
       - m_Target: {fileID: 2631412067058549382}
         m_TargetAssemblyTypeName: saveUI, Assembly-CSharp
         m_MethodName: CLOSEPAUSEMENU
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &8502629953939239759
 MonoBehaviour:
@@ -914,6 +914,7 @@ MonoBehaviour:
   - {fileID: 6932083981577575959}
   - {fileID: 1784059733323161645}
   menu: {fileID: 3889574964041991190}
+  saveManager: {fileID: 0}
 --- !u!223 &4126178140822065862
 Canvas:
   m_ObjectHideFlags: 0
