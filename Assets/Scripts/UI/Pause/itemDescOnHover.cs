@@ -23,6 +23,8 @@ public class itemDescOnHover : MonoBehaviour
     [SerializeField] private string[] allItemNames;
     [SerializeField] private string[] allItemDescs;
 
+    [SerializeField] private string[] unobtainedItemDesc;
+
     public void TriggerWithDelay(string itemName)
     {
         closeItemUI(itemName);
@@ -44,7 +46,7 @@ public class itemDescOnHover : MonoBehaviour
             //change UI text
             itemNameTXT.text = "???";
             //change ui desc
-            itemDescTXT.text = "";
+            itemDescTXT.text = unobtainedItemDesc[keyForArrays];
         } else
         {
             //change UI text
