@@ -79,7 +79,9 @@ public class ChestInteraction : CombatInteraction
                 break;
             case 6:
                 //for (int i = 0; i < 20; i++)
-                Instantiate(EnemyToSpawn, ObjectSpawnPosition.transform.position, Quaternion.identity);
+                audioManager.Instance.playSFX(62);
+                EnemyScript enemyScript = Instantiate(EnemyToSpawn, ObjectSpawnPosition.transform.position, Quaternion.identity).GetComponent<EnemyScript>();
+                enemyScript.cooldown.StartCooldown();
                 break;
             default:
                 //Debug.Log("Haha pranked idiot");
