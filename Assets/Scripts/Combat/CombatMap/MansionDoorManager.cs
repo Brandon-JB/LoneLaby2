@@ -5,7 +5,7 @@ using UnityEngine;
 public class MansionDoorManager : CombatInteraction
 {
     public static bool hasKey = false;
-    public static bool DoorOpened;
+    public static bool DoorOpened = false;
     //public GameObject Player;
     public GameObject Door;
     [SerializeField] private GameObject keyUI;
@@ -35,6 +35,7 @@ public class MansionDoorManager : CombatInteraction
                     alreadyInteracted = true;
                     Door.SetActive(false);
                     DoorOpened = true;
+                    hasKey = false;
                 }
             }
         }

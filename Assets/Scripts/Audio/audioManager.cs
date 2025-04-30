@@ -66,7 +66,7 @@ public class audioManager : MonoBehaviour
                 //playSongUsingID(5, speedForLoad);
                 break;
             case "Cutscenes":
-                //playBGM("T7", speedForLoad);
+                playBGM("T7", speedForLoad);
                 //playSongUsingID(6, speedForLoad);
                 break;
             case "Dialogue":

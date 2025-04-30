@@ -75,7 +75,7 @@ namespace DIALOGUE
             ///
             if(config.alias != "leora")
             {
-                Debug.Log(config.alias);
+                //Debug.Log(config.alias);
                 foreach (Image sideText in nameOfCharMoving)
                 {
                     sideText.sprite = config.nameOnSide;
