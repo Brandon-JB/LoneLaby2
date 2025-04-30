@@ -332,7 +332,6 @@ public class mainDialogueManager : MonoBehaviour
                             dialogueSTART("Endings/Conflicted/withVerita/grabLeora");
                             return;
                     }
-                    break;
                 case "LucanQuest/cave_postfight_condemnSpeaker":
                 case "IvarQuest/manor_postfight_condemnSpeaker":
                 case "ViinQuest/veinwood_postfight_condemnSpeaker":

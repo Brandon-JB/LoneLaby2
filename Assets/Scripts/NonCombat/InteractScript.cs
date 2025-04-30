@@ -57,7 +57,7 @@ public class InteractScript : MonoBehaviour
             Debug.Log(closeTo.name);
             CanInteractUI.SetActive(true);
 
-            if (InputManager.interactPressed == true)
+            if (InputManager.interactPressed == true && OpenPauseMenu.GLOBALcanOpenPause)
             {
                 //Start Interaction
                 if (closeTo.name != "BedTrigger")
