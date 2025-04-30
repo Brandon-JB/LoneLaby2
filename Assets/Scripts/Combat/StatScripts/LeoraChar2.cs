@@ -78,7 +78,7 @@ public class LeoraChar2 : BaseChar
                         AddToSpecificStat("MagAttack", 5);
                         break;
                     case "Viin":
-                        AddToSpecificStat("Strength", 5);
+                        AddToSpecificStat("Strength", 3);
                         break;
                     case "Lucan":
                         AddToSpecificStat("MaxHealth", 25);

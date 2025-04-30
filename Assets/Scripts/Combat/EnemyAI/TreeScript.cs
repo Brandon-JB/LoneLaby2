@@ -30,6 +30,7 @@ public class TreeScript : EnemyScript
         else// if (enemyChar.animator.GetBool("Hurt") == true)
         {
             canMove = false;
+            path.destination = this.transform.position;
             enemyChar.animator.SetBool("isMoving", false);
         }
 

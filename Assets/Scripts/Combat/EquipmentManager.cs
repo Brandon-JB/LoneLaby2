@@ -271,7 +271,7 @@ public class EquipmentManager : MonoBehaviour
         switch (ring)
         {
             case "AdvATKRing":
-                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 6);
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] - 4);
                 break;
             case "AdvHPRing":
                 leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] - 50);
@@ -310,7 +310,7 @@ public class EquipmentManager : MonoBehaviour
         switch (ring)
         {
             case "AdvATKRing":
-                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 6);
+                leoraChar.ChangeSpecificStat("Strength", baseStatSheet["Strength"] + 4);
                 break;
             case "AdvHPRing":
                 leoraChar.ChangeSpecificStat("MaxHealth", baseStatSheet["MaxHealth"] + 50);
@@ -357,13 +357,13 @@ public class EquipmentManager : MonoBehaviour
                 break;
             case "AlanAmulet":
                 leoraChar.alanAmuletActive = false;
-                leoraChar.AddToSpecificStat("Strength", -5);
+                leoraChar.AddToSpecificStat("Strength", -3);
 
                 foreach (var boss in BossSaveData.bossStates)
                 {
                     if (boss.Value == 1)
                     {
-                        leoraChar.AddToSpecificStat("Strength", -2);
+                        leoraChar.AddToSpecificStat("Strength", -1);
                     }
                 }
                 break;
@@ -392,13 +392,13 @@ public class EquipmentManager : MonoBehaviour
                     break;
                 case "AlanAmulet":
                 leoraChar.alanAmuletActive = true;
-                leoraChar.AddToSpecificStat("Strength", 5);
+                leoraChar.AddToSpecificStat("Strength", 3);
 
                 foreach (var boss in BossSaveData.bossStates)
                 {
                     if (boss.Value == 1)
                     {
-                        leoraChar.AddToSpecificStat("Strength", 2);
+                        leoraChar.AddToSpecificStat("Strength", 1);
                     }
                 }
                     break;

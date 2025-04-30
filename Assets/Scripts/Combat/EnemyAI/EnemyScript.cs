@@ -59,7 +59,9 @@ public class EnemyScript : MonoBehaviour
         }
         else// if (enemyChar.animator.GetBool("Hurt") == true)
         {
-            canMove = false;
+            canMove = false; 
+            path.destination = this.transform.position;
+
         }
 
         //Debug.Log("Enemy is existing");
