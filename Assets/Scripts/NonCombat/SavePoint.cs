@@ -22,6 +22,7 @@ public class SavePoint : MonoBehaviour
     void Update()
     {
         DistanceBetweenObjects = Vector2.Distance(transform.position, Player.transform.position);
+        Debug.Log("Distance: " + DistanceBetweenObjects + " / Max Distance: " + maxDistance);
         if (DistanceBetweenObjects <= maxDistance)
         {
             if(interactionPopup == null)
@@ -29,6 +30,7 @@ public class SavePoint : MonoBehaviour
                 interactionPopup = GameObject.FindObjectOfType<KeyPromptUI>().gameObject;
             }
             wasCloseTo = true;
+            Debug.Log("I AM SETTING IT ACTIVE");
             interactionPopup.SetActive(true);
 
             if (InputManager.interactPressed == true && saveUI.isSaveOpen == false && OpenPauseMenu.GLOBALcanOpenPause)
