@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
@@ -411,4 +412,31 @@ public class EquipmentManager : MonoBehaviour
                 break;
             }
         }
+
+
+    public static void ResetEquipmentToDefault()
+    {
+        //Literally reset everything
+        foreach (var key in equipmentObtained.Keys.ToList())
+        {
+            equipmentObtained[key] = false;
+        }
+        foreach (var key in amuletSlot.Keys.ToList())
+        {
+            amuletSlot[key] = false;
+        }
+        foreach (var key in ringSlot1.Keys.ToList())
+        {
+            ringSlot1[key] = false;
+        }
+        foreach (var key in ringSlot2.Keys.ToList())
+        {
+            ringSlot2[key] = false;
+        }
+        foreach (var key in equippedRings.Keys.ToList())
+        {
+            equippedRings[key] = false;
+        }
+
+    }
 }
