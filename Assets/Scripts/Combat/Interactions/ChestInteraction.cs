@@ -14,6 +14,8 @@ public class ChestInteraction : CombatInteraction
 
     [SerializeField] private GameObject Door;
 
+    [SerializeField] private GameObject EnemyToSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +76,12 @@ public class ChestInteraction : CombatInteraction
                 MansionDoorManager.hasKey = true;
                 audioManager.Instance.playSFX(43);
                 itemMenu.openItemMenu("Key");
+                break;
+            case 6:
+                //for (int i = 0; i < 20; i++)
+                audioManager.Instance.playSFX(62);
+                EnemyScript enemyScript = Instantiate(EnemyToSpawn, ObjectSpawnPosition.transform.position, Quaternion.identity).GetComponent<EnemyScript>();
+                enemyScript.cooldown.StartCooldown();
                 break;
             default:
                 //Debug.Log("Haha pranked idiot");

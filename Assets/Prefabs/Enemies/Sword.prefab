@@ -331,9 +331,9 @@ GameObject:
   - component: {fileID: 6549770698280233058}
   - component: {fileID: 91874882027523726}
   - component: {fileID: 2032490484906467798}
-  - component: {fileID: 7502155697713748400}
   - component: {fileID: 5585785438186684669}
   - component: {fileID: 6398208271107108871}
+  - component: {fileID: 2819060307926696545}
   m_Layer: 7
   m_Name: Sword
   m_TagString: Enemy
@@ -463,37 +463,6 @@ MonoBehaviour:
   slowTimer:
     cooldownTime: 100
   swordScript: {fileID: 91874882027523726}
---- !u!60 &7502155697713748400
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7487041304306391988}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.027051792, y: 0.58587253}
-      - {x: -0.52695566, y: 0.11780658}
-      - {x: -0.26258823, y: -0.58328444}
-      - {x: 0.3103532, y: -0.4034372}
-      - {x: 0.51987034, y: -0.013870895}
-      - {x: 0.6701198, y: 0.82520133}
 --- !u!114 &5585785438186684669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,3 +533,19 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
+--- !u!58 &2819060307926696545
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487041304306391988}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.62
