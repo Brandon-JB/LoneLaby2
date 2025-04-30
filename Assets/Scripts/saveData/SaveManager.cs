@@ -94,7 +94,8 @@ public class SaveManager : MonoBehaviour
 
     public static void DeleteSaveData()
     {
-
+        //Delete Equipment
+        EquipmentManager.ResetEquipmentToDefault();
         SaveSystem.Deletegame();
 
     }
