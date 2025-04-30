@@ -10,7 +10,7 @@ public class SpiritChar : BaseChar
         allied = false;
         charName = "Spirit";
 
-        ChangeStats(9, 0, 2, 80, 0);
+        ChangeStats(11, 0, 2, 80, 0);
     }
 
     public override void TriggerHurtAnim()

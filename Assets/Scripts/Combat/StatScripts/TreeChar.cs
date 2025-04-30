@@ -10,6 +10,6 @@ public class TreeChar : BaseChar
         charName = "TreeMimic";
         allied = false;
 
-        ChangeStats(11, 0, 7, 50, 0);
+        ChangeStats(13, 0, 7, 50, 0);
     }
 }
