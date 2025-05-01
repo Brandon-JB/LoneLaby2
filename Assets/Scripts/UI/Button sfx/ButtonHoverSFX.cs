@@ -28,6 +28,11 @@ public class ButtonHoverSFX : MonoBehaviour, IPointerDownHandler
         audioManager.Instance.playSFX(sfxID_Press);
     }
 
+    public void btnselect()
+    {
+        audioManager.Instance.playSFX(sfxID_Press);
+    }
+
     //public void OnSelect(BaseEventData eventData)
     //{
     //    audioManager.Instance.playSFX(sfxID_Hover); // reuse hover sound if selected by keyboard/controller
