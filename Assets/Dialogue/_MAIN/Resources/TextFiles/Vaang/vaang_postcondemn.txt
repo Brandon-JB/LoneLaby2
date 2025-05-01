@@ -1,0 +1,11 @@
+CreateCharacter(leora -enabled false)
+leora.Move(0.15 0 -spd 1000)
+wait(0.5)
+Show(leora)
+Highlight(leora -o true)
+SetSprite(leora confused)
+leora "(Vaang...)"
+leora "(...)"
+leora "(I should leave him to his thoughts. I am sure they are a heavy.)"
+Hide(leora)
+endDialogue(false)

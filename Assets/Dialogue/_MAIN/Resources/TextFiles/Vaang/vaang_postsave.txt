@@ -1,0 +1,27 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(vaang -enabled false)
+leora.Move(0.15 0 -spd 1000)
+vaang.Move(0.9 0 -spd 1000)
+wait(0.5)"Show(vaang)
+Highlight(vaang -o true)
+SetSprite(vaang smile)
+vaang "Good to see you, Dame. What brings you here?"
+Show(leora)
+Highlight(leora -o true)
+SetSprite(leora leora)
+leora "Hello again, Vaang. I've been thinking... is there any way your condition might be undone?"
+Highlight(vaang -o true)
+SetSprite(vaang glance)
+vaang "Truthfully, I don't know. It was Viin who bound us—if anyone has the knowledge to undo it, it would be her. But... I doubt she would offer that freely."
+Highlight(leora -o true)
+leora "Still, perhaps I can look into it. Condemning her remains my duty, and I would see it through. If it could be done without harming you, of course."
+Highlight(vaang -o true)
+SetSprite(vaang vaang)
+vaang "...I understand. And though I do not wish Viin harm, I know something must change. If it were possible to break this binding to her, I would like try."
+SetSprite(vaang glance)
+vaang "It would feel strange, I think. To wake up and not feel her rage echoing in my chest. To have a soul that is my own again. But perhaps strange is what I need."
+SetSprite(vaang smile)
+vaang "You have far more important tasks, Dame. This can be pursued another day. Regardless, thank you."
+Hide(vaang)
+Hide(leora)
+endDialogue(false)

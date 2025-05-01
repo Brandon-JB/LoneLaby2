@@ -1,0 +1,36 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(vaang -enabled false)
+leora.Move(0.15 0 -spd 1000)
+vaang.Move(0.9 0 -spd 1000)
+wait(0.5)
+Show(vaang)
+Highlight(vaang -o true)
+SetSprite(Vaang glance)
+vaang "...So it is done."
+Show(leora)
+Highlight(leora -o true)
+SetSprite(leora confused)
+leora "You must be Vaang; I am Dame Leora, sent by the Speaker of Truth. I've come from the Veinwood. Your sister..."
+Highlight(vaang -o true)
+SetSprite(vaang sad)
+vaang "I understand. She had taken too many lives. It would have been unjust to leave her free to kill again."
+SetSprite(vaang smile)
+vaang "Do not burden yourself, Dame. I am not angry. In truth, I am... happy."
+Highlight(leora -o true)
+SetSprite(leora confused)
+leora "Vaang-"
+Highlight(vaang -o true)
+SetSprite(vaang vaang)
+vaang "Let me speak, Leora."
+SetSprite(vaang smile)
+vaang "Perhaps this will be a lesson for her. Perhaps, in her final moments, she will reflect. Perhaps she will change."
+SetSprite(vaang glance)
+vaang "I am a fool to hope for such things. But a fool I shall remain."
+SetSprite(vaang vaang)
+vaang "I have long since accepted my fate. I only regret that I will leave the children behind."
+vaang "Perhaps I will take them on one last outing. A final adventure. I will not tell them why. ...I mourn for them more than myself."
+SetSprite(vaang sad)
+vaang "Please excuse me, Dame. I require a moment to myself."
+Hide(leora)
+Hide(vaang)
+endDialogue(false)

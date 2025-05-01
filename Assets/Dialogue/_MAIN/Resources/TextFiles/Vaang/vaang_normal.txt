@@ -1,0 +1,41 @@
+CreateCharacter(leora -enabled false)
+CreateCharacter(vaang -enabled false)
+leora.Move(0.15 0 -spd 1000)
+vaang.Move(0.9 0 -spd 1000)
+wait(0.5)
+Show(vaang)
+Highlight(vaang -o true)
+SetSprite(vaang vaang)
+vaang "Ah, you've returned. Did you require more information on my sister?"
+Show(leora)
+Highlight(leora -o true)
+SetSprite(leora confused)
+leora "Not entirely. Is it truly that common of an occurrence that you assume I wish to speak about her when we lock eyes?"
+Highlight(vaang -o true)
+SetSprite(vaang glance)
+vaang "...No offense to you, Dame, but knights tend to only want one thing from me. It's an easy guess."
+SetSprite(vaang vaang)
+vaang "Still, I was correct, yes? Go ahead."
+Highlight(leora -o true)
+SetSprite(leora leora)
+leora "Viin can be found in be found the Veinwood? And she is particularly weak to mind magic?"
+Highlight(vaang -o true)
+SetSprite(vaang glance)
+vaang "You are correct. She tends to work in the Veinwood, doing... Gods knows what."
+Highlight(leora -o true)
+SetSprite(leora angry)
+leora "Yes... I can only imagine. If all goes well and I can withstand her, she will be hung by morn I am certain."
+Highlight(vaang -o true)
+SetSprite(vaang sad)
+vaang "..."
+Highlight(leora -o true)
+SetSprite(leora confused)
+leora "(Perhaps I stepped a bit too far... They are twins, after all.)"
+leora "I apologize. I merely mean-"
+Highlight(vaang -o true)
+vaang "Yes, I understand. I just... wish it could be different."
+SetSprite(vaang vaang)
+vaang "Do what you must, Dame."
+Hide(vaang)
+Hide(leora)
+endDialogue(false)

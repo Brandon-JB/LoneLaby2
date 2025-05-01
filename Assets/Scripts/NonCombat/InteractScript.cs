@@ -134,13 +134,21 @@ public class InteractScript : MonoBehaviour
                 switch (BossSaveData.bossStates["Viin"])
                 {
                     case 0: // Viin not encountered
-                        mainDialogueManager.dialogueSTART("Vaang/meetingVaang"); 
+                        if (hasTalkedToVaang)
+                        {
+                            mainDialogueManager.dialogueSTART("Vaang/vaang_normal");
+                        } else
+                        {
+                            mainDialogueManager.dialogueSTART("Vaang/meetingVaang");
+                            hasTalkedToVaang = true;
+                        }
                         break;
                     case 1: // Viin dead
+                        vaangTalkingLevels1("Vaang/vaang_condemn_neverSpokenToo", "Vaang/vaang_condemn", "Vaang/vaang_postcondemn");
                         mainDialogueManager.dialogueSTART("Vaang/vaang_condemn"); 
                         break;
                     case 2: // Viin saved
-                        mainDialogueManager.dialogueSTART("Vaang/vaang_save"); 
+                        vaangTalkingLevels1("Vaang/vaang_save_neverSpokenToo", "Vaang/vaang_save", "Vaang/vaang_postsave");
                         break;
                 }
                 //findDialogueToPlay("Vaang/meetingVaang", "Vaang/vaang_condemn", "Vaang/vaang_save", NPCName);
@@ -190,5 +198,25 @@ public class InteractScript : MonoBehaviour
             mainDialogueManager.dialogueSTART(dialogue1);
         }        
         CanInteractUI.SetActive(false);
+    }
+
+    private void vaangTalkingLevels1(string dialogue1, string dialogue2, string dialogue3)
+    {
+        if (hasTalkedToVaangAfterAction)
+        {
+            mainDialogueManager.dialogueSTART(dialogue2);
+        }
+        if (hasTalkedToVaang)
+        {
+            //has talked to vaang before
+            mainDialogueManager.dialogueSTART(dialogue2);
+            hasTalkedToVaangAfterAction = true;
+        } else
+        {
+            //has NOT talked to vaang before
+            mainDialogueManager.dialogueSTART(dialogue1);
+            hasTalkedToVaang = true;
+            hasTalkedToVaangAfterAction = true;
+        }
     }
 }

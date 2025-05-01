@@ -5,14 +5,22 @@ vaang.Move(0.9 0 -spd 1000)
 wait(0.5)
 Show(leora)
 Highlight(leora -o true)
-SetSprite(leora confused)
-leora "Vaang. Why did you not tell me that you and Viin were soulbound? That in harming her, I would also be harming you?"
+SetSprite(leora leora)
+leora "You must be Vaang; I am Dame Leora, sent by the Speaker of Truth. I've come from the Veinwood."
 Show(vaang)
 Highlight(vaang -o true)
-SetSprite(vaang sad)
-vaang "Dame Leora, it is a... delicate matter. One I do not like to discuss."
 SetSprite(vaang vaang)
-vaang "I feared that if you knew, it would cloud your judgement. I could not allow that."
+vaang "Yes, I am Vaang. And I gather you have already crossed paths with my sister, given that you have returned from the Veinwood. Is she..?"
+Highlight(leora -o true)
+SetSprite(leora sideeye)
+leora "She nearly killed me, but... she lives."
+SetSprite(leora confused)
+leora "She said that harming her would have harmed you as well. That the two of you are soulbound. Is this true?"
+Highlight(vaang -o true)
+SetSprite(vaang glance)
+vaang "Yes, Viin spoke the truth."
+SetSprite(vaang sad)
+vaang "It is not a truth I share lightly. Most who come seeking Viin do so with blades drawn. If they knew what bound us... I feared it would either stay their hand for the wrong reasons—or worse, tempt them to use me against her."
 Highlight(leora -o true)
 SetSprite(leora leora)
 leora "Viin was more than eager to reveal it herself, though only once she was at her limit."
