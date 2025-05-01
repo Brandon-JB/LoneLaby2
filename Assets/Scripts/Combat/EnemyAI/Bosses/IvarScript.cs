@@ -139,7 +139,10 @@ public class IvarScript : MonoBehaviour
             {
                 ivarChar.statsSheet["Health"] = Mathf.Clamp(ivarChar.statsSheet["Health"], ivarChar.GetMaxHealth() - (ivarChar.GetMaxHealth() / 4), ivarChar.GetMaxHealth());
                 teleportNum = 1;
-                TriggerTPCast();
+                if (!ivarChar.animator.GetBool("Casting"))
+                {
+                    TriggerTPCast();
+                }
             }
             else if (secondTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 3)
             {

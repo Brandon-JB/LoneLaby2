@@ -1119,7 +1119,7 @@ MonoBehaviour:
   enemyList: []
   projectilePrefab: {fileID: 2865469907293863706, guid: 74a10ffa69ca86c45abfa7dcc0cc36a3, type: 3}
   castingCooldown:
-    cooldownTime: 6
+    cooldownTime: 4.5
   castParticleAnimator: {fileID: 6650909456639093376}
   projectileSpawnPoint: {fileID: 7993461483623113645}
   projectileSpawnOffset: 1
@@ -1138,7 +1138,7 @@ MonoBehaviour:
     cooldownTime: 20
   firstTPTime: 20
   secondTPTime: 50
-  damageThreshold: 30
+  damageThreshold: 45
   damageTaken: 0
   bigCasting: 0
   ivartext: {fileID: 0}

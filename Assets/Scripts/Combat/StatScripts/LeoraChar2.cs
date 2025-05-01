@@ -468,7 +468,7 @@ public class LeoraChar2 : BaseChar
                         }
                         else
                         {
-                            GotDamaged(incomingDamage, otherCharTrigger.gameObject, 1);
+                            GotDamaged(incomingDamage, collision.gameObject, 1);
                             TriggerHurtAnim();
 
                             if (hitboxChild.type == "Projectile")
@@ -577,7 +577,7 @@ public class LeoraChar2 : BaseChar
             //On walking into environmental damage AKA Ivar fire wall
             else if (collision.tag == "Environmental" && animator.GetBool("Hurt") != true)
             {
-                GotDamaged(20, collision.gameObject, 1);
+                GotDamaged(15, collision.gameObject, 1);
                 TriggerHurtAnim();
             }
         }

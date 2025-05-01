@@ -24,7 +24,7 @@ public class IvarChar : BaseChar
 
         if (animator.GetBool("stunned") && !stunTimer.isCoolingDown)
         {
-            Debug.Log("Fuck");
+            //Debug.Log("Fuck");
             ivarScript.StopStunAnim();
         }
     }
