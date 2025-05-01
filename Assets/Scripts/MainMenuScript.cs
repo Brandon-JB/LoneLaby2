@@ -70,6 +70,7 @@ public class MainMenuScript : MonoBehaviour
             }
         else
         {
+            PortalScript.LastPortal = 1;
             mainDialogueManager.dialogueSTART("openingCutscene");
             bg.gameObject.SetActive(true);
             bg.DOFade(1, 1f).SetUpdate(true);
@@ -114,6 +115,7 @@ public class MainMenuScript : MonoBehaviour
     {
         MansionDoorManager.hasKey = false;
         MansionDoorManager.DoorOpened = false;
+        PortalScript.LastPortal = 1;
         //EDIT DROPMANAGER ENEMY DEATH COUNT
     }
 }
