@@ -72,7 +72,7 @@ public class SaveManager : MonoBehaviour
 
         //Other Stats
         data.currentScene = SceneManager.GetActiveScene().name;
-        data.playerPosition = Player.transform.position;
+        //data.playerPosition = Player.transform.position;
         //data.currentHP = leoraChar.GetHealth();
         //data.currentMana = leoraChar.GetMana();
         data.mansionDoorOpened = MansionDoorManager.DoorOpened;
@@ -123,7 +123,7 @@ public class SaveManager : MonoBehaviour
 
         //Other Stats
         Player = GameObject.FindGameObjectWithTag("Player");
-        Player.transform.position = data.playerPosition;
+        //Player.transform.position = data.playerPosition;
         MansionDoorManager.DoorOpened = data.mansionDoorOpened;
         PortalScript.LastPortal = data.LastPortal;
         Instance.leoraChar.SetMaxHealth();
