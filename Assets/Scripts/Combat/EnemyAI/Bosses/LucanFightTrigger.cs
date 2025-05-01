@@ -6,12 +6,14 @@ public class LucanFightTrigger : MonoBehaviour
 {
     public LucanScript lucanScript;
     [SerializeField] private mainDialogueManager mdm;
+    [SerializeField] private GameObject fogWall;
 
     //public GameObject bossFog;
 
     // Start is called before the first frame update
     void Start()
     {
+        fogWall.SetActive(false);
 
         if (BossSaveData.bossStates["Lucan"] != 0)
         {
@@ -36,6 +38,7 @@ public class LucanFightTrigger : MonoBehaviour
             lucanScript.isActive = true;
             //bossFog.SetActive(true);
             this.gameObject.SetActive(false);
+            fogWall.SetActive(true);
         }
     }
 }
