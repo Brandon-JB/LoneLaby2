@@ -125,7 +125,8 @@ public class InteractScript : MonoBehaviour
                 findDialogueToPlay(NPCName, "SideQuests/getAlanQuest", "SideQuests/midAlanQuest", "SideQuests/finAlanQuest", "SideQuests/postAlanQuest", "AlanAmulet");
                 break;
             case "Kisa":
-                findDialogueToPlay(NPCName, "SideQuests/getKisaQuest", "SideQuests/midKisaQuest", "SideQuests/finKisaQuest", "SideQuests/postKisaQuest", "KisaAmulet");
+                mainDialogueManager.dialogueSTART("SideQuests/finKisaQuest");
+                //findDialogueToPlay(NPCName, "SideQuests/getKisaQuest", "SideQuests/midKisaQuest", "SideQuests/finKisaQuest", "SideQuests/postKisaQuest", "KisaAmulet");
                 break;
             case "Sophie":
                 findDialogueToPlay(NPCName, "SideQuests/getSophQuest", "SideQuests/midSophQuest", "SideQuests/finSophQuest", "SideQuests/postSophQuest", "SophieAmulet");
