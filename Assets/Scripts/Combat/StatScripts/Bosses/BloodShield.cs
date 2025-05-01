@@ -47,6 +47,7 @@ public class BloodShield : MonoBehaviour
             //if Viin hits the shield
             if (otherCharTrigger.charName == "Viin" && bloodCrystal.isShielded)
             {
+                audioManager.Instance.playSFX(64);
                 bloodCrystal.DespawnShield();
                 bloodCrystal.isShielded = false;
                 bloodCrystal.noShieldTimer.StartCooldown();

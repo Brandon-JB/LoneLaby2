@@ -178,4 +178,9 @@ public class BloodCrystalScript : MonoBehaviour
             }
         }
     }
+
+    public void PlaySFX(int id)
+    {
+        audioManager.Instance.playSFX(id);
+    }
 }
