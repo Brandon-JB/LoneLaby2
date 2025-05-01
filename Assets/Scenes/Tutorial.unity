@@ -5655,8 +5655,8 @@ Tilemap:
   - first: {x: 135, y: -16, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileIndex: 14
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6715,8 +6715,8 @@ Tilemap:
   - first: {x: 143, y: -14, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileIndex: 14
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7015,8 +7015,8 @@ Tilemap:
   - first: {x: 124, y: -13, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileIndex: 14
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -10175,8 +10175,8 @@ Tilemap:
   - first: {x: 146, y: -7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileIndex: 14
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -16024,7 +16024,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: e32ee62f82f3bc94cb6cc2f3eba4696b, type: 2}
   - m_RefCount: 16
     m_Data: {fileID: 11400000, guid: 60b54968a32154143b6487952cd51fe3, type: 2}
-  - m_RefCount: 385
+  - m_RefCount: 381
     m_Data: {fileID: 11400000, guid: 1d8072837fc27b2419f285722f380d42, type: 2}
   - m_RefCount: 49
     m_Data: {fileID: 11400000, guid: d79b9a1e2129109478fee96842cc8244, type: 2}
@@ -16032,7 +16032,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 673fac99c741ec64da5094c6d904bc85, type: 2}
   - m_RefCount: 32
     m_Data: {fileID: 11400000, guid: 68fd755665bec0c4a8c832ec7078d983, type: 2}
-  - m_RefCount: 23
+  - m_RefCount: 27
     m_Data: {fileID: 11400000, guid: 4ac333387c2659e4fb2bcfdec6ed7f64, type: 2}
   - m_RefCount: 80
     m_Data: {fileID: 11400000, guid: d945ec265f2281347bcff5b298934a46, type: 2}
@@ -16069,7 +16069,7 @@ Tilemap:
     m_Data: {fileID: 2027115238, guid: cdc3d7751c62f8d40a37289e2e85b71a, type: 3}
   - m_RefCount: 16
     m_Data: {fileID: 1559514964, guid: cdc3d7751c62f8d40a37289e2e85b71a, type: 3}
-  - m_RefCount: 385
+  - m_RefCount: 381
     m_Data: {fileID: 71583519, guid: cdc3d7751c62f8d40a37289e2e85b71a, type: 3}
   - m_RefCount: 49
     m_Data: {fileID: -1561735982, guid: 694cf31ae1f0b8540a2c2529596b30f1, type: 3}
@@ -16077,7 +16077,7 @@ Tilemap:
     m_Data: {fileID: -1497843607, guid: cdc3d7751c62f8d40a37289e2e85b71a, type: 3}
   - m_RefCount: 32
     m_Data: {fileID: 1494389259, guid: cdc3d7751c62f8d40a37289e2e85b71a, type: 3}
-  - m_RefCount: 23
+  - m_RefCount: 27
     m_Data: {fileID: 397823198, guid: cdc3d7751c62f8d40a37289e2e85b71a, type: 3}
   - m_RefCount: 80
     m_Data: {fileID: -1566032068, guid: cdc3d7751c62f8d40a37289e2e85b71a, type: 3}
@@ -29462,6 +29462,8 @@ MonoBehaviour:
   MDM: {fileID: 7332341704593595770}
   tutorial: {fileID: 0}
   fileName: beginTutorial
+  bedTrigger: {fileID: 0}
+  kisa: {fileID: 0}
 --- !u!95 &679167019
 Animator:
   serializedVersion: 4
@@ -36739,6 +36741,7 @@ MonoBehaviour:
   nameBox: {fileID: 0}
   voidSprite: {fileID: 0}
   gainQuestMenu: {fileID: 0}
+  kisa: {fileID: 0}
   dialogueRunning: 0
 --- !u!1 &7332341704593595771
 GameObject:

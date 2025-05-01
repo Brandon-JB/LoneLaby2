@@ -23,6 +23,8 @@ public class SaveData
     public List<BossStateEntry> bossStates;
     public List<QuestSaveEntry> quests;
 
+    public bool hasTalkedToVaang;
+
     public float currentHP;
     public float currentMana;
 

@@ -21,6 +21,9 @@ public class InteractScript : MonoBehaviour
 
     public GameObject closeTo;
 
+    public static bool hasTalkedToVaang = false;
+    public static bool hasTalkedToVaangAfterAction = false;
+
     //private bool gainedQuest = false; // SAVE THIS!!!!!!
     private Dictionary<string, bool> gainedQuests = new Dictionary<string, bool>()
     {

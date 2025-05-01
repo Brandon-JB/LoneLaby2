@@ -72,6 +72,7 @@ public class SaveManager : MonoBehaviour
 
         //Other Stats
         data.currentScene = SceneManager.GetActiveScene().name;
+        data.hasTalkedToVaang = InteractScript.hasTalkedToVaang;
         //data.playerPosition = Player.transform.position;
         //data.currentHP = leoraChar.GetHealth();
         //data.currentMana = leoraChar.GetMana();
@@ -117,6 +118,8 @@ public class SaveManager : MonoBehaviour
         //Quests
         QuestManager.ClearAllQuests();
         RebuildQuestDict(data.quests);
+
+        InteractScript.hasTalkedToVaang = data.hasTalkedToVaang;
 
         //Bosses Dead
         RebuildBossDictFromList(data.bossStates, BossSaveData.bossStates);
