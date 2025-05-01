@@ -204,7 +204,7 @@ public class InteractScript : MonoBehaviour
     {
         if (hasTalkedToVaangAfterAction)
         {
-            mainDialogueManager.dialogueSTART(dialogue2);
+            mainDialogueManager.dialogueSTART(dialogue3);
         }
         if (hasTalkedToVaang)
         {
