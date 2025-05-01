@@ -22,14 +22,22 @@ public class QuestManager : MonoBehaviour
 
     //ALL OF THE ACTUAL QUEST STUFF
 
-    public static Dictionary<string, QuestData> questStates = new Dictionary<string, QuestData>();
+    public static Dictionary<string, QuestData> questStates = new Dictionary<string, QuestData>()
+    {
+        {"Alan", null},
+        {"Kisa", null },
+        {"Sophie", null },
+    };
 
     // Call this to start a quest
     public static void StartQuest(string questID, int requiredProgress)
     {
-
+        Debug.Log("Called Start quest");
         if (!questStates.ContainsKey(questID))
+        {
             questStates.Add(questID, new QuestData(questID, requiredProgress));
+            Debug.Log("Added: " + questID);
+        }
     }
 
     // Call this when progress is made (e.g., enemy killed)
