@@ -700,7 +700,10 @@ public class LeoraChar2 : BaseChar
         MagicEffects magEffects = magHitbox.GetComponent<MagicEffects>();
 
         magEffects.magicType = magicType;
+    }
 
+    public void LoseMana()
+    {
         if (magicType != "darkMag")
         {
             SetMana(GetMana() - 2);

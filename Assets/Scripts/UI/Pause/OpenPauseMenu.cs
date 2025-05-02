@@ -34,7 +34,7 @@ public class OpenPauseMenu : MonoBehaviour
     }
     private IEnumerator wait()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(1f);
         hudEquipment = FindObjectOfType<HUD_Equipment>();
 
         //Wait for game to load
