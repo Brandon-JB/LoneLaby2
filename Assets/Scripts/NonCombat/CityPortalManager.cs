@@ -42,7 +42,7 @@ public class CityPortalManager : MonoBehaviour
         if (areaName == "Exit")
         {
             OpenPauseMenu.canOpenPause = false;
-            OpenPauseMenu.GLOBALcanOpenPause = true;
+            //OpenPauseMenu.GLOBALcanOpenPause = true;
             SceneManager.LoadScene("Overworld");
         }
         else if (areaName == "Training")
