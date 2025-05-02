@@ -136,7 +136,7 @@ public class mainDialogueManager : MonoBehaviour
 
 
             Time.timeScale = 0f;
-            OpenPauseMenu.GLOBALcanOpenPause = true;
+            OpenPauseMenu.GLOBALcanOpenPause = false;
             OpenPauseMenu.canOpenPause = false;
             OpenPauseMenu.pauseOpened = false;
             StartCoroutine(completeDialogue("TextFiles/" + dialogueFile));
@@ -199,7 +199,9 @@ public class mainDialogueManager : MonoBehaviour
 
             top.DOMove(tweenInPositions[0].transform.position, 1.5f).SetUpdate(true).SetEase(Ease.OutCubic);
             bottom.DOMove(tweenInPositions[1].transform.position, 1.5f).SetUpdate(true).SetEase(Ease.OutCubic);
-            dialogueBox.DOMove(tweenInPositions[2].transform.position, 1.5f).SetUpdate(true).SetEase(Ease.OutBack);
+            dialogueBox.DOMove(tweenInPositions[2].transform.position, 1.5f).SetUpdate(true).SetEase(Ease.OutBack).OnComplete(() => {
+                OpenPauseMenu.GLOBALcanOpenPause = true;
+            }); ;
 
             equipmentMenu = FindObjectOfType<HUD_Equipment>();
             if (equipmentMenu)
