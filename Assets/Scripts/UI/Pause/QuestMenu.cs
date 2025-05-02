@@ -107,6 +107,7 @@ public class QuestMenu : MonoBehaviour
         //Debug.Log(ivarColors[0]);
         //Debug.Log(ivarImages[0]);
         //Debug.Log(description[0]);
+        Debug.Log("Enable quest");
         FindStatus("Ivar", ivarDescriptions, ivarColors, ivarImages, description[0]);
         FindStatus("Viin", viinDescriptions, viinColors, viinImages, description[1]);
         FindStatus("Lucan", lucanDescriptions, lucanColors, lucanImages, description[2]);
@@ -133,8 +134,8 @@ public class QuestMenu : MonoBehaviour
         //If it reaches here, they have not completed the quest
 
 
-        try
-        {
+        //try
+        //{
             //They have begun the quest.
             characterImages[0].GetComponent<Image>().color = colorOptions[0];
             description[0].text = questName.ToUpper();
@@ -173,15 +174,15 @@ public class QuestMenu : MonoBehaviour
                 description[1].text = descriptionOptions[0];
                 characterImages[1].gameObject.SetActive(false);
             }
-        }
-        catch (Exception)
+        //}
+        /*catch (Exception)
         {
             //Quest has not been picked up or something went wrong
             characterImages[0].GetComponent<Image>().color = colorOptions[1];
             description[0].text = "???";
             description[1].text = descriptionOptions[0];
             characterImages[1].gameObject.SetActive(false);
-        }
+        }*/
     }
 
 
