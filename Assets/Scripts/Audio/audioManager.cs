@@ -180,6 +180,7 @@ public class audioManager : MonoBehaviour
     //stops any bgm that was playing
     public void stopBGM(float speed, bool playingMusicAfter = false)
     {
+        
         if (speed < 0.1f)
         {
             Debug.LogWarning("Cannot fade in/out songs using speed that is < 0.1 seconds!");

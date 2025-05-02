@@ -169,10 +169,6 @@ public class mainDialogueManager : MonoBehaviour
                 case "Endings/Compassion/severin_prefight":
                     audioManager.Instance.playBGM("T9");
                     break;
-                case "Endings/Conflicted/beginConflictedFight":
-                    audioManager.Instance.playBGM("T11");
-                    break;
-                //UPDATE THIS TACKETT
                 case "Endings/Compassion/severin_postfight":
                     audioManager.Instance.stopBGM(1);
                     audioManager.Instance.playBGM("T12");
@@ -190,7 +186,9 @@ public class mainDialogueManager : MonoBehaviour
                 case "Endings/Conflicted/end_lucaspared":
                 case "Endings/Conflicted/end_lucakilled":
                     cutsceneBG.DOFade(1, 3f).SetUpdate(true);
-                    audioManager.Instance.stopBGM(1);
+                    audioManager.Instance.playBGM("T13");
+                    break;
+                case "Endings/Conflicted/beginConflictedFight":
                     audioManager.Instance.playBGM("T13");
                     break;
             }
@@ -390,6 +388,9 @@ public class mainDialogueManager : MonoBehaviour
                     dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack);
                     return;
                 case "beginTutorial":
+                    break;
+                case "Endings/Conflicted/beginConflictedFight":
+                    audioManager.Instance.playBGM("T11");
                     break;
                 default:
                     Time.timeScale = 1f;
