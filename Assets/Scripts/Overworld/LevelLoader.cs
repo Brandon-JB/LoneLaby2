@@ -55,7 +55,7 @@ public class LevelLoader : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(transitionTime);
 
-        OpenPauseMenu.GLOBALcanOpenPause = true;
+        //OpenPauseMenu.GLOBALcanOpenPause = true;
         SceneManager.LoadScene(SceneName);
         Debug.Log("called loadScene");
         PlayerMovement.CanWalk = true;

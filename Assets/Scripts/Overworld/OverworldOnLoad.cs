@@ -62,10 +62,4 @@ public class OverworldOnLoad : MonoBehaviour
             //Animator.SetBool("IsTown", false);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

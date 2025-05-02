@@ -26,7 +26,7 @@ public class NonCombatPlayerMovement : MonoBehaviour
 
         animator = GetComponent<Animator>();
         OpenPauseMenu.canOpenPause = true;
-        OpenPauseMenu.GLOBALcanOpenPause = true;
+        //OpenPauseMenu.GLOBALcanOpenPause = true;
     }
 
     private void Update()

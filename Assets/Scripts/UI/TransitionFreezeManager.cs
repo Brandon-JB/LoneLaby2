@@ -11,6 +11,11 @@ public class TransitionFreezeManager : MonoBehaviour
         OpenPauseMenu.GLOBALcanOpenPause = false;
     }
 
+    public void freezePausing()
+    {
+        OpenPauseMenu.GLOBALcanOpenPause = false;
+    }
+
     public void UnFreezeTime()
     {
         Time.timeScale = 1;
