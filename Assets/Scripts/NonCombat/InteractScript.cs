@@ -57,7 +57,7 @@ public class InteractScript : MonoBehaviour
         //hi katie note that this is gonna break, we need a better system
         if (closeTo != null && gainedQuests[closeTo.name] == false)
         {
-            Debug.Log(closeTo.name);
+            //Debug.Log(closeTo.name);
             CanInteractUI.SetActive(true);
 
             if (InputManager.interactPressed == true && OpenPauseMenu.GLOBALcanOpenPause)
@@ -109,7 +109,7 @@ public class InteractScript : MonoBehaviour
         {
             if (element <= 1.5f)
             {
-                Debug.Log(NPCs[i].name + ": " + element);
+                //Debug.Log(NPCs[i].name + ": " + element);
                 return NPCs[i];
             }
             i++;
