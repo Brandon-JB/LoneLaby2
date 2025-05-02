@@ -17,7 +17,6 @@ public class LucanChar : BaseChar
         ChangeStats(15, 0, 6, 430, 0);
     }
 
-    
 
     public override void OnTriggerEnter2D(Collider2D collision)
     {

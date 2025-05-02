@@ -97,26 +97,29 @@ public class LucanScript : EnemyScript
             else if (secondPhase && enemyChar.GetHealth() <= (enemyChar.GetMaxHealth() / 4))
             {
                 //Final Phase
-                secondPhase = false;
-                dashSpeed += 4;
-
-                isDashing = true;
-
-                enemyChar.animator.SetBool("shieldRush", true);
-
-                //Lucan goes to the left side
-                if (enemyChar.animator.GetFloat("moveX") == -1)
+                if (!enemyChar.animator.GetBool("Attacking") && !enemyChar.stunTimer.isCoolingDown)
                 {
-                    //Setting dash animation and marking the side he dashes to
-                    //enemyChar.animator.SetFloat("moveX", -1);
-                    dashTarget = new Vector2(bottomLeftArenaBounds.x, this.transform.position.y);
-                }
-                //Lucan goes to the right side
-                else
-                {
-                    //Setting dash animation and marking the side he dashes to
-                    //enemyChar.animator.SetFloat("moveX", 1);
-                    dashTarget = new Vector2(topRightArenaBounds.x, this.transform.position.y);
+                    secondPhase = false;
+                    dashSpeed += 4;
+
+                    isDashing = true;
+
+                    enemyChar.animator.SetBool("shieldRush", true);
+
+                    //Lucan goes to the left side
+                    if (enemyChar.animator.GetFloat("moveX") == -1)
+                    {
+                        //Setting dash animation and marking the side he dashes to
+                        //enemyChar.animator.SetFloat("moveX", -1);
+                        dashTarget = new Vector2(bottomLeftArenaBounds.x, this.transform.position.y);
+                    }
+                    //Lucan goes to the right side
+                    else
+                    {
+                        //Setting dash animation and marking the side he dashes to
+                        //enemyChar.animator.SetFloat("moveX", 1);
+                        dashTarget = new Vector2(topRightArenaBounds.x, this.transform.position.y);
+                    }
                 }
 
             }
@@ -126,7 +129,7 @@ public class LucanScript : EnemyScript
                 enemyChar.animator.SetBool("isMoving", false);
             }
 
-            if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false && !specialStunTimer.isCoolingDown)
+            if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false && !specialStunTimer.isCoolingDown && !isDashing)
             {
                 canMove = true;
                 //enemyChar.animator.SetBool("stunned", false);
@@ -271,6 +274,8 @@ public class LucanScript : EnemyScript
                 {
                     dmgTaken = 0;
 
+                    dashCooldown.StartCooldown();
+
                     isDashing = true;
 
                     enemyChar.animator.SetBool("shieldRush", true);
@@ -297,6 +302,8 @@ public class LucanScript : EnemyScript
                 if (!dashCooldown.isCoolingDown && !isDashing)
                 {
                     dashCooldown.StartCooldown();
+
+                    
 
                     //Coin flip on whether lucan will dash
                     if (Random.Range(0, 2) == 0)

@@ -490,7 +490,7 @@ MonoBehaviour:
     cooldownTime: 1.85
   canMove: 1
   bottomLeftArenaBounds: {x: 80, y: 68, z: 0}
-  topRightArenaBounds: {x: 145, y: 81, z: 0}
+  topRightArenaBounds: {x: 157, y: 81, z: 0}
   isActive: 0
   dashCooldown:
     cooldownTime: 5
@@ -505,6 +505,8 @@ MonoBehaviour:
   leftDashArrow: {fileID: 0}
   rightDashArrow: {fileID: 0}
   inFinalPhase: 0
+  damageLimit: 65
+  dmgTaken: 0
 --- !u!114 &3640646829353059952
 MonoBehaviour:
   m_ObjectHideFlags: 0

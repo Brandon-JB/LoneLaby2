@@ -218,6 +218,12 @@ public class LeoraChar2 : BaseChar
         {
             animator.enabled = true;
         }
+
+        /*if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            Heal(1000000);
+            darknessManager.turnoffDarkness();
+        }*/
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)
