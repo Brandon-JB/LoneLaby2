@@ -23,7 +23,7 @@ public class MansionDoorManager : CombatInteraction
 
         if (alreadyInteracted == false && DistanceBetweenObjectAndPlayer <= interactRange)
         {
-            if (hasKey)
+            if (hasKey && Door.gameObject.activeInHierarchy)
             {
                 leoraChar.closestInteractable = this.gameObject;
                 leoraChar.interactIcon.SetActive(true);
