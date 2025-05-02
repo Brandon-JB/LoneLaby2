@@ -51,6 +51,8 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
+        Debug.Log(QuestManager.questStates.Count);
+
         Instance.leoraChar.SetMaxHealth();
         Instance.leoraChar.SetMaxMana();
         audioManager.Instance.playSFX(42);

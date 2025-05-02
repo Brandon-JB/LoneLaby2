@@ -22,12 +22,7 @@ public class QuestManager : MonoBehaviour
 
     //ALL OF THE ACTUAL QUEST STUFF
 
-    public static Dictionary<string, QuestData> questStates = new Dictionary<string, QuestData>()
-    {
-        {"Alan", null},
-        {"Kisa", null },
-        {"Sophie", null },
-    };
+    public static Dictionary<string, QuestData> questStates = new Dictionary<string, QuestData>();
 
     // Call this to start a quest
     public static void StartQuest(string questID, int requiredProgress)

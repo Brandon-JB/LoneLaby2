@@ -41,6 +41,7 @@ public class SideQuestData
     public int progress; 
 }
 
+[System.Serializable]
 public class BossStateEntry
 {
     public string bossName;
@@ -53,6 +54,7 @@ public class BossStateEntry
     }
 }
 
+[System.Serializable]
 public class QuestSaveEntry
 {
     public string questID;
