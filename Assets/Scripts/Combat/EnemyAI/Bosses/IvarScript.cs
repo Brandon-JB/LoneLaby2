@@ -72,6 +72,8 @@ public class IvarScript : MonoBehaviour
     //1 for the first teleport, 2 for the second teleport
     private int teleportNum = 0;
 
+    private bool startedTeleportForSound = false;
+
     //to play the ivar text
     [SerializeField] ivarText ivartext;
 
@@ -211,6 +213,12 @@ public class IvarScript : MonoBehaviour
 
     private void TriggerTPCast()
     {
+        if (!startedTeleportForSound)
+        {
+            audioManager.Instance.playSFX(25);
+            startedTeleportForSound = true;
+        }
+
         playerSprite.sortingLayerName = "SolidObjects";
         darknessEffect.SetActive(true);
         ivarChar.animator.SetBool("tpCast", true);
@@ -273,6 +281,7 @@ public class IvarScript : MonoBehaviour
                 break;
         }
 
+        startedTeleportForSound = false;
         timeUntilBigAttack.StartCooldown();
         bigCasting = true;
     }
