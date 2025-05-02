@@ -9,7 +9,10 @@ public class LeaveingAnimManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("OpenPause Status: " + OpenPauseMenu.GLOBALcanOpenPause);
+        OpenPauseMenu.GLOBALcanOpenPause = false;
+        Debug.Log("OpenPause Status After false: " + OpenPauseMenu.GLOBALcanOpenPause);
+
     }
 
     // Update is called once per frame

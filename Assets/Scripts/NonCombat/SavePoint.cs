@@ -22,7 +22,7 @@ public class SavePoint : MonoBehaviour
     void Update()
     {
         DistanceBetweenObjects = Vector2.Distance(transform.position, Player.transform.position);
-        Debug.Log("Distance: " + DistanceBetweenObjects + " / Max Distance: " + maxDistance);
+        //Debug.Log("Distance: " + DistanceBetweenObjects + " / Max Distance: " + maxDistance);
         if (DistanceBetweenObjects <= maxDistance)
         {
             if(interactionPopup == null)
