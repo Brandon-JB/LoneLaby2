@@ -51,9 +51,19 @@ public class LeoraChar2 : BaseChar
 
     //public bool isInFirstCombo = false;
 
+    [SerializeField] private GameObject[] bossSigns;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (bossSigns.Length > 0)
+        {
+            foreach(var boss in bossSigns)
+            {
+                boss.SetActive(false);
+            }
+        }
+
         //Initializing Leora
         charName = "Leora";
         allied = true;
@@ -224,6 +234,17 @@ public class LeoraChar2 : BaseChar
             Heal(1000000);
             darknessManager.turnoffDarkness();
         }*/
+
+        if (Input.GetKeyDown(KeyCode.T) && Input.GetKeyDown(KeyCode.P))
+        {
+            if (bossSigns.Length > 0)
+            {
+                foreach (var boss in bossSigns)
+                {
+                    boss.SetActive(true);
+                }
+            }
+        }
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)

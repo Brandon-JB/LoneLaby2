@@ -86395,6 +86395,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7487041304306391987, guid: b6d482f47d8988b42bee14473806e587, type: 3}
   m_PrefabInstance: {fileID: 1118087469}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1120250054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1238821683558823592, guid: cb6d63866513bc0488150be90502c244, type: 3}
+  m_PrefabInstance: {fileID: 1870672546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1123692882 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 850726148171959294, guid: 3f9d4833316d13c42beda352fad628fb, type: 3}
@@ -86960,6 +86965,14 @@ PrefabInstance:
       propertyPath: gameOverManager
       value: 
       objectReference: {fileID: 2018603162}
+    - target: {fileID: 8705140056556160221, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: bossSigns.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705140056556160221, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: bossSigns.Array.data[0]
+      value: 
+      objectReference: {fileID: 1120250054}
     - target: {fileID: 8876787556816172860, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -152149,6 +152162,10 @@ PrefabInstance:
     - target: {fileID: 1238821683558823592, guid: cb6d63866513bc0488150be90502c244, type: 3}
       propertyPath: m_Name
       value: BossFightTP
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238821683558823592, guid: cb6d63866513bc0488150be90502c244, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1447697443687070015, guid: cb6d63866513bc0488150be90502c244, type: 3}
       propertyPath: bossTP

@@ -173111,6 +173111,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.36143494, y: 0.16395569}
   m_EdgeRadius: 0
+--- !u!1 &161282276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1238821683558823592, guid: cb6d63866513bc0488150be90502c244, type: 3}
+  m_PrefabInstance: {fileID: 1092495235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &166693108
 GameObject:
   m_ObjectHideFlags: 0
@@ -323710,6 +323715,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossFightTP
       objectReference: {fileID: 0}
+    - target: {fileID: 1238821683558823592, guid: cb6d63866513bc0488150be90502c244, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1447697443687070015, guid: cb6d63866513bc0488150be90502c244, type: 3}
       propertyPath: bossTP
       value: 
@@ -362434,6 +362443,14 @@ PrefabInstance:
       propertyPath: leoraFaceAnimator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8705140056556160221, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: bossSigns.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705140056556160221, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
+      propertyPath: bossSigns.Array.data[0]
+      value: 
+      objectReference: {fileID: 161282276}
     - target: {fileID: 8876787556816172860, guid: 2f69651a74ffad84b9741ddbf6c7ead8, type: 3}
       propertyPath: m_RootOrder
       value: 5
