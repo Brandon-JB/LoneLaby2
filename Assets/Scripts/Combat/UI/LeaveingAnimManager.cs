@@ -39,7 +39,7 @@ public class LeaveingAnimManager : MonoBehaviour
         
         yield return new WaitForSecondsRealtime(1f);
 
-        OpenPauseMenu.GLOBALcanOpenPause = true;
+        //OpenPauseMenu.GLOBALcanOpenPause = true;
         SceneManager.LoadScene("Overworld");
         Debug.Log("Called load scene");
     }
