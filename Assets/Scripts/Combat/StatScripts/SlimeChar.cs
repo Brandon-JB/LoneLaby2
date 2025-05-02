@@ -10,7 +10,7 @@ public class SlimeChar : BaseChar
         charName = "Slime";
         allied = false;
 
-        ChangeStats(9, 0, 4, 60, 0);
+        ChangeStats(12, 0, 4, 70, 0);
     }
 
 }

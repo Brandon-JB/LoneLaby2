@@ -3,7 +3,7 @@ using DG.Tweening;
 
 public class ivarDark : MonoBehaviour
 {
-    [SerializeField] private CanvasGroup darkness;
+    [SerializeField] public CanvasGroup darkness;
     private void OnEnable()
     {
         darkness.alpha = 0.0f;

@@ -15,7 +15,7 @@ public class ViinChar : BaseChar
         charName = "Viin";
         allied = false;
 
-        ChangeStats(14, 0, 4, 350, 0);
+        ChangeStats(14, 0, 4, 320, 0);
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)
@@ -84,7 +84,7 @@ public class ViinChar : BaseChar
             //killSpareMenu.SetActive(true);
             //killSpareManager killSpare = killSpareMenu.GetComponent<killSpareManager>();
             //killSpare.bossName = "Viin";
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
         else
         {

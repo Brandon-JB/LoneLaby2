@@ -148,7 +148,10 @@ public class IvarScript : MonoBehaviour
             {
                 ivarChar.statsSheet["Health"] = Mathf.Clamp(ivarChar.statsSheet["Health"], ivarChar.GetMaxHealth() / 3, ivarChar.GetMaxHealth());
                 teleportNum = 2;
-                TriggerTPCast();
+                if (!ivarChar.animator.GetBool("Casting"))
+                {
+                    TriggerTPCast();
+                }
             }
 
             //Massive attack during the maze
@@ -240,7 +243,10 @@ public class IvarScript : MonoBehaviour
     public void Teleport()
     {
 
-        
+        ivarDark darkFX = darknessEffect.GetComponent<ivarDark>();
+
+        darkFX.darkness.alpha = 1.0f;
+
         damageTaken = 0;
 
         switch (teleportNum)

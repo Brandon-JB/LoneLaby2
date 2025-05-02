@@ -20,5 +20,13 @@ public class SpiritChar : BaseChar
         base.TriggerHurtAnim();
 
         animator.SetBool("StartWalk", false);
+        hurtbox.enabled = true;
+    }
+
+    public override void StopHurtAnim()
+    {
+        base.StopHurtAnim();
+
+        hurtbox.enabled = true;
     }
 }

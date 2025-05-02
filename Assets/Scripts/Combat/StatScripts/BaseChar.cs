@@ -138,7 +138,7 @@ public class BaseChar : MonoBehaviour
             //if the boss was defeated
             if (bossKilled.Value != 0)
             {
-                AddToSpecificStat("MaxHealth", 15);
+                AddToSpecificStat("MaxHealth", 20);
                 AddToSpecificStat("Strength", 1);
                 AddToSpecificStat("Defense", 1);
             }
