@@ -143,17 +143,20 @@ public class QuestMenu : MonoBehaviour
             if (EquipmentManager.equipmentObtained[amuletName])
             {
                 //They have completed the quest AND obtained the reward
+                Debug.Log("finished");
                 description[1].text = descriptionOptions[2];
                 return;
             }
             //Check if they completed the quest or not
             if (QuestManager.IsQuestComplete(questName))
             {
+                Debug.Log("finished, no item");
                 //They have completed the quest, but have not gone back for the reward
                 description[1].text = "Return to Zaro for your reward!";
                 return;
             } else if (QuestManager.IsOnQuest(questName))
             {
+                Debug.Log("picked up, on quest");
                 //They have picked up the quest
                 //Quest has been picked up, not completed
                 description[1].text = Regex.Replace(
@@ -163,6 +166,7 @@ public class QuestMenu : MonoBehaviour
                 );
             } else
             {
+                Debug.Log("not picked up");
                 //Quest has not been picked up
                 characterImages[0].GetComponent<Image>().color = colorOptions[1];
                 description[0].text = "???";
