@@ -107,7 +107,7 @@ public class InteractScript : MonoBehaviour
         //Debug.Log("called");
         foreach (float element in distBtwnObjs)
         {
-            if (element <= 1.5f)
+            if (element <= 1.5f && NPCs[i].gameObject.activeInHierarchy)
             {
                 //Debug.Log(NPCs[i].name + ": " + element);
                 return NPCs[i];
