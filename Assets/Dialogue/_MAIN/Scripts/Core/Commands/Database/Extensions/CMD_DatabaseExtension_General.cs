@@ -47,7 +47,7 @@ namespace COMMANDS
                 //there's a chance this could end the game. check, and if it doesn't run goTo
                 if (BossSaveData.GetNumberOfBossesObtained() == 3)
                 {
-                    if (mainDialogueManager.GLOBALcurrentlyRunningText == "Endings/Conflicted/withVerita/grabLeora" || mainDialogueManager.GLOBALcurrentlyRunningText == "Endings/Compassion/speakerCompassion")
+                    if (mainDialogueManager.GLOBALcurrentlyRunningText == "Endings/Conflicted/withVerita/grabLeora" || mainDialogueManager.GLOBALcurrentlyRunningText == "Endings/Compassion/beginCompassion")
                     {
                         CanvasGroup fade = GameObject.FindGameObjectWithTag("CutsceneFade").GetComponent<CanvasGroup>();
                         fade.DOFade(1, 1f).SetUpdate(true).OnComplete(() =>
