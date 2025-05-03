@@ -53,12 +53,12 @@ MonoBehaviour:
   rb: {fileID: 7262492060793530452}
   spriteObject: {fileID: 4628573513335561166}
   timeTracking:
-    cooldownTime: 2.5
+    cooldownTime: 1.5
   lifespan:
     cooldownTime: 10
   launchSpeed: 0.05
-  trackSpeed: 3
-  maxSpeed: 0
+  trackSpeed: 4.3
+  maxSpeed: 28
 --- !u!50 &7262492060793530452
 Rigidbody2D:
   serializedVersion: 4

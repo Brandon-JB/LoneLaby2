@@ -33,7 +33,7 @@ public class OverworldOnLoad : MonoBehaviour
             Animator.SetTrigger("Start");
             //Animator.SetBool("IsMansion", false);
             Player.transform.position = SpawnSpots[2].transform.position;
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
         }
         else if (PortalScript.LastPortal == 4)
         {
