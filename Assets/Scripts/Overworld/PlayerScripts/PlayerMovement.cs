@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
     //grid based movement
     public Transform movePoint;
     public LayerMask SolidObjects;
-    public float Timer = 1;
+    //public float Timer = 1;
+    
     public static bool CanWalk = true;
 
     // Start is called before the first frame update
@@ -24,63 +25,69 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         //animator = GetComponent<Animator>();
-        movePoint.parent = null;
+        
+    }
+
+    private void Awake()
+    {
+        //movePoint.parent = null;
         CanWalk = true;
         Time.timeScale = 1f;
+        Debug.Log(Time.timeScale);
+        Debug.Log(CanWalk);
     }
 
     // Update is called once per frame
     void Update()
     {
-        movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (Input.GetAxisRaw("Vertical") == 1)
+        if(CanWalk == true)
         {
-            movementInput = new Vector2(0, Input.GetAxisRaw("Vertical"));
-            rb.velocity = movementInput * MoveSpeed;
-            //animations
-            animator.SetFloat("x", 0);
-            animator.SetFloat("y", 1);
-            animator.SetBool("isWalking", true);
-        }
-        else if (Input.GetAxisRaw("Vertical") == -1)
-        {
-            movementInput = new Vector2(0, Input.GetAxisRaw("Vertical"));
-            rb.velocity = movementInput * MoveSpeed;
-            //animations
-            animator.SetFloat("x", 0);
-            animator.SetFloat("y", -1);
-            animator.SetBool("isWalking", true);
-        }
-        else if (Input.GetAxisRaw("Horizontal") == 1)
-        {
-            movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
-            rb.velocity = movementInput * MoveSpeed;
-            //animations
-            animator.SetFloat("y", 0);
-            animator.SetFloat("x", 1);
-            animator.SetBool("isWalking", true);
-        }
-        else if (Input.GetAxisRaw("Horizontal") == -1)
-        {
-            movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
-            rb.velocity = movementInput * MoveSpeed;
-            //animations
-            animator.SetFloat("y", 0);
-            animator.SetFloat("x", -1);
-            animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            rb.velocity = movementInput * 0;
-            animator.SetBool("isWalking", false);
+            movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (Input.GetAxisRaw("Vertical") == 1)
+            {
+                movementInput = new Vector2(0, Input.GetAxisRaw("Vertical"));
+                rb.velocity = movementInput * MoveSpeed;
+                //animations
+                animator.SetFloat("x", 0);
+                animator.SetFloat("y", 1);
+                animator.SetBool("isWalking", true);
+            }
+            else if (Input.GetAxisRaw("Vertical") == -1)
+            {
+                movementInput = new Vector2(0, Input.GetAxisRaw("Vertical"));
+                rb.velocity = movementInput * MoveSpeed;
+                //animations
+                animator.SetFloat("x", 0);
+                animator.SetFloat("y", -1);
+                animator.SetBool("isWalking", true);
+            }
+            else if (Input.GetAxisRaw("Horizontal") == 1)
+            {
+                movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+                rb.velocity = movementInput * MoveSpeed;
+                //animations
+                animator.SetFloat("y", 0);
+                animator.SetFloat("x", 1);
+                animator.SetBool("isWalking", true);
+            }
+            else if (Input.GetAxisRaw("Horizontal") == -1)
+            {
+                movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+                rb.velocity = movementInput * MoveSpeed;
+                //animations
+                animator.SetFloat("y", 0);
+                animator.SetFloat("x", -1);
+                animator.SetBool("isWalking", true);
+            }
+            else
+            {
+                rb.velocity = movementInput * 0;
+                animator.SetBool("isWalking", false);
 
+            }
         }
-
-
 
     }
-
-
 
 }
 
