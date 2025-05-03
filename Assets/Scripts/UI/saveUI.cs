@@ -62,10 +62,10 @@ public class saveUI : MonoBehaviour
 
     public void CLOSEPAUSEMENU(bool notSaving)
     {
-        if (notSaving)
-        {
-            audioManager.Instance.playSFX(36);
-        }
+        //if (notSaving)
+        //{
+        //    audioManager.Instance.playSFX(36);
+        //}
 
         EventSystem.current.SetSelectedGameObject(null);
         buttonsToDisable[0].SetActive(false);

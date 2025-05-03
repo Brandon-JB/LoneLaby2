@@ -191,6 +191,11 @@ public class mainDialogueManager : MonoBehaviour
                 case "Endings/Conflicted/beginConflictedFight":
                     audioManager.Instance.playBGM("T13");
                     break;
+                case "LucanQuest/cave_postfight_condemnSpeaker":
+                case "IvarQuest/manor_postfight_condemnSpeaker":
+                case "ViinQuest/veinwood_postfight_condemnSpeaker":
+                    audioManager.Instance.playBGM("T7");
+                    break;
             }
 
 

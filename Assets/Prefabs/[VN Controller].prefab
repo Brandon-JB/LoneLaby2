@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8117ba446c7796e48bc4513a4bbe4d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questStatus: {fileID: 1466146927685590618}
+  questStatus: {fileID: 5099640092890100166}
   questTitle: {fileID: 6891959905196292051}
   questdesc: {fileID: 1466146927685590618}
   endPos: {fileID: 6332053272363972632}
@@ -963,6 +963,22 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 15
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7625457830914824466}
+          m_TargetAssemblyTypeName: ButtonHoverSFX, Assembly-CSharp
+          m_MethodName: btnselect
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5845,6 +5861,7 @@ MonoBehaviour:
   nameBox: {fileID: 6332053273118451887}
   voidSprite: {fileID: 21300000, guid: 26045db6532361f4fa15a760f2e773c7, type: 3}
   gainQuestMenu: {fileID: 4144740889921739338}
+  kisa: {fileID: 0}
   dialogueRunning: 0
 --- !u!1 &6332053273414143570
 GameObject:
