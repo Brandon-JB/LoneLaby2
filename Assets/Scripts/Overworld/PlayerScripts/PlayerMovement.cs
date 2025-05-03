@@ -33,14 +33,13 @@ public class PlayerMovement : MonoBehaviour
         //movePoint.parent = null;
         CanWalk = true;
         Time.timeScale = 1f;
-        Debug.Log(Time.timeScale);
-        Debug.Log(CanWalk);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(CanWalk == true)
+        if (CanWalk == true)
         {
             movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             if (Input.GetAxisRaw("Vertical") == 1)
