@@ -104,6 +104,10 @@ public class OpenPauseMenu : MonoBehaviour
                 {
                     audioManager.Instance.playSFX(39);
                     pauseOpened = false;
+                    if (GameObject.FindObjectOfType<DarknessManager>())
+                    {
+                        GameObject.FindObjectOfType<DarknessManager>().pauseProgressDarkness();
+                    }
                 }
             } else
             {
@@ -120,6 +124,10 @@ public class OpenPauseMenu : MonoBehaviour
                 {
                     audioManager.Instance.playSFX(39);
                     pauseOpened = false;
+                    if (GameObject.FindObjectOfType<DarknessManager>())
+                    {
+                        GameObject.FindObjectOfType<DarknessManager>().pauseProgressDarkness();
+                    }
                 }
             }
         }

@@ -88,6 +88,31 @@ public class DarknessManager : MonoBehaviour
             DarknessImage3.DOFade(1, 0.5f);
         }
     }
+    public void pauseProgressDarkness()
+    {
+        if (DarknessImage.alpha < 1)
+        {
+            //Darkness level 1
+            DarknessImage.DOKill();
+            DarknessImage.DOFade(1, ChangeTime* (1-DarknessImage.alpha)).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                fadeDarkness2();
+            });
+        }
+        else if (DarknessImage2.alpha < 1)
+        {
+            DarknessImage2.DOKill();
+            DarknessImage2.DOFade(1, ChangeTime* (1-DarknessImage.alpha)).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                fadeDarkness3();
+            });
+        }
+        else if (DarknessImage3.alpha < 1)
+        {
+            DarknessImage3.DOKill();
+            DarknessImage3.DOFade(1, ChangeTime* (1-DarknessImage.alpha));
+        }
+    }
 
     private void fadeDarkness1()
     {

@@ -292,6 +292,7 @@ public class mainDialogueManager : MonoBehaviour
         // Stop the dialogue coroutine if it's running
         if (dialogueRunning)
         {
+            OpenPauseMenu.canOpenPause = true;
             StopCoroutine(completeDialogue(currentlyRunningText));
             dialogueRunning = false; // Set the flag to false when stopping the coroutine
             //if (currentlyRunningText == "prologue")
@@ -314,12 +315,15 @@ public class mainDialogueManager : MonoBehaviour
             switch (currentlyRunningText)
             {
                 case "IvarQuest/manor_postfight":
+                    OpenPauseMenu.canOpenPause = false;
                     FindObjectOfType<killSpareManager>().EnableKillSpare("Ivar");
                     break;
                 case "ViinQuest/veinwood_postfight":
+                    OpenPauseMenu.canOpenPause = false;
                     FindObjectOfType<killSpareManager>().EnableKillSpare("Viin");
                     break;
                 case "LucanQuest/cave_postfight":
+                    OpenPauseMenu.canOpenPause = false;
                     FindObjectOfType<killSpareManager>().EnableKillSpare("Lucan");
                     break;
                 case "LucanQuest/cave_postfight_saveVerita":
@@ -486,7 +490,6 @@ public class mainDialogueManager : MonoBehaviour
 
             dialogueBox.DOMove(tweenOutPositions[2].transform.position, 2).SetUpdate(true).SetEase(Ease.OutBack).OnComplete(() =>
             {
-                OpenPauseMenu.canOpenPause = true;
                 OpenPauseMenu.GLOBALcanOpenPause = true;
             });
             if (equipmentMenu)
