@@ -88,7 +88,7 @@ public class OpenPauseMenu : MonoBehaviour
 
         //NOTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11 COULD MESS UP TIMESCALE JUNK! 
 
-        if (Input.GetKeyDown(KeyCode.Escape) && GLOBALcanOpenPause)
+        if (Input.GetKeyDown(KeyCode.Escape) && GLOBALcanOpenPause && SceneManager.GetActiveScene().name != "MainMenu")
         {
             if(canOpenPause)
             {
