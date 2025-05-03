@@ -23,6 +23,13 @@ public class PlayerContact : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(timescalenonsense());
+    }
+    public IEnumerator timescalenonsense()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        Time.timeScale = 1f;
+        StopAllCoroutines();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
