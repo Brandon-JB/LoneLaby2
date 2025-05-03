@@ -330,7 +330,7 @@ public class IvarScript : MonoBehaviour
         castParticleAnimator.SetBool("summon", false);
         castParticleAnimator.SetBool("projectile", false);
 
-        whichMoveToCast = 0;
+        //whichMoveToCast = 0;
 
         switch (whichMoveToCast)
         {

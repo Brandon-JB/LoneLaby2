@@ -44,10 +44,10 @@ public class IvarProjectile : HitboxChar
             Vector3 playerPos = Player.transform.position - transform.position;
             spriteObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, playerPos.normalized);
 
-            if (trackSpeed < maxSpeed)
+            /*if (trackSpeed < maxSpeed)
             {
                 trackSpeed += 0.005f;
-            }
+            }*/
         }
         //Launches in a line
         else if (!timeTracking.isCoolingDown)
