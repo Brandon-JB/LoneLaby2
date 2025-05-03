@@ -400,6 +400,7 @@ public class mainDialogueManager : MonoBehaviour
                     break;
                 case "Endings/Conflicted/beginConflictedFight":
                     audioManager.Instance.playBGM("T11");
+                    Time.timeScale = 1f;
                     break;
                 default:
                     Time.timeScale = 1f;
