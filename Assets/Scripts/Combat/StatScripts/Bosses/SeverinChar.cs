@@ -12,7 +12,7 @@ public class SeverinChar : BaseChar
         charName = "Severin";
         allied = false;
 
-        ChangeStats(13, 0, 8, 550, 0);
+        ChangeStats(13, 0, 8, 400, 0);
     }
 
     // Update is called once per frame
