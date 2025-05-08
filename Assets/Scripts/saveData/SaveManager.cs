@@ -99,6 +99,7 @@ public class SaveManager : MonoBehaviour
     {
         //Delete Equipment
         EquipmentManager.ResetEquipmentToDefault();
+        QuestManager.ClearAllQuests();
         SaveSystem.Deletegame();
 
     }

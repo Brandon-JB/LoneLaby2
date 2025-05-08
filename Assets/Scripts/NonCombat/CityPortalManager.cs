@@ -104,6 +104,15 @@ public class CityPortalManager : MonoBehaviour
             //do something (UI)
             //then once player confirms yes need to do animator.SetTrigger("Training");
         }
+        else if (areaName == "TrainingEntry")
+        {
+            animator.SetTrigger("Training");
+            yield return new WaitForSecondsRealtime(transitionTime);
+
+            teleport(areaName);
+            yield return new WaitForSecondsRealtime(2f);
+            NonCombatPlayerMovement.canMove = true;
+        }
 
 
     }

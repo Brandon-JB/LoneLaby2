@@ -18199,22 +18199,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controls: {fileID: -944628639613478452, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
   textToDisplay:
-  - Leora can move using W, A, S, and D. She can also <color=#e64539>attack</color>
-    when <color=#e64539>(ATTACK_KEY)</color> is pressed.
-  - Try <color=#e64539>attacking</color> the training dummy now. Hit the key multiple
+  - Leora can move using W, A, S, and D. She can also <color=#ff7575>attack</color>
+    when <color=#ff7575>(ATTACK_KEY)</color> is pressed.
+  - Try <color=#ff7575>attacking</color> the training dummy now. Hit the key multiple
     times to do a combo.
-  - Pressing <color=#70c6bc>(MAGIC_KEY)</color> also allows you to use <color=#70c6bc>magic</color>.
-    Leora uses <color=#70c6bc>Light magic</color>, which deals damage and stuns enemies.
-  - Try using <color=#70c6bc>Light magic</color> on the training dummy. Leora can
-    gain other <color=#70c6bc>magic</color> types at a later date.
-  - Leora can mitigate incoming damage by <color=#f0b541>parrying</color>, done by
-    pressing <color=#f0b541>(PARRY_KEY)</color>. <color=#f0b541>Parrying</color>
+  - Pressing <color=#aef0ff>(MAGIC_KEY)</color> also allows you to use <color=#aef0ff>magic</color>.
+    Leora uses <color=#aef0ff>Light magic</color>, which deals damage and stuns enemies.
+  - Try using <color=#aef0ff>Light magic</color> on the training dummy. Leora can
+    gain other <color=#aef0ff>magic</color> types at a later date.
+  - Leora can mitigate incoming damage by <color=#ffd37c>parrying</color>, done by
+    pressing <color=#ffd37c>(PARRY_KEY)</color>. <color=#ffd37c>Parrying</color>
     not only reduces incoming damage, but it also stuns your attacker.
-  - Try <color=#f0b541>parrying</color> using <color=#f0b541>(PARRY_KEY)</color>
-    now. Time your <color=#f0b541>parries</color> perfectly to negate incoming damage!
+  - Try <color=#ffd37c>parrying</color> using <color=#ffd37c>(PARRY_KEY)</color>
+    now. Time your <color=#ffd37c>parries</color> perfectly to negate incoming damage!
   - "Now that you\u2019ve mastered combat, speak to Severin to end the tutorial.
-    You can <color=#63ab3f>interact</color> with the environment by pressing <color=#63ab3f>(INTERACT_KEY)</color>."
-  - Talk to Severin using <color=#63ab3f>(INTERACT_KEY)</color> to end the tutorial.
+    You can <color=#a0ec79>interact</color> with the environment by pressing <color=#a0ec79>(INTERACT_KEY)</color>."
+  - Talk to Severin using <color=#a0ec79>(INTERACT_KEY)</color> to end the tutorial.
   tutorialtext:
   - {fileID: 1363925927}
   - {fileID: 1841539938}
@@ -31874,9 +31874,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Additionally, Leora can use magic to deal damage to multiple enemies at
-    once. Each type of magic also has an additional effect, with Light magic stunning
-    enemies.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 898fc7d16b17e764d9ecf8d46ecfb94f, type: 2}
   m_sharedMaterial: {fileID: 2851218141102660006, guid: 898fc7d16b17e764d9ecf8d46ecfb94f, type: 2}
@@ -31903,7 +31901,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8.25
+  m_fontSize: 9
   m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -35907,9 +35905,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Additionally, Leora can use magic to deal damage to multiple enemies at
-    once. Each type of magic also has an additional effect, with Light magic stunning
-    enemies.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 898fc7d16b17e764d9ecf8d46ecfb94f, type: 2}
   m_sharedMaterial: {fileID: 2851218141102660006, guid: 898fc7d16b17e764d9ecf8d46ecfb94f, type: 2}
@@ -35936,7 +35932,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8.25
+  m_fontSize: 9
   m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 1

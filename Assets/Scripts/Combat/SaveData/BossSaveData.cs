@@ -29,4 +29,15 @@ public class BossSaveData : MonoBehaviour
     {
         return Convert.ToInt32((bossStates["Ivar"] == 2)) + Convert.ToInt32((bossStates["Lucan"] == 2)) + Convert.ToInt32((bossStates["Viin"] == 2));
     }
+
+    public static void RemoveBosses()
+    {
+        bossStates.Clear();
+        bossStates = new Dictionary<string, int>
+    {
+        {"Ivar", 0 },
+        {"Lucan", 0 },
+        {"Viin", 0 }
+    };
+    }
 }
