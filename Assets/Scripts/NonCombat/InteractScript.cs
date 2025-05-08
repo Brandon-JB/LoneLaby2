@@ -23,6 +23,7 @@ public class InteractScript : MonoBehaviour
 
     public static bool hasTalkedToVaang = false;
     public static bool hasTalkedToVaangAfterAction = false;
+    private bool wasNear = false;
 
     //private bool gainedQuest = false; // SAVE THIS!!!!!!
     private Dictionary<string, bool> gainedQuests = new Dictionary<string, bool>()
@@ -58,6 +59,7 @@ public class InteractScript : MonoBehaviour
         if (closeTo != null && gainedQuests[closeTo.name] == false)
         {
             //Debug.Log(closeTo.name);
+            wasNear = true;
             CanInteractUI.SetActive(true);
 
             if (InputManager.interactPressed == true && OpenPauseMenu.GLOBALcanOpenPause)
@@ -80,8 +82,9 @@ public class InteractScript : MonoBehaviour
 
             }
         }
-        else
+        else if (wasNear)
         {
+            wasNear = false;
             CanInteractUI.SetActive(false);
         }
     }

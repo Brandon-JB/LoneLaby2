@@ -30,7 +30,7 @@ public class SavePoint : MonoBehaviour
                 interactionPopup = GameObject.FindObjectOfType<KeyPromptUI>().gameObject;
             }
             wasCloseTo = true;
-            Debug.Log("I AM SETTING IT ACTIVE");
+            Debug.Log(interactionPopup.name);
             interactionPopup.SetActive(true);
 
             if (InputManager.interactPressed == true && saveUI.isSaveOpen == false && OpenPauseMenu.GLOBALcanOpenPause)
