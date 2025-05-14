@@ -152,13 +152,13 @@ public class ItemMenu : MonoBehaviour
             case "veritaatkbonus":
                 itemText.text = "Attack Bonus";
                 itemImage.sprite = items[16];
-                itemDescription.text = "Verita has blessed you with their strength. <color=#92dae8>Leora gains a permanent +5 to her attack.</color>";
+                itemDescription.text = "Verita has blessed you with their strength. <color=#92dae8>Leora gains a permanent bonus to her attack.</color>";
                 goToPauseUI.SetActive(false);
                 break;
             case "veritampbonus":
                 itemText.text = "Magic Bonus";
                 itemImage.sprite = items[17];
-                itemDescription.text = "Verita has blessed you with their wisdom. <color=#92dae8>Leora gains a permanent +5 to her magic attack.</color>";
+                itemDescription.text = "Verita has blessed you with their wisdom. <color=#92dae8>Leora gains a permanent bonus to her magic attack.</color>";
                 goToPauseUI.SetActive(false);
                 break;
             case "veritahpbonus":

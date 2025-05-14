@@ -92,4 +92,9 @@ public class tempDialogueStart : MonoBehaviour
             kisa.SetActive(false);
         }
     }
+
+    public void GOTOTRAININGGROUNDS()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
 }
