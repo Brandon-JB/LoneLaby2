@@ -13,6 +13,7 @@ public class DarknessManager : MonoBehaviour
     public float timer = 0f;
 
     private LeoraChar2 leoraChar;
+    [SerializeField] public GameObject useMagicUDummie;
 
     //private int currentIndex = 0;
 
@@ -54,6 +55,10 @@ public class DarknessManager : MonoBehaviour
 
     public void turnoffDarkness()
     {
+        if(useMagicUDummie != null)
+        {
+            useMagicUDummie.SetActive(false);
+        }
         DarknessImage.DOKill();
         DarknessImage2.DOKill();
         DarknessImage3.DOKill();
@@ -132,8 +137,19 @@ public class DarknessManager : MonoBehaviour
 
     private void fadeDarkness3()
     {
-        DarknessImage3.DOFade(1, ChangeTime).SetEase(Ease.Linear);
+        DarknessImage2.DOFade(1, ChangeTime).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            dummybutton();
+        });
     }
 
+
+    private void dummybutton()
+    {
+        if (useMagicUDummie)
+        {
+            useMagicUDummie.SetActive(true);
+        }
+    }
 
 }
