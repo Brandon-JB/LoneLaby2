@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -13,12 +14,17 @@ public class MainMenuScript : MonoBehaviour
 
     public GameObject StartButton;
     public GameObject ContinueButton;
+    public GameObject OptionsButton;
+    public GameObject BackButton;
+    public GameObject noDeleteSave;
+    public GameObject deleteSavebtn;
     [SerializeField] public GameObject deleteSaveMenu;
 
     [SerializeField] private SaveManager saveManager;
 
     private void Start()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         Time.timeScale = 1.0f;
         bg.alpha = 1.0f;
         bg.gameObject.SetActive(true);
@@ -29,22 +35,30 @@ public class MainMenuScript : MonoBehaviour
         {
             StartButton.SetActive(false);
             ContinueButton.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(ContinueButton);
         }
         else if(SaveManager.Isdata() == false)
         {
             StartButton.SetActive(true);
             ContinueButton.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(StartButton);
         }
     }
 
     public void goToOptions()
     {
-        optionsLoc[0].DOMove(optionsLoc[1].position, 1f);
+        EventSystem.current.SetSelectedGameObject(null);
+        optionsLoc[0].DOMove(optionsLoc[1].position, 1f).OnComplete(() => {
+            EventSystem.current.SetSelectedGameObject(BackButton);
+        });
     }
 
     public void exitOptions()
     {
-        optionsLoc[0].DOMove(optionsLoc[2].position, 1f);
+        EventSystem.current.SetSelectedGameObject(null);
+        optionsLoc[0].DOMove(optionsLoc[2].position, 1f).OnComplete(() => {
+            EventSystem.current.SetSelectedGameObject(OptionsButton);
+        });
     }
 
     public void tempTeleportToGame() { Time.timeScale = 1f; SceneManager.LoadScene("NoCombatAreas"); }
@@ -52,7 +66,7 @@ public class MainMenuScript : MonoBehaviour
     public void GoToGame()
     {
         //AT SOME POINT CHECK IF WE HAVE SAVE DATA!
-
+        EventSystem.current.SetSelectedGameObject(null);
         //If there is save data, go to last saved area. If there is NOT save data, play opening cutscene
         if (SaveManager.Isdata())
         {
@@ -81,25 +95,33 @@ public class MainMenuScript : MonoBehaviour
 
     public void Exit()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         Application.Quit();
     }
     public void startDeleteSave()
     {
-        optionsLoc[0].transform.DOMove(optionsLoc[3].position, 1).SetUpdate(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        optionsLoc[0].transform.DOMove(optionsLoc[3].position, 1).SetUpdate(true).OnComplete(() => {
+            EventSystem.current.SetSelectedGameObject(noDeleteSave);
+        });
         deleteSaveMenu.SetActive(true);
         Debug.Log("I ahve moved");
     }
 
     public void exitDeleteSave()
     {
-        optionsLoc[0].transform.DOMove(optionsLoc[1].position, 1).SetUpdate(true);
-        deleteSaveMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        optionsLoc[0].transform.DOMove(optionsLoc[1].position, 1).SetUpdate(true).OnComplete(() => {
+            EventSystem.current.SetSelectedGameObject(deleteSavebtn);
+            deleteSaveMenu.SetActive(false);
+        });
     }
 
     public void DELETESAVE()
     {
         //Delete the save game
         //audioManager.Instance.stopBGM(0.75f);
+        EventSystem.current.SetSelectedGameObject(null);
         ResetStatics();
         SaveManager.DeleteSaveData();
         bg.DOFade(1, 1f).SetUpdate(true).SetUpdate(true).OnComplete(() => {

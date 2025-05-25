@@ -9447,11 +9447,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 589043760}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
   m_Colors:
@@ -13413,11 +13413,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 338797323}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
   m_Colors:
@@ -14898,6 +14898,7 @@ MonoBehaviour:
   - {fileID: 956231652}
   - {fileID: 1052817076}
   bgColor: {r: 0.09803922, g: 0.11372549, b: 0.21568628, a: 1}
+  nobtn: {fileID: 0}
 --- !u!1 &916088612
 GameObject:
   m_ObjectHideFlags: 0
@@ -32017,12 +32018,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 1258546269}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -32895,11 +32896,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1042773940}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
   m_Colors:
@@ -74318,6 +74319,7 @@ MonoBehaviour:
   - {fileID: 1052817076}
   - {fileID: 1191529013}
   leora: {fileID: 369544121}
+  yesbtn: {fileID: 589043757}
   firstEntry: 0
 --- !u!1 &1376005422
 GameObject:

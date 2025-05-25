@@ -18,10 +18,10 @@ public class ButtonHoverSFX : MonoBehaviour, IPointerDownHandler
     //    }
     //}
 
-    //public void OnPointerEnter(PointerEventData eventData)
-    //{
-    //    audioManager.Instance.playSFX(sfxID_Hover);
-    //}
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
