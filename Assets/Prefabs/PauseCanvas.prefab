@@ -6764,6 +6764,9 @@ MonoBehaviour:
   - {fileID: 8942295693516540978}
   sideQuestBtn: {fileID: 6021194330821671285}
   mainQuestBtn: {fileID: 1520707126819184129}
+  sideQuest: {fileID: 0}
+  mainQuest: {fileID: 0}
+  backBtn: {fileID: 2043300846654351570}
   ivarColors:
   - {r: 0.6117647, g: 0.16470589, b: 0.43921572, a: 1}
   - {r: 0.28235295, g: 0.28235295, b: 0.28235295, a: 1}
@@ -9251,7 +9254,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -10655,7 +10658,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -11171,12 +11174,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 6999509015082096579}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -14225,7 +14228,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -15921,7 +15924,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -29825,7 +29828,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 0b186f8a288afbc469c47716537aa780, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -30645,7 +30648,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 3128202137972014560}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
   m_Colors:
@@ -30675,6 +30678,18 @@ MonoBehaviour:
       - m_Target: {fileID: 8894318324141578414}
         m_TargetAssemblyTypeName: pauseMenuManager, Assembly-CSharp
         m_MethodName: returnToCenter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7840505019345296696}
+        m_TargetAssemblyTypeName: QuestMenu, Assembly-CSharp
+        m_MethodName: resetBackNav
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34438,6 +34453,8 @@ MonoBehaviour:
   - {fileID: 8549119474498400745}
   - {fileID: 611612436612543456}
   - {fileID: 6277145767361890142}
+  quickPauseResumeBtn: {fileID: 8148172629569325926}
+  pauseResumeBtn: {fileID: 2024453422605646212}
 --- !u!1 &8148172628312844179
 GameObject:
   m_ObjectHideFlags: 0
@@ -34710,6 +34727,10 @@ MonoBehaviour:
   background: {fileID: 1346508674503771109}
   equipBack: {fileID: 4850093618395488578}
   questBack: {fileID: 1464737559300236621}
+  equipEnterBTN: {fileID: 7281307724326656542}
+  questEnterBTN: {fileID: 3422394711983206392}
+  optionsEnterBTN: {fileID: 2503868429575573632}
+  optionsBackBTN: {fileID: 8301343431431010242}
   leoraAnimatorEquipment: {fileID: 6469909199875123118}
   startLocations:
   - {fileID: 48749342604385546}

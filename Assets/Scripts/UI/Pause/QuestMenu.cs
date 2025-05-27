@@ -3,8 +3,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
 using System.Text.RegularExpressions;
-using System;
-using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class QuestMenu : MonoBehaviour
 {
@@ -14,6 +13,7 @@ public class QuestMenu : MonoBehaviour
     [SerializeField] private Transform[] locations;
     [SerializeField] private Transform sideQuestBtn;
     [SerializeField] private Transform mainQuestBtn;
+    [SerializeField] private Button backBtn;
 
     private string[] ivarDescriptions = { 
     //Ivar unobtained
@@ -87,14 +87,26 @@ public class QuestMenu : MonoBehaviour
         wholeQuestMenu.DOMove(locations[1].position, 1f).SetUpdate(true);
         sideQuestBtn.DOMoveX(locations[4].position.x, 0.5f).SetUpdate(true).OnComplete(() => { sideQuestBtn.gameObject.SetActive(false); });
         mainQuestBtn.gameObject.SetActive(true);
-        mainQuestBtn.DOMoveX(locations[3].position.x, 1f).SetUpdate(true);
+        mainQuestBtn.DOMoveX(locations[3].position.x, 1f).SetUpdate(true).OnComplete(() => {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(mainQuestBtn.gameObject);
+            Navigation nav = backBtn.navigation;
+            nav.selectOnLeft = mainQuestBtn.gameObject.GetComponent<Selectable>();
+            backBtn.navigation = nav;
+        });
     }
 
     public void GoToCoreQuests()
     {
         wholeQuestMenu.DOMove(locations[0].position, 1f).SetUpdate(true);
         sideQuestBtn.gameObject.SetActive(true);
-        sideQuestBtn.DOMoveX(locations[2].position.x, 1f).SetUpdate(true);
+        sideQuestBtn.DOMoveX(locations[2].position.x, 1f).SetUpdate(true).OnComplete(() => {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(sideQuestBtn.gameObject);
+            Navigation nav = backBtn.navigation;
+            nav.selectOnLeft = sideQuestBtn.gameObject.GetComponent<Selectable>();
+            backBtn.navigation = nav;
+        });
         mainQuestBtn.DOMoveX(locations[4].position.x, 0.5f).SetUpdate(true).OnComplete(() => { mainQuestBtn.gameObject.SetActive(false); });
     }
 
@@ -119,6 +131,7 @@ public class QuestMenu : MonoBehaviour
         wholeQuestMenu.DOMove(locations[0].position, 0f).SetUpdate(true);
         sideQuestBtn.DOMoveX(locations[4].position.x, 0f).SetUpdate(true).OnComplete(() => { sideQuestBtn.gameObject.SetActive(false); });
         mainQuestBtn.DOMoveX(locations[4].position.x, 0f).SetUpdate(true).OnComplete(() => { mainQuestBtn.gameObject.SetActive(false); });
+
     }
 
     private void FindStatus(string questName, string[] descriptionOptions, Color[] colorOptions, GameObject[] characterImages, TextMeshProUGUI[] description, string amuletName)
@@ -211,4 +224,11 @@ public class QuestMenu : MonoBehaviour
 
     }
 
+
+    public void resetBackNav()
+    {
+        Navigation nav = backBtn.navigation;
+        nav.selectOnLeft = sideQuestBtn.gameObject.GetComponent<Selectable>();
+        backBtn.navigation = nav;
+    }
 }

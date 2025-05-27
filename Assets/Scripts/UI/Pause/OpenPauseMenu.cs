@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class OpenPauseMenu : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class OpenPauseMenu : MonoBehaviour
     [SerializeField] private Sprite[] amuletsForLeoraShadow;
     [SerializeField] private Sprite[] ringsForLeoraShadow;
     [SerializeField] private Image[] LeoraShadowEquipment;
+
+    [SerializeField] private GameObject quickPauseResumeBtn, pauseResumeBtn;
 
     private void Start()
     {
@@ -98,10 +101,14 @@ public class OpenPauseMenu : MonoBehaviour
                 pauseMenuObject.SetActive(!pauseMenuObject.activeInHierarchy);
                 if (pauseMenuObject.activeInHierarchy)
                 {
+                    EventSystem.current.SetSelectedGameObject(null);
+                    //resume btn
+                    EventSystem.current.SetSelectedGameObject(pauseResumeBtn);
                     audioManager.Instance.playSFX(38);
                     pauseOpened = true;
                 } else
                 {
+                    EventSystem.current.SetSelectedGameObject(null);
                     audioManager.Instance.playSFX(39);
                     pauseOpened = false;
                     if (GameObject.FindObjectOfType<DarknessManager>())
@@ -118,10 +125,14 @@ public class OpenPauseMenu : MonoBehaviour
                 quickPauseMenu.SetActive(!quickPauseMenu.activeInHierarchy);
                 if(quickPauseMenu.activeInHierarchy)
                 {
+                    EventSystem.current.SetSelectedGameObject(null);
+                    //quick pause resume btn
+                    EventSystem.current.SetSelectedGameObject(quickPauseResumeBtn);
                     audioManager.Instance.playSFX(38);
-                    pauseOpened =true;
+                    pauseOpened = true;
                 } else
                 {
+                    EventSystem.current.SetSelectedGameObject(null);
                     audioManager.Instance.playSFX(39);
                     pauseOpened = false;
                     if (GameObject.FindObjectOfType<DarknessManager>())

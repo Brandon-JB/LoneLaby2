@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class pauseMenuManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class pauseMenuManager : MonoBehaviour
 
     [SerializeField] private CanvasGroup equipBack;
     [SerializeField] private CanvasGroup questBack;
+    [SerializeField] private GameObject equipEnterBTN, questEnterBTN, optionsEnterBTN, optionsBackBTN;
 
     [SerializeField] private CanvasGroup leoraAnimatorEquipment;
 
@@ -80,6 +82,7 @@ public class pauseMenuManager : MonoBehaviour
 
     public void goToQuests()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         questMenu.DOMove(questsLocations[0].position, 1f).SetUpdate(true);
         leoraAnimator.transform.DOMove(questsLocations[1].position, 1f).SetUpdate(true);
         equipMenu.DOMove(questsLocations[2].position, 1f).SetUpdate(true);
@@ -89,7 +92,10 @@ public class pauseMenuManager : MonoBehaviour
             mainButtons.gameObject.SetActive(false);
             questBack.alpha = 0f;
             questBack.gameObject.SetActive(true);
-            questBack.DOFade(1, 1f).SetUpdate(true);
+            questBack.DOFade(1, 1f).SetUpdate(true).OnComplete(() => {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(questBack.gameObject);
+            });
             //Bring out the start sq buttn
             sideQuestBTN.SetActive(true);
             sideQuestBTN.transform.DOMoveX(questsLocations[3].position.x, 1f).SetUpdate(true);
@@ -99,6 +105,7 @@ public class pauseMenuManager : MonoBehaviour
     }
     public void goToEquip()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         magicType.DOMove(equipLocations[3].position, 1f).SetUpdate(true);
         FindObjectOfType<EquipmentMenu>().setGlow();
         equipMenu.DOMove(equipLocations[0].position, 1f).SetUpdate(true);
@@ -110,7 +117,10 @@ public class pauseMenuManager : MonoBehaviour
             mainButtons.gameObject.SetActive(false);
             equipBack.alpha = 0f;
             equipBack.gameObject.SetActive(true);
-            equipBack.DOFade(1, 1f).SetUpdate(true);
+            equipBack.DOFade(1, 1f).SetUpdate(true).OnComplete(() => {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(equipBack.gameObject);
+            });
             leoraAnimatorEquipment.DOFade(1, 0.25f).SetUpdate(true);
         });
 
@@ -123,6 +133,7 @@ public class pauseMenuManager : MonoBehaviour
     /// </summary>
     public void returnToCenter()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         DOTween.KillAll();
         //Reset ALL spaces
         sidequest.transform.DOMove(sideQuestLoc.position, 1f).SetUpdate(true);
@@ -140,12 +151,16 @@ public class pauseMenuManager : MonoBehaviour
         questsTXT.DOFade(0, 1).SetUpdate(true);
         ResetLeoraAnimator();
 
-        if (equipBack.gameObject.activeInHierarchy) // We're exiting the 
+        if (equipBack.gameObject.activeInHierarchy) // We're exiting the EQUIP menu
         {
             leoraAnimator.SetTrigger("exitEquip");
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(equipEnterBTN);
         } else
         {
             leoraAnimator.SetTrigger("exitQuest");
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(questEnterBTN);
             sidequest.transform.DOMove(sideQuestLoc.position, 1f).SetUpdate(true);
             mainQuestBTN.transform.DOMoveX(questsLocations[4].position.x, 1f).SetUpdate(true).OnComplete(() => {
                 mainQuestBTN.gameObject.SetActive(false);
@@ -190,10 +205,12 @@ public class pauseMenuManager : MonoBehaviour
     public void goToOptions()
     {
         //move the entiiiirrreeee UI
+        EventSystem.current.SetSelectedGameObject(null);
         OpenPauseMenu.GLOBALcanOpenPause = false;
         this.transform.DOMove(startLocations[4].position,1).SetUpdate(true);
         optionsTXT.DOFade(1, 1).SetUpdate(true);
         mainButtons.DOFade(0, 0.5f).SetUpdate(true).OnComplete(() => {
+            EventSystem.current.SetSelectedGameObject(optionsBackBTN);
             mainButtons.gameObject.SetActive(false);
             equipBack.alpha = 0f;
         });
@@ -202,13 +219,16 @@ public class pauseMenuManager : MonoBehaviour
     public void exitOptions()
     {
         //move the entiiiirrreeee UI
+        EventSystem.current.SetSelectedGameObject(null);
         OpenPauseMenu.GLOBALcanOpenPause = true;
         audioStatics.SaveSettings();
         this.transform.DOMove(startLocations[3].position, 1).SetUpdate(true);
         optionsTXT.DOFade(0, 1).SetUpdate(true);
         mainButtons.alpha = 0;
         mainButtons.gameObject.SetActive(true);
-        mainButtons.DOFade(1, 1).SetUpdate(true);
+        mainButtons.DOFade(1, 1).SetUpdate(true).OnComplete(() => {
+            EventSystem.current.SetSelectedGameObject(optionsEnterBTN);
+        });
     }
 
     public void startDeleteSave()
