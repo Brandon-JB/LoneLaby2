@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.XR;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
 public class GameOverAndUI : MonoBehaviour
 {
@@ -18,6 +18,7 @@ public class GameOverAndUI : MonoBehaviour
     [SerializeField] private CanvasGroup gameOverText;
     [SerializeField] private CanvasGroup buttonGraphics;
     [SerializeField] private GameObject buttons;
+    [SerializeField] private GameObject continuebtn;
 
 
     private void Start()
@@ -40,6 +41,8 @@ public class GameOverAndUI : MonoBehaviour
         gameOverText.DOFade(1, 2).SetUpdate(true).OnComplete(() => {
             buttonGraphics.DOFade(1, 1).SetUpdate(true).OnComplete(() => {
                 buttons.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(continuebtn);
             });
         });
 
@@ -53,6 +56,7 @@ public class GameOverAndUI : MonoBehaviour
 
     public void Continue()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         Time.timeScale = 1;
         audioManager.Instance.stopBGM(1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -60,6 +64,7 @@ public class GameOverAndUI : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         Time.timeScale = 1;
         audioManager.Instance.stopBGM(1);
         SceneManager.LoadScene("MainMenu");

@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedGameObject: {fileID: 285608066}
-  nextGameObject: {fileID: 647243302}
+  nextGameObject: {fileID: 933867491}
   time: 0
 --- !u!1 &378865730
 GameObject:
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: UI/UX
+  m_text: Publisher
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22ea09a1914e7f7438588e5b0bd15c23, type: 2}
   m_sharedMaterial: {fileID: -914684645224612307, guid: 22ea09a1914e7f7438588e5b0bd15c23, type: 2}
@@ -2104,7 +2104,7 @@ GameObject:
   - component: {fileID: 772860495}
   - component: {fileID: 772860494}
   m_Layer: 5
-  m_Name: fonts & ui/ux
+  m_Name: fonts & publisher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2676,7 +2676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4133,7 +4133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Katherine Tackett
+  m_text: Azure Raven Studios
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c0c06c159a1f1f4aaf3f22b32dd6766, type: 2}
   m_sharedMaterial: {fileID: -5034437857743628096, guid: 2c0c06c159a1f1f4aaf3f22b32dd6766, type: 2}

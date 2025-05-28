@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
 public class creditsFade : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class creditsFade : MonoBehaviour
         selectedGameObject.DOFade(1, 1).OnComplete(() => {
             if(time == 0 )
             {
+                EventSystem.current.SetSelectedGameObject(null);
+                //this is the button to end hte game
+                EventSystem.current.SetSelectedGameObject(nextGameObject);
                 return;
             }
             StartCoroutine(waitToDisappear());

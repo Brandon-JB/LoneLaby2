@@ -78372,6 +78372,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 6644192803604004240, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
+      propertyPath: continuebtn
+      value: 
+      objectReference: {fileID: 661859425}
     - target: {fileID: 7576657308565644890, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
       propertyPath: m_SizeDelta.x
       value: 363.6002
@@ -78382,6 +78386,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
+--- !u!1 &661859425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4057515454090503895, guid: e9d5c9bedca7e43488ed88ef01418758, type: 3}
+  m_PrefabInstance: {fileID: 661859424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &673470999
 PrefabInstance:
   m_ObjectHideFlags: 0
