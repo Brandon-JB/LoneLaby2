@@ -49,6 +49,11 @@ public class saveUI : MonoBehaviour
         Time.timeScale = 0f;
         leoraforFade.alpha = 0f;
         background.DOFade(1, 0.5f).SetUpdate(true);
+
+        buttonAnimators[0].SetFloat("speed", -0.65f);
+        buttonAnimators[1].SetFloat("speed", -0.65f);
+        buttonAnimators[2].SetFloat("speed", -0.65f);
+
         leoraforFade.DOFade(1, 0.5f).SetUpdate(true).OnComplete(() =>
         {
             buttonsToDisable[0].SetActive(true);
@@ -74,9 +79,9 @@ public class saveUI : MonoBehaviour
         leoraforFade.DOFade(0, 0.5f).SetUpdate(true);
         background.DOFade(0, 0.5f).SetUpdate(true);
         leoraToMove.DOMove(locations[1].position, 0.25f).SetUpdate(true).SetEase(Ease.OutCubic).OnComplete(() => {
-            buttonAnimators[0].SetFloat("speed", -1f);
-            buttonAnimators[1].SetFloat("speed", -1f);
-            buttonAnimators[2].SetFloat("speed", -1f);
+            buttonAnimators[0].SetFloat("speed", -0.65f);
+            buttonAnimators[1].SetFloat("speed", -0.65f);
+            buttonAnimators[2].SetFloat("speed", -0.65f);
             menu.SetActive(false);
             Time.timeScale = 1f;
             OpenPauseMenu.GLOBALcanOpenPause = true;
@@ -85,9 +90,9 @@ public class saveUI : MonoBehaviour
 
     public void confirmSave()
     {
-        DOTween.To(() => buttonAnimators[0].GetFloat("speed"), x => buttonAnimators[0].SetFloat("speed", x), -7f, 0.5f).SetUpdate(true);
-        DOTween.To(() => buttonAnimators[1].GetFloat("speed"), x => buttonAnimators[1].SetFloat("speed", x), -7f, 0.5f).SetUpdate(true);
-        DOTween.To(() => buttonAnimators[2].GetFloat("speed"), x => buttonAnimators[2].SetFloat("speed", x), -7f, 0.5f).SetUpdate(true);
+        DOTween.To(() => buttonAnimators[0].GetFloat("speed"), x => buttonAnimators[0].SetFloat("speed", x), -5f, 0.5f).SetUpdate(true);
+        DOTween.To(() => buttonAnimators[1].GetFloat("speed"), x => buttonAnimators[1].SetFloat("speed", x), -5f, 0.5f).SetUpdate(true);
+        DOTween.To(() => buttonAnimators[2].GetFloat("speed"), x => buttonAnimators[2].SetFloat("speed", x), -5f, 0.5f).SetUpdate(true);
 
         buttonsToDisable[0].SetActive(false);
         buttonsToDisable[1].SetActive(false);
