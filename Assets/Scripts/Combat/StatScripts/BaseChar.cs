@@ -213,14 +213,24 @@ public class BaseChar : MonoBehaviour
 
     public void SetMaxHealth()
     {
+        GameObject healPopUpTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+        DamagePopUp damPopScript = healPopUpTransform.GetComponent<DamagePopUp>();
+        damPopScript.SetupInt(GetMaxHealth(), "Health");
 
         SetHealth(GetMaxHealth());
     }
 
     public void SetMaxMana()
     {
+        Vector2 manaPos = new Vector2(transform.position.x, transform.position.y + 0.5f);
+
+        GameObject healPopUpTransform = Instantiate(damagePopup, manaPos, Quaternion.identity);
+        DamagePopUp damPopScript = healPopUpTransform.GetComponent<DamagePopUp>();
+        damPopScript.SetupInt(GetMaxMana(), "Mana");
+
         SetMana(GetMaxMana());
     }
+
 
     public int GetHealth()
     {
