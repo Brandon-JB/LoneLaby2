@@ -306,6 +306,8 @@ public class IvarScript : MonoBehaviour
 
     public void TriggerStunAnim()
     {
+        audioManager.Instance.playSFX(67);
+
         ivarChar.SpawnParticle("stunFX", ivarChar.transform.position, ivarChar.transform, ivarChar.stunTimer.cooldownTime);
         ivarChar.stunTimer.StartCooldown();
         ivarChar.animator.SetBool("stunned", true);
