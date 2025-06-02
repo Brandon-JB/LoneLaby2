@@ -180,5 +180,17 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
+    //Consolidates all the spawn particle functions into one functions
+    public void SpawnMagParticle()
+    {
+        tempMagPart = Instantiate(magicParticle, this.transform.position, Quaternion.identity, this.transform);
+
+        MagicParticles tempMagManager = tempMagPart.GetComponent<MagicParticles>();
+
+        //Animator for particles would go here
+        tempMagManager.animator.SetBool(leoraChar.magicType, true);
+    }
+
     #endregion
+
 }

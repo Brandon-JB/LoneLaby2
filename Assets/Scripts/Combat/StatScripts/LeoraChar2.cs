@@ -72,7 +72,7 @@ public class LeoraChar2 : BaseChar
         healthBar = GameObject.FindGameObjectWithTag("HPText").GetComponent<TMP_Text>();
         hpSlider = GameObject.FindGameObjectWithTag("HPBar").GetComponent<Slider>();
 
-        ChangeStats(14, 10, 4, 100, 10);
+        ChangeStats(14, 15, 4, 100, 10);
 
         #region Add stats based on bosses
 
