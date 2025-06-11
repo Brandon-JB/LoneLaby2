@@ -18,14 +18,17 @@ public class creditsScroll : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        fadeIn.alpha = 1.0f;
-        fadeIn.DOFade(0, 3f).OnComplete(() => {
-            buildText();
-            titletext.DOMove(locations[0].position, 2f).SetEase(Ease.Linear).OnComplete(() => {
-                firsttextToAppear.SetActive(true);
-                scrollingText.DOMove(locations[1].position, 100f).SetEase(Ease.Linear);
+        if (!DemoCheck.getDemo()) { //If this is NOT the demo, proceed as normal
+            fadeIn.alpha = 1.0f;
+            fadeIn.DOFade(0, 3f).OnComplete(() => {
+                buildText();
+                titletext.DOMove(locations[0].position, 2f).SetEase(Ease.Linear).OnComplete(() => {
+                    firsttextToAppear.SetActive(true);
+                    scrollingText.DOMove(locations[1].position, 100f).SetEase(Ease.Linear);
+                });
             });
-        });
+        }
+        
     }
 
     public void onClickGoToTitle()

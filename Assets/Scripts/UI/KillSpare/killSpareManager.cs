@@ -216,6 +216,12 @@ public class killSpareManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1.5f);
 
+        if (DemoCheck.getDemo()) // If this is the demo, don't play any of the dialogue, instantly send player to demo end scene
+        {
+            SceneManager.LoadScene("DemoEnd");
+            StopAllCoroutines();
+        }
+
         if(isKilling)
         {
             switch (bossName)

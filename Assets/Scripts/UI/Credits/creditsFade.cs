@@ -27,9 +27,17 @@ public class creditsFade : MonoBehaviour
     IEnumerator waitToDisappear()
     {
         yield return new WaitForSeconds(time);
-        selectedGameObject.DOFade(0, 1).OnComplete(() => {
+        if (!DemoCheck.getDemo()) // If this is NOT the demo, proceed as normal
+        {
+            selectedGameObject.DOFade(0, 1).OnComplete(() => {
+                nextGameObject.SetActive(true);
+                selectedGameObject.gameObject.SetActive(false);
+            });
+        } else // if this IS the demo, just set the next object to true and end the coroutine
+        {
             nextGameObject.SetActive(true);
-            selectedGameObject.gameObject.SetActive(false);
-        });
+            StopCoroutine(waitToDisappear());
+        }
+        
     }
 }
