@@ -20,10 +20,11 @@ public class tempDialogueStart : MonoBehaviour
     {
         if(mainDialogueManager.GLOBALcurrentlyRunningText == "introducingSuspects" && SceneManager.GetActiveScene().name == "NoCombatAreas")
         {
-            mainDialogueManager.GLOBALcurrentlyRunningText = "";
+            
             Time.timeScale = 0f;
             OpenPauseMenu.GLOBALcanOpenPause = false;
             tutorial.SetActive(true);
+            mainDialogueManager.GLOBALcurrentlyRunningText = "";
         } 
         //TEMPORARY!!
         else if (SceneManager.GetActiveScene().name == "Tutorial")

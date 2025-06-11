@@ -13,12 +13,13 @@ public class startTutorial : MonoBehaviour
 
     private void OnEnable()
     {
+        Time.timeScale = 0f;
         EventSystem.current.SetSelectedGameObject(null);
-        if (mainDialogueManager.GLOBALcurrentlyRunningText == "introducingSuspects" && SceneManager.GetActiveScene().name == "NoCombatAreas")
+        if (mainDialogueManager.GLOBALcurrentlyRunningText == "introducingSuspects")
         {
             firstEntry = true;
-            bg.alpha = 0f;
-            positions[0].DOMove(positions[1].transform.position, 2f).SetUpdate(true);
+            //bg.alpha = 0f;
+            //positions[0].DOMove(positions[1].transform.position, 1f).SetUpdate(true);
             return;
         }
         bg.alpha = 0f;
