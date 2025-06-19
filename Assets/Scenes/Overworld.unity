@@ -1194,6 +1194,7 @@ MonoBehaviour:
   - CombatForest
   - Randomcombat
   areaNumber: 0
+  mainDialogueManager: {fileID: 1641537063}
   transitionTime: 1.2
 --- !u!1 &116585137
 GameObject:
@@ -71025,6 +71026,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1641537063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6332053273411946338, guid: 9546f50686d4c214f9a6e97ff098ba40, type: 3}
+  m_PrefabInstance: {fileID: 414930295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad9093613c19004f808f3ac10dbd417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1645704175
 GameObject:
   m_ObjectHideFlags: 0
