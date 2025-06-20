@@ -20,7 +20,6 @@ public class startTutorial : MonoBehaviour
             firstEntry = true;
             //bg.alpha = 0f;
             //positions[0].DOMove(positions[1].transform.position, 1f).SetUpdate(true);
-            return;
         }
         bg.alpha = 0f;
         bg.DOFade(1, 1).SetUpdate(true);
