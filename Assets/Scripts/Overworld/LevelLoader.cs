@@ -119,6 +119,14 @@ public class LevelLoader : MonoBehaviour
             OpenPauseMenu.GLOBALcanOpenPause = false;
             //Debug.Log("called loadScene");
         }
+        else
+        {
+            PlayerMovement.CanWalk = false;
+
+            yield return new WaitUntil(() => mainDialogueManager.dialogueRunning == false);
+
+            PlayerMovement.CanWalk = true;
+        }
 
     }
 }
