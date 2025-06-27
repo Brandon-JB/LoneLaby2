@@ -53,8 +53,8 @@ public class SaveManager : MonoBehaviour
     {
         Debug.Log(QuestManager.questStates.Count);
 
-        Instance.leoraChar.SetMaxHealth();
-        Instance.leoraChar.SetMaxMana();
+        Instance.leoraChar.SetMaxHealth(true);
+        Instance.leoraChar.SetMaxMana(true);
         audioManager.Instance.playSFX(42);
 
         SaveData data = new SaveData();
@@ -133,8 +133,8 @@ public class SaveManager : MonoBehaviour
         //Player.transform.position = data.playerPosition;
         MansionDoorManager.DoorOpened = data.mansionDoorOpened;
         PortalScript.LastPortal = data.LastPortal;
-        Instance.leoraChar.SetMaxHealth();
-        Instance.leoraChar.SetMaxMana();
+        Instance.leoraChar.SetMaxHealth(false);
+        Instance.leoraChar.SetMaxMana(false);
         SavePointTigger.isFirstTime = false;
 
         Debug.Log(MansionDoorManager.DoorOpened);

@@ -103,12 +103,12 @@ public class BaseChar : MonoBehaviour
 
         if (GetHealth() > GetMaxHealth() || atMaxHealth)
         {
-            SetMaxHealth();
+            SetMaxHealth(false);
         }
 
         if (GetMana() > GetMaxMana() || atMaxMana)
         {
-            SetMaxMana();
+            SetMaxMana(false);
         }
 
         if (allied)
@@ -211,22 +211,28 @@ public class BaseChar : MonoBehaviour
 
     #region Stats
 
-    public void SetMaxHealth()
+    public void SetMaxHealth(bool saving)
     {
-        GameObject healPopUpTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
-        DamagePopUp damPopScript = healPopUpTransform.GetComponent<DamagePopUp>();
-        damPopScript.SetupInt(GetMaxHealth(), "Health");
+        if (saving)
+        {
+            GameObject healPopUpTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+            DamagePopUp damPopScript = healPopUpTransform.GetComponent<DamagePopUp>();
+            damPopScript.SetupInt(GetMaxHealth(), "Health");
+        }
 
         SetHealth(GetMaxHealth());
     }
 
-    public void SetMaxMana()
+    public void SetMaxMana(bool saving)
     {
-        Vector2 manaPos = new Vector2(transform.position.x, transform.position.y + 0.5f);
+        if (saving)
+        {
+            Vector2 manaPos = new Vector2(transform.position.x, transform.position.y + 0.5f);
 
-        GameObject healPopUpTransform = Instantiate(damagePopup, manaPos, Quaternion.identity);
-        DamagePopUp damPopScript = healPopUpTransform.GetComponent<DamagePopUp>();
-        damPopScript.SetupInt(GetMaxMana(), "Mana");
+            GameObject healPopUpTransform = Instantiate(damagePopup, manaPos, Quaternion.identity);
+            DamagePopUp damPopScript = healPopUpTransform.GetComponent<DamagePopUp>();
+            damPopScript.SetupInt(GetMaxMana(), "Mana");
+        }
 
         SetMana(GetMaxMana());
     }
