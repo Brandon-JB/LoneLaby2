@@ -9,7 +9,7 @@
                     "name": "Movement",
                     "type": "Value",
                     "id": "8cf65b3e-bd08-4660-92bb-93930a39a3a5",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -49,9 +49,29 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Open Pause",
+                    "type": "Button",
+                    "id": "5ab93823-56cf-4a9b-8262-a34efafc8559",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
+                {
+                    "name": "",
+                    "id": "c5600443-56dd-487d-9eb1-6e3782a6fda3",
+                    "path": "<HID::usb gamepad           >/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
                 {
                     "name": "",
                     "id": "93c0df95-18cb-4a21-b76b-1a263c643f61",
@@ -174,6 +194,72 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "Controller",
+                    "id": "f4223ffb-91e3-46e3-ac2b-d0a63072a888",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "2f94f6e6-6dae-46ba-8e8c-c6e4814d058b",
+                    "path": "<HID::usb gamepad           >/stick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "fcaf82f5-c42f-43ed-87cc-6fef72ff8086",
+                    "path": "<HID::usb gamepad           >/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "e3469d49-8f6d-4236-9354-d0818e3e0e34",
+                    "path": "<HID::usb gamepad           >/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f42f0dd9-4715-4b4e-b586-3ab153ab5619",
+                    "path": "<HID::usb gamepad           >/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "3665ede6-1a92-4f7f-8a4e-97645c6e1919",
+                    "path": "<HID::usb gamepad           >/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Magic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "",
                     "id": "30e5fa9c-f332-4eb3-b890-d6f7ac061188",
                     "path": "<Keyboard>/l",
@@ -181,6 +267,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Magic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "014f512c-14c7-481c-a999-278c9401a530",
+                    "path": "<HID::usb gamepad           >/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -197,12 +294,45 @@
                 },
                 {
                     "name": "",
+                    "id": "960433f1-4936-4f38-8f29-ed769832137c",
+                    "path": "<HID::usb gamepad           >/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cfcd4a3d-f4bf-49ed-a307-b5f430e1f729",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c0f2384-76d4-485d-ad83-5aa879d348b5",
+                    "path": "<HID::usb gamepad           >/button10",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba8a9d60-3dad-4e24-965a-f7a764d58add",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

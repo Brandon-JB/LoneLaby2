@@ -2,6 +2,7 @@ using DIALOGUE;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public static class audioStatics
 {
@@ -9,8 +10,8 @@ public static class audioStatics
     public static float BGMVolume = 0.5f;
     public static float SFXVolume = 1f;
     public static float VoiceVolume = 0.6f;
-    public static string interractButton = "space";
-    public static KeyCode keycodeInterractButton = KeyCode.Space;
+    public static string interractButton = "A";
+    public static KeyCode keycodeInterractButton = KeyCode.JoystickButton1;
     public static float TextSpeedMultiplier = 1f;
 
     static audioStatics() // static constructor runs once when the class is first accessed

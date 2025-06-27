@@ -5,10 +5,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class OpenPauseMenu : MonoBehaviour
 {
-
+    public InputActionAsset input;
+    public InputAction openPauseKey;
     public static bool canOpenPause = true;
     public static bool pauseOpened = false;
 
@@ -32,6 +34,14 @@ public class OpenPauseMenu : MonoBehaviour
 
     private void Start()
     {
+        openPauseKey = input.FindAction("Open Pause");
+        if (openPauseKey != null)
+        {
+            Debug.Log(openPauseKey.ToString());
+        } else
+        {
+            Debug.Log("I hate everything");
+        }
         //Freeze the game
         StartCoroutine(wait());
     }
@@ -91,8 +101,9 @@ public class OpenPauseMenu : MonoBehaviour
 
         //NOTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11 COULD MESS UP TIMESCALE JUNK! 
 
-        if (Input.GetKeyDown(KeyCode.Escape) && GLOBALcanOpenPause && SceneManager.GetActiveScene().name != "MainMenu")
+        if (openPauseKey.triggered && GLOBALcanOpenPause && SceneManager.GetActiveScene().name != "MainMenu")
         {
+            Debug.Log("OPENED");
             if(canOpenPause)
             {
                 //Open main pause menu
