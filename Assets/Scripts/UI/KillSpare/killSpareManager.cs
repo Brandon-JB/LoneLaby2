@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using DG.Tweening;
-using System.Xml.Linq;
 using TMPro;
 using UnityEngine.SceneManagement;
+
+using UnityEngine.EventSystems;
 
 public class killSpareManager : MonoBehaviour
 {
@@ -59,6 +58,8 @@ public class killSpareManager : MonoBehaviour
         {
             killSpareTextCanvas.DOFade(1, 1f).SetUpdate(true).OnComplete(() =>
             {
+                EventSystem.current.SetSelectedGameObject(yescanvas.gameObject);
+                EventSystem.current.SetSelectedGameObject(null);
                 yescanvas.gameObject.SetActive(true);
                 yescanvas.DOFade(1, 0.5f).SetUpdate(true).OnComplete(() => {
                     nocanvas.gameObject.SetActive(true);
@@ -216,10 +217,14 @@ public class killSpareManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1.5f);
 
+        Debug.Log("I am checking if this is the demo");
         if (DemoCheck.getDemo()) // If this is the demo, don't play any of the dialogue, instantly send player to demo end scene
         {
             SceneManager.LoadScene("DemoEnd");
             StopAllCoroutines();
+        } else
+        {
+            Debug.Log("I don't like that this isn't working :(");
         }
 
         if(isKilling)

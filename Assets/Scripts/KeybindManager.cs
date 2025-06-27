@@ -107,6 +107,22 @@ public class KeybindManager : MonoBehaviour
                 action.ApplyBindingOverride(0, newBinding);
                 buttonText.text = action.bindings[0].ToDisplayString();
 
+                switch (buttonText.text)
+                {
+                    case "Button 4":
+                        buttonText.text = "Y";
+                        break;
+                    case "Trigger":
+                        buttonText.text = "X";
+                        break;
+                    case "Button 3":
+                        buttonText.text = "B";
+                        break;
+                    case "Button 2":
+                        buttonText.text = "A";
+                        break;
+                }
+
                 action.Enable();
                 rebindOperation.Dispose();
                 isRebinding = false; // Reset flag

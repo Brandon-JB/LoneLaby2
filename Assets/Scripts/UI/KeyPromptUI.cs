@@ -69,7 +69,13 @@ public class KeyPromptUI : MonoBehaviour
         { "Button South", "A" },
         { "Button East", "B" },
         { "Button West", "X" },
-        { "Button North", "Y" }
+        { "Button North", "Y" },
+
+        //Additional keys (for demo, specifically)
+        { "Button 2", "A"},
+        { "Button 3", "B"},
+        { "Button 4", "Y"},
+        { "Trigger", "X"}
     };
 
     private void OnEnable()
