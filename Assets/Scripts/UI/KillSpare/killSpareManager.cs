@@ -58,10 +58,10 @@ public class killSpareManager : MonoBehaviour
         {
             killSpareTextCanvas.DOFade(1, 1f).SetUpdate(true).OnComplete(() =>
             {
-                EventSystem.current.SetSelectedGameObject(yescanvas.gameObject);
-                EventSystem.current.SetSelectedGameObject(null);
                 yescanvas.gameObject.SetActive(true);
                 yescanvas.DOFade(1, 0.5f).SetUpdate(true).OnComplete(() => {
+                    EventSystem.current.SetSelectedGameObject(null);
+                    EventSystem.current.SetSelectedGameObject(yescanvas.gameObject);
                     nocanvas.gameObject.SetActive(true);
                     nocanvas.DOFade(1, 0.5f).SetUpdate(true);
                 });
@@ -220,6 +220,7 @@ public class killSpareManager : MonoBehaviour
         Debug.Log("I am checking if this is the demo");
         if (DemoCheck.getDemo()) // If this is the demo, don't play any of the dialogue, instantly send player to demo end scene
         {
+            SaveManager.DeleteSaveData();
             SceneManager.LoadScene("DemoEnd");
             StopAllCoroutines();
         } else
