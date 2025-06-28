@@ -66,7 +66,14 @@ public class ChestInteraction : CombatInteraction
                 //ATKRing
                 //MPRing
                 //HPRing
-                itemMenu.openItemMenu(whichRing);
+                if (EquipmentManager.equipmentObtained[whichRing] == true)
+                {
+                    dropManager.SpecificDrop(ObjectSpawnPosition.transform.position, "Large HP");
+                }
+                else
+                {
+                    itemMenu.openItemMenu(whichRing);
+                }
                 break;
             case 4:
                 //Enemies
