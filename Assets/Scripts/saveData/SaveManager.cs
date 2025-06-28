@@ -98,6 +98,7 @@ public class SaveManager : MonoBehaviour
     public static void DeleteSaveData()
     {
         //Delete Equipment
+        SavePointTigger.isFirstTime = true;
         EquipmentManager.ResetEquipmentToDefault();
         BossSaveData.RemoveBosses();
         QuestManager.ClearAllQuests();
