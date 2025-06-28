@@ -149,7 +149,15 @@ public class DarknessManager : MonoBehaviour
         if (useMagicUDummie)
         {
             useMagicUDummie.SetActive(true);
+            StartCoroutine(StartTimer());
         }
+    }
+
+    IEnumerator StartTimer()
+    {
+        yield return new WaitForSecondsRealtime(10f);
+
+        useMagicUDummie.SetActive(false);
     }
 
 }
