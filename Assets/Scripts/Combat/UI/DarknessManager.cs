@@ -155,7 +155,7 @@ public class DarknessManager : MonoBehaviour
 
     IEnumerator StartTimer()
     {
-        yield return new WaitForSecondsRealtime(10f);
+        yield return new WaitForSeconds(20f);
 
         useMagicUDummie.SetActive(false);
     }
