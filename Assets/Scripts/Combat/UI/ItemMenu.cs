@@ -70,7 +70,7 @@ public class ItemMenu : MonoBehaviour
         //Debug.Log(dropName);
         if(goToPauseUI != null)
         {
-            goToPauseUI.SetActive(false);
+            goToPauseUI.SetActive(true);
         }
         switch (dropName)
         {

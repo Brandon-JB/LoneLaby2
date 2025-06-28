@@ -107,18 +107,21 @@ public class KeybindManager : MonoBehaviour
                 action.ApplyBindingOverride(0, newBinding);
                 buttonText.text = action.bindings[0].ToDisplayString();
 
-                switch (buttonText.text)
+                switch (buttonText.text.ToLower())
                 {
-                    case "Button 4":
+                    case "button4":
+                    case "button 4":
                         buttonText.text = "Y";
                         break;
-                    case "Trigger":
+                    case "trigger":
                         buttonText.text = "X";
                         break;
-                    case "Button 3":
+                    case "button3":
+                    case "button 3":
                         buttonText.text = "B";
                         break;
-                    case "Button 2":
+                    case "button2":
+                    case "button 2":
                         buttonText.text = "A";
                         break;
                 }
@@ -147,10 +150,10 @@ public class KeybindManager : MonoBehaviour
 
     private void UpdateButtonLabels()
     {
-        attackText.text = controls.FindAction("Attack").bindings[0].ToDisplayString();
-        magicText.text = controls.FindAction("Magic").bindings[0].ToDisplayString();
-        parryText.text = controls.FindAction("Parry").bindings[0].ToDisplayString();
-        interactText.text = controls.FindAction("Interact").bindings[0].ToDisplayString();
+        attackText.text = "Y";
+        magicText.text = "X";
+        parryText.text = "B";
+        interactText.text = "A";
     }
 
     public void ResetAttack() => ResetKeybind("Attack");
