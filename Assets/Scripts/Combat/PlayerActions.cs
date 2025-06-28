@@ -68,7 +68,7 @@ public class PlayerActions : MonoBehaviour
 
 
         //Attacking
-        if (!leoraChar.stunTimer.isCoolingDown)
+        if (!leoraChar.stunTimer.isCoolingDown && !OpenPauseMenu.pauseOpened)
         {
             if (InputManager.attackPressed)
             {
