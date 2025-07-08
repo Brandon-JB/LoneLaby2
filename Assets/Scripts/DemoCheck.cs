@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class DemoCheck
 {
-    private static bool isDemo = true;
+    private static bool isDemo = false;
 
     public static bool getDemo()
     {
