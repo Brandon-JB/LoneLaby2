@@ -18200,22 +18200,21 @@ MonoBehaviour:
   controls: {fileID: -944628639613478452, guid: 8b57707096e307742ba7572d34cb3dce, type: 3}
   textToDisplay:
   - Leora can move using W, A, S, and D. She can also <color=#ff7575>attack</color>
-    when the <color=#ff7575>Y</color> button is pressed.
+    when <color=#ff7575>(ATTACK_KEY)</color> is pressed.
   - Try <color=#ff7575>attacking</color> the training dummy now. Hit the key multiple
     times to do a combo.
-  - Pressing the <color=#aef0ff>X</color> also allows you to use <color=#aef0ff>magic</color>.
+  - Pressing <color=#aef0ff>(MAGIC_KEY)</color> also allows you to use <color=#aef0ff>magic</color>.
     Leora uses <color=#aef0ff>Light magic</color>, which deals damage and stuns enemies.
   - Try using <color=#aef0ff>Light magic</color> on the training dummy. Leora can
     gain other <color=#aef0ff>magic</color> types at a later date.
   - Leora can mitigate incoming damage by <color=#ffd37c>parrying</color>, done by
-    pressing the <color=#ffd37c>B</color> button. <color=#ffd37c>Parrying</color>
+    pressing <color=#ffd37c>(PARRY_KEY)</color>. <color=#ffd37c>Parrying</color>
     not only reduces incoming damage, but it also stuns your attacker.
-  - Try <color=#ffd37c>parrying</color> using the <color=#ffd37c>B</color> button
+  - Try <color=#ffd37c>parrying</color> using <color=#ffd37c>(PARRY_KEY)</color>
     now. Time your <color=#ffd37c>parries</color> perfectly to negate incoming damage!
   - "Now that you\u2019ve mastered combat, speak to Severin to end the tutorial.
-    You can <color=#a0ec79>interact</color> with the environment by pressing the
-    <color=#a0ec79>A</color> button."
-  - Talk to Severin using the <color=#a0ec79>A</color> button to end the tutorial.
+    You can <color=#a0ec79>interact</color> with the environment by pressing <color=#a0ec79>(INTERACT_KEY)</color>."
+  - Talk to Severin using <color=#a0ec79>(INTERACT_KEY)</color> to end the tutorial.
   tutorialtext:
   - {fileID: 1363925927}
   - {fileID: 1841539938}
@@ -29341,7 +29340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 669613725}
   - component: {fileID: 669613724}
-  - component: {fileID: 669613726}
+  - component: {fileID: 669613723}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -29349,6 +29348,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &669613723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669613722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!114 &669613724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29379,36 +29398,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &669613726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 669613722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
 --- !u!1 &679167016
 GameObject:
   m_ObjectHideFlags: 0
