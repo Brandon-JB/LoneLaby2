@@ -75,20 +75,7 @@ public class KeyPromptUI : MonoBehaviour
         { "Button 2", "A"},
         { "Button 3", "B"},
         { "Button 4", "Y"},
-        { "Trigger", "X"},
-
-        { "Button2", "A"},
-        { "Button3", "B"},
-        { "Button4", "Y"},
-
-        { "button2", "A"},
-        { "button3", "B"},
-        { "button4", "Y"},
-        { "trigger", "X"},
-
-        { "button 2", "A"},
-        { "button 3", "B"},
-        { "button 4", "Y"}
+        { "Trigger", "X"}
     };
 
     private void OnEnable()
