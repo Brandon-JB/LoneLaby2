@@ -76,7 +76,16 @@ public class IvarChar : BaseChar
                             AddToSpecificStat("Health", incomingDamage);
                         }
 
-                        GotDamaged(incomingDamage, otherCharTrigger.gameObject, 0);
+                        if (ivarScript.firstTeleportHappened && !ivarScript.secondTeleportHappened && stunTimer.isCoolingDown && GetHealth() <= GetMaxHealth() / 2)
+                        {
+                            FakeGotDamaged(incomingDamage);
+                            SetHealth(Mathf.Clamp(GetHealth(), GetMaxHealth() / 2, GetMaxHealth()));
+                            Debug.Log("nuh uh, you can't hurt him yet");
+                        }
+                        else
+                        {
+                            GotDamaged(incomingDamage, otherCharTrigger.gameObject, 0);
+                        }
                         //TriggerHurtAnim();
 
 
@@ -117,6 +126,31 @@ public class IvarChar : BaseChar
                 }
             }
         }
+    }
+
+    public virtual void FakeGotDamaged(int incomingDamage) //to show damage number but nothing happening
+    {
+
+
+            if (incomingDamage < 0)
+            {
+                incomingDamage = 0;
+            }
+
+            GameObject damagePopupTransform = Instantiate(damagePopup, transform.position, Quaternion.identity);
+            DamagePopUp damPopScript = damagePopupTransform.GetComponentInChildren<DamagePopUp>();
+            damPopScript.SetupInt(incomingDamage, "Damage");
+            //Debug.Log(charName + " After damage health: " + GetHealth());
+
+            if (allied)
+            {
+                audioManager.Instance.playSFX(1);
+            }
+            else
+            {
+                audioManager.Instance.playSFX(7);
+            }
+
     }
 
     public override void Death()

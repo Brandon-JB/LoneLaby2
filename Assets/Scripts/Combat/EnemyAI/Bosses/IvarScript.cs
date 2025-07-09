@@ -54,7 +54,7 @@ public class IvarScript : MonoBehaviour
     [Header("Phase Change")]
     [SerializeField] private SpriteRenderer playerSprite;
     public GameObject darknessEffect;
-    private bool firstTeleportHappened;
+    public bool firstTeleportHappened;
     public GameObject firstTPObject;
     public GameObject ivarFirstTPObject;
     public bool secondTeleportHappened;
@@ -146,9 +146,9 @@ public class IvarScript : MonoBehaviour
                     TriggerTPCast();
                 }
             }
-            else if (secondTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 3)
+            else if (secondTeleportHappened == false && ivarChar.GetHealth() <= ivarChar.GetMaxHealth() / 4)
             {
-                ivarChar.statsSheet["Health"] = Mathf.Clamp(ivarChar.statsSheet["Health"], ivarChar.GetMaxHealth() / 3, ivarChar.GetMaxHealth());
+                ivarChar.statsSheet["Health"] = Mathf.Clamp(ivarChar.statsSheet["Health"], ivarChar.GetMaxHealth() / 4, ivarChar.GetMaxHealth());
                 teleportNum = 2;
                 if (!ivarChar.animator.GetBool("Casting"))
                 {

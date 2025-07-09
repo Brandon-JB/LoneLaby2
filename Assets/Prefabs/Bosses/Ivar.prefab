@@ -1088,7 +1088,7 @@ MonoBehaviour:
   parryCooldown:
     cooldownTime: 100
   stunTimer:
-    cooldownTime: 5
+    cooldownTime: 9
   particleManager: {fileID: 7160258791733016095, guid: 4545ea9c8f4aa204f99ae71f34cf1135, type: 3}
   slowTimer:
     cooldownTime: 100
@@ -1129,6 +1129,7 @@ MonoBehaviour:
   moveSpeed: 3
   playerSprite: {fileID: 0}
   darknessEffect: {fileID: 0}
+  firstTeleportHappened: 0
   firstTPObject: {fileID: 0}
   ivarFirstTPObject: {fileID: 0}
   secondTeleportHappened: 0
