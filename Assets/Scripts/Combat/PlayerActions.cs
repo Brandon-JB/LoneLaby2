@@ -97,7 +97,7 @@ public class PlayerActions : MonoBehaviour
             }
 
             //Magicking
-            if (InputManager.magicPressed && leoraChar.magicCooldown.isCoolingDown == false && leoraChar.GetMana() > 0)
+            if (InputManager.magicPressed && leoraChar.magicCooldown.isCoolingDown == false && leoraChar.GetMana() >= leoraChar.magicCost)
             {
                 //Debug.Log("M Pressed");
 

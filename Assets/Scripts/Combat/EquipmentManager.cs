@@ -355,6 +355,7 @@ public class EquipmentManager : MonoBehaviour
                 break;
             case "DarkAmulet":
                 leoraChar.magicType = "lightMag";
+                leoraChar.magicCost = 2;
                 break;
             case "AlanAmulet":
                 leoraChar.alanAmuletActive = false;
@@ -390,6 +391,7 @@ public class EquipmentManager : MonoBehaviour
                     break;
                 case "DarkAmulet":
                 leoraChar.magicType = "darkMag";
+                leoraChar.magicCost = 3;
                     break;
                 case "AlanAmulet":
                 leoraChar.alanAmuletActive = true;

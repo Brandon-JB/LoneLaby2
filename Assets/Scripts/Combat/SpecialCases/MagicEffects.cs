@@ -44,6 +44,15 @@ public class MagicEffects : MonoBehaviour
                     enemyChar.stunTimer.StartCooldown();
                     enemyChar.SpawnParticle("stunFX", collision.transform.position, collision.transform, enemyChar.stunTimer.cooldownTime);
                 }
+                else if (enemyChar.charName == "Lucan")
+                {
+                    enemyChar.animator.SetTrigger("MagicStun");
+                    enemyChar.StopAttackAnim();
+                    enemyChar.stunTimer.cooldownTime = 1.4f;
+                    enemyChar.stunTimer.StartCooldown();
+                    enemyChar.SpawnParticle("stunFX", enemyChar.transform.position, enemyChar.transform, enemyChar.stunTimer.cooldownTime);
+                    
+                }
                 else if (collision.tag == "Boss")
                 {
                     /*enemyChar.stunTimer.cooldownTime = 1.5f;

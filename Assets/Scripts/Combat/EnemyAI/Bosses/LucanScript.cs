@@ -132,6 +132,7 @@ public class LucanScript : EnemyScript
             if (!cooldown.isCoolingDown && enemyChar.stunTimer.isCoolingDown == false && !specialStunTimer.isCoolingDown && !isDashing)
             {
                 canMove = true;
+                enemyChar.animator.ResetTrigger("MagicStun"); //resets trigger so it can happen again
                 //enemyChar.animator.SetBool("stunned", false);
             }
             else// if (enemyChar.animator.GetBool("Hurt") == true)

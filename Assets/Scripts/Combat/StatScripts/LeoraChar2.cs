@@ -20,6 +20,8 @@ public class LeoraChar2 : BaseChar
 
     [SerializeField] public Cooldown magicCooldown = new Cooldown();
 
+    public int magicCost = 2;
+
     [SerializeField] private GameOverAndUI gameOverManager;
 
     [SerializeField] private CombatPlayerMovement playerMovement;
@@ -359,7 +361,7 @@ public class LeoraChar2 : BaseChar
                                         //Debug.Log("Perfect Parry");
                                         GotDamaged(0, otherCharTrigger.gameObject, 0);
                                         //Debug.Log(otherCharTrigger.gameObject.name);
-                                        otherCharTrigger.stunTimer.cooldownTime = 1f;
+                                        otherCharTrigger.stunTimer.cooldownTime = 1.75f;
                                         otherCharTrigger.stunTimer.StartCooldown();
                                         otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                                     }
@@ -377,7 +379,7 @@ public class LeoraChar2 : BaseChar
                                     {
                                         //Debug.Log("Parry");
                                         GotDamaged(incomingDamage / 2, otherCharTrigger.gameObject, 0.5f);
-                                        otherCharTrigger.stunTimer.cooldownTime = 0.5f;
+                                        otherCharTrigger.stunTimer.cooldownTime = 1.25f;
                                         otherCharTrigger.stunTimer.StartCooldown();
                                         otherCharTrigger.SpawnParticle("stunFX", otherCharTrigger.transform.position, otherCharTrigger.transform, otherCharTrigger.stunTimer.cooldownTime);
                                     }
@@ -702,14 +704,7 @@ public class LeoraChar2 : BaseChar
 
     public void LoseMana()
     {
-        if (magicType != "darkMag")
-        {
-            SetMana(GetMana() - 2);
-        }
-        else
-        {
-            SetMana(GetMana() - 3);
-        }
+        SetMana(GetMana() - magicCost);
     }
 
     public void EnableMagHitbox()
