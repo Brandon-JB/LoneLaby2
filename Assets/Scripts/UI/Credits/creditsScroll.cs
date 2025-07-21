@@ -56,6 +56,7 @@ public class creditsScroll : MonoBehaviour
                 "influence been so complete.\r\n";
             endingText1.text = "Ending 1 of 3";
             endingText2.text = "Condemnation Route";
+            SteamManager.UnlockAchievement("KILL_ENDING");
         } else if (saved == 3)
         {
             builtString += "With Severin dead, the Scepter's disappearance caused fixable deaths, a quiet " +
@@ -63,6 +64,7 @@ public class creditsScroll : MonoBehaviour
                 "where Lucan would not.\r\n";
             endingText1.text = "Ending 3 of 3";
             endingText2.text = "Compassion Route";
+            SteamManager.UnlockAchievement("SPARE_ENDING");
         } else
         {
             audioManager.Instance.stopBGM(1);
@@ -72,6 +74,7 @@ public class creditsScroll : MonoBehaviour
                 "motion that could not be undone.\r\n";
             endingText1.text = "Ending 2 of 3";
             endingText2.text = "Conflicted Route";
+            SteamManager.UnlockAchievement("MIXED_ENDING");
         }
 
 

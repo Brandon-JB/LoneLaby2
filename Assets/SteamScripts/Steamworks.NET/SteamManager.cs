@@ -173,11 +173,11 @@ public class SteamManager : MonoBehaviour {
 		SteamAPI.RunCallbacks();
 	}
 
-    public void UnlockAchievement(string achievementId)
+    public static void UnlockAchievement(string achievementId)
     {
-        if (SteamManager.Instance == null || !SteamAPI.IsSteamRunning())
+        if (!SteamManager.Initialized)
         {
-            Debug.LogWarning("Steam is not running or SteamManager is missing");
+            Debug.LogWarning("Steam is not initialized.");
             return;
         }
 
@@ -188,8 +188,8 @@ public class SteamManager : MonoBehaviour {
             return;
         }
 
-        SteamUserStats.StoreStats(); // save the unlock to Steam servers
-        Debug.Log($"Achievement {achievementId} unlocked!");
+        SteamUserStats.StoreStats();
+        Debug.Log($"Achievement '{achievementId}' unlocked!");
     }
 
 #else

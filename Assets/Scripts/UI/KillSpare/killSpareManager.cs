@@ -233,14 +233,17 @@ public class killSpareManager : MonoBehaviour
             switch (bossName)
             {
                 case "Ivar":
+                    SteamManager.UnlockAchievement("KILL_IVAR");
                     mainDialogueManager.dialogueSTART("IvarQuest/manor_postfight_condemnIvar");
                     break;
 
                 case "Lucan":
+                    SteamManager.UnlockAchievement("KILL_LUCIAN");
                     mainDialogueManager.dialogueSTART("LucanQuest/cave_postfight_condemnLucan");
                     break;
 
                 case "Viin":
+                    SteamManager.UnlockAchievement("KILL_VIIN");
                     mainDialogueManager.dialogueSTART("ViinQuest/veinwood_postfight_condemnViin");
                     break;
             }
@@ -250,14 +253,17 @@ public class killSpareManager : MonoBehaviour
             switch (bossName)
             {
                 case "Ivar":
+                    SteamManager.UnlockAchievement("SPARE_IVAR");
                     mainDialogueManager.dialogueSTART("IvarQuest/manor_postfight_saveIvar");
                     break;
 
                 case "Lucan":
+                    SteamManager.UnlockAchievement("SPARE_LUCAN");
                     mainDialogueManager.dialogueSTART("LucanQuest/cave_postfight_saveLucan");
                     break;
 
                 case "Viin":
+                    SteamManager.UnlockAchievement("SPARE_VIIN");
                     mainDialogueManager.dialogueSTART("ViinQuest/veinwood_postfight_saveViin");
                     break;
             }

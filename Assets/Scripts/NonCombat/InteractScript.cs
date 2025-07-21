@@ -181,6 +181,19 @@ public class InteractScript : MonoBehaviour
             if (QuestManager.IsQuestComplete(NPCName))
             {
                 //Quest HAS been picked up and COMPLETED
+                switch (NPCName)
+                {
+                    case "Alan":
+                        SteamManager.UnlockAchievement("ALAN_QUEST");
+                        break;
+                    case "Kisa":
+                        SteamManager.UnlockAchievement("KISA_QUEST");
+                        break;
+                    case "Sophie":
+                        SteamManager.UnlockAchievement("SOPHIE_QUEST");
+                        break;
+                }
+
                 mainDialogueManager.dialogueSTART(dialogue3);
             } else if (QuestManager.IsOnQuest(NPCName))
             {
