@@ -181,15 +181,22 @@ public class SteamManager : MonoBehaviour {
             return;
         }
 
-        bool success = SteamUserStats.SetAchievement(achievementId);
-        if (!success)
+        try
         {
-            Debug.LogWarning($"Failed to set achievement {achievementId}");
-            return;
-        }
+            bool success = SteamUserStats.SetAchievement(achievementId);
+            if (!success)
+            {
+                Debug.LogWarning($"Failed to set achievement {achievementId}");
+                return;
+            }
 
-        SteamUserStats.StoreStats();
-        Debug.Log($"Achievement '{achievementId}' unlocked!");
+            SteamUserStats.StoreStats();
+            Debug.Log($"Achievement '{achievementId}' unlocked!");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Exception while unlocking achievement {achievementId}: {e.Message}");
+        }
     }
 
 #else

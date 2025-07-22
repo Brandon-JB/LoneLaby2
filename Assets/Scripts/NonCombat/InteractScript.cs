@@ -184,13 +184,37 @@ public class InteractScript : MonoBehaviour
                 switch (NPCName)
                 {
                     case "Alan":
-                        SteamManager.UnlockAchievement("ALAN_QUEST");
+                        if (SteamManager.Initialized)
+                        {
+                            SteamManager.UnlockAchievement("ALAN_QUEST");
+                        }
+                        else
+                        {
+                            Debug.LogWarning("SteamManager not initialized yet. Delaying achievement unlock.");
+                            // Optionally queue or retry later, e.g., in Update()
+                        }
                         break;
                     case "Kisa":
-                        SteamManager.UnlockAchievement("KISA_QUEST");
+                        if (SteamManager.Initialized)
+                        {
+                            SteamManager.UnlockAchievement("KISA_QUEST");
+                        }
+                        else
+                        {
+                            Debug.LogWarning("SteamManager not initialized yet. Delaying achievement unlock.");
+                            // Optionally queue or retry later, e.g., in Update()
+                        }
                         break;
                     case "Sophie":
-                        SteamManager.UnlockAchievement("SOPHIE_QUEST");
+                        if (SteamManager.Initialized)
+                        {
+                            SteamManager.UnlockAchievement("SOPHIE_QUEST");
+                        }
+                        else
+                        {
+                            Debug.LogWarning("SteamManager not initialized yet. Delaying achievement unlock.");
+                            // Optionally queue or retry later, e.g., in Update()
+                        }
                         break;
                 }
 
