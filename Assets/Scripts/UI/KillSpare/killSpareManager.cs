@@ -238,7 +238,7 @@ public class killSpareManager : MonoBehaviour
                     break;
 
                 case "Lucan":
-                    SteamManager.UnlockAchievement("KILL_LUCIAN");
+                    SteamManager.UnlockAchievement("KILL_LUCAN");
                     mainDialogueManager.dialogueSTART("LucanQuest/cave_postfight_condemnLucan");
                     break;
 
