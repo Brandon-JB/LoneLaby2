@@ -171,7 +171,7 @@ public class ViinScript : MonoBehaviour
     public void SpawnLongStunParticle()
     {
         //Debug.Log("Seconds: " + viinChar.animator.GetCurrentAnimatorStateInfo(0).length);
-        viinChar.SpawnParticle("stunFX", viinChar.transform.position, viinChar.transform, viinChar.animator.GetCurrentAnimatorStateInfo(0).length - 0.7f);
+        viinChar.SpawnParticle("stunFX", viinChar.transform.position, viinChar.transform, viinChar.animator.GetCurrentAnimatorStateInfo(0).length - 2f);
     }
 
     public void EndShortStun()
