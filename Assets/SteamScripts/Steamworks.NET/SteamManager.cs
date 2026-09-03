@@ -11,6 +11,10 @@
 */
 
 using UnityEngine;
+using System.Globalization;
+
+using System.Threading;
+
 #if !DISABLESTEAMWORKS
 using System.Collections;
 using Steamworks;
@@ -66,6 +70,19 @@ public class SteamManager : MonoBehaviour {
         Debug.LogWarning("SteamManager DISABLED: " + gameObject.name);
     }
 
+    public static void EnforceInvariantCulture()
+    {
+        // Force the main application thread to remain uniform globally
+        CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
+        CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
+
+
+        // Ensure the current active running thread matches
+        Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+        CultureInfo.CurrentUICulture = CultureInfo.InvariantCulture;
+    }
+
     protected virtual void Awake()
     {
 
@@ -75,6 +92,10 @@ public class SteamManager : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
+
+        Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
+
+        SteamManager.EnforceInvariantCulture();
 
         s_instance = this;
         DontDestroyOnLoad(gameObject);
